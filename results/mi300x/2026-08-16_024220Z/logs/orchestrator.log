@@ -1,0 +1,118 @@
+[ladder] start 2026-08-16_024220Z 2026-08-16T02:42:20+00:00
+[ladder] Engineering context ladder only. Not a benchmark. Stop before 1M.
+[ladder] ===== stage max_model_len=16384 lengths=4096 8192 16384 =====
+[ladder] health ready after 33 polls
+=== target_tokens=4096 ===
+{
+  "target_tokens": 4096,
+  "success": true,
+  "templated_tokens": 3973,
+  "ok": true,
+  "end_to_end_sec": 2.5405190599994967,
+  "prompt_tokens": 3973,
+  "completion_tokens": 12,
+  "text": "COLOR=indigo NUMBER=4172",
+  "reasoning": null,
+  "judge": {
+    "color_ok": true,
+    "number_ok": true,
+    "pass": true
+  }
+}
+=== target_tokens=8192 ===
+{
+  "target_tokens": 8192,
+  "success": true,
+  "templated_tokens": 7991,
+  "ok": true,
+  "end_to_end_sec": 0.3002801990005537,
+  "prompt_tokens": 7991,
+  "completion_tokens": 12,
+  "text": "COLOR=indigo NUMBER=4172",
+  "reasoning": null,
+  "judge": {
+    "color_ok": true,
+    "number_ok": true,
+    "pass": true
+  }
+}
+=== target_tokens=16384 ===
+{
+  "target_tokens": 16384,
+  "success": true,
+  "templated_tokens": 15986,
+  "ok": true,
+  "end_to_end_sec": 0.8442623920054757,
+  "prompt_tokens": 15986,
+  "completion_tokens": 12,
+  "text": "COLOR=indigo NUMBER=4172",
+  "reasoning": null,
+  "judge": {
+    "color_ok": true,
+    "number_ok": true,
+    "pass": true
+  }
+}
+result=PASS passed=[4096, 8192, 16384]
+[ladder] ===== stage max_model_len=32768 lengths=32768 =====
+[ladder] health ready after 33 polls
+=== target_tokens=32768 ===
+{
+  "target_tokens": 32768,
+  "success": true,
+  "templated_tokens": 31976,
+  "ok": true,
+  "end_to_end_sec": 3.336889517006057,
+  "prompt_tokens": 31976,
+  "completion_tokens": 12,
+  "text": "COLOR=indigo NUMBER=4172",
+  "reasoning": null,
+  "judge": {
+    "color_ok": true,
+    "number_ok": true,
+    "pass": true
+  }
+}
+result=PASS passed=[32768]
+[ladder] ===== stage max_model_len=65536 lengths=65536 =====
+[ladder] health ready after 33 polls
+=== target_tokens=65536 ===
+{
+  "target_tokens": 65536,
+  "success": true,
+  "templated_tokens": 63956,
+  "ok": true,
+  "end_to_end_sec": 7.149603298996226,
+  "prompt_tokens": 63956,
+  "completion_tokens": 12,
+  "text": "COLOR=indigo NUMBER=4172",
+  "reasoning": null,
+  "judge": {
+    "color_ok": true,
+    "number_ok": true,
+    "pass": true
+  }
+}
+result=PASS passed=[65536]
+[ladder] ===== stage max_model_len=131072 lengths=131072 =====
+[ladder] health ready after 33 polls
+=== target_tokens=131072 ===
+{
+  "target_tokens": 131072,
+  "success": true,
+  "templated_tokens": 127916,
+  "ok": true,
+  "end_to_end_sec": 19.211471005997737,
+  "prompt_tokens": 127916,
+  "completion_tokens": 12,
+  "text": "COLOR=indigo NUMBER=4172",
+  "reasoning": null,
+  "judge": {
+    "color_ok": true,
+    "number_ok": true,
+    "pass": true
+  }
+}
+result=PASS passed=[131072]
+[ladder] all staged lengths passed
+[ladder] done failed=0 2026-08-16T02:54:12+00:00

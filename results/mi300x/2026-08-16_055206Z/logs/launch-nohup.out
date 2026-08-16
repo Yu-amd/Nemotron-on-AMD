@@ -1,0 +1,33 @@
+model=nvidia/llama-nemotron-rerank-1b-v2 task=rerank dtype=bfloat16 revision=None
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+config.json:   0%|          | 0.00/1.31k [00:00<?, ?B/s]config.json: 100%|##########| 1.31k/1.31k [00:00<00:00, 6.63MB/s]
+retry AutoConfig with trust_remote_code=True
+llama_bidirectional_model.py:   0%|          | 0.00/14.4k [00:00<?, ?B/s]llama_bidirectional_model.py: 100%|##########| 14.4k/14.4k [00:00<00:00, 56.6MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/llama-nemotron-rerank-1b-v2:
+- llama_bidirectional_model.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+resolved_task=rerank architectures=['LlamaBidirectionalForSequenceClassification'] model_type=llama_bidirec
+tokenizer_config.json:   0%|          | 0.00/50.5k [00:00<?, ?B/s]tokenizer_config.json: 100%|##########| 50.5k/50.5k [00:00<00:00, 208MB/s]
+tokenizer.json:   0%|          | 0.00/9.09M [00:00<?, ?B/s]tokenizer.json: 100%|##########| 9.09M/9.09M [00:00<00:00, 225MB/s]
+special_tokens_map.json:   0%|          | 0.00/449 [00:00<?, ?B/s]special_tokens_map.json: 100%|##########| 449/449 [00:00<00:00, 5.00MB/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+model.safetensors: reconstructing file:   0%|          |  0.00B / 2.47GB            [Amodel.safetensors: downloading bytes:           |  0.00B            model.safetensors: downloading bytes:           |  164kB            model.safetensors: downloading bytes:           | 11.7MB, 16.2kB/s  model.safetensors: downloading bytes: 1         | 44.9MB, 1.15MB/s  model.safetensors: downloading bytes: 3         | 82.7MB, 4.40MB/s  model.safetensors: downloading bytes: 5         |  128MB, 10.4MB/s  model.safetensors: downloading bytes: 7         |  175MB, 14.4MB/s  model.safetensors: downloading bytes: 9         |  223MB, 18.5MB/s  model.safetensors: downloading bytes: #         |  265MB, 22.5MB/s  
+model.safetensors: reconstructing file:   8%|8         |  201MB / 2.47GB            [Amodel.safetensors: downloading bytes: #1        |  296MB, 25.8MB/s  model.safetensors: downloading bytes: #3        |  322MB, 26.8MB/s  model.safetensors: downloading bytes: #4        |  353MB, 28.9MB/s  model.safetensors: downloading bytes: #5        |  390MB, 31.6MB/s  model.safetensors: downloading bytes: #8        |  452MB, 37.1MB/s  model.safetensors: downloading bytes: ##        |  495MB, 40.0MB/s  model.safetensors: downloading bytes: ##1       |  539MB, 43.6MB/s  model.safetensors: downloading bytes: ##3       |  586MB, 47.3MB/s  model.safetensors: downloading bytes: ##5       |  636MB, 53.4MB/s  model.safetensors: downloading bytes: ##8       |  693MB, 57.3MB/s  model.safetensors: downloading bytes: ###       |  742MB, 60.3MB/s  model.safetensors: downloading bytes: ###1      |  773MB, 62.6MB/s  
+model.safetensors: reconstructing file:  31%|###1      |  769MB / 2.47GB, 19.2MB/s  [Amodel.safetensors: downloading bytes: ###2      |  805MB, 64.8MB/s  model.safetensors: downloading bytes: ###4      |  848MB, 67.1MB/s  
+model.safetensors: reconstructing file:  32%|###2      |  802MB / 2.47GB, 68.2MB/s  [Amodel.safetensors: downloading bytes: ###6      |  902MB, 72.4MB/s  model.safetensors: downloading bytes: ###7      |  939MB, 74.0MB/s  model.safetensors: downloading bytes: ###9      |  979MB, 76.7MB/s  model.safetensors: downloading bytes: ####1     | 1.02GB, 79.7MB/s  model.safetensors: downloading bytes: ####3     | 1.06GB, 82.9MB/s  model.safetensors: downloading bytes: ####6     | 1.14GB, 88.4MB/s  model.safetensors: downloading bytes: ####8     | 1.19GB, 91.4MB/s  model.safetensors: downloading bytes: #####     | 1.24GB, 94.6MB/s  model.safetensors: downloading bytes: #####2    | 1.30GB,  100MB/s  
+model.safetensors: reconstructing file:  41%|####      | 1.01GB / 2.47GB, 69.4MB/s  [Amodel.safetensors: downloading bytes: #####4    | 1.36GB,  103MB/s  
+model.safetensors: reconstructing file:  52%|#####2    | 1.29GB / 2.47GB, 80.7MB/s  [Amodel.safetensors: downloading bytes: #####6    | 1.39GB,  105MB/s  model.safetensors: downloading bytes: #####7    | 1.43GB,  107MB/s  
+model.safetensors: reconstructing file:  61%|######    | 1.50GB / 2.47GB,  105MB/s  [Amodel.safetensors: downloading bytes: ######1   | 1.53GB,  112MB/s  model.safetensors: downloading bytes: ######4   | 1.59GB,  117MB/s  model.safetensors: downloading bytes: ######6   | 1.63GB,  121MB/s  model.safetensors: downloading bytes: ######8   | 1.70GB,  126MB/s  
+model.safetensors: reconstructing file:  70%|#######   | 1.74GB / 2.47GB,  124MB/s  [A
+model.safetensors: reconstructing file:  77%|#######6  | 1.90GB / 2.47GB,  136MB/s  [Amodel.safetensors: downloading bytes: #######1  | 1.78GB,  129MB/s  model.safetensors: downloading bytes: #######4  | 1.84GB,  132MB/s  model.safetensors: downloading bytes: #######7  | 1.92GB,  138MB/s  
+model.safetensors: reconstructing file:  82%|########1 | 2.02GB / 2.47GB,  151MB/s  [Amodel.safetensors: downloading bytes: ########  | 1.98GB,  142MB/s  model.safetensors: downloading bytes: ########2 | 2.04GB,  144MB/s  model.safetensors: downloading bytes: ########4 | 2.09GB,  146MB/s  
+model.safetensors: reconstructing file:  90%|######### | 2.23GB / 2.47GB,  153MB/s  [Amodel.safetensors: downloading bytes: ########5 | 2.12GB,  146MB/s  
+model.safetensors: reconstructing file:  96%|#########6| 2.38GB / 2.47GB,  162MB/s  [A
+model.safetensors: reconstructing file: 100%|##########| 2.47GB / 2.47GB,  171MB/s  [Amodel.safetensors: downloading bytes: ##########| 2.14GB,  140MB/s  model.safetensors: downloading bytes: ##########| 2.14GB,  140MB/s  
+model.safetensors: reconstructing file: 100%|##########| 2.47GB / 2.47GB,  171MB/s  
+Loading weights:   0%|          | 0/147 [00:00<?, ?it/s]Loading weights: 100%|##########| 147/147 [00:00<00:00, 14002.60it/s]
+[transformers] `use_return_dict` is deprecated! Use `return_dict` instead!
+score=7.5312 doc=MI300X has 192 GB of HBM3.
+score=-17.8750 doc=Banana bread uses ripe bananas.
+result=PASS

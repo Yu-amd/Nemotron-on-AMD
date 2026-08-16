@@ -1,0 +1,59 @@
+{
+  "ok": true,
+  "status": 200,
+  "url": "http://127.0.0.1:8000/v1/chat/completions",
+  "method": "POST",
+  "request": {
+    "model": "nemotron-nano-bf16",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Explain the difference between RAM and storage in three sentences."
+      }
+    ],
+    "max_tokens": 128,
+    "temperature": 0,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "id": "chatcmpl-9385ade889490772",
+    "object": "chat.completion",
+    "created": 1786833696,
+    "model": "nemotron-nano-bf16",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "RAM (Random Access Memory) is a computer\u2019s short\u2011term, volatile memory that holds data and instructions currently being used, allowing the processor to access them quickly. Storage (e.g., SSDs, HDDs, flash drives) is non\u2011volatile memory that retains data permanently or semi\u2011permanently even when power is off. Consequently, RAM provides fast, temporary workspace, while storage offers larger, long\u2011term capacity for files and programs.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-70739bc2",
+    "usage": {
+      "prompt_tokens": 28,
+      "total_tokens": 120,
+      "completion_tokens": 92,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null
+  },
+  "elapsed_sec": 2.3446107790005044
+}

@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "tests": {
+    "health": true,
+    "list_models": true,
+    "warmup": true,
+    "chat_completion_reasoning_off": true,
+    "chat_completion_reasoning_on": true,
+    "sequential_requests": true
+  }
+}

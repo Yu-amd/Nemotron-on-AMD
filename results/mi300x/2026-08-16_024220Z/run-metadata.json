@@ -1,0 +1,19 @@
+{
+  "date": "2026-08-16T02:54:12+00:00",
+  "platform": "mi300x",
+  "gpu": "AMD Instinct MI300X VF",
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+  "model_revision": "2d59de1cbd51c0adf384eb906b766d1aee0e0517",
+  "precision": "bfloat16",
+  "runtime": "vllm",
+  "runtime_version": "0.23.1.dev1+g9ddef7117.d20260715",
+  "rocm_version": "7.14.60850",
+  "pytorch_version": "2.11.0+rocm7.14.0",
+  "result": "PASS WITH CAVEATS",
+  "notes": "Engineering context ladder only. Not an official benchmark. Restarted Docker serve at max-model-len 16384, 32768, 65536, then 131072. Needle/haystack prompts at ~4K/8K/16K/32K/64K/128K all returned COLOR=indigo NUMBER=4172. Did not attempt 256K or 1M. Same missing MI300X MoE/Mamba configs and Triton paged-attn fallback. Not Validated/Optimized.",
+  "status_claim_allowed": "Runs at characterized lengths through 128K — not 1M, not Optimized",
+  "image": "rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0",
+  "max_model_len_stages": [16384, 32768, 65536, 131072],
+  "lengths_passed": [4096, 8192, 16384, 32768, 65536, 131072],
+  "label": "Engineering context ladder only"
+}

@@ -1,0 +1,29 @@
+{
+  "date": "2026-08-16T17:05:57.671150+00:00",
+  "platform": "mi300x",
+  "gpu": "AMD Instinct MI300X VF",
+  "model": "nvidia/llama-nemotron-rerank-vl-1b-v2-fp8",
+  "model_revision": "a3060619338be1af8d2ca6b7021bf8450b26c2ae",
+  "precision": "bfloat16",
+  "runtime": "transformers",
+  "runtime_version": "5.15.0",
+  "rocm_version": "7.14.60850",
+  "pytorch_version": "2.12.0+rocm7.14.0",
+  "result": "FAIL",
+  "notes": "Family smoke task=rerank. Not Optimized. Not a Nano 30B BF16 result.",
+  "command": [
+    "scripts/mi300x/family-smoke.py",
+    "--model",
+    "nvidia/llama-nemotron-rerank-vl-1b-v2-fp8",
+    "--task",
+    "rerank",
+    "--output-dir",
+    "results/mi300x/2026-08-16_170557Z",
+    "--trust-remote-code"
+  ],
+  "trust_remote_code_requested": true,
+  "queue_task": "rerank",
+  "queue_task_resolved": "rerank",
+  "trust_remote_code_required": true,
+  "status_claim_allowed": "no Runs claim"
+}

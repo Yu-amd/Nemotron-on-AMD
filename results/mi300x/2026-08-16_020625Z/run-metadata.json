@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-16T02:06:25.461635893Z",
+  "platform": "mi300x",
+  "gpu": "AMD Instinct MI300X VF",
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+  "precision": "bfloat16",
+  "runtime": "vllm-benchmark_moe",
+  "runtime_version": "0.23.1.dev1+g9ddef7117.d20260715",
+  "image": "rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0",
+  "result": "FAIL",
+  "notes": "MoE Triton autotune sanity run. Not an Optimized claim. ActorDiedError at ~99% of a 4480-config pass after completing earlier passes. No JSON written. Docker OOMKilled=false. No amdgpu reset in dmesg during this window.",
+  "command": [
+    "docker run ... python3 /app/vllm/benchmarks/kernels/benchmark_moe.py",
+    "--model nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "--tp-size 1 --dtype auto --tune --save-dir /workspace/scripts/mi300x/tuned-configs"
+  ],
+  "duration_sec": 8247.0,
+  "exit_code": 1,
+  "failure_layer": "KERNEL",
+  "error": "ray.exceptions.ActorDiedError: The actor died unexpectedly before finishing this task.",
+  "progress": {
+    "search_space": "Start tuning over 40000 configurations",
+    "completed_passes": [
+      "608 configs",
+      "1220 configs",
+      "2780 configs",
+      "Completed tuning for batch_size=8 at 2026-08-16 00:52:00"
+    ],
+    "died_on": "4.42k/4.48k (~99%) of a later pass"
+  }
+}

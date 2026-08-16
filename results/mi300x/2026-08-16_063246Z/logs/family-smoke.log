@@ -1,0 +1,203 @@
+model=nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16 task=causal dtype=bfloat16 revision=24e67ea000b7c2837fc8f9488aa2008524fac8ba
+resolved_task=causal architectures=['NemotronH_Nano_Omni_Reasoning_V3'] model_type=NemotronH_Nano_Omni_Reasoning_V3
+override config attn 'flash_attention_2' -> eager
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[ERROR] `cache_position` is part of NemotronHForCausalLM.forward's signature, but not documented. Make sure to add it to the docstring of the function in /root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling_nemotron_h.py.
+[transformers] Kernel causal-conv1d not found in _HUB_KERNEL_MAPPING
+[transformers] Kernel mamba-ssm not found in _HUB_KERNEL_MAPPING
+The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+hf_model.py:   0%|          | 0.00/7.93k [00:00<?, ?B/s]hf_model.py: 100%|##########| 7.93k/7.93k [00:00<00:00, 31.7MB/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+forward_intermediates.py:   0%|          | 0.00/5.60k [00:00<?, ?B/s]forward_intermediates.py: 100%|##########| 5.60k/5.60k [00:00<00:00, 26.1MB/s]
+feature_normalizer.py:   0%|          | 0.00/4.40k [00:00<?, ?B/s]feature_normalizer.py: 100%|##########| 4.40k/4.40k [00:00<00:00, 26.3MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- feature_normalizer.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- forward_intermediates.py
+- feature_normalizer.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+input_conditioner.py:   0%|          | 0.00/1.49k [00:00<?, ?B/s]input_conditioner.py: 100%|##########| 1.49k/1.49k [00:00<00:00, 10.7MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- input_conditioner.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+extra_models.py:   0%|          | 0.00/5.76k [00:00<?, ?B/s]extra_models.py: 100%|##########| 5.76k/5.76k [00:00<00:00, 23.5MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- extra_models.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+radio_model.py:   0%|          | 0.00/14.0k [00:00<?, ?B/s]radio_model.py: 100%|##########| 14.0k/14.0k [00:00<00:00, 58.9MB/s]
+enable_cpe_support.py:   0%|          | 0.00/6.56k [00:00<?, ?B/s]enable_cpe_support.py: 100%|##########| 6.56k/6.56k [00:00<00:00, 39.3MB/s]
+dual_hybrid_vit.py:   0%|          | 0.00/7.18k [00:00<?, ?B/s]dual_hybrid_vit.py: 100%|##########| 7.18k/7.18k [00:00<00:00, 41.0MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- dual_hybrid_vit.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+vit_patch_generator.py:   0%|          | 0.00/11.5k [00:00<?, ?B/s]vit_patch_generator.py: 100%|##########| 11.5k/11.5k [00:00<00:00, 46.5MB/s]
+cls_token.py:   0%|          | 0.00/1.79k [00:00<?, ?B/s]cls_token.py: 100%|##########| 1.79k/1.79k [00:00<00:00, 10.6MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- cls_token.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- vit_patch_generator.py
+- cls_token.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- enable_cpe_support.py
+- dual_hybrid_vit.py
+- vit_patch_generator.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+enable_spectral_reparam.py:   0%|          | 0.00/11.0k [00:00<?, ?B/s]enable_spectral_reparam.py: 100%|##########| 11.0k/11.0k [00:00<00:00, 51.6MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- enable_spectral_reparam.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+adaptor_base.py:   0%|          | 0.00/1.69k [00:00<?, ?B/s]adaptor_base.py: 100%|##########| 1.69k/1.69k [00:00<00:00, 12.2MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- adaptor_base.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- radio_model.py
+- enable_cpe_support.py
+- enable_spectral_reparam.py
+- adaptor_base.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+common.py:   0%|          | 0.00/7.16k [00:00<?, ?B/s]common.py: 100%|##########| 7.16k/7.16k [00:00<00:00, 42.1MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- common.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+extra_timm_models.py:   0%|          | 0.00/9.89k [00:00<?, ?B/s]extra_timm_models.py: 100%|##########| 9.89k/9.89k [00:00<00:00, 54.4MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- extra_timm_models.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+eradio_model.py:   0%|          | 0.00/58.3k [00:00<?, ?B/s]eradio_model.py: 100%|##########| 58.3k/58.3k [00:00<00:00, 160MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- eradio_model.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+vitdet.py:   0%|          | 0.00/6.32k [00:00<?, ?B/s]vitdet.py: 100%|##########| 6.32k/6.32k [00:00<00:00, 36.8MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- vitdet.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+open_clip_adaptor.py:   0%|          | 0.00/1.62k [00:00<?, ?B/s]open_clip_adaptor.py: 100%|##########| 1.62k/1.62k [00:00<00:00, 11.1MB/s]
+utils.py:   0%|          | 0.00/1.11k [00:00<?, ?B/s]utils.py: 100%|##########| 1.11k/1.11k [00:00<00:00, 8.13MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- utils.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+adaptor_registry.py:   0%|          | 0.00/1.37k [00:00<?, ?B/s]adaptor_registry.py: 100%|##########| 1.37k/1.37k [00:00<00:00, 9.81MB/s]
+adaptor_generic.py:   0%|          | 0.00/3.75k [00:00<?, ?B/s]adaptor_generic.py: 100%|##########| 3.75k/3.75k [00:00<00:00, 26.8MB/s]
+adaptor_module_factory.py:   0%|          | 0.00/3.28k [00:00<?, ?B/s]adaptor_module_factory.py: 100%|##########| 3.28k/3.28k [00:00<00:00, 24.1MB/s]
+adaptor_attn.py:   0%|          | 0.00/1.80k [00:00<?, ?B/s]adaptor_attn.py: 100%|##########| 1.80k/1.80k [00:00<00:00, 12.8MB/s]
+adaptor_mlp.py:   0%|          | 0.00/4.03k [00:00<?, ?B/s]adaptor_mlp.py: 100%|##########| 4.03k/4.03k [00:00<00:00, 25.6MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- adaptor_mlp.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- adaptor_attn.py
+- adaptor_mlp.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- adaptor_module_factory.py
+- adaptor_attn.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- adaptor_generic.py
+- adaptor_module_factory.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- adaptor_registry.py
+- adaptor_generic.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- open_clip_adaptor.py
+- utils.py
+- adaptor_registry.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+enable_damp.py:   0%|          | 0.00/1.29k [00:00<?, ?B/s]enable_damp.py: 100%|##########| 1.29k/1.29k [00:00<00:00, 9.26MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- enable_damp.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+siglip2_adaptor.py:   0%|          | 0.00/3.31k [00:00<?, ?B/s]siglip2_adaptor.py: 100%|##########| 3.31k/3.31k [00:00<00:00, 22.7MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- siglip2_adaptor.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+dinov2_arch.py:   0%|          | 0.00/35.5k [00:00<?, ?B/s]dinov2_arch.py: 100%|##########| 35.5k/35.5k [00:00<00:00, 122MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- dinov2_arch.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv4-H:
+- hf_model.py
+- forward_intermediates.py
+- input_conditioner.py
+- extra_models.py
+- radio_model.py
+- common.py
+- extra_timm_models.py
+- eradio_model.py
+- vitdet.py
+- open_clip_adaptor.py
+- enable_damp.py
+- siglip2_adaptor.py
+- dinov2_arch.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+Loading weights:   0%|          | 0/7345 [00:00<?, ?it/s]Loading weights:   5%|5         | 377/7345 [00:00<00:02, 2850.45it/s]Loading weights:  25%|##5       | 1853/7345 [00:00<00:00, 8555.80it/s]Loading weights:  38%|###7      | 2755/7345 [00:00<00:00, 7582.19it/s]Loading weights:  48%|####8     | 3545/7345 [00:00<00:00, 4846.95it/s]Loading weights:  56%|#####6    | 4138/7345 [00:00<00:00, 4050.81it/s]Loading weights:  63%|######2   | 4618/7345 [00:01<00:00, 3579.50it/s]Loading weights:  68%|######8   | 5024/7345 [00:01<00:00, 3014.47it/s]Loading weights:  74%|#######4  | 5441/7345 [00:01<00:00, 3159.14it/s]Loading weights:  79%|#######8  | 5789/7345 [00:01<00:00, 3182.62it/s]Loading weights:  83%|########3 | 6130/7345 [00:01<00:00, 2943.45it/s]Loading weights:  92%|#########1| 6755/7345 [00:01<00:00, 3702.67it/s]Loading weights:  99%|#########9| 7281/7345 [00:01<00:00, 4078.00it/s]Loading weights: 100%|##########| 7345/7345 [00:01<00:00, 4017.18it/s]
+CausalLM load failed (AttributeError): 'Tee' object has no attribute 'isatty'
+ImageTextToText failed (ValueError); CausalLM sdpa retry
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 403, in main
+    model = AutoModelForCausalLM.from_pretrained(args.model, **load_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 385, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4349, in from_pretrained
+    loading_info = cls._finalize_model_loading(model, load_config, loading_info)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4525, in _finalize_model_loading
+    log_state_dict_report(
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/loading_report.py", line 262, in log_state_dict_report
+    report = loading_info.create_loading_report()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/loading_report.py", line 181, in create_loading_report
+    tips += f"\n- {_style('UNEXPECTED:', 'orange')}\t" + _style(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/loading_report.py", line 123, in _style
+    if sys.stdout is not None and sys.stdout.isatty():
+                                  ^^^^^^^^^^^^^^^^^
+AttributeError: 'Tee' object has no attribute 'isatty'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 411, in main
+    model = AutoModelForImageTextToText.from_pretrained(args.model, **load_kwargs_retry)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 405, in from_pretrained
+    raise ValueError(
+ValueError: Unrecognized configuration class <class 'transformers_modules.nvidia.Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16.24e67ea000b7c2837fc8f9488aa2008524fac8ba.configuration.NemotronH_Nano_Omni_Reasoning_V3_Config'> for this kind of AutoModel: AutoModelForImageTextToText.
+Model type should be one of AriaConfig, AyaVisionConfig, BlipConfig, Blip2Config, ChameleonConfig, Cohere2VisionConfig, Cosmos3EdgeConfig, Cosmos3OmniConfig, DeepseekOcr2Config, DeepseekVLConfig, DeepseekVLHybridConfig, DiffusionGemmaConfig, Emu3Config, Ernie4_5_VLMoeConfig, EvollaConfig, Exaone4_5_Config, FastVlmConfig, Florence2Config, FuyuConfig, Gemma3Config, Gemma3nConfig, Gemma4Config, Gemma4UnifiedConfig, GitConfig, Glm46VConfig, Glm4vConfig, Glm4vMoeConfig, GlmOcrConfig, GlmgaConfig, GotOcr2Config, Granite4VisionConfig, HunYuanVLConfig, IdeficsConfig, Idefics2Config, Idefics3Config, InklingConfig, InstructBlipConfig, InstructBlipVideoConfig, InternVLConfig, JanusConfig, Kimi_K25Config, Kosmos2Config, Kosmos2_5Config, Lfm2VlConfig, LightOnOcrConfig, Llama4Config, LlavaConfig, LlavaNextConfig, LlavaNextVideoConfig, LlavaOnevisionConfig, MiniCPMV4_6Config, MiniMaxM3VLConfig, Mistral3Config, Mistral4Config, MllamaConfig, MuseGlimmerConfig, Ovis2Config, PaddleOCRVLConfig, PaliGemmaConfig, PerceptionLMConfig, PI0Config, Pix2StructConfig, PPChart2TableConfig, PPFormulaNetConfig, QianfanOCRConfig, Qwen2_5OmniThinkerConfig, Qwen2_5_VLConfig, Qwen2VLConfig, Qwen3_5Config, Qwen3_5MoeConfig, Qwen3OmniMoeThinkerConfig, Qwen3VLConfig, Qwen3VLMoeConfig, ShieldGemma2Config, SmolVLMConfig, T5Gemma2Config, UdopConfig, VideoLlama3Config, VideoLlavaConfig, VipLlavaConfig, VisionEncoderDecoderConfig.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 414, in main
+    model = AutoModelForCausalLM.from_pretrained(args.model, **load_kwargs_retry)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4305, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 78, in __init__
+    super().__init__(config)
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1346, in __init__
+    self.config._attn_implementation_internal = self._check_and_adjust_attn_implementation(
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1904, in _check_and_adjust_attn_implementation
+    applicable_attn_implementation = self.get_correct_attn_implementation(
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1960, in get_correct_attn_implementation
+    raise e
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1957, in get_correct_attn_implementation
+    self._sdpa_can_dispatch(is_init_check)
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1753, in _sdpa_can_dispatch
+    raise ValueError(
+ValueError: NemotronH_Nano_Omni_Reasoning_V3 does not support an attention implementation through torch.nn.functional.scaled_dot_product_attention yet. Please request the support for this architecture: https://github.com/huggingface/transformers/issues/28005. If you believe this error is a bug, please open an issue in Transformers GitHub repository and load your model with the argument `attn_implementation="eager"` meanwhile. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="eager")`
+

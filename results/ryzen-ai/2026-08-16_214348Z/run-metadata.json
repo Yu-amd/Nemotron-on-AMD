@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-16T21:44:14.295766+00:00",
+  "platform": "ryzen-ai",
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-4B-GGUF",
+  "model_revision": "ba223d14e45525f7fae81db77ea8cabeb2fc6c25",
+  "precision": "GGUF",
+  "runtime": "llama.cpp",
+  "runtime_version": "version: 0.1.0-dev (build 10453, commit 3cb7ffb1a)",
+  "result": "PASS",
+  "n_gpu_layers": 99,
+  "backend_hints": [
+    "gpu-offload"
+  ],
+  "model_sha256": "be5d9a656a51922f24f1f09a759cebb694e1f5d9728bf0ef9f8c972c5a0b5ef2",
+  "notes": "llama.cpp greedy smoke. Not an Optimized or Production-ready claim. Not Transformers/vLLM.",
+  "command": [
+    "scripts/llamacpp/smoke-test.py",
+    "--llama-cli",
+    "/home/yw/Desktop/Nemotron-on-AMD/tools/llamacpp/releases/b10453/vulkan/llama-cli",
+    "--model",
+    "/home/yw/Desktop/Nemotron-on-AMD/tools/llamacpp/gguf/NVIDIA-Nemotron3-Nano-4B-Q4_K_M.gguf",
+    "--n-gpu-layers",
+    "99",
+    "--platform",
+    "ryzen-ai",
+    "--output-dir",
+    "results/ryzen-ai/2026-08-16_214348Z"
+  ],
+  "enable_thinking": false,
+  "status_claim_allowed": "Runs (candidate) \u2014 not Validated until results are reviewed"
+}

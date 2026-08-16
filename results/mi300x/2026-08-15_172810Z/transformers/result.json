@@ -1,0 +1,245 @@
+{
+  "metadata": {
+    "date": "2026-08-15T17:28:10.712125+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "model_revision": null,
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "PASS",
+    "notes": "Transformers smoke test. This is not an Optimized or Production-ready claim. NVIDIA Nano BF16 was selected as the first load/generate validation target. Smoke-test generations completed. Quality is not yet scored; treat as Runs candidate pending review.",
+    "command": [
+      "scripts/mi300x/transformers-smoke-test.py",
+      "--model",
+      "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+      "--output-dir",
+      "results/mi300x/2026-08-15_172810Z"
+    ],
+    "enable_thinking": false,
+    "trust_remote_code_requested": false,
+    "trust_remote_code_required": false,
+    "custom_remote_code": "likely required (config.auto_map present)",
+    "status_claim_allowed": "Runs (candidate) \u2014 not Validated until results are reviewed"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "torch_cuda_build": null,
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_count": 1,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ],
+    "cuda_build_without_hip": false
+  },
+  "load": {
+    "config": {
+      "model_type": "nemotron_h",
+      "architectures": [
+        "NemotronHForCausalLM"
+      ],
+      "auto_map": {
+        "AutoConfig": "configuration_nemotron_h.NemotronHConfig",
+        "AutoModel": "modeling_nemotron_h.NemotronHForCausalLM",
+        "AutoModelForCausalLM": "modeling_nemotron_h.NemotronHForCausalLM"
+      },
+      "max_position_embeddings": 262144
+    },
+    "tokenizer_sec": 0.9219233089997942,
+    "tokenizer_name_or_path": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "model_load_sec": 9.053683008999542,
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_load": {
+      "available": true,
+      "allocated_bytes": 63239353856,
+      "reserved_bytes": 63273172992,
+      "max_allocated_bytes": 63239353856,
+      "max_reserved_bytes": 63273172992
+    },
+    "trust_remote_code_used": false
+  },
+  "generations": [
+    {
+      "id": "basic-language",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Explain the difference between RAM and storage in three sentences."
+        }
+      ],
+      "enable_thinking": false,
+      "success": true,
+      "chat_template": {
+        "enable_thinking_accepted": true,
+        "apply_chat_template_type": "BatchEncoding"
+      },
+      "prompt_text": "Explain the difference between RAM and storage in three sentences.",
+      "generated_text_raw": "RAM (Random Access Memory) is a computer's short\u2011term, volatile memory that holds data and instructions currently being used, allowing fast read/write access while the system is running. Storage (e.g., SSDs, HDDs, flash drives) is non\u2011volatile, long\u2011term memory that retains data even when power is off, providing larger capacity but slower access speeds. Consequently, RAM determines how quickly applications can operate, whereas storage determines how much data can be kept permanently.<|im_end|>",
+      "generated_text": "RAM (Random Access Memory) is a computer's short\u2011term, volatile memory that holds data and instructions currently being used, allowing fast read/write access while the system is running. Storage (e.g., SSDs, HDDs, flash drives) is non\u2011volatile, long\u2011term memory that retains data even when power is off, providing larger capacity but slower access speeds. Consequently, RAM determines how quickly applications can operate, whereas storage determines how much data can be kept permanently.",
+      "input_tokens": 28,
+      "output_tokens": 98,
+      "generation_sec": 16.976353530999404,
+      "output_tokens_per_sec": 5.772735577227974,
+      "max_new_tokens": 128,
+      "temperature": 0.0,
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047168,
+        "reserved_bytes": 63916998656,
+        "max_allocated_bytes": 63926036480,
+        "max_reserved_bytes": 64453869568
+      }
+    },
+    {
+      "id": "simple-reasoning",
+      "messages": [
+        {
+          "role": "user",
+          "content": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory? Reply with the integer number of GB and a one-sentence calculation."
+        }
+      ],
+      "enable_thinking": false,
+      "success": true,
+      "chat_template": {
+        "enable_thinking_accepted": true,
+        "apply_chat_template_type": "BatchEncoding"
+      },
+      "prompt_text": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory? Reply with the integer number of GB and a one-sentence calculation.",
+      "generated_text_raw": "1536  \n8 GPUs \u00d7 192 GB each = 1536 GB total aggregate GPU memory.<|im_end|>",
+      "generated_text": "1536  \n8 GPUs \u00d7 192 GB each = 1536 GB total aggregate GPU memory.",
+      "input_tokens": 56,
+      "output_tokens": 29,
+      "generation_sec": 1.3316679310000836,
+      "output_tokens_per_sec": 21.777200850831466,
+      "max_new_tokens": 128,
+      "temperature": 0.0,
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047168,
+        "reserved_bytes": 64453869568,
+        "max_allocated_bytes": 63928184832,
+        "max_reserved_bytes": 64453869568
+      }
+    },
+    {
+      "id": "code",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write a Python function that returns the factorial of a non-negative integer. Handle 0 correctly. Do not write any text before or after the function."
+        }
+      ],
+      "enable_thinking": false,
+      "success": true,
+      "chat_template": {
+        "enable_thinking_accepted": true,
+        "apply_chat_template_type": "BatchEncoding"
+      },
+      "prompt_text": "Write a Python function that returns the factorial of a non-negative integer. Handle 0 correctly. Do not write any text before or after the function.",
+      "generated_text_raw": "def factorial(n):\n    if n == 0:\n        return 1\n    result = 1\n    for i in range(1, n + 1):\n        result *= i\n    return result<|im_end|>",
+      "generated_text": "def factorial(n):\n    if n == 0:\n        return 1\n    result = 1\n    for i in range(1, n + 1):\n        result *= i\n    return result",
+      "input_tokens": 46,
+      "output_tokens": 44,
+      "generation_sec": 1.4991883030006647,
+      "output_tokens_per_sec": 29.349215113226833,
+      "max_new_tokens": 128,
+      "temperature": 0.0,
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047168,
+        "reserved_bytes": 64453869568,
+        "max_allocated_bytes": 63928184832,
+        "max_reserved_bytes": 64453869568
+      }
+    },
+    {
+      "id": "summarization",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Summarize the following paragraph in exactly two sentences.\n\nAMD Instinct MI300X accelerators provide 192 GB of HBM3 memory per GPU. Software support for large language models on this hardware typically goes through ROCm, HIP-enabled PyTorch, and inference servers such as vLLM. NVIDIA Nemotron 3 Nano is a hybrid Mamba-Transformer Mixture-of-Experts model with a published BF16 checkpoint on Hugging Face. Whether that checkpoint actually loads and generates correctly on MI300X is an empirical question, not a marketing claim."
+        }
+      ],
+      "enable_thinking": false,
+      "success": true,
+      "chat_template": {
+        "enable_thinking_accepted": true,
+        "apply_chat_template_type": "BatchEncoding"
+      },
+      "prompt_text": "Summarize the following paragraph in exactly two sentences.\n\nAMD Instinct MI300X accelerators provide 192 GB of HBM3 memory per GPU. Software support for large language models on this hardware typically goes through ROCm, HIP-enabled PyTorch, and inference servers such as vLLM. NVIDIA Nemotron 3 Nano is a hybrid Mamba-Transformer Mixture-of-Experts model with a published BF16 checkpoint on Hugging Face. Whether that checkpoint actually loads and generates correctly on MI300X is an empirical question, not a marketing claim.",
+      "generated_text_raw": "The AMD Instinct MI300X delivers 192\u202fGB of HBM3 memory per GPU, enabling large\u2011language\u2011model workloads via ROCm, HIP\u2011enabled PyTorch, and inference servers like vLLM. While NVIDIA\u2019s Nemotron\u202f3\u202fNano \u2014 a hybrid Mamba\u2011Transformer MoE model with a BF16 checkpoint on Hugging\u202fFace \u2014 can be evaluated on this hardware, its successful loading and generation must be confirmed empirically rather than assumed from marketing statements.<|im_end|>",
+      "generated_text": "The AMD Instinct MI300X delivers 192\u202fGB of HBM3 memory per GPU, enabling large\u2011language\u2011model workloads via ROCm, HIP\u2011enabled PyTorch, and inference servers like vLLM. While NVIDIA\u2019s Nemotron\u202f3\u202fNano \u2014 a hybrid Mamba\u2011Transformer MoE model with a BF16 checkpoint on Hugging\u202fFace \u2014 can be evaluated on this hardware, its successful loading and generation must be confirmed empirically rather than assumed from marketing statements.",
+      "input_tokens": 141,
+      "output_tokens": 110,
+      "generation_sec": 3.5488500999999815,
+      "output_tokens_per_sec": 30.995955563183852,
+      "max_new_tokens": 128,
+      "temperature": 0.0,
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319049216,
+        "reserved_bytes": 65571651584,
+        "max_allocated_bytes": 64489937408,
+        "max_reserved_bytes": 65571651584
+      }
+    },
+    {
+      "id": "instruction-following",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Return a JSON object with exactly these keys: gpu_name, hbm_gb, status. Use gpu_name=\"MI300X\", hbm_gb=192, status=\"NOT TESTED\". No markdown. No extra keys. No commentary."
+        }
+      ],
+      "enable_thinking": false,
+      "success": true,
+      "chat_template": {
+        "enable_thinking_accepted": true,
+        "apply_chat_template_type": "BatchEncoding"
+      },
+      "prompt_text": "Return a JSON object with exactly these keys: gpu_name, hbm_gb, status. Use gpu_name=\"MI300X\", hbm_gb=192, status=\"NOT TESTED\". No markdown. No extra keys. No commentary.",
+      "generated_text_raw": "{\n  \"gpu_name\": \"MI300X\",\n  \"hbm_gb\": 192,\n  \"status\": \"NOT TESTED\"\n}<|im_end|>",
+      "generated_text": "{\n  \"gpu_name\": \"MI300X\",\n  \"hbm_gb\": 192,\n  \"status\": \"NOT TESTED\"\n}",
+      "input_tokens": 72,
+      "output_tokens": 37,
+      "generation_sec": 1.3468403970000509,
+      "output_tokens_per_sec": 27.47170346420683,
+      "max_new_tokens": 128,
+      "temperature": 0.0,
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047680,
+        "reserved_bytes": 64476938240,
+        "max_allocated_bytes": 64489937408,
+        "max_reserved_bytes": 65571651584
+      }
+    }
+  ],
+  "summary": {
+    "success": true,
+    "prompts_total": 5,
+    "prompts_passed": 5,
+    "prompts_failed": 0,
+    "peak_memory": {
+      "available": true,
+      "allocated_bytes": 63319047680,
+      "reserved_bytes": 64476938240,
+      "max_allocated_bytes": 64489937408,
+      "max_reserved_bytes": 65571651584
+    },
+    "trust_remote_code_used": false
+  }
+}

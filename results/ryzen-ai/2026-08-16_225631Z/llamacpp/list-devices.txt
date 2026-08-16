@@ -1,0 +1,2 @@
+Available devices:
+  Vulkan0: AMD Radeon Graphics (RADV GFX1150) (48427 MiB, 47643 MiB free)

@@ -1,0 +1,9 @@
+timestamp_utc=2026-08-16T02:25:21+00:00
+hostname=rocm-7-14-software-gpu-mi300x1-192gb-devcloud-atl1
+run_id=2026-08-16_022238Z
+revision=2d59de1cbd51c0adf384eb906b766d1aee0e0517
+max_model_len=8192
+label=Engineering characterization only
+
+container=/nemotron-nano-vllm image=rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0 image_id=sha256:ac1be45dac88db3fd32c1aa45ecd043c0efad7a809c1bcb36960e369d9dbb8a6 created=2026-08-16T02:22:40.434621614Z
+repo_digest=rocm/vllm@sha256:ac1be45dac88db3fd32c1aa45ecd043c0efad7a809c1bcb36960e369d9dbb8a6 id=sha256:ac1be45dac88db3fd32c1aa45ecd043c0efad7a809c1bcb36960e369d9dbb8a6

@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "date": "2026-08-16T05:53:56.971949+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/Llama-3.1-Nemotron-Safety-Guard-8B-v3",
+    "model_revision": "8fdc246ba3d56db9c469d534233b9f582d3afafa",
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "PASS",
+    "notes": "Family smoke task=safety. Not Optimized. Not a Nano 30B BF16 result.",
+    "command": [
+      "scripts/mi300x/family-smoke.py",
+      "--model",
+      "nvidia/Llama-3.1-Nemotron-Safety-Guard-8B-v3",
+      "--task",
+      "safety",
+      "--output-dir",
+      "results/mi300x/2026-08-16_055356Z"
+    ],
+    "trust_remote_code_requested": false,
+    "queue_task": "safety",
+    "queue_task_resolved": "safety",
+    "trust_remote_code_required": false,
+    "status_claim_allowed": "Runs (candidate) \u2014 not Validated until results are reviewed"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ]
+  },
+  "load": {
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "auto_map": null,
+      "pipe": null
+    },
+    "model_load_sec": 32.48485018000065,
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_load": {
+      "available": true,
+      "allocated_bytes": 16140215296,
+      "reserved_bytes": 16288579584,
+      "max_allocated_bytes": 16155609088,
+      "max_reserved_bytes": 16288579584
+    },
+    "trust_remote_code_used": false
+  },
+  "outputs": [
+    {
+      "id": "safe-hello",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "What is the capital of France?"
+        }
+      ],
+      "generated_text": "The capital of France is Paris.",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 16140216320,
+        "reserved_bytes": 16284385280,
+        "max_allocated_bytes": 16151315968,
+        "max_reserved_bytes": 16284385280
+      }
+    },
+    {
+      "id": "policy-shape",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Classify this user message as safe or unsafe: 'How do I bake banana bread?' Reply with one word."
+        }
+      ],
+      "generated_text": "Safe",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 16140216320,
+        "reserved_bytes": 16288579584,
+        "max_allocated_bytes": 16155609088,
+        "max_reserved_bytes": 16288579584
+      }
+    }
+  ],
+  "summary": {
+    "success": true,
+    "prompts_total": 2,
+    "prompts_passed": 2,
+    "peak_memory": {
+      "available": true,
+      "allocated_bytes": 16140215296,
+      "reserved_bytes": 16288579584,
+      "max_allocated_bytes": 16155609088,
+      "max_reserved_bytes": 16288579584
+    },
+    "trust_remote_code_used": false
+  },
+  "generations": [
+    {
+      "id": "safe-hello",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "What is the capital of France?"
+        }
+      ],
+      "generated_text": "The capital of France is Paris.",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 16140216320,
+        "reserved_bytes": 16284385280,
+        "max_allocated_bytes": 16151315968,
+        "max_reserved_bytes": 16284385280
+      }
+    },
+    {
+      "id": "policy-shape",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Classify this user message as safe or unsafe: 'How do I bake banana bread?' Reply with one word."
+        }
+      ],
+      "generated_text": "Safe",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 16140216320,
+        "reserved_bytes": 16288579584,
+        "max_allocated_bytes": 16155609088,
+        "max_reserved_bytes": 16288579584
+      }
+    }
+  ]
+}

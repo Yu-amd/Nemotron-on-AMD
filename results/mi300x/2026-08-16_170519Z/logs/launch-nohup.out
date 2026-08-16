@@ -1,0 +1,66 @@
+model=nvidia/llama-nemotron-embed-vl-1b-v2-fp8 task=vl-embed dtype=bfloat16 revision=None
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/llama-nemotron-embed-vl-1b-v2-fp8:
+- configuration_llama_nemotron_vl.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+resolved_task=vl-embed architectures=['LlamaNemotronVLModel'] model_type=llama_nemotron_vl
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/llama-nemotron-embed-vl-1b-v2-fp8:
+- processing_llama_nemotron_vl.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/llama-nemotron-embed-vl-1b-v2-fp8:
+- modeling_llama_nemotron_vl.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] Unknown quantization type, got modelopt - supported types are: ['awq', 'bitsandbytes_4bit', 'bitsandbytes_8bit', 'gptq', 'aqlm', 'quanto', 'quark', 'fouroversix', 'fp_quant', 'eetq', 'higgs', 'hqq', 'compressed-tensors', 'fbgemm_fp8', 'torchao', 'bitnet', 'vptq', 'spqr', 'fp8', 'mxfp8', 'auto-round', 'mxfp4', 'metal', 'sinq', 'gemma']. Hence, we will skip the quantization. To remove the warning, you can delete the quantization_config attribute in config.json
+Loading weights:   0%|          | 0/600 [00:00<?, ?it/s]Loading weights:   7%|▋         | 41/600 [00:00<00:01, 391.00it/s]Loading weights:  14%|█▎        | 81/600 [00:00<00:01, 388.73it/s]Loading weights:  20%|██        | 120/600 [00:00<00:01, 374.58it/s]Loading weights: 100%|██████████| 600/600 [00:00<00:00, 1474.11it/s]
+[transformers] [1mLlamaNemotronVLModel LOAD REPORT[0m from: nvidia/llama-nemotron-embed-vl-1b-v2-fp8
+Key                                                          | Status     |  | 
+-------------------------------------------------------------+------------+--+-
+language_model.layers.{0...15}.mlp.up_proj.input_scale       | UNEXPECTED |  | 
+language_model.layers.{0...15}.self_attn.q_proj.weight_scale | UNEXPECTED |  | 
+language_model.layers.{0...15}.self_attn.o_proj.input_scale  | UNEXPECTED |  | 
+language_model.layers.{0...15}.self_attn.k_proj.weight_scale | UNEXPECTED |  | 
+language_model.layers.{0...15}.self_attn.v_proj.input_scale  | UNEXPECTED |  | 
+language_model.layers.{0...15}.self_attn.q_proj.input_scale  | UNEXPECTED |  | 
+language_model.layers.{0...15}.self_attn.o_proj.weight_scale | UNEXPECTED |  | 
+language_model.layers.{0...15}.mlp.gate_proj.input_scale     | UNEXPECTED |  | 
+language_model.layers.{0...15}.mlp.down_proj.weight_scale    | UNEXPECTED |  | 
+language_model.layers.{0...15}.mlp.gate_proj.weight_scale    | UNEXPECTED |  | 
+language_model.layers.{0...15}.mlp.up_proj.weight_scale      | UNEXPECTED |  | 
+language_model.layers.{0...15}.self_attn.k_proj.input_scale  | UNEXPECTED |  | 
+language_model.layers.{0...15}.mlp.down_proj.input_scale     | UNEXPECTED |  | 
+language_model.layers.{0...15}.self_attn.v_proj.weight_scale | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+processor ok via process_documents
+[transformers] `use_return_dict` is deprecated! Use `return_dict` instead!
+model(**packed) failed: TypeError: create_bidirectional_mask() missing 1 required positional argument: 'inputs_embeds'
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 476, in main
+    _run_vl(args, load_kwargs, trust, result_payload, task, work_dir)
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 749, in _run_vl
+    out = model(**packed)
+          ^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/llama_hyphen_nemotron_hyphen_embed_hyphen_vl_hyphen_1b_hyphen_v2_hyphen_fp8/b4751b329b7d797cb6abfe018e8bedf1051a80aa/modeling_llama_nemotron_vl.py", line 479, in forward
+    outputs = self.language_model(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/llama_hyphen_nemotron_hyphen_embed_hyphen_vl_hyphen_1b_hyphen_v2_hyphen_fp8/b4751b329b7d797cb6abfe018e8bedf1051a80aa/modeling_llama_nemotron_vl.py", line 195, in forward
+    bidirectional_mask = self._create_bidirectional_mask(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/llama_hyphen_nemotron_hyphen_embed_hyphen_vl_hyphen_1b_hyphen_v2_hyphen_fp8/b4751b329b7d797cb6abfe018e8bedf1051a80aa/modeling_llama_nemotron_vl.py", line 142, in _create_bidirectional_mask
+    return create_bidirectional_mask(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: create_bidirectional_mask() missing 1 required positional argument: 'inputs_embeds'
+

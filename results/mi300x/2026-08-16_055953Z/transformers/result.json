@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "date": "2026-08-16T05:59:53.443929+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/omni-embed-nemotron-3b",
+    "model_revision": "865db1bb57e369a85357cf114cbd6b3c5322d19d",
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "FAIL",
+    "notes": "Family smoke task=vl-embed. Not Optimized. Not a Nano 30B BF16 result.",
+    "command": [
+      "scripts/mi300x/family-smoke.py",
+      "--model",
+      "nvidia/omni-embed-nemotron-3b",
+      "--task",
+      "vl-embed",
+      "--output-dir",
+      "results/mi300x/2026-08-16_055953Z"
+    ],
+    "trust_remote_code_requested": false,
+    "queue_task": "vl-embed",
+    "trust_remote_code_required": true,
+    "queue_task_resolved": "vl-embed"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ]
+  },
+  "load": {
+    "config": {
+      "model_type": "nvomniembed",
+      "architectures": [
+        "NVOmniEmbedModel"
+      ],
+      "auto_map": {
+        "AutoModel": "modeling_nv_omni_embed.NVOmniEmbedModel",
+        "AutoConfig": "modeling_nv_omni_embed.NVOmniEmbedConfig"
+      },
+      "pipe": null
+    },
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_failure": {
+      "available": true,
+      "allocated_bytes": 9614624256,
+      "reserved_bytes": 9978249216,
+      "max_allocated_bytes": 9615190016,
+      "max_reserved_bytes": 9978249216
+    }
+  },
+  "outputs": [],
+  "summary": {
+    "success": false,
+    "failure_layer": "OTHER",
+    "error": "ValueError: Image features and image tokens do not match, tokens: 0, features: 4",
+    "traceback": "Traceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 368, in main\n    _run_vl(args, load_kwargs, trust, result_payload, task, work_dir)\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 592, in _run_vl\n    out = model(**packed)\n          ^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/generic.py\", line 939, in wrapper\n    output = func(self, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/modeling_qwen2_5_omni.py\", line 1951, in forward\n    image_mask, _, _ = self.get_placeholder_mask(\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/modeling_qwen2_5_omni.py\", line 1849, in get_placeholder_mask\n    torch_compilable_check(\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/import_utils.py\", line 1850, in torch_compilable_check\n    torch._check_tensor_all_with(error_type, cond, msg_callable)\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/__init__.py\", line 1884, in _check_tensor_all_with\n    _check_with(error_type, cond._is_all_true().item(), message)  # type: ignore[arg-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/__init__.py\", line 1743, in _check_with\n    raise error_type(message_evaluated)\nValueError: Image features and image tokens do not match, tokens: 0, features: 4\n"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "date": "2026-08-16T06:35:58.101715+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/NVIDIA-Nemotron-Parse-2.0",
+    "model_revision": "635b84d9b09bb9526b9a684d0b2c953d3cc3df05",
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "PASS",
+    "notes": "Family smoke task=parse. Not Optimized. Not a Nano 30B BF16 result.",
+    "command": [
+      "scripts/mi300x/family-smoke.py",
+      "--model",
+      "nvidia/NVIDIA-Nemotron-Parse-2.0",
+      "--task",
+      "parse",
+      "--output-dir",
+      "results/mi300x/2026-08-16_063558Z",
+      "--max-new-tokens=96",
+      "--trust-remote-code"
+    ],
+    "trust_remote_code_requested": true,
+    "queue_task": "parse",
+    "queue_task_resolved": "parse",
+    "trust_remote_code_required": true,
+    "status_claim_allowed": "Runs (candidate) \u2014 not Validated until results are reviewed"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ]
+  },
+  "load": {
+    "config": {
+      "model_type": "nemotron_parse",
+      "architectures": [
+        "NemotronParseForConditionalGeneration"
+      ],
+      "auto_map": {
+        "AutoConfig": "hf_nemotron_parse_config.NemotronParseConfig",
+        "AutoModel": "hf_nemotron_parse_modeling.NemotronParseForConditionalGeneration",
+        "AutoImageProcessor": "hf_nemotron_parse_processor.NemotronParseImageProcessor",
+        "AutoProcessor": "hf_nemotron_parse_processor.NemotronParseProcessor"
+      },
+      "pipe": null
+    },
+    "model_load_sec": 5.863777714999742,
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_load": {
+      "available": true,
+      "allocated_bytes": 1382977536,
+      "reserved_bytes": 2252341248,
+      "max_allocated_bytes": 2359995904,
+      "max_reserved_bytes": 2699034624
+    },
+    "trust_remote_code_used": true
+  },
+  "outputs": [
+    {
+      "id": "parse-dummy-image",
+      "success": true,
+      "generated_text": "Extract any visible text as markdown. **Figure 1:** _S<sub>c</sub>-S<sub>d</sub>_=0",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 1929832448,
+        "reserved_bytes": 2252341248,
+        "max_allocated_bytes": 2359995904,
+        "max_reserved_bytes": 2699034624
+      }
+    }
+  ],
+  "summary": {
+    "success": true,
+    "prompts_total": 1,
+    "prompts_passed": 1,
+    "peak_memory": {
+      "available": true,
+      "allocated_bytes": 1929832448,
+      "reserved_bytes": 2252341248,
+      "max_allocated_bytes": 2359995904,
+      "max_reserved_bytes": 2699034624
+    }
+  }
+}

@@ -1,0 +1,40 @@
+
+
+Loading model... |-\|/-\|/-\ 
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b10453-3cb7ffb1a
+model      : /home/yw/Desktop/Nemotron-on-AMD/tools/llamacpp/gguf/NVIDIA-Nemotron3-Nano-4B-Q4_K_M.gguf
+ftype      : Q4_K - Medium
+modalities : text
+using custom system prompt
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> Write a Python function that returns the factorial of a non-negative integer. Handle 0 correctly. Do not write any text before or after the function.
+def factorial(n):
+    if n < 0:
+        raise ValueError("Input must be a non-negative integer")
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
+
+[ Prompt: 178.2 t/s | Generation: 23.8 t/s ]
+
+
+Exiting...

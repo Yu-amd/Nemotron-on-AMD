@@ -1,0 +1,11 @@
+model=nvidia/nemotron-colembed-vl-8b-v2 task=vl-embed dtype=bfloat16 revision=34b640612f311ed05a6c7c62c6564847ed555f5f
+[ERROR] `cache_position` is part of Qwen3VLNemotronEmbedTextModel.forward's signature, but not documented. Make sure to add it to the docstring of the function in /root/.cache/huggingface/modules/transformers_modules/nvidia/nemotron_hyphen_colembed_hyphen_vl_hyphen_8b_hyphen_v2/34b640612f311ed05a6c7c62c6564847ed555f5f/modeling_qwen3_vl_nemotron_embed.py.
+resolved_task=vl-embed architectures=['Qwen3VLNemotronEmbedModel'] model_type=qwen3_vl_nemotron_embed
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/750 [00:00<?, ?it/s]Loading weights: 100%|##########| 750/750 [00:00<00:00, 11844.44it/s]
+processor ok via process_documents
+/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_attn_mask_utils.py:202: FutureWarning: The attention mask API under `transformers.modeling_attn_mask_utils` (`AttentionMaskConverter`) is deprecated and will be removed in Transformers v5.10. Please use the new API in `transformers.masking_utils`.
+  warnings.warn(DEPRECATION_MESSAGE, FutureWarning)
+vl embedding shape=(1, 4096)
+result=PASS

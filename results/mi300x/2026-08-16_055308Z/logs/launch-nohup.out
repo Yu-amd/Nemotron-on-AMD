@@ -1,0 +1,79 @@
+model=nvidia/nemotron-3.5-asr-streaming-0.6b task=asr dtype=bfloat16 revision=None
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+config.json:   0%|          | 0.00/1.38k [00:00<?, ?B/s]config.json: 100%|##########| 1.38k/1.38k [00:00<00:00, 7.05MB/s]
+resolved_task=asr architectures=['Nemotron3_5AsrForRNNT'] model_type=nemotron3_5_asr
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+model.safetensors: reconstructing file:   0%|          |  0.00B / 2.55GB            [Amodel.safetensors: downloading bytes:           |  0.00B            model.safetensors: downloading bytes:           | 1.54MB            model.safetensors: downloading bytes: 1         | 33.8MB,  152kB/s  model.safetensors: downloading bytes: 2         | 65.0MB, 4.75MB/s  model.safetensors: downloading bytes: 3         | 84.2MB, 6.26MB/s  model.safetensors: downloading bytes: 4         |  109MB, 8.07MB/s  model.safetensors: downloading bytes: 5         |  133MB, 10.4MB/s  model.safetensors: downloading bytes: 6         |  160MB, 12.6MB/s  model.safetensors: downloading bytes: 7         |  188MB, 15.1MB/s  model.safetensors: downloading bytes: 8         |  227MB, 19.3MB/s  model.safetensors: downloading bytes: #         |  258MB, 22.9MB/s  
+model.safetensors: reconstructing file:  11%|#         |  271MB / 2.55GB            [Amodel.safetensors: downloading bytes: #1        |  281MB, 23.5MB/s  model.safetensors: downloading bytes: #1        |  303MB, 25.6MB/s  model.safetensors: downloading bytes: #2        |  327MB, 27.4MB/s  
+model.safetensors: reconstructing file:  14%|#4        |  364MB / 2.55GB, 25.7MB/s  [Amodel.safetensors: downloading bytes: #4        |  364MB, 30.9MB/s  model.safetensors: downloading bytes: #5        |  402MB, 33.5MB/s  
+model.safetensors: reconstructing file:  15%|#5        |  393MB / 2.55GB, 33.5MB/s  [A
+model.safetensors: reconstructing file:  17%|#6        |  427MB / 2.55GB, 35.3MB/s  [Amodel.safetensors: downloading bytes: #7        |  436MB, 36.7MB/s  
+model.safetensors: reconstructing file:  18%|#8        |  465MB / 2.55GB, 38.1MB/s  [Amodel.safetensors: downloading bytes: #8        |  483MB, 39.2MB/s  
+model.safetensors: reconstructing file:  19%|#9        |  494MB / 2.55GB, 40.9MB/s  [Amodel.safetensors: downloading bytes: ##        |  520MB, 42.7MB/s  model.safetensors: downloading bytes: ##2       |  563MB, 45.2MB/s  model.safetensors: downloading bytes: ##3       |  590MB, 47.2MB/s  
+model.safetensors: reconstructing file:  23%|##3       |  595MB / 2.55GB, 44.4MB/s  [Amodel.safetensors: downloading bytes: ##4       |  615MB, 49.2MB/s  model.safetensors: downloading bytes: ##5       |  640MB, 51.1MB/s  
+model.safetensors: reconstructing file:  27%|##6       |  679MB / 2.55GB, 50.5MB/s  [Amodel.safetensors: downloading bytes: ##6       |  669MB, 52.8MB/s  model.safetensors: downloading bytes: ##7       |  706MB, 55.0MB/s  model.safetensors: downloading bytes: ###       |  770MB, 59.9MB/s  model.safetensors: downloading bytes: ###1      |  807MB, 62.6MB/s  
+model.safetensors: reconstructing file:  31%|###1      |  796MB / 2.55GB, 57.2MB/s  [Amodel.safetensors: downloading bytes: ###3      |  861MB, 67.0MB/s  model.safetensors: downloading bytes: ###5      |  897MB, 69.1MB/s  
+model.safetensors: reconstructing file:  35%|###5      |  897MB / 2.55GB, 64.7MB/s  [Amodel.safetensors: downloading bytes: ###8      |  970MB, 73.8MB/s  
+model.safetensors: reconstructing file:  39%|###9      |  998MB / 2.55GB, 72.6MB/s  [Amodel.safetensors: downloading bytes: ####      | 1.02GB, 78.8MB/s  
+model.safetensors: reconstructing file:  42%|####1     | 1.07GB / 2.55GB, 80.2MB/s  [Amodel.safetensors: downloading bytes: ####1     | 1.06GB, 80.3MB/s  model.safetensors: downloading bytes: ####3     | 1.10GB, 82.7MB/s  model.safetensors: downloading bytes: ####4     | 1.14GB, 85.6MB/s  model.safetensors: downloading bytes: ####6     | 1.18GB, 88.2MB/s  
+model.safetensors: reconstructing file:  47%|####6     | 1.19GB / 2.55GB, 84.0MB/s  [Amodel.safetensors: downloading bytes: ####8     | 1.24GB, 92.7MB/s  
+model.safetensors: reconstructing file:  50%|#####     | 1.28GB / 2.55GB, 92.4MB/s  [Amodel.safetensors: downloading bytes: ####9     | 1.27GB, 94.7MB/s  model.safetensors: downloading bytes: #####3    | 1.36GB, 98.4MB/s  model.safetensors: downloading bytes: #####4    | 1.40GB,  103MB/s  
+model.safetensors: reconstructing file:  55%|#####4    | 1.40GB / 2.55GB,  101MB/s  [Amodel.safetensors: downloading bytes: #####6    | 1.44GB,  105MB/s  model.safetensors: downloading bytes: #####9    | 1.52GB,  110MB/s  model.safetensors: downloading bytes: ######2   | 1.59GB,  115MB/s  
+model.safetensors: reconstructing file:  62%|######2   | 1.59GB / 2.55GB,  108MB/s  [Amodel.safetensors: downloading bytes: ######3   | 1.63GB,  117MB/s  
+model.safetensors: reconstructing file:  66%|######6   | 1.70GB / 2.55GB,  118MB/s  [Amodel.safetensors: downloading bytes: ######6   | 1.70GB,  121MB/s  model.safetensors: downloading bytes: ######8   | 1.76GB,  124MB/s  model.safetensors: downloading bytes: #######   | 1.81GB,  126MB/s  model.safetensors: downloading bytes: #######3  | 1.86GB,  129MB/s  
+model.safetensors: reconstructing file:  74%|#######3  | 1.89GB / 2.55GB,  125MB/s  [Amodel.safetensors: downloading bytes: #######4  | 1.91GB,  133MB/s  model.safetensors: downloading bytes: #######8  | 2.00GB,  138MB/s  model.safetensors: downloading bytes: ########  | 2.05GB,  141MB/s  
+model.safetensors: reconstructing file:  83%|########2 | 2.11GB / 2.55GB,  136MB/s  [Amodel.safetensors: downloading bytes: ########2 | 2.11GB,  145MB/s  model.safetensors: downloading bytes: ########4 | 2.16GB,  147MB/s  
+model.safetensors: reconstructing file:  86%|########5 | 2.19GB / 2.55GB,  149MB/s  [Amodel.safetensors: downloading bytes: ########7 | 2.24GB,  152MB/s  
+model.safetensors: reconstructing file:  89%|########8 | 2.26GB / 2.55GB,  153MB/s  [Amodel.safetensors: downloading bytes: ########9 | 2.28GB,  154MB/s  
+model.safetensors: reconstructing file:  91%|#########1| 2.32GB / 2.55GB,  158MB/s  [Amodel.safetensors: downloading bytes: #########3| 2.37GB,  158MB/s  
+model.safetensors: reconstructing file:  97%|#########7| 2.48GB / 2.55GB,  159MB/s  [A
+model.safetensors: reconstructing file: 100%|##########| 2.55GB / 2.55GB,  167MB/s  [Amodel.safetensors: downloading bytes: ##########| 2.42GB,  153MB/s  model.safetensors: downloading bytes: ##########| 2.42GB,  153MB/s  
+model.safetensors: reconstructing file: 100%|##########| 2.55GB / 2.55GB,  166MB/s  
+Loading weights:   0%|          | 0/655 [00:00<?, ?it/s]Loading weights:  73%|#######3  | 481/655 [00:00<00:00, 4804.44it/s]Loading weights: 100%|##########| 655/655 [00:00<00:00, 4868.39it/s]
+generation_config.json:   0%|          | 0.00/193 [00:00<?, ?B/s]generation_config.json: 100%|##########| 193/193 [00:00<00:00, 729kB/s]
+tokenizer_config.json:   0%|          | 0.00/881 [00:00<?, ?B/s]tokenizer_config.json: 100%|##########| 881/881 [00:00<00:00, 9.93MB/s]
+tokenizer.json:   0%|          | 0.00/752k [00:00<?, ?B/s]tokenizer.json: 100%|##########| 752k/752k [00:00<00:00, 191MB/s]
+processor_config.json:   0%|          | 0.00/2.52k [00:00<?, ?B/s]processor_config.json: 100%|##########| 2.52k/2.52k [00:00<00:00, 17.8MB/s]
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 626, in _run_asr
+    pipe = pipeline(
+           ^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/pipelines/__init__.py", line 1073, in pipeline
+    feature_extractor = _resolve_feature_extractor(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/pipelines/__init__.py", line 641, in _resolve_feature_extractor
+    return _load_pipeline_component(load_feature_extractor, feature_extractor, load)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/pipelines/__init__.py", line 450, in _load_pipeline_component
+    return loader(component)
+           ^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/pipelines/__init__.py", line 635, in load
+    feature_extractor = AutoFeatureExtractor.from_pretrained(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/feature_extraction_auto.py", line 345, in from_pretrained
+    return feature_extractor_class.from_pretrained(pretrained_model_name_or_path, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2363, in __getattribute__
+    requires_backends(cls, cls._backends)
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2349, in requires_backends
+    raise ImportError("".join(failed))
+ImportError: 
+NemotronAsrStreamingFeatureExtractor requires the librosa library. But that was not found in your environment. You can install them with pip:
+`pip install librosa`
+Please note that you may need to restart your runtime after installation.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 371, in main
+    _run_asr(args, load_kwargs, result_payload, work_dir)
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 648, in _run_asr
+    raise RuntimeError(f"ASR BLOCKED: {err}") from exc
+RuntimeError: ASR BLOCKED: ImportError: 
+NemotronAsrStreamingFeatureExtractor requires the librosa library. But that was not found in your environment. You can install them with pip:
+`pip install librosa`
+Please note that you may need to restart your runtime after installation.
+
+

@@ -1,0 +1,361 @@
+{
+  "timestamp_utc": "2026-08-15T22:41:36.562163+00:00",
+  "base_url": "http://127.0.0.1:8000/v1",
+  "model": "nemotron-nano-bf16",
+  "tests": [
+    {
+      "name": "health",
+      "ok": true,
+      "status": 200,
+      "url": "http://127.0.0.1:8000/health",
+      "method": "GET",
+      "request": null,
+      "response": null,
+      "elapsed_sec": 0.018112163001205772
+    },
+    {
+      "name": "list_models",
+      "ok": true,
+      "status": 200,
+      "url": "http://127.0.0.1:8000/v1/models",
+      "method": "GET",
+      "request": null,
+      "response": {
+        "object": "list",
+        "data": [
+          {
+            "id": "nemotron-nano-bf16",
+            "object": "model",
+            "created": 1786833696,
+            "owned_by": "vllm",
+            "root": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+            "parent": null,
+            "max_model_len": 8192,
+            "permission": [
+              {
+                "id": "modelperm-90b032a4d9f7d7a1",
+                "object": "model_permission",
+                "created": 1786833696,
+                "allow_create_engine": false,
+                "allow_sampling": true,
+                "allow_logprobs": true,
+                "allow_search_indices": false,
+                "allow_view": true,
+                "allow_fine_tuning": false,
+                "organization": "*",
+                "group": null,
+                "is_blocking": false
+              }
+            ]
+          }
+        ]
+      },
+      "elapsed_sec": 0.0008074559991655406
+    },
+    {
+      "name": "chat_completion_reasoning_off",
+      "ok": true,
+      "status": 200,
+      "url": "http://127.0.0.1:8000/v1/chat/completions",
+      "method": "POST",
+      "request": {
+        "model": "nemotron-nano-bf16",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Explain the difference between RAM and storage in three sentences."
+          }
+        ],
+        "max_tokens": 128,
+        "temperature": 0,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "response": {
+        "id": "chatcmpl-9385ade889490772",
+        "object": "chat.completion",
+        "created": 1786833696,
+        "model": "nemotron-nano-bf16",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "RAM (Random Access Memory) is a computer\u2019s short\u2011term, volatile memory that holds data and instructions currently being used, allowing the processor to access them quickly. Storage (e.g., SSDs, HDDs, flash drives) is non\u2011volatile memory that retains data permanently or semi\u2011permanently even when power is off. Consequently, RAM provides fast, temporary workspace, while storage offers larger, long\u2011term capacity for files and programs.",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "tool_calls": [],
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-70739bc2",
+        "usage": {
+          "prompt_tokens": 28,
+          "total_tokens": 120,
+          "completion_tokens": 92,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null
+      },
+      "elapsed_sec": 2.3446107790005044
+    },
+    {
+      "name": "chat_completion_reasoning_on",
+      "ok": true,
+      "status": 200,
+      "url": "http://127.0.0.1:8000/v1/chat/completions",
+      "method": "POST",
+      "request": {
+        "model": "nemotron-nano-bf16",
+        "messages": [
+          {
+            "role": "user",
+            "content": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory?"
+          }
+        ],
+        "max_tokens": 256,
+        "temperature": 1.0,
+        "top_p": 1.0,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "response": {
+        "id": "chatcmpl-aa72ad76daace2a7",
+        "object": "chat.completion",
+        "created": 1786833698,
+        "model": "nemotron-nano-bf16",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "\nThe total aggregate GPU memory is:\n\n- **8 GPUs \u00d7 192\u202fGB per GPU = 1\u202f536\u202fGB**\n\nThat\u2019s equivalent to about **1.5\u202fTB** of GPU memory in total.",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "tool_calls": [],
+              "reasoning": "We need to answer: 8 GPUs * 192 GB each = 1536 GB. Possibly express in TB (1.5 TB). Provide answer.\n"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-70739bc2",
+        "usage": {
+          "prompt_tokens": 41,
+          "total_tokens": 131,
+          "completion_tokens": 90,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null
+      },
+      "elapsed_sec": 0.4523716450021311
+    },
+    {
+      "name": "sequential_requests",
+      "ok": true,
+      "items": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "http://127.0.0.1:8000/v1/chat/completions",
+          "method": "POST",
+          "request": {
+            "model": "nemotron-nano-bf16",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Reply with the single integer 1."
+              }
+            ],
+            "max_tokens": 16,
+            "temperature": 0,
+            "chat_template_kwargs": {
+              "enable_thinking": false
+            }
+          },
+          "response": {
+            "id": "chatcmpl-9534532f4298a5bb",
+            "object": "chat.completion",
+            "created": 1786833699,
+            "model": "nemotron-nano-bf16",
+            "choices": [
+              {
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "1",
+                  "refusal": null,
+                  "annotations": null,
+                  "audio": null,
+                  "function_call": null,
+                  "tool_calls": [],
+                  "reasoning": null
+                },
+                "logprobs": null,
+                "finish_reason": "stop",
+                "stop_reason": null,
+                "token_ids": null,
+                "routed_experts": null
+              }
+            ],
+            "service_tier": null,
+            "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-70739bc2",
+            "usage": {
+              "prompt_tokens": 24,
+              "total_tokens": 26,
+              "completion_tokens": 2,
+              "prompt_tokens_details": null
+            },
+            "prompt_logprobs": null,
+            "prompt_token_ids": null,
+            "prompt_text": null,
+            "kv_transfer_params": null
+          },
+          "elapsed_sec": 0.029633697999088326
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "http://127.0.0.1:8000/v1/chat/completions",
+          "method": "POST",
+          "request": {
+            "model": "nemotron-nano-bf16",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Reply with the single integer 2."
+              }
+            ],
+            "max_tokens": 16,
+            "temperature": 0,
+            "chat_template_kwargs": {
+              "enable_thinking": false
+            }
+          },
+          "response": {
+            "id": "chatcmpl-96e56e3414925961",
+            "object": "chat.completion",
+            "created": 1786833699,
+            "model": "nemotron-nano-bf16",
+            "choices": [
+              {
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "2",
+                  "refusal": null,
+                  "annotations": null,
+                  "audio": null,
+                  "function_call": null,
+                  "tool_calls": [],
+                  "reasoning": null
+                },
+                "logprobs": null,
+                "finish_reason": "stop",
+                "stop_reason": null,
+                "token_ids": null,
+                "routed_experts": null
+              }
+            ],
+            "service_tier": null,
+            "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-70739bc2",
+            "usage": {
+              "prompt_tokens": 24,
+              "total_tokens": 26,
+              "completion_tokens": 2,
+              "prompt_tokens_details": null
+            },
+            "prompt_logprobs": null,
+            "prompt_token_ids": null,
+            "prompt_text": null,
+            "kv_transfer_params": null
+          },
+          "elapsed_sec": 0.02865541800201754
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "http://127.0.0.1:8000/v1/chat/completions",
+          "method": "POST",
+          "request": {
+            "model": "nemotron-nano-bf16",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Reply with the single integer 3."
+              }
+            ],
+            "max_tokens": 16,
+            "temperature": 0,
+            "chat_template_kwargs": {
+              "enable_thinking": false
+            }
+          },
+          "response": {
+            "id": "chatcmpl-9ea69c266917c951",
+            "object": "chat.completion",
+            "created": 1786833699,
+            "model": "nemotron-nano-bf16",
+            "choices": [
+              {
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "3",
+                  "refusal": null,
+                  "annotations": null,
+                  "audio": null,
+                  "function_call": null,
+                  "tool_calls": [],
+                  "reasoning": null
+                },
+                "logprobs": null,
+                "finish_reason": "stop",
+                "stop_reason": null,
+                "token_ids": null,
+                "routed_experts": null
+              }
+            ],
+            "service_tier": null,
+            "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-70739bc2",
+            "usage": {
+              "prompt_tokens": 24,
+              "total_tokens": 26,
+              "completion_tokens": 2,
+              "prompt_tokens_details": null
+            },
+            "prompt_logprobs": null,
+            "prompt_token_ids": null,
+            "prompt_text": null,
+            "kv_transfer_params": null
+          },
+          "elapsed_sec": 0.028446241998608457
+        }
+      ]
+    }
+  ],
+  "result": "PASS"
+}

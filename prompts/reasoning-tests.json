@@ -1,0 +1,82 @@
+{
+  "description": "Chat-template and reasoning-mode probes for Nemotron 3 Nano.",
+  "checked_date": "2026-08-15",
+  "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+  "official_behavior": {
+    "reasoning_control": "Chat template flag enable_thinking (default True on the official card).",
+    "reasoning_on_sampling": "temperature=1.0, top_p=1.0",
+    "reasoning_off_sampling": "greedy / do_sample=False recommended in the official Transformers snippet",
+    "tool_calling_sampling": "temperature=0.6, top_p=0.95",
+    "vllm_reasoning_off": "extra_body chat_template_kwargs.enable_thinking=false",
+    "vllm_reasoning_parser": "nano_v3 via nano_v3_reasoning_parser.py plugin",
+    "vllm_tool_parser": "qwen3_coder",
+    "budget_control": "Client-side reasoning_budget described on the model card; not assumed to be a native AMD kernel feature."
+  },
+  "prompts": [
+    {
+      "id": "reasoning-on-math",
+      "enable_thinking": true,
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "messages": [
+        {"role": "user", "content": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory?"}
+      ],
+      "observe": [
+        "Whether a reasoning trace is produced (look for <think> or equivalent).",
+        "Whether the final answer contains 1536.",
+        "Whether special control tokens leak into the user-visible answer."
+      ]
+    },
+    {
+      "id": "reasoning-off-math",
+      "enable_thinking": false,
+      "temperature": 0.0,
+      "do_sample": false,
+      "messages": [
+        {"role": "user", "content": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory?"}
+      ],
+      "observe": [
+        "Whether reasoning traces are suppressed.",
+        "Whether the numeric answer is still 1536.",
+        "Whether greedy decoding is accepted by generate()."
+      ]
+    },
+    {
+      "id": "system-and-user",
+      "enable_thinking": false,
+      "temperature": 0.0,
+      "messages": [
+        {"role": "system", "content": "You are a concise assistant. Reply in one sentence."},
+        {"role": "user", "content": "Name the AMD Instinct GPU with 192 GB HBM3 used in this project."}
+      ],
+      "observe": [
+        "Whether a system message is honored.",
+        "Whether Llama-style templates were incorrectly assumed. Use the tokenizer chat template only."
+      ]
+    },
+    {
+      "id": "system-think-token",
+      "enable_thinking": true,
+      "temperature": 1.0,
+      "messages": [
+        {"role": "system", "content": "You are a helpful assistant. /think"},
+        {"role": "user", "content": "What is 2+2?"}
+      ],
+      "observe": [
+        "Official budget-control example uses a system message containing /think.",
+        "Record whether /think is required, ignored, or duplicative of enable_thinking=True."
+      ]
+    },
+    {
+      "id": "assistant-prefill-not-used",
+      "enable_thinking": false,
+      "temperature": 0.0,
+      "messages": [
+        {"role": "user", "content": "Return the word READY and nothing else."}
+      ],
+      "observe": [
+        "Baseline assistant formatting with no assistant prefill."
+      ]
+    }
+  ]
+}

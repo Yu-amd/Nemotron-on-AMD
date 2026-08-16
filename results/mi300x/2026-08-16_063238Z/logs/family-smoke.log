@@ -1,0 +1,35 @@
+model=nvidia/NVIDIA-Nemotron-Parse-2.0 task=parse dtype=bfloat16 revision=635b84d9b09bb9526b9a684d0b2c953d3cc3df05
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+resolved_task=parse architectures=['NemotronParseForConditionalGeneration'] model_type=nemotron_parse
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+AutoModel retry without attn_implementation (ValueError)
+No pretrained configuration specified for vit_huge_patch16_224 model. Using a default. Please add a config to the model pretrained_cfg registry or pass explicitly.
+Loading weights:   0%|          | 0/666 [00:00<?, ?it/s]Loading weights:  24%|##3       | 157/666 [00:00<00:00, 1569.03it/s]Loading weights:  47%|####7     | 314/666 [00:00<00:00, 1361.81it/s]Loading weights:  68%|######7   | 452/666 [00:00<00:00, 1089.62it/s]Loading weights:  85%|########5 | 567/666 [00:00<00:00, 1062.25it/s]Loading weights: 100%|##########| 666/666 [00:00<00:00, 1087.41it/s]
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 159, in _call_processor
+    packed = fn()
+             ^^^^
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 143, in _chat
+    templated = processor.apply_chat_template(message, tokenize=False, add_generation_prompt=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/processing_utils.py", line 2031, in apply_chat_template
+    raise ValueError(
+ValueError: Cannot use apply_chat_template because this processor does not have a chat template.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 446, in main
+    _run_vl(args, load_kwargs, trust, result_payload, task, work_dir)
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 706, in _run_vl
+    packed = _call_processor(processor, image, prompt)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 164, in _call_processor
+    print(f"processor skip {label}: {type(exc).__name__}: {exc}")
+                                          ^^^
+NameError: name 'exc' is not defined. Did you mean: 'exec'?
+

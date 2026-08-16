@@ -1,0 +1,21 @@
+{
+  "date": "2026-08-16T02:25:31+00:00",
+  "platform": "mi300x",
+  "gpu": "AMD Instinct MI300X VF",
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+  "model_revision": "2d59de1cbd51c0adf384eb906b766d1aee0e0517",
+  "precision": "bfloat16",
+  "runtime": "vllm",
+  "runtime_version": "0.23.1.dev1+g9ddef7117.d20260715",
+  "rocm_version": "7.14.60850",
+  "pytorch_version": "2.11.0+rocm7.14.0",
+  "result": "PASS WITH CAVEATS",
+  "notes": "Engineering characterization only. Not an official benchmark. Memory snapshots (before-serve / after-load-idle / after-warmup / after-characterization / after-stop) plus streaming concurrency 1/2/4 at max-model-len=8192. Pinned HF revision. Same AMD CDNA Docker stack as 2026-08-15_223840Z. Not Validated/Optimized/Production-ready.",
+  "status_claim_allowed": "Runs — engineering characterization; not Validated/Optimized",
+  "image": "rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0",
+  "image_sha256": "sha256:ac1be45dac88db3fd32c1aa45ecd043c0efad7a809c1bcb36960e369d9dbb8a6",
+  "python": "3.14.6",
+  "max_model_len": 8192,
+  "gpu_memory_utilization": 0.8,
+  "label": "Engineering characterization only"
+}

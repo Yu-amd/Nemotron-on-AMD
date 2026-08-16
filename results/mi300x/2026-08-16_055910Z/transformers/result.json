@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "date": "2026-08-16T05:59:11.018539+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/nemotron-colembed-vl-8b-v2",
+    "model_revision": "34b640612f311ed05a6c7c62c6564847ed555f5f",
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "FAIL",
+    "notes": "Family smoke task=vl-embed. Not Optimized. Not a Nano 30B BF16 result.",
+    "command": [
+      "scripts/mi300x/family-smoke.py",
+      "--model",
+      "nvidia/nemotron-colembed-vl-8b-v2",
+      "--task",
+      "vl-embed",
+      "--output-dir",
+      "results/mi300x/2026-08-16_055910Z"
+    ],
+    "trust_remote_code_requested": false,
+    "queue_task": "vl-embed",
+    "trust_remote_code_required": true,
+    "queue_task_resolved": "vl-embed"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ]
+  },
+  "load": {
+    "config": {
+      "model_type": "qwen3_vl_nemotron_embed",
+      "architectures": [
+        "Qwen3VLNemotronEmbedModel"
+      ],
+      "auto_map": {
+        "AutoConfig": "modeling_qwen3_vl_nemotron_embed.Qwen3VLNemotronEmbedConfig",
+        "AutoModel": "modeling_qwen3_vl_nemotron_embed.Qwen3VLNemotronEmbedModel",
+        "AutoProcessor": "processing_qwen3_vl_nemotron_embed.Qwen3VLNemotronEmbedProcessor"
+      },
+      "pipe": null
+    },
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_failure": {
+      "available": true,
+      "allocated_bytes": 17627830784,
+      "reserved_bytes": 17804820480,
+      "max_allocated_bytes": 17628494336,
+      "max_reserved_bytes": 17804820480
+    }
+  },
+  "outputs": [],
+  "summary": {
+    "success": false,
+    "failure_layer": "OTHER",
+    "error": "ValueError: Image features and image tokens do not match, tokens: 0, features: 4",
+    "traceback": "Traceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 368, in main\n    _run_vl(args, load_kwargs, trust, result_payload, task, work_dir)\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 592, in _run_vl\n    out = model(**packed)\n          ^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/.cache/huggingface/modules/transformers_modules/nvidia/nemotron_hyphen_colembed_hyphen_vl_hyphen_8b_hyphen_v2/34b640612f311ed05a6c7c62c6564847ed555f5f/modeling_qwen3_vl_nemotron_embed.py\", line 301, in forward\n    return self.model(\n           ^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/generic.py\", line 939, in wrapper\n    output = func(self, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py\", line 1179, in forward\n    image_mask, _ = self.get_placeholder_mask(\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py\", line 1084, in get_placeholder_mask\n    torch_compilable_check(\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/import_utils.py\", line 1850, in torch_compilable_check\n    torch._check_tensor_all_with(error_type, cond, msg_callable)\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/__init__.py\", line 1884, in _check_tensor_all_with\n    _check_with(error_type, cond._is_all_true().item(), message)  # type: ignore[arg-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/__init__.py\", line 1743, in _check_with\n    raise error_type(message_evaluated)\nValueError: Image features and image tokens do not match, tokens: 0, features: 4\n"
+  }
+}

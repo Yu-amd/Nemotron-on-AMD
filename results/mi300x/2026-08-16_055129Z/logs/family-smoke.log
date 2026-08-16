@@ -1,0 +1,91 @@
+model=nvidia/Nemotron-3-Embed-8B-BF16 task=embed dtype=bfloat16 revision=None
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+config.json:   0%|          | 0.00/1.12k [00:00<?, ?B/s]config.json: 100%|##########| 1.12k/1.12k [00:00<00:00, 5.24MB/s]
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'apply_yarn_scaling'}
+resolved_task=embed architectures=['Ministral3Model'] model_type=ministral3
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'apply_yarn_scaling'}
+tokenizer_config.json:   0%|          | 0.00/21.1k [00:00<?, ?B/s]tokenizer_config.json: 100%|##########| 21.1k/21.1k [00:00<00:00, 94.2MB/s]
+
+tokenizer.json: reconstructing file:   0%|          |  0.00B / 17.1MB            [Atokenizer.json: downloading bytes:           |  0.00B            
+tokenizer.json: reconstructing file:   1%|1         |  209kB / 17.1MB            [Atokenizer.json: downloading bytes: 1         |  198kB            tokenizer.json: downloading bytes: ##5       | 4.27MB, 19.7kB/s  
+tokenizer.json: reconstructing file: 100%|##########| 17.1MB / 17.1MB, 20.7kB/s  [Atokenizer.json: downloading bytes: ##########| 4.48MB,  441kB/s  tokenizer.json: downloading bytes: ##########| 4.48MB,  441kB/s  
+tokenizer.json: reconstructing file: 100%|##########| 17.1MB / 17.1MB, 1.69MB/s  
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'apply_yarn_scaling'}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+model.safetensors.index.json:   0%|          | 0.00/23.5k [00:00<?, ?B/s]model.safetensors.index.json: 100%|##########| 23.5k/23.5k [00:00<00:00, 103MB/s]
+Downloading bytes:           |  0.00B            
+Reconstructing (incomplete total...): |          |  0.00B /  0.00B            [A
+
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 4.97GB            [A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 9.90GB            [A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 14.8GB            [A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 15.9GB            [ADownloading bytes:           | 16.4kB            Downloading bytes:           | 2.90MB, 30.1kB/s  Downloading bytes:           | 27.0MB, 6.02MB/s  Downloading bytes:           | 48.7MB, 59.8MB/s  Downloading bytes:           | 67.2MB, 98.4MB/s  Downloading bytes:           | 91.8MB,  121MB/s  Downloading bytes:           |  115MB,  154MB/s  Downloading bytes:           |  148MB,  175MB/s  Downloading bytes: 1         |  185MB,  221MB/s  Downloading bytes: 1         |  219MB,  264MB/s  
+Reconstructing (incomplete total...):   1%|          |  134MB / 15.9GB            [ADownloading bytes: 1         |  299MB,  285MB/s  
+Reconstructing (incomplete total...):   1%|1         |  201MB / 15.9GB, 81.4MB/s  [ADownloading bytes: 2         |  350MB,  337MB/s  Downloading bytes: 2         |  390MB,  377MB/s  
+Reconstructing (incomplete total...):   2%|1         |  268MB / 15.9GB,  128MB/s  [ADownloading bytes: 2         |  460MB,  384MB/s  
+Reconstructing (incomplete total...):   2%|2         |  335MB / 15.9GB,  167MB/s  [ADownloading bytes: 3         |  504MB,  368MB/s  
+Reconstructing (incomplete total...):   3%|2         |  402MB / 15.9GB,  202MB/s  [ADownloading bytes: 3         |  551MB,  385MB/s  
+Reconstructing (incomplete total...):   3%|3         |  536MB / 15.9GB,  263MB/s  [ADownloading bytes: 3         |  589MB,  325MB/s  Downloading bytes: 3         |  628MB,  336MB/s  Downloading bytes: 4         |  672MB,  349MB/s  Downloading bytes: 4         |  719MB,  372MB/s  Downloading bytes: 4         |  765MB,  397MB/s  Downloading bytes: 5         |  831MB,  414MB/s  Downloading bytes: 5         |  895MB,  485MB/s  Downloading bytes: 5         |  947MB,  413MB/s  
+Reconstructing (incomplete total...):   5%|4         |  768MB / 15.9GB,  373MB/s  [ADownloading bytes: 6         | 1.02GB,  436MB/s  Downloading bytes: 6         | 1.08GB,  408MB/s  Downloading bytes: 7         | 1.12GB,  367MB/s  Downloading bytes: 7         | 1.17GB,  377MB/s  Downloading bytes: 7         | 1.26GB,  408MB/s  Downloading bytes: 8         | 1.31GB,  412MB/s  
+Reconstructing (incomplete total...):   7%|7         | 1.17GB / 15.9GB,  299MB/s  [ADownloading bytes: 8         | 1.37GB,  436MB/s  Downloading bytes: 8         | 1.42GB,  393MB/s  
+Reconstructing (incomplete total...):   9%|8         | 1.37GB / 15.9GB,  348MB/s  [ADownloading bytes: 9         | 1.49GB,  343MB/s  Downloading bytes: 9         | 1.53GB,  396MB/s  Downloading bytes: #         | 1.59GB,  416MB/s  
+Reconstructing (incomplete total...):   9%|9         | 1.50GB / 15.9GB,  431MB/s  [ADownloading bytes: #         | 1.65GB,  455MB/s  
+Reconstructing (incomplete total...):  11%|#         | 1.70GB / 15.9GB,  405MB/s  [ADownloading bytes: #         | 1.72GB,  383MB/s  Downloading bytes: #1        | 1.78GB,  376MB/s  
+Reconstructing (incomplete total...):  11%|#1        | 1.79GB / 15.9GB,  500MB/s  [ADownloading bytes: #1        | 1.83GB,  423MB/s  
+Reconstructing (incomplete total...):  12%|#1        | 1.86GB / 15.9GB,  490MB/s  [ADownloading bytes: #1        | 1.89GB,  440MB/s  Downloading bytes: #2        | 1.95GB,  486MB/s  Downloading bytes: #2        | 2.01GB,  503MB/s  
+Reconstructing (incomplete total...):  13%|#2        | 2.01GB / 15.9GB,  461MB/s  [ADownloading bytes: #3        | 2.12GB,  540MB/s  Downloading bytes: #3        | 2.21GB,  543MB/s  Downloading bytes: #4        | 2.28GB,  629MB/s  Downloading bytes: #4        | 2.37GB,  638MB/s  Downloading bytes: #5        | 2.45GB,  719MB/s  Downloading bytes: #6        | 2.55GB,  575MB/s  Downloading bytes: #6        | 2.67GB,  673MB/s  
+Reconstructing (incomplete total...):  16%|#6        | 2.57GB / 15.9GB,  425MB/s  [ADownloading bytes: #7        | 2.75GB,  648MB/s  Downloading bytes: #7        | 2.86GB,  680MB/s  
+Reconstructing (incomplete total...):  17%|#6        | 2.64GB / 15.9GB,  536MB/s  [ADownloading bytes: #8        | 2.93GB,  617MB/s  
+Reconstructing (incomplete total...):  19%|#8        | 3.01GB / 15.9GB,  470MB/s  [ADownloading bytes: #8        | 3.00GB,  634MB/s  Downloading bytes: #9        | 3.09GB,  655MB/s  Downloading bytes: #9        | 3.10GB,  788MB/s  Downloading bytes: ##        | 3.20GB,  788MB/s  
+Reconstructing (incomplete total...):  20%|##        | 3.18GB / 15.9GB,  758MB/s  [ADownloading bytes: ##        | 3.29GB,  676MB/s  Downloading bytes: ##        | 3.30GB,  785MB/s  Downloading bytes: ##1       | 3.41GB,  785MB/s  Downloading bytes: ##2       | 3.50GB,  849MB/s  
+Reconstructing (incomplete total...):  22%|##2       | 3.56GB / 15.9GB,  705MB/s  [ADownloading bytes: ##2       | 3.61GB,  875MB/s  Downloading bytes: ##3       | 3.72GB,  930MB/s  
+Reconstructing (incomplete total...):  23%|##3       | 3.70GB / 15.9GB,  789MB/s  [ADownloading bytes: ##4       | 3.82GB,  773MB/s  Downloading bytes: ##4       | 3.83GB,  863MB/s  
+Reconstructing (incomplete total...):  25%|##4       | 3.90GB / 15.9GB,  765MB/s  [ADownloading bytes: ##4       | 3.92GB,  863MB/s  Downloading bytes: ##5       | 4.04GB,  707MB/s  Downloading bytes: ##6       | 4.15GB,  802MB/s  Downloading bytes: ##6       | 4.26GB,  887MB/s  Downloading bytes: ##7       | 4.37GB,  942MB/s  Downloading bytes: ##8       | 4.50GB,  967MB/s  
+Reconstructing (incomplete total...):  26%|##5       | 4.10GB / 15.9GB,  818MB/s  [A
+Reconstructing (incomplete total...):  27%|##6       | 4.23GB / 15.9GB,  583MB/s  [ADownloading bytes: ##9       | 4.64GB, 1.08GB/s  
+Reconstructing (incomplete total...):  28%|##8       | 4.49GB / 15.9GB,  661MB/s  [ADownloading bytes: ###       | 4.79GB, 1.15GB/s  
+
+Fetching 4 files:  25%|##5       | 1/4 [00:09<00:28,  9.34s/it][A[A
+Reconstructing (incomplete total...):  30%|###       | 4.83GB / 15.9GB,  912MB/s  [ADownloading bytes: ###       | 4.90GB,  987MB/s  Downloading bytes: ###       | 4.93GB, 1.09GB/s  Downloading bytes: ###1      | 5.06GB, 1.09GB/s  
+Reconstructing (incomplete total...):  32%|###2      | 5.10GB / 15.9GB, 1.12GB/s  [ADownloading bytes: ###2      | 5.16GB,  903MB/s  Downloading bytes: ###3      | 5.31GB,  943MB/s  
+Reconstructing (incomplete total...):  35%|###4      | 5.50GB / 15.9GB, 1.16GB/s  [ADownloading bytes: ###4      | 5.42GB, 1.03GB/s  Downloading bytes: ###4      | 5.53GB,  872MB/s  Downloading bytes: ###5      | 5.66GB,  905MB/s  Downloading bytes: ###6      | 5.78GB,  985MB/s  
+Reconstructing (incomplete total...):  36%|###5      | 5.70GB / 15.9GB, 1.24GB/s  [ADownloading bytes: ###7      | 5.92GB, 1.04GB/s  Downloading bytes: ###7      | 6.04GB,  897MB/s  Downloading bytes: ###8      | 6.18GB,  968MB/s  Downloading bytes: ###9      | 6.31GB, 1.08GB/s  
+Reconstructing (incomplete total...):  37%|###6      | 5.83GB / 15.9GB,  846MB/s  [ADownloading bytes: ####      | 6.46GB, 1.13GB/s  Downloading bytes: ####1     | 6.58GB,  967MB/s  
+Reconstructing (incomplete total...):  38%|###8      | 6.10GB / 15.9GB,  614MB/s  [ADownloading bytes: ####2     | 6.70GB, 1.02GB/s  
+Reconstructing (incomplete total...):  40%|####      | 6.37GB / 15.9GB,  685MB/s  [ADownloading bytes: ####2     | 6.83GB, 1.05GB/s  
+Reconstructing (incomplete total...):  41%|####1     | 6.57GB / 15.9GB,  891MB/s  [ADownloading bytes: ####3     | 6.95GB, 1.13GB/s  
+Reconstructing (incomplete total...):  44%|####4     | 7.04GB / 15.9GB, 1.04GB/s  [ADownloading bytes: ####4     | 7.10GB, 1.15GB/s  Downloading bytes: ####5     | 7.21GB,  996MB/s  
+Reconstructing (incomplete total...):  48%|####7     | 7.58GB / 15.9GB, 1.62GB/s  [ADownloading bytes: ####6     | 7.35GB, 1.02GB/s  Downloading bytes: ####7     | 7.51GB, 1.11GB/s  Downloading bytes: ####8     | 7.67GB, 1.22GB/s  
+Reconstructing (incomplete total...):  49%|####9     | 7.85GB / 15.9GB, 1.95GB/s  [ADownloading bytes: ####9     | 7.81GB, 1.31GB/s  Downloading bytes: ####9     | 7.95GB, 1.05GB/s  Downloading bytes: #####     | 8.08GB, 1.13GB/s  
+Reconstructing (incomplete total...):  51%|#####1    | 8.12GB / 15.9GB, 1.20GB/s  [ADownloading bytes: #####1    | 8.20GB, 1.16GB/s  
+Reconstructing (incomplete total...):  54%|#####3    | 8.52GB / 15.9GB, 1.11GB/s  [ADownloading bytes: #####2    | 8.33GB, 1.18GB/s  Downloading bytes: #####3    | 8.49GB, 1.20GB/s  Downloading bytes: #####3    | 8.54GB, 1.54GB/s  Downloading bytes: #####4    | 8.71GB, 1.54GB/s  
+Reconstructing (incomplete total...):  55%|#####5    | 8.79GB / 15.9GB, 1.48GB/s  [ADownloading bytes: #####5    | 8.88GB, 1.26GB/s  
+Reconstructing (incomplete total...):  57%|#####6    | 8.99GB / 15.9GB, 1.13GB/s  [ADownloading bytes: #####7    | 9.07GB, 1.33GB/s  Downloading bytes: #####8    | 9.24GB, 1.45GB/s  Downloading bytes: #####8    | 9.31GB, 1.71GB/s  
+Reconstructing (incomplete total...):  59%|#####8    | 9.32GB / 15.9GB, 1.24GB/s  [ADownloading bytes: #####9    | 9.51GB, 1.71GB/s  Downloading bytes: ######1   | 9.73GB, 1.50GB/s  
+Reconstructing (incomplete total...):  64%|######4   | 10.2GB / 15.9GB, 1.40GB/s  [ADownloading bytes: ######2   | 9.90GB, 1.56GB/s  Downloading bytes: ######3   | 10.1GB, 1.59GB/s  Downloading bytes: ######4   | 10.3GB, 1.60GB/s  
+Reconstructing (incomplete total...):  66%|######5   | 10.5GB / 15.9GB, 2.16GB/s  [ADownloading bytes: ######5   | 10.4GB, 1.43GB/s  Downloading bytes: ######6   | 10.6GB, 1.36GB/s  
+Reconstructing (incomplete total...):  70%|######9   | 11.1GB / 15.9GB, 1.38GB/s  [ADownloading bytes: ######7   | 10.8GB, 1.46GB/s  Downloading bytes: ######8   | 11.0GB, 1.52GB/s  Downloading bytes: #######   | 11.2GB, 1.64GB/s  Downloading bytes: #######1  | 11.4GB, 1.73GB/s  
+Reconstructing (incomplete total...):  74%|#######3  | 11.7GB / 15.9GB, 1.77GB/s  [ADownloading bytes: #######2  | 11.6GB, 1.43GB/s  Downloading bytes: #######2  | 11.6GB, 1.60GB/s  Downloading bytes: #######4  | 11.8GB, 1.60GB/s  Downloading bytes: #######5  | 12.0GB, 1.47GB/s  Downloading bytes: #######5  | 12.0GB, 1.55GB/s  
+Reconstructing (incomplete total...):  79%|#######8  | 12.5GB / 15.9GB, 1.52GB/s  [ADownloading bytes: #######6  | 12.2GB, 1.55GB/s  
+Reconstructing (incomplete total...):  80%|########  | 12.7GB / 15.9GB, 1.71GB/s  [ADownloading bytes: #######8  | 12.4GB, 1.38GB/s  Downloading bytes: #######8  | 12.5GB, 1.47GB/s  Downloading bytes: #######9  | 12.7GB, 1.47GB/s  Downloading bytes: ########  | 12.8GB, 1.60GB/s  Downloading bytes: ########2 | 13.1GB, 1.63GB/s  
+Reconstructing (incomplete total...):  83%|########3 | 13.2GB / 15.9GB, 1.68GB/s  [ADownloading bytes: ########3 | 13.2GB, 1.52GB/s  
+Reconstructing (incomplete total...):  86%|########6 | 13.7GB / 15.9GB, 1.36GB/s  [ADownloading bytes: ########4 | 13.4GB, 1.47GB/s  
+Reconstructing (incomplete total...):  89%|########8 | 14.2GB / 15.9GB, 1.52GB/s  [ADownloading bytes: ########5 | 13.6GB, 1.33GB/s  
+Reconstructing (incomplete total...):  92%|#########2| 14.7GB / 15.9GB, 1.74GB/s  [ADownloading bytes: ########6 | 13.7GB, 1.32GB/s  
+Reconstructing (incomplete total...):  94%|#########4| 15.0GB / 15.9GB, 1.97GB/s  [A
+Reconstructing (incomplete total...):  97%|#########6| 15.4GB / 15.9GB, 1.74GB/s  [A
+Reconstructing (incomplete total...):  98%|#########8| 15.6GB / 15.9GB, 1.89GB/s  [A
+Reconstructing (incomplete total...): 100%|##########| 15.9GB / 15.9GB, 1.48GB/s  [A
+
+Fetching 4 files:  50%|#####     | 2/4 [00:18<00:18,  9.40s/it][A[A
+
+Fetching 4 files:  75%|#######5  | 3/4 [00:19<00:05,  5.49s/it][A[A
+
+Fetching 4 files: 100%|##########| 4/4 [00:20<00:00,  3.49s/it][A[AFetching 4 files: 100%|##########| 4/4 [00:20<00:00,  5.01s/it]
+Downloading bytes: ##########| 13.8GB,  792MB/s  Download complete: : ##########| 13.8GB,  792MB/s  
+Reconstruction complete: 100%|##########| 15.9GB / 15.9GB,  745MB/s               [AReconstruction complete: 100%|##########| 15.9GB / 15.9GB,  745MB/s  
+Download complete: : ##########| 13.8GB,  792MB/s  
+Loading weights:   0%|          | 0/308 [00:00<?, ?it/s]Loading weights: 100%|##########| 308/308 [00:00<00:00, 12376.61it/s]
+cosine paraphrase=0.6304 unrelated=0.1175 ok=True
+result=PASS

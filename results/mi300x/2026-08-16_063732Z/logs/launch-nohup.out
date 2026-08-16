@@ -1,0 +1,73 @@
+model=nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16 task=causal dtype=bfloat16 revision=24e67ea000b7c2837fc8f9488aa2008524fac8ba
+resolved_task=causal architectures=['NemotronH_Nano_Omni_Reasoning_V3'] model_type=NemotronH_Nano_Omni_Reasoning_V3
+override config attn 'flash_attention_2' -> eager
+forced nested attn_implementation=eager
+[ERROR] `cache_position` is part of NemotronHForCausalLM.forward's signature, but not documented. Make sure to add it to the docstring of the function in /root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling_nemotron_h.py.
+[transformers] Kernel causal-conv1d not found in _HUB_KERNEL_MAPPING
+[transformers] Kernel mamba-ssm not found in _HUB_KERNEL_MAPPING
+The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/7345 [00:00<?, ?it/s]Loading weights:  17%|#7        | 1277/7345 [00:00<00:00, 12768.22it/s]Loading weights:  35%|###4      | 2554/7345 [00:00<00:00, 11276.82it/s]Loading weights:  50%|#####     | 3693/7345 [00:00<00:00, 10961.17it/s]Loading weights:  65%|######5   | 4795/7345 [00:00<00:00, 10785.56it/s]Loading weights:  80%|########  | 5877/7345 [00:00<00:00, 10621.02it/s]Loading weights:  95%|#########5| 6982/7345 [00:00<00:00, 10739.13it/s]Loading weights: 100%|##########| 7345/7345 [00:00<00:00, 10914.28it/s]
+CausalLM load failed (AttributeError): 'Tee' object has no attribute 'isatty'
+ImageTextToText failed (ValueError); CausalLM retry
+Loading weights:   0%|          | 0/7345 [00:00<?, ?it/s]Loading weights:  18%|#7        | 1299/7345 [00:00<00:00, 12940.74it/s]Loading weights:  35%|###5      | 2594/7345 [00:00<00:00, 11325.49it/s]Loading weights:  51%|#####     | 3740/7345 [00:00<00:00, 10321.50it/s]Loading weights:  65%|######5   | 4810/7345 [00:00<00:00, 10452.42it/s]Loading weights:  80%|#######9  | 5864/7345 [00:00<00:00, 10452.81it/s]Loading weights:  95%|#########5| 6986/7345 [00:00<00:00, 10688.28it/s]Loading weights: 100%|##########| 7345/7345 [00:00<00:00, 10775.33it/s]
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 421, in main
+    model = AutoModelForCausalLM.from_pretrained(args.model, **load_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 385, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4349, in from_pretrained
+    loading_info = cls._finalize_model_loading(model, load_config, loading_info)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4525, in _finalize_model_loading
+    log_state_dict_report(
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/loading_report.py", line 262, in log_state_dict_report
+    report = loading_info.create_loading_report()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/loading_report.py", line 181, in create_loading_report
+    tips += f"\n- {_style('UNEXPECTED:', 'orange')}\t" + _style(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/loading_report.py", line 123, in _style
+    if sys.stdout is not None and sys.stdout.isatty():
+                                  ^^^^^^^^^^^^^^^^^
+AttributeError: 'Tee' object has no attribute 'isatty'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 432, in main
+    model = AutoModelForImageTextToText.from_pretrained(args.model, **load_kwargs_retry)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 405, in from_pretrained
+    raise ValueError(
+ValueError: Unrecognized configuration class <class 'transformers_modules.nvidia.Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16.24e67ea000b7c2837fc8f9488aa2008524fac8ba.configuration.NemotronH_Nano_Omni_Reasoning_V3_Config'> for this kind of AutoModel: AutoModelForImageTextToText.
+Model type should be one of AriaConfig, AyaVisionConfig, BlipConfig, Blip2Config, ChameleonConfig, Cohere2VisionConfig, Cosmos3EdgeConfig, Cosmos3OmniConfig, DeepseekOcr2Config, DeepseekVLConfig, DeepseekVLHybridConfig, DiffusionGemmaConfig, Emu3Config, Ernie4_5_VLMoeConfig, EvollaConfig, Exaone4_5_Config, FastVlmConfig, Florence2Config, FuyuConfig, Gemma3Config, Gemma3nConfig, Gemma4Config, Gemma4UnifiedConfig, GitConfig, Glm46VConfig, Glm4vConfig, Glm4vMoeConfig, GlmOcrConfig, GlmgaConfig, GotOcr2Config, Granite4VisionConfig, HunYuanVLConfig, IdeficsConfig, Idefics2Config, Idefics3Config, InklingConfig, InstructBlipConfig, InstructBlipVideoConfig, InternVLConfig, JanusConfig, Kimi_K25Config, Kosmos2Config, Kosmos2_5Config, Lfm2VlConfig, LightOnOcrConfig, Llama4Config, LlavaConfig, LlavaNextConfig, LlavaNextVideoConfig, LlavaOnevisionConfig, MiniCPMV4_6Config, MiniMaxM3VLConfig, Mistral3Config, Mistral4Config, MllamaConfig, MuseGlimmerConfig, Ovis2Config, PaddleOCRVLConfig, PaliGemmaConfig, PerceptionLMConfig, PI0Config, Pix2StructConfig, PPChart2TableConfig, PPFormulaNetConfig, QianfanOCRConfig, Qwen2_5OmniThinkerConfig, Qwen2_5_VLConfig, Qwen2VLConfig, Qwen3_5Config, Qwen3_5MoeConfig, Qwen3OmniMoeThinkerConfig, Qwen3VLConfig, Qwen3VLMoeConfig, ShieldGemma2Config, SmolVLMConfig, T5Gemma2Config, UdopConfig, VideoLlama3Config, VideoLlavaConfig, VipLlavaConfig, VisionEncoderDecoderConfig.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 437, in main
+    model = AutoModelForCausalLM.from_pretrained(args.model, **load_kwargs_retry)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4349, in from_pretrained
+    loading_info = cls._finalize_model_loading(model, load_config, loading_info)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4525, in _finalize_model_loading
+    log_state_dict_report(
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/loading_report.py", line 262, in log_state_dict_report
+    report = loading_info.create_loading_report()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/loading_report.py", line 181, in create_loading_report
+    tips += f"\n- {_style('UNEXPECTED:', 'orange')}\t" + _style(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/loading_report.py", line 123, in _style
+    if sys.stdout is not None and sys.stdout.isatty():
+                                  ^^^^^^^^^^^^^^^^^
+AttributeError: 'Tee' object has no attribute 'isatty'
+

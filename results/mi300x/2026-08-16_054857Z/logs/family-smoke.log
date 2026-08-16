@@ -1,0 +1,31 @@
+model=nvidia/Nemotron-3-Embed-1B-BF16 task=embed dtype=bfloat16 revision=None
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+config.json:   0%|          | 0.00/1.12k [00:00<?, ?B/s]config.json: 100%|##########| 1.12k/1.12k [00:00<00:00, 5.71MB/s]
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'apply_yarn_scaling'}
+resolved_task=embed architectures=['Ministral3Model'] model_type=ministral3
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'apply_yarn_scaling'}
+tokenizer_config.json:   0%|          | 0.00/21.1k [00:00<?, ?B/s]tokenizer_config.json: 100%|##########| 21.1k/21.1k [00:00<00:00, 107MB/s]
+
+tokenizer.json: reconstructing file:   0%|          |  0.00B / 17.1MB            [Atokenizer.json: downloading bytes:           |  0.00B            
+tokenizer.json: reconstructing file:   1%|          |  131kB / 17.1MB            [Atokenizer.json: downloading bytes:           | 24.4kB            
+tokenizer.json: reconstructing file:   1%|1         |  209kB / 17.1MB, 12.9kB/s  [Atokenizer.json: downloading bytes: #6        | 2.81MB, 2.41kB/s  tokenizer.json: downloading bytes: ##########| 4.48MB,  439kB/s  tokenizer.json: downloading bytes: ##########| 4.48MB,  439kB/s  
+tokenizer.json: reconstructing file: 100%|##########| 17.1MB / 17.1MB, 1.68MB/s  
+[transformers] Unrecognized keys in `rope_parameters` for 'rope_type'='yarn': {'apply_yarn_scaling'}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+model.safetensors: reconstructing file:   0%|          |  0.00B / 2.28GB            [Amodel.safetensors: downloading bytes:           |  0.00B            model.safetensors: downloading bytes:           |  443kB            model.safetensors: downloading bytes:           | 18.1MB, 43.8kB/s  model.safetensors: downloading bytes: 1         | 35.2MB, 1.78MB/s  model.safetensors: downloading bytes: 2         | 62.6MB, 3.44MB/s  model.safetensors: downloading bytes: 3         | 85.6MB, 6.09MB/s  model.safetensors: downloading bytes: 5         |  120MB, 8.28MB/s  model.safetensors: downloading bytes: 6         |  151MB, 11.5MB/s  model.safetensors: downloading bytes: 8         |  192MB, 16.4MB/s  model.safetensors: downloading bytes: #         |  238MB, 20.0MB/s  model.safetensors: downloading bytes: #1        |  273MB, 22.2MB/s  model.safetensors: downloading bytes: #3        |  311MB, 26.7MB/s  model.safetensors: downloading bytes: #5        |  363MB, 30.1MB/s  model.safetensors: downloading bytes: #7        |  405MB, 32.8MB/s  
+model.safetensors: reconstructing file:  12%|#1        |  268MB / 2.28GB            [Amodel.safetensors: downloading bytes: #9        |  447MB, 36.5MB/s  model.safetensors: downloading bytes: ##1       |  486MB, 40.0MB/s  model.safetensors: downloading bytes: ##3       |  531MB, 43.3MB/s  
+model.safetensors: reconstructing file:  15%|#4        |  335MB / 2.28GB, 25.3MB/s  [Amodel.safetensors: downloading bytes: ##5       |  575MB, 47.2MB/s  model.safetensors: downloading bytes: ##7       |  621MB, 50.9MB/s  model.safetensors: downloading bytes: ##9       |  668MB, 54.6MB/s  model.safetensors: downloading bytes: ###2      |  736MB, 61.0MB/s  model.safetensors: downloading bytes: ###4      |  780MB, 63.7MB/s  
+model.safetensors: reconstructing file:  35%|###5      |  805MB / 2.28GB, 30.9MB/s  [Amodel.safetensors: downloading bytes: ###7      |  855MB, 69.9MB/s  model.safetensors: downloading bytes: ###9      |  900MB, 72.8MB/s  model.safetensors: downloading bytes: ####1     |  947MB, 76.3MB/s  
+model.safetensors: reconstructing file:  38%|###8      |  872MB / 2.28GB, 72.1MB/s  [Amodel.safetensors: downloading bytes: ####4     | 1.02GB, 83.0MB/s  
+model.safetensors: reconstructing file:  41%|####1     |  939MB / 2.28GB, 75.6MB/s  [Amodel.safetensors: downloading bytes: ####6     | 1.07GB, 85.4MB/s  model.safetensors: downloading bytes: ####8     | 1.12GB, 88.5MB/s  
+model.safetensors: reconstructing file:  50%|####9     | 1.14GB / 2.28GB, 81.0MB/s  [Amodel.safetensors: downloading bytes: #####2    | 1.20GB, 95.1MB/s  model.safetensors: downloading bytes: #####5    | 1.27GB, 97.9MB/s  model.safetensors: downloading bytes: #####8    | 1.34GB,  104MB/s  model.safetensors: downloading bytes: ######2   | 1.42GB,  109MB/s  model.safetensors: downloading bytes: ######4   | 1.48GB,  115MB/s  
+model.safetensors: reconstructing file:  53%|#####2    | 1.21GB / 2.28GB, 97.0MB/s  [Amodel.safetensors: downloading bytes: ######9   | 1.59GB,  124MB/s  
+model.safetensors: reconstructing file:  62%|######1   | 1.41GB / 2.28GB, 98.7MB/s  [Amodel.safetensors: downloading bytes: #######3  | 1.67GB,  131MB/s  
+model.safetensors: reconstructing file:  79%|#######9  | 1.81GB / 2.28GB,  114MB/s  [Amodel.safetensors: downloading bytes: #######6  | 1.75GB,  134MB/s  model.safetensors: downloading bytes: ########1 | 1.85GB,  140MB/s  
+model.safetensors: reconstructing file:  88%|########8 | 2.01GB / 2.28GB,  150MB/s  [Amodel.safetensors: downloading bytes: ########4 | 1.92GB,  146MB/s  
+model.safetensors: reconstructing file: 100%|##########| 2.28GB / 2.28GB,  160MB/s  [Amodel.safetensors: downloading bytes: ##########| 1.95GB,  145MB/s  model.safetensors: downloading bytes: ##########| 1.95GB,  145MB/s  
+model.safetensors: reconstructing file: 100%|##########| 2.28GB / 2.28GB,  177MB/s  
+Loading weights:   0%|          | 0/146 [00:00<?, ?it/s]Loading weights: 100%|##########| 146/146 [00:00<00:00, 12049.28it/s]
+cosine paraphrase=0.6808 unrelated=0.4270 ok=True
+result=PASS

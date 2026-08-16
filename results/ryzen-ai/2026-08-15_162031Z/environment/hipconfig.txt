@@ -1,0 +1,49 @@
+### command: hipconfig --full
+### started: 2026-08-15T16:20:32+00:00
+
+HIP version: 6.4.43484-123eb5128
+
+==hipconfig
+HIP_PATH           :/opt/rocm-6.4.3
+ROCM_PATH          :/opt/rocm-6.4.3
+HIP_COMPILER       :clang
+HIP_PLATFORM       :amd
+HIP_RUNTIME        :rocclr
+CPP_CONFIG         : -D__HIP_PLATFORM_HCC__= -D__HIP_PLATFORM_AMD__= -I/opt/rocm-6.4.3/include -I/include
+
+==hip-clang
+HIP_CLANG_PATH     :/opt/rocm-6.4.3/lib/llvm/bin
+AMD clang version 19.0.0git (https://github.com/RadeonOpenCompute/llvm-project roc-6.4.3 25224 d366fa84f3fdcbd4b10847ebd5db572ae12a34fb)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /opt/rocm-6.4.3/lib/llvm/bin
+Configuration file: /opt/rocm-6.4.3/lib/llvm/bin/clang++.cfg
+AMD LLVM version 19.0.0git
+  Optimized build.
+  Default target: x86_64-unknown-linux-gnu
+  Host CPU: (unknown)
+
+  Registered Targets:
+    amdgcn - AMD GCN GPUs
+    r600   - AMD GPUs HD2XXX-HD6XXX
+    x86    - 32-bit X86: Pentium-Pro and above
+    x86-64 - 64-bit X86: EM64T and AMD64
+hip-clang-cxxflags :
+ -O3
+hip-clang-ldflags :
+--driver-mode=g++ -O3 --hip-link
+
+== Environment Variables
+PATH =/home/yw/.local/bin:/home/yw/.local/bin:/usr/share/cursor/resources/app/node_modules/@vscode/ripgrep/bin:/home/yw/miniconda3/bin:/home/yw/miniconda3/condabin:/home/yw/.local/bin:/home/yw/.local/bin:/home/yw/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/yw/.lmstudio/bin:/home/yw/.lmstudio/bin:/home/yw/.lmstudio/bin:/home/yw/.lmstudio/bin
+
+== Linux Kernel
+Hostname      :
+yu-framework00
+Linux yu-framework00 6.17.0-35-generic #35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+Distributor ID:	Ubuntu
+Description:	Ubuntu 24.04.3 LTS
+Release:	24.04
+Codename:	noble
+
+
+### finished: 2026-08-15T16:20:32+00:00

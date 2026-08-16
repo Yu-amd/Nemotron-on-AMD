@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "date": "2026-08-16T17:05:19.468881+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/llama-nemotron-embed-vl-1b-v2-fp8",
+    "model_revision": "b4751b329b7d797cb6abfe018e8bedf1051a80aa",
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "FAIL",
+    "notes": "Family smoke task=vl-embed. Not Optimized. Not a Nano 30B BF16 result.",
+    "command": [
+      "scripts/mi300x/family-smoke.py",
+      "--model",
+      "nvidia/llama-nemotron-embed-vl-1b-v2-fp8",
+      "--task",
+      "vl-embed",
+      "--output-dir",
+      "results/mi300x/2026-08-16_170519Z",
+      "--trust-remote-code"
+    ],
+    "trust_remote_code_requested": true,
+    "queue_task": "vl-embed",
+    "queue_task_resolved": "vl-embed"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ]
+  },
+  "load": {
+    "config": {
+      "model_type": "llama_nemotron_vl",
+      "architectures": [
+        "LlamaNemotronVLModel"
+      ],
+      "auto_map": {
+        "AutoConfig": "configuration_llama_nemotron_vl.LlamaNemotronVLConfig",
+        "AutoModel": "modeling_llama_nemotron_vl.LlamaNemotronVLModel"
+      },
+      "pipe": null
+    },
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_failure": {
+      "available": true,
+      "allocated_bytes": 3456007680,
+      "reserved_bytes": 3521118208,
+      "max_allocated_bytes": 3482022400,
+      "max_reserved_bytes": 3521118208
+    }
+  },
+  "outputs": [],
+  "summary": {
+    "success": false,
+    "failure_layer": "OTHER",
+    "error": "TypeError: create_bidirectional_mask() missing 1 required positional argument: 'inputs_embeds'",
+    "traceback": "Traceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 476, in main\n    _run_vl(args, load_kwargs, trust, result_payload, task, work_dir)\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 749, in _run_vl\n    out = model(**packed)\n          ^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/.cache/huggingface/modules/transformers_modules/nvidia/llama_hyphen_nemotron_hyphen_embed_hyphen_vl_hyphen_1b_hyphen_v2_hyphen_fp8/b4751b329b7d797cb6abfe018e8bedf1051a80aa/modeling_llama_nemotron_vl.py\", line 479, in forward\n    outputs = self.language_model(\n              ^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1778, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1789, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/.cache/huggingface/modules/transformers_modules/nvidia/llama_hyphen_nemotron_hyphen_embed_hyphen_vl_hyphen_1b_hyphen_v2_hyphen_fp8/b4751b329b7d797cb6abfe018e8bedf1051a80aa/modeling_llama_nemotron_vl.py\", line 195, in forward\n    bidirectional_mask = self._create_bidirectional_mask(\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/.cache/huggingface/modules/transformers_modules/nvidia/llama_hyphen_nemotron_hyphen_embed_hyphen_vl_hyphen_1b_hyphen_v2_hyphen_fp8/b4751b329b7d797cb6abfe018e8bedf1051a80aa/modeling_llama_nemotron_vl.py\", line 142, in _create_bidirectional_mask\n    return create_bidirectional_mask(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: create_bidirectional_mask() missing 1 required positional argument: 'inputs_embeds'\n"
+  }
+}

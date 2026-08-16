@@ -1,0 +1,112 @@
+# Python environments — never commit
+.venv/
+.venv*/
+venv/
+env/
+ENV/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# Caches
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.huggingface/
+hf_cache/
+.transformers_cache/
+
+# Secrets and credentials — never commit
+.env
+.env.*
+!.env.example
+tokens
+credentials
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*.secret
+hf_token
+HF_TOKEN
+*.token
+
+# llama.cpp prebuilt binaries and local GGUF cache (not results metadata)
+tools/llamacpp/releases/
+tools/llamacpp/src/
+tools/llamacpp/gguf/
+tools/llamacpp/build/
+
+# Model weights and large artifacts
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.gguf
+*.ggml
+*.npz
+models/weights/
+checkpoints/
+huggingface_cache/
+~/.cache/huggingface/
+
+# Core dumps and crash artifacts
+core
+core.*
+*.core
+vgcore.*
+
+# Large logs and binary result artifacts that should stay local
+*.log.gz
+results/**/*.bin
+results/**/*.safetensors
+results/**/*.gguf
+results/**/*.pt
+results/**/*.pth
+
+# Keep result JSON, small logs, and metadata
+# (large stdout captures should be compressed or excluded)
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
+
+# Jupyter
+*.ipynb_checkpoints
+
+# Coverage / test
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# Temporary
+tmp/
+temp/
+scratch/
+*.tmp
+*.bak
+
+# Hugging Face download state
+*.incomplete
+blobs/
+snapshots/
+refs/

@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "date": "2026-08-16T05:57:15.957297+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/llama-nemotron-embed-vl-1b-v2",
+    "model_revision": "582e3bf72aee355e3c59ed89de53543c5b0657ee",
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "FAIL",
+    "notes": "Family smoke task=vl-embed. Not Optimized. Not a Nano 30B BF16 result.",
+    "command": [
+      "scripts/mi300x/family-smoke.py",
+      "--model",
+      "nvidia/llama-nemotron-embed-vl-1b-v2",
+      "--task",
+      "vl-embed",
+      "--output-dir",
+      "results/mi300x/2026-08-16_055715Z"
+    ],
+    "trust_remote_code_requested": false,
+    "queue_task": "vl-embed",
+    "trust_remote_code_required": true,
+    "queue_task_resolved": "vl-embed"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ]
+  },
+  "load": {
+    "config": {
+      "model_type": "llama_nemotron_vl",
+      "architectures": [
+        "LlamaNemotronVLModel"
+      ],
+      "auto_map": {
+        "AutoConfig": "configuration_llama_nemotron_vl.LlamaNemotronVLConfig",
+        "AutoModel": "modeling_llama_nemotron_vl.LlamaNemotronVLModel"
+      },
+      "pipe": null
+    },
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_failure": {
+      "available": true,
+      "allocated_bytes": 3372023296,
+      "reserved_bytes": 3395289088,
+      "max_allocated_bytes": 3372023296,
+      "max_reserved_bytes": 3395289088
+    }
+  },
+  "outputs": [],
+  "summary": {
+    "success": false,
+    "failure_layer": "OTHER",
+    "error": "TypeError: 'Image' object is not iterable",
+    "traceback": "Traceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 368, in main\n    _run_vl(args, load_kwargs, trust, result_payload, task, work_dir)\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 589, in _run_vl\n    packed = processor(images=image, text=\"a blue square\", return_tensors=\"pt\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/.cache/huggingface/modules/transformers_modules/nvidia/llama_hyphen_nemotron_hyphen_embed_hyphen_vl_hyphen_1b_hyphen_v2/582e3bf72aee355e3c59ed89de53543c5b0657ee/processing_llama_nemotron_vl.py\", line 255, in __call__\n    documents = [{\"image\": img, \"text\": t} for img, t in zip(images, text)]\n                                                         ^^^^^^^^^^^^^^^^^\nTypeError: 'Image' object is not iterable\n"
+  }
+}

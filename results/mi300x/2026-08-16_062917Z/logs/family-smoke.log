@@ -1,0 +1,72 @@
+model=nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16 task=causal dtype=bfloat16 revision=24e67ea000b7c2837fc8f9488aa2008524fac8ba
+resolved_task=causal architectures=['NemotronH_Nano_Omni_Reasoning_V3'] model_type=NemotronH_Nano_Omni_Reasoning_V3
+override config attn 'flash_attention_2' -> sdpa
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[ERROR] `cache_position` is part of NemotronHForCausalLM.forward's signature, but not documented. Make sure to add it to the docstring of the function in /root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling_nemotron_h.py.
+CausalLM load failed (ValueError): NemotronH_Nano_Omni_Reasoning_V3 does not support an attention implementation through torch.nn.functional.scaled_dot_product_attention yet. Please request the support for this architecture: https://github.com/huggingface/transformers/issues/28005. If you believe this error is a bug, please open an issue in Transformers GitHub repository and load your model with the argument `attn_implementation="eager"` meanwhile. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="eager")`
+ImageTextToText failed (ValueError); CausalLM sdpa retry
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 402, in main
+    model = AutoModelForCausalLM.from_pretrained(args.model, **load_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 385, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4305, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 78, in __init__
+    super().__init__(config)
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1346, in __init__
+    self.config._attn_implementation_internal = self._check_and_adjust_attn_implementation(
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1904, in _check_and_adjust_attn_implementation
+    applicable_attn_implementation = self.get_correct_attn_implementation(
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1960, in get_correct_attn_implementation
+    raise e
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1957, in get_correct_attn_implementation
+    self._sdpa_can_dispatch(is_init_check)
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1753, in _sdpa_can_dispatch
+    raise ValueError(
+ValueError: NemotronH_Nano_Omni_Reasoning_V3 does not support an attention implementation through torch.nn.functional.scaled_dot_product_attention yet. Please request the support for this architecture: https://github.com/huggingface/transformers/issues/28005. If you believe this error is a bug, please open an issue in Transformers GitHub repository and load your model with the argument `attn_implementation="eager"` meanwhile. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="eager")`
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 410, in main
+    model = AutoModelForImageTextToText.from_pretrained(args.model, **load_kwargs_retry)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 405, in from_pretrained
+    raise ValueError(
+ValueError: Unrecognized configuration class <class 'transformers_modules.nvidia.Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16.24e67ea000b7c2837fc8f9488aa2008524fac8ba.configuration.NemotronH_Nano_Omni_Reasoning_V3_Config'> for this kind of AutoModel: AutoModelForImageTextToText.
+Model type should be one of AriaConfig, AyaVisionConfig, BlipConfig, Blip2Config, ChameleonConfig, Cohere2VisionConfig, Cosmos3EdgeConfig, Cosmos3OmniConfig, DeepseekOcr2Config, DeepseekVLConfig, DeepseekVLHybridConfig, DiffusionGemmaConfig, Emu3Config, Ernie4_5_VLMoeConfig, EvollaConfig, Exaone4_5_Config, FastVlmConfig, Florence2Config, FuyuConfig, Gemma3Config, Gemma3nConfig, Gemma4Config, Gemma4UnifiedConfig, GitConfig, Glm46VConfig, Glm4vConfig, Glm4vMoeConfig, GlmOcrConfig, GlmgaConfig, GotOcr2Config, Granite4VisionConfig, HunYuanVLConfig, IdeficsConfig, Idefics2Config, Idefics3Config, InklingConfig, InstructBlipConfig, InstructBlipVideoConfig, InternVLConfig, JanusConfig, Kimi_K25Config, Kosmos2Config, Kosmos2_5Config, Lfm2VlConfig, LightOnOcrConfig, Llama4Config, LlavaConfig, LlavaNextConfig, LlavaNextVideoConfig, LlavaOnevisionConfig, MiniCPMV4_6Config, MiniMaxM3VLConfig, Mistral3Config, Mistral4Config, MllamaConfig, MuseGlimmerConfig, Ovis2Config, PaddleOCRVLConfig, PaliGemmaConfig, PerceptionLMConfig, PI0Config, Pix2StructConfig, PPChart2TableConfig, PPFormulaNetConfig, QianfanOCRConfig, Qwen2_5OmniThinkerConfig, Qwen2_5_VLConfig, Qwen2VLConfig, Qwen3_5Config, Qwen3_5MoeConfig, Qwen3OmniMoeThinkerConfig, Qwen3VLConfig, Qwen3VLMoeConfig, ShieldGemma2Config, SmolVLMConfig, T5Gemma2Config, UdopConfig, VideoLlama3Config, VideoLlavaConfig, VipLlavaConfig, VisionEncoderDecoderConfig.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 413, in main
+    model = AutoModelForCausalLM.from_pretrained(args.model, **load_kwargs_retry)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4305, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 78, in __init__
+    super().__init__(config)
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1346, in __init__
+    self.config._attn_implementation_internal = self._check_and_adjust_attn_implementation(
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1904, in _check_and_adjust_attn_implementation
+    applicable_attn_implementation = self.get_correct_attn_implementation(
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1960, in get_correct_attn_implementation
+    raise e
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1957, in get_correct_attn_implementation
+    self._sdpa_can_dispatch(is_init_check)
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1753, in _sdpa_can_dispatch
+    raise ValueError(
+ValueError: NemotronH_Nano_Omni_Reasoning_V3 does not support an attention implementation through torch.nn.functional.scaled_dot_product_attention yet. Please request the support for this architecture: https://github.com/huggingface/transformers/issues/28005. If you believe this error is a bug, please open an issue in Transformers GitHub repository and load your model with the argument `attn_implementation="eager"` meanwhile. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="eager")`
+

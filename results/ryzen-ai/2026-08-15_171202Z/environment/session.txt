@@ -1,0 +1,6 @@
+date_utc=2026-08-15T17:12:02+00:00
+date_local=2026-08-15T10:12:02-07:00
+hostname=yu-framework00
+user=yw
+pwd=/home/yw/Desktop/Nemotron-on-AMD
+repo_root=/home/yw/Desktop/Nemotron-on-AMD

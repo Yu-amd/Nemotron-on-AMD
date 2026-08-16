@@ -1,0 +1,18 @@
+model=nvidia/llama-nemotron-embed-vl-1b-v2 task=vl-embed dtype=bfloat16 revision=582e3bf72aee355e3c59ed89de53543c5b0657ee
+resolved_task=vl-embed architectures=['LlamaNemotronVLModel'] model_type=llama_nemotron_vl
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/600 [00:00<?, ?it/s]Loading weights: 100%|##########| 600/600 [00:00<00:00, 8765.80it/s]
+processor ok via process_documents
+[transformers] `use_return_dict` is deprecated! Use `return_dict` instead!
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 436, in main
+    _run_vl(args, load_kwargs, trust, result_payload, task, work_dir)
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 683, in _run_vl
+    vec = out[0][:, 0] if hasattr(out[0], "ndim") else out[0]
+                                  ~~~^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/generic.py", line 526, in __getitem__
+    return self.to_tuple()[k]
+           ~~~~~~~~~~~~~~~^^^
+IndexError: tuple index out of range
+

@@ -1,0 +1,54 @@
+model=nvidia/llama-nemotron-embed-vl-1b-v2 task=vl-embed dtype=bfloat16 revision=None
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+config.json:   0%|          | 0.00/5.88k [00:00<?, ?B/s]config.json: 100%|##########| 5.88k/5.88k [00:00<00:00, 27.7MB/s]
+retry AutoConfig with trust_remote_code=True
+configuration_llama_nemotron_vl.py:   0%|          | 0.00/5.13k [00:00<?, ?B/s]configuration_llama_nemotron_vl.py: 100%|##########| 5.13k/5.13k [00:00<00:00, 25.6MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/llama-nemotron-embed-vl-1b-v2:
+- configuration_llama_nemotron_vl.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+resolved_task=vl-embed architectures=['LlamaNemotronVLModel'] model_type=llama_nemotron_vl
+processor_config.json:   0%|          | 0.00/549 [00:00<?, ?B/s]processor_config.json: 100%|##########| 549/549 [00:00<00:00, 4.12MB/s]
+chat_template.jinja:   0%|          | 0.00/1.49k [00:00<?, ?B/s]chat_template.jinja: 100%|##########| 1.49k/1.49k [00:00<00:00, 8.78MB/s]
+processing_llama_nemotron_vl.py:   0%|          | 0.00/22.2k [00:00<?, ?B/s]processing_llama_nemotron_vl.py: 100%|##########| 22.2k/22.2k [00:00<00:00, 82.6MB/s]
+[transformers] Encountered exception while importing requests: No module named 'requests'
+[transformers] Encountered exception while importing torchvision: No module named 'torchvision'
+[transformers] Encountered exception while importing requests: No module named 'requests'
+[transformers] Encountered exception while importing torchvision: No module named 'torchvision'
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 565, in _run_vl
+    processor = AutoProcessor.from_pretrained(args.model, revision=args.revision, trust_remote_code=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/processing_auto.py", line 319, in from_pretrained
+    processor_class = get_class_from_dynamic_module(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 612, in get_class_from_dynamic_module
+    final_module = get_cached_module_file(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 441, in get_cached_module_file
+    modules_needed = check_imports(resolved_module_file)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 258, in check_imports
+    raise ImportError(
+ImportError: This modeling file requires the following packages that were not found in your environment: requests, torchvision. Run `pip install requests torchvision`
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 368, in main
+    _run_vl(args, load_kwargs, trust, result_payload, task, work_dir)
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 567, in _run_vl
+    processor = AutoProcessor.from_pretrained(args.model, revision=args.revision, trust_remote_code=True, use_fast=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/processing_auto.py", line 319, in from_pretrained
+    processor_class = get_class_from_dynamic_module(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 612, in get_class_from_dynamic_module
+    final_module = get_cached_module_file(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 441, in get_cached_module_file
+    modules_needed = check_imports(resolved_module_file)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 258, in check_imports
+    raise ImportError(
+ImportError: This modeling file requires the following packages that were not found in your environment: requests, torchvision. Run `pip install requests torchvision`
+

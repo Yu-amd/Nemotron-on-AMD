@@ -1,0 +1,26 @@
+{
+  "date": "2026-08-16T06:24:19.024543+00:00",
+  "platform": "mi300x",
+  "gpu": "AMD Instinct MI300X VF",
+  "model": "nvidia/NVIDIA-Nemotron-Parse-2.0",
+  "model_revision": "635b84d9b09bb9526b9a684d0b2c953d3cc3df05",
+  "precision": "bfloat16",
+  "runtime": "transformers",
+  "runtime_version": "5.15.0",
+  "rocm_version": "7.14.60850",
+  "pytorch_version": "2.12.0+rocm7.14.0",
+  "result": "FAIL",
+  "notes": "Family smoke task=parse. Not Optimized. Not a Nano 30B BF16 result.",
+  "command": [
+    "scripts/mi300x/family-smoke.py",
+    "--model",
+    "nvidia/NVIDIA-Nemotron-Parse-2.0",
+    "--task",
+    "parse",
+    "--output-dir",
+    "results/mi300x/2026-08-16_062418Z",
+    "--trust-remote-code"
+  ],
+  "trust_remote_code_requested": true,
+  "queue_task": "parse"
+}

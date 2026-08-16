@@ -1,0 +1,36 @@
+
+
+Loading model... |-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\ 
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b10453-3cb7ffb1a
+model      : /home/yw/Desktop/Nemotron-on-AMD/tools/llamacpp/gguf/Nemotron-3-Nano-30B-A3B-Q4_K_M.gguf
+ftype      : Q4_K - Medium
+modalities : text
+using custom system prompt
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> Summarize the following paragraph in exactly two sentences.
+
+AMD Instinct MI300X accelerators provide 192 GB of HBM3 memory per GPU. Software support for large language models on this hardware typically goes through ROCm, HIP-enabled PyTorch, and inference servers such as vLLM. NVIDIA Nemotron 3 Nano is a hybrid Mamba-Transformer Mixture-of-Experts model with a published BF16 checkpoint on Hugging Face. Whether that checkpoint actually loads and generates correctly on MI300X is an empirical ques ... (truncated)
+The AMD Instinct MI300X delivers 192 GB of HBM3 memory per GPU and relies on ROCm, HIP‑enabled PyTorch, and inference servers like vLLM for large‑language‑model software. While NVIDIA’s Nemotron 3 Nano is a hybrid Mamba‑Transformer MoE model with a BF16 checkpoint on Hugging Face, its ability to load and generate on the MI3
+
+[ Prompt: 104.5 t/s | Generation: 23.9 t/s ]
+
+
+Exiting...

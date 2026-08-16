@@ -1,0 +1,41 @@
+# MI300X Transformers-first environment.
+# Checked against NVIDIA Nano BF16 card + vLLM ROCm install docs on 2026-08-15.
+#
+# DO NOT install this file blindly.
+# DO NOT use this file on the Strix Point laptop.
+# Create .venv-mi300x first: bash scripts/mi300x/setup-python-env.sh --install
+#
+# torch MUST come from a ROCm wheel index, for example:
+#   https://download.pytorch.org/whl/rocm6.4
+#   https://download.pytorch.org/whl/rocm7.0
+# Never: https://download.pytorch.org/whl/cu*
+#
+# Official Nano Transformers integration: transformers>=5.3.0
+# Exact torch / hip / accelerate / tokenizers versions are UNKNOWN until the
+# MI300X host is discovered. Record them in results/mi300x/<timestamp>/.
+
+# torch  # install with --index-url a ROCm index, never /whl/cu*
+transformers>=5.3.0
+accelerate
+safetensors
+tokenizers
+huggingface_hub
+
+# Extra wheels used by family-smoke VL / Parse / ASR (install into .venv-mi300x only).
+# torchvision MUST be a ROCm wheel matching this host torch. HIP 7.14 + torch
+# 2.12.0+rocm7.14.0: torchvision==0.27.0+rocm7.14.0 from
+#   https://repo.amd.com/rocm/whl-multi-arch/ --no-deps
+# Do not pip install CUDA torchvision.
+Pillow
+requests
+librosa
+soundfile
+datasets==3.6.0
+einops
+# timm: pip install timm==1.0.15 --no-deps (resolver recursion on this host)
+
+# vLLM on this MI300X host (HIP 7.14, Python 3.12): AMD’s documented ROCm 7.14
+# vLLM path is Python 3.14 Docker
+#   rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
+# Do NOT pip install the default CUDA vllm wheel into .venv-mi300x.
+# Evidence: results/mi300x/2026-08-15_223840Z/

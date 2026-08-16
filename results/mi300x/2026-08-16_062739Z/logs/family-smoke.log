@@ -1,0 +1,67 @@
+model=nvidia/NVIDIA-Nemotron-Parse-2.0 task=parse dtype=bfloat16 revision=635b84d9b09bb9526b9a684d0b2c953d3cc3df05
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/C-RADIOv2-H:
+- open_clip_adaptor.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+resolved_task=parse architectures=['NemotronParseForConditionalGeneration'] model_type=nemotron_parse
+processor_config.json:   0%|          | 0.00/287 [00:00<?, ?B/s]processor_config.json: 100%|##########| 287/287 [00:00<00:00, 2.42MB/s]
+chat_template.jinja:   0%|          | 0.00/66.0 [00:00<?, ?B/s]chat_template.jinja: 100%|##########| 66.0/66.0 [00:00<00:00, 534kB/s]
+hf_nemotron_parse_processor.py:   0%|          | 0.00/16.0k [00:00<?, ?B/s]hf_nemotron_parse_processor.py: 100%|##########| 16.0k/16.0k [00:00<00:00, 69.1MB/s]
+preprocessor_config.json:   0%|          | 0.00/720 [00:00<?, ?B/s]preprocessor_config.json: 100%|##########| 720/720 [00:00<00:00, 7.07MB/s]
+tokenizer_config.json:   0%|          | 0.00/414k [00:00<?, ?B/s]tokenizer_config.json: 100%|##########| 414k/414k [00:00<00:00, 446MB/s]
+tokenizer.json:   0%|          | 0.00/7.58M [00:00<?, ?B/s]tokenizer.json: 100%|##########| 7.58M/7.58M [00:00<00:00, 341MB/s]
+special_tokens_map.json:   0%|          | 0.00/747 [00:00<?, ?B/s]special_tokens_map.json: 100%|##########| 747/747 [00:00<00:00, 8.45MB/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+hf_nemotron_parse_modeling.py:   0%|          | 0.00/34.4k [00:00<?, ?B/s]hf_nemotron_parse_modeling.py: 100%|##########| 34.4k/34.4k [00:00<00:00, 111MB/s]
+
+model.safetensors: reconstructing file:   0%|          |  0.00B / 3.61GB            [Amodel.safetensors: downloading bytes:           |  0.00B            
+model.safetensors: reconstructing file:   0%|          | 82.6kB / 3.61GB            [Amodel.safetensors: downloading bytes:           | 14.1kB            model.safetensors: downloading bytes:           |  441kB, 1.40kB/s  model.safetensors: downloading bytes:           | 21.2MB, 43.4kB/s  model.safetensors: downloading bytes: 1         | 47.9MB, 2.08MB/s  model.safetensors: downloading bytes: 1         | 68.9MB, 4.67MB/s  model.safetensors: downloading bytes: 2         | 90.0MB, 6.68MB/s  model.safetensors: downloading bytes: 3         |  117MB, 8.67MB/s  model.safetensors: downloading bytes: 4         |  151MB, 11.2MB/s  
+model.safetensors: reconstructing file:   2%|1         | 67.1MB / 3.61GB, 8.16kB/s  [Amodel.safetensors: downloading bytes: 5         |  194MB, 16.1MB/s  model.safetensors: downloading bytes: 6         |  242MB, 19.8MB/s  model.safetensors: downloading bytes: 7         |  276MB, 22.5MB/s  
+model.safetensors: reconstructing file:   4%|3         |  134MB / 3.61GB, 6.46MB/s  [Amodel.safetensors: downloading bytes: 8         |  312MB, 25.5MB/s  model.safetensors: downloading bytes: 9         |  351MB, 28.7MB/s  
+model.safetensors: reconstructing file:   7%|7         |  268MB / 3.61GB, 12.6MB/s  [Amodel.safetensors: downloading bytes: #         |  393MB, 32.1MB/s  model.safetensors: downloading bytes: #1        |  433MB, 35.8MB/s  model.safetensors: downloading bytes: #3        |  482MB, 39.2MB/s  
+model.safetensors: reconstructing file:   9%|9         |  335MB / 3.61GB, 25.1MB/s  [Amodel.safetensors: downloading bytes: #4        |  536MB, 43.5MB/s  model.safetensors: downloading bytes: #6        |  587MB, 48.2MB/s  model.safetensors: downloading bytes: #7        |  635MB, 52.5MB/s  
+model.safetensors: reconstructing file:  13%|#2        |  469MB / 3.61GB, 30.7MB/s  [Amodel.safetensors: downloading bytes: #9        |  701MB, 59.4MB/s  model.safetensors: downloading bytes: ##        |  748MB, 61.6MB/s  
+model.safetensors: reconstructing file:  19%|#8        |  671MB / 3.61GB, 42.3MB/s  [Amodel.safetensors: downloading bytes: ##2       |  812MB, 65.3MB/s  model.safetensors: downloading bytes: ##5       |  905MB, 74.2MB/s  
+model.safetensors: reconstructing file:  22%|##2       |  805MB / 3.61GB, 59.8MB/s  [Amodel.safetensors: downloading bytes: ##6       |  965MB, 77.9MB/s  model.safetensors: downloading bytes: ##8       | 1.03GB, 82.8MB/s  model.safetensors: downloading bytes: ###       | 1.10GB, 88.1MB/s  
+model.safetensors: reconstructing file:  24%|##4       |  872MB / 3.61GB, 70.5MB/s  [Amodel.safetensors: downloading bytes: ###2      | 1.17GB, 93.8MB/s  
+model.safetensors: reconstructing file:  26%|##5       |  939MB / 3.61GB, 74.7MB/s  [Amodel.safetensors: downloading bytes: ###4      | 1.24GB, 99.2MB/s  model.safetensors: downloading bytes: ###7      | 1.37GB,  110MB/s  
+model.safetensors: reconstructing file:  33%|###3      | 1.21GB / 3.61GB, 80.1MB/s  [A
+model.safetensors: reconstructing file:  35%|###5      | 1.27GB / 3.61GB,  102MB/s  [Amodel.safetensors: downloading bytes: ####1     | 1.50GB,  118MB/s  model.safetensors: downloading bytes: ####3     | 1.58GB,  124MB/s  
+model.safetensors: reconstructing file:  39%|###8      | 1.41GB / 3.61GB,  107MB/s  [Amodel.safetensors: downloading bytes: ####7     | 1.73GB,  135MB/s  model.safetensors: downloading bytes: #####     | 1.83GB,  141MB/s  
+model.safetensors: reconstructing file:  41%|####      | 1.48GB / 3.61GB,  118MB/s  [Amodel.safetensors: downloading bytes: #####4    | 1.97GB,  154MB/s  model.safetensors: downloading bytes: #####7    | 2.08GB,  163MB/s  model.safetensors: downloading bytes: #####9    | 2.16GB,  166MB/s  model.safetensors: downloading bytes: ######2   | 2.25GB,  171MB/s  model.safetensors: downloading bytes: ######4   | 2.32GB,  177MB/s  model.safetensors: downloading bytes: ######6   | 2.42GB,  183MB/s  
+model.safetensors: reconstructing file:  59%|#####9    | 2.15GB / 3.61GB,  119MB/s  [Amodel.safetensors: downloading bytes: ######9   | 2.51GB,  189MB/s  model.safetensors: downloading bytes: #######1  | 2.60GB,  196MB/s  model.safetensors: downloading bytes: #######4  | 2.69GB,  202MB/s  model.safetensors: downloading bytes: #######8  | 2.84GB,  213MB/s  model.safetensors: downloading bytes: ########  | 2.92GB,  217MB/s  model.safetensors: downloading bytes: ########5 | 3.09GB,  227MB/s  model.safetensors: downloading bytes: ########9 | 3.22GB,  237MB/s  
+model.safetensors: reconstructing file:  80%|#######9  | 2.88GB / 3.61GB,  171MB/s  [A
+model.safetensors: reconstructing file:  84%|########3 | 3.02GB / 3.61GB,  221MB/s  [Amodel.safetensors: downloading bytes: #########2| 3.35GB,  243MB/s  
+model.safetensors: reconstructing file:  93%|#########2| 3.35GB / 3.61GB,  230MB/s  [A
+model.safetensors: reconstructing file:  98%|#########8| 3.55GB / 3.61GB,  256MB/s  [Amodel.safetensors: downloading bytes: #########4| 3.42GB,  245MB/s  model.safetensors: downloading bytes: ##########| 3.42GB,  241MB/s  model.safetensors: downloading bytes: ##########| 3.42GB,  241MB/s  
+model.safetensors: reconstructing file: 100%|##########| 3.61GB / 3.61GB,  268MB/s  
+AutoModel retry without attn_implementation (ValueError)
+No pretrained configuration specified for vit_huge_patch16_224 model. Using a default. Please add a config to the model pretrained_cfg registry or pass explicitly.
+Loading weights:   0%|          | 0/666 [00:00<?, ?it/s]Loading weights:  71%|#######1  | 476/666 [00:00<00:00, 4750.68it/s]Loading weights: 100%|##########| 666/666 [00:00<00:00, 4433.73it/s]
+generation_config.json:   0%|          | 0.00/284 [00:00<?, ?B/s]generation_config.json: 100%|##########| 284/284 [00:00<00:00, 2.74MB/s]
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 691, in _run_vl
+    model = AutoModelForImageTextToText.from_pretrained(args.model, **load_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 405, in from_pretrained
+    raise ValueError(
+ValueError: Unrecognized configuration class <class 'transformers_modules.nvidia.NVIDIA_hyphen_Nemotron_hyphen_Parse_hyphen_2_dot_0.635b84d9b09bb9526b9a684d0b2c953d3cc3df05.hf_nemotron_parse_config.NemotronParseConfig'> for this kind of AutoModel: AutoModelForImageTextToText.
+Model type should be one of AriaConfig, AyaVisionConfig, BlipConfig, Blip2Config, ChameleonConfig, Cohere2VisionConfig, Cosmos3EdgeConfig, Cosmos3OmniConfig, DeepseekOcr2Config, DeepseekVLConfig, DeepseekVLHybridConfig, DiffusionGemmaConfig, Emu3Config, Ernie4_5_VLMoeConfig, EvollaConfig, Exaone4_5_Config, FastVlmConfig, Florence2Config, FuyuConfig, Gemma3Config, Gemma3nConfig, Gemma4Config, Gemma4UnifiedConfig, GitConfig, Glm46VConfig, Glm4vConfig, Glm4vMoeConfig, GlmOcrConfig, GlmgaConfig, GotOcr2Config, Granite4VisionConfig, HunYuanVLConfig, IdeficsConfig, Idefics2Config, Idefics3Config, InklingConfig, InstructBlipConfig, InstructBlipVideoConfig, InternVLConfig, JanusConfig, Kimi_K25Config, Kosmos2Config, Kosmos2_5Config, Lfm2VlConfig, LightOnOcrConfig, Llama4Config, LlavaConfig, LlavaNextConfig, LlavaNextVideoConfig, LlavaOnevisionConfig, MiniCPMV4_6Config, MiniMaxM3VLConfig, Mistral3Config, Mistral4Config, MllamaConfig, MuseGlimmerConfig, Ovis2Config, PaddleOCRVLConfig, PaliGemmaConfig, PerceptionLMConfig, PI0Config, Pix2StructConfig, PPChart2TableConfig, PPFormulaNetConfig, QianfanOCRConfig, Qwen2_5OmniThinkerConfig, Qwen2_5_VLConfig, Qwen2VLConfig, Qwen3_5Config, Qwen3_5MoeConfig, Qwen3OmniMoeThinkerConfig, Qwen3VLConfig, Qwen3VLMoeConfig, ShieldGemma2Config, SmolVLMConfig, T5Gemma2Config, UdopConfig, VideoLlama3Config, VideoLlavaConfig, VipLlavaConfig, VisionEncoderDecoderConfig.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 445, in main
+    _run_vl(args, load_kwargs, trust, result_payload, task, work_dir)
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 694, in _run_vl
+    model = AutoModelForImageTextToText.from_pretrained(args.model, **load_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 405, in from_pretrained
+    raise ValueError(
+ValueError: Unrecognized configuration class <class 'transformers_modules.nvidia.NVIDIA_hyphen_Nemotron_hyphen_Parse_hyphen_2_dot_0.635b84d9b09bb9526b9a684d0b2c953d3cc3df05.hf_nemotron_parse_config.NemotronParseConfig'> for this kind of AutoModel: AutoModelForImageTextToText.
+Model type should be one of AriaConfig, AyaVisionConfig, BlipConfig, Blip2Config, ChameleonConfig, Cohere2VisionConfig, Cosmos3EdgeConfig, Cosmos3OmniConfig, DeepseekOcr2Config, DeepseekVLConfig, DeepseekVLHybridConfig, DiffusionGemmaConfig, Emu3Config, Ernie4_5_VLMoeConfig, EvollaConfig, Exaone4_5_Config, FastVlmConfig, Florence2Config, FuyuConfig, Gemma3Config, Gemma3nConfig, Gemma4Config, Gemma4UnifiedConfig, GitConfig, Glm46VConfig, Glm4vConfig, Glm4vMoeConfig, GlmOcrConfig, GlmgaConfig, GotOcr2Config, Granite4VisionConfig, HunYuanVLConfig, IdeficsConfig, Idefics2Config, Idefics3Config, InklingConfig, InstructBlipConfig, InstructBlipVideoConfig, InternVLConfig, JanusConfig, Kimi_K25Config, Kosmos2Config, Kosmos2_5Config, Lfm2VlConfig, LightOnOcrConfig, Llama4Config, LlavaConfig, LlavaNextConfig, LlavaNextVideoConfig, LlavaOnevisionConfig, MiniCPMV4_6Config, MiniMaxM3VLConfig, Mistral3Config, Mistral4Config, MllamaConfig, MuseGlimmerConfig, Ovis2Config, PaddleOCRVLConfig, PaliGemmaConfig, PerceptionLMConfig, PI0Config, Pix2StructConfig, PPChart2TableConfig, PPFormulaNetConfig, QianfanOCRConfig, Qwen2_5OmniThinkerConfig, Qwen2_5_VLConfig, Qwen2VLConfig, Qwen3_5Config, Qwen3_5MoeConfig, Qwen3OmniMoeThinkerConfig, Qwen3VLConfig, Qwen3VLMoeConfig, ShieldGemma2Config, SmolVLMConfig, T5Gemma2Config, UdopConfig, VideoLlama3Config, VideoLlavaConfig, VipLlavaConfig, VisionEncoderDecoderConfig.
+

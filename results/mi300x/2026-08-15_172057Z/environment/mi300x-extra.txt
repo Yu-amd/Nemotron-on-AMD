@@ -1,0 +1,293 @@
+### MI300X extra probes
+### started: 2026-08-15T17:20:59+00:00
+
+=== rocm-smi memory / use ===
+
+
+============================ ROCm System Management Interface ============================
+================================== Memory Usage (Bytes) ==================================
+GPU[0]		: VRAM Total Memory (B): 205822885888
+GPU[0]		: VRAM Total Used Memory (B): 299687936
+==========================================================================================
+================================== End of ROCm SMI Log ===================================
+
+
+============================ ROCm System Management Interface ============================
+====================================== Product Info ======================================
+GPU[0]		: Card Series: 		AMD Instinct MI300X VF
+GPU[0]		: Card Model: 		0x74b5
+GPU[0]		: Card Vendor: 		Advanced Micro Devices, Inc. [AMD/ATI]
+GPU[0]		: Card SKU: 		M3000100
+GPU[0]		: Subsystem ID: 	0x74a1
+GPU[0]		: Device Rev: 		0x00
+GPU[0]		: Node ID: 		1
+GPU[0]		: GUID: 		21947
+GPU[0]		: GFX Version: 		gfx942
+==========================================================================================
+================================== End of ROCm SMI Log ===================================
+
+
+============================ ROCm System Management Interface ============================
+============================== Version of System Component ===============================
+Driver version: 6.19.14.31400000
+==========================================================================================
+================================== End of ROCm SMI Log ===================================
+
+
+============================ ROCm System Management Interface ============================
+================================== Firmware Information ==================================
+GPU[0]		: MEC firmware version: 	32957
+GPU[0]		: MEC2 firmware version: 	32957
+GPU[0]		: RLC firmware version: 	69
+GPU[0]		: RLC SRLC firmware version: 	4
+GPU[0]		: RLC SRLG firmware version: 	4
+GPU[0]		: RLC SRLS firmware version: 	4
+GPU[0]		: SDMA firmware version: 	24
+GPU[0]		: SDMA2 firmware version: 	24
+GPU[0]		: SMC firmware version: 	00.85.117.01
+GPU[0]		: TA RAS firmware version: 	27.54.02.26
+GPU[0]		: TA XGMI firmware version: 	32.00.00.20
+GPU[0]		: VCN firmware version: 	0x09117009
+==========================================================================================
+================================== End of ROCm SMI Log ===================================
+
+
+============================ ROCm System Management Interface ============================
+======================================= Bandwidth ========================================
+       GPU0         
+GPU0   N/A          
+Format: min-max; Units: mps
+"0-0" min-max bandwidth indicates devices are not connected directly
+================================== End of ROCm SMI Log ===================================
+
+=== amd-smi (if present) ===
+AMDSMI Tool: 26.5.0+2b22ab01 | AMDSMI Library version: 26.5.0 | ROCm version: 7.14.0 | amdgpu version: 6.19.14.31400000 | ionic version: N/A
+GPU: 0
+    BDF: 0000:83:00.0
+    UUID: 7a0074b5-0000-1000-80e4-316d9931088c
+    KFD_ID: 21947
+    NODE_ID: 1
+    PARTITION_ID: 0
+
+GPU: 0
+    ASIC:
+        MARKET_NAME: AMD Instinct MI300X VF
+        VENDOR_ID: 0x1002
+        VENDOR_NAME: Advanced Micro Devices Inc. [AMD/ATI]
+        SUBVENDOR_ID: 0x1002
+        DEVICE_ID: 0x74b5
+        SUBSYSTEM_ID: 0x74a1
+        REV_ID: 0x00
+        ASIC_SERIAL: 0x7AE4316D9931088C
+        OAM_ID: 2
+        NUM_COMPUTE_UNITS: 304
+        TARGET_GRAPHICS_VERSION: gfx942
+        FLAGS: 258
+    BUS:
+        BDF: 0000:83:00.0
+        MAX_PCIE_WIDTH: 16
+        MAX_PCIE_SPEED: 32 GT/s
+        PCIE_LEVELS: N/A
+        PCIE_INTERFACE_VERSION: Gen 5
+        SLOT_TYPE: OAM
+    IFWI:
+        NAME: AMD MI300X_HW_SRIOV_CVS_1VF
+        BUILD_DATE: 2024/10/17 16:32
+        PART_NUMBER: 113-M3000100-103
+        VERSION: 00123529
+    DRIVER:
+        NAME: amdgpu
+        VERSION: 6.19.14.31400000
+        OS_KERNEL_VERSION: 6.8.0-134-generic
+    BOARD:
+        MODEL_NUMBER: N/A
+        PRODUCT_SERIAL: N/A
+        FRU_ID: N/A
+        PRODUCT_NAME: N/A
+        MANUFACTURER_NAME: Advanced Micro Devices, Inc. [AMD/ATI]
+    RAS:
+        EEPROM_VERSION: 0x0
+        BAD_PAGE_THRESHOLD: 0
+        BAD_PAGE_THRESHOLD_EXCEEDED: False
+        PARITY_SCHEMA: DISABLED
+        SINGLE_BIT_SCHEMA: DISABLED
+        DOUBLE_BIT_SCHEMA: DISABLED
+        POISON_SCHEMA: ENABLED
+        ECC_BLOCK_STATE:
+            UMC: ENABLED
+            SDMA: ENABLED
+            GFX: ENABLED
+            MMHUB: ENABLED
+            ATHUB: ENABLED
+            PCIE_BIF: ENABLED
+            HDP: ENABLED
+            XGMI_WAFL: ENABLED
+            DF: ENABLED
+            SMN: ENABLED
+            SEM: DISABLED
+            MP0: ENABLED
+            MP1: ENABLED
+            FUSE: DISABLED
+            MCA: ENABLED
+            VCN: DISABLED
+            JPEG: DISABLED
+            IH: ENABLED
+            MPIO: ENABLED
+    PROCESS_ISOLATION: Disabled
+    VRAM:
+        TYPE: HBM
+        VENDOR: MICRON
+        SIZE: 196288 MB
+        BIT_WIDTH: 2048
+        MAX_BANDWIDTH: 5325 GB/s
+    CACHE_INFO:
+        CACHE_0:
+            CACHE_PROPERTIES: DATA_CACHE, SIMD_CACHE
+            CACHE_SIZE: 32 KB
+            CACHE_LEVEL: 1
+            MAX_NUM_CU_SHARED: 1
+            NUM_CACHE_INSTANCE: 304
+        CACHE_1:
+            CACHE_PROPERTIES: INST_CACHE, SIMD_CACHE
+            CACHE_SIZE: 64 KB
+            CACHE_LEVEL: 1
+            MAX_NUM_CU_SHARED: 2
+            NUM_CACHE_INSTANCE: 144
+        CACHE_2:
+            CACHE_PROPERTIES: INST_CACHE, SIMD_CACHE
+            CACHE_SIZE: 64 KB
+            CACHE_LEVEL: 1
+            MAX_NUM_CU_SHARED: 1
+            NUM_CACHE_INSTANCE: 16
+        CACHE_3:
+            CACHE_PROPERTIES: DATA_CACHE, SIMD_CACHE
+            CACHE_SIZE: 16 KB
+            CACHE_LEVEL: 1
+            MAX_NUM_CU_SHARED: 2
+            NUM_CACHE_INSTANCE: 144
+        CACHE_4:
+            CACHE_PROPERTIES: DATA_CACHE, SIMD_CACHE
+            CACHE_SIZE: 16 KB
+            CACHE_LEVEL: 1
+            MAX_NUM_CU_SHARED: 1
+            NUM_CACHE_INSTANCE: 16
+        CACHE_5:
+            CACHE_PROPERTIES: DATA_CACHE, SIMD_CACHE
+            CACHE_SIZE: 4096 KB
+            CACHE_LEVEL: 2
+            MAX_NUM_CU_SHARED: 304
+            NUM_CACHE_INSTANCE: 1
+        CACHE_6:
+            CACHE_PROPERTIES: DATA_CACHE, SIMD_CACHE
+            CACHE_SIZE: 262144 KB
+            CACHE_LEVEL: 3
+            MAX_NUM_CU_SHARED: 304
+            NUM_CACHE_INSTANCE: 1
+    MEM_CARVEOUT: N/A (UMA carveout is not supported on this ASIC/VBIOS)
+    CLOCK:
+        SYS:
+            CURRENT_LEVEL: 0
+            FREQUENCY_LEVELS:
+                LEVEL 0: 145 MHz
+                LEVEL 1: 500 MHz
+                LEVEL 2: 2100 MHz
+        MEM:
+            CURRENT_LEVEL: 0
+            FREQUENCY_LEVELS:
+                LEVEL 0: 900 MHz
+                LEVEL 1: 1100 MHz
+                LEVEL 2: 1300 MHz
+        DF:
+            CURRENT_LEVEL: 0
+            FREQUENCY_LEVELS:
+                LEVEL 0: 1300 MHz
+                LEVEL 1: 1550 MHz
+                LEVEL 2: 1800 MHz
+        SOC:
+            CURRENT_LEVEL: 0
+            FREQUENCY_LEVELS:
+                LEVEL 0: 889 MHz
+                LEVEL 1: 1000 MHz
+                LEVEL 2: 1143 MHz
+        DCEF: N/A
+        VCLK0:
+            CURRENT_LEVEL: 0
+            FREQUENCY_LEVELS:
+                LEVEL 0: 29 MHz
+                LEVEL 1: 914 MHz
+                LEVEL 2: 1200 MHz
+                LEVEL 3: 1333 MHz
+        VCLK1: N/A
+        DCLK0:
+            CURRENT_LEVEL: 0
+            FREQUENCY_LEVELS:
+                LEVEL 0: 22 MHz
+                LEVEL 1: 711 MHz
+                LEVEL 2: 960 MHz
+                LEVEL 3: 1143 MHz
+        DCLK1: N/A
+
+ACCESS TABLE:
+             0000:83:00.0
+0000:83:00.0 ENABLED
+WEIGHT TABLE:
+             0000:83:00.0
+0000:83:00.0 0
+HOPS TABLE:
+             0000:83:00.0
+0000:83:00.0 0
+LINK TYPE TABLE:
+             0000:83:00.0
+0000:83:00.0 SELF
+NUMA BW TABLE:
+             0000:83:00.0
+0000:83:00.0 N/A
+CACHE COHERENCY TABLE:
+             0000:83:00.0
+0000:83:00.0 SELF
+ATOMICS TABLE:
+             0000:83:00.0
+0000:83:00.0 SELF
+DMA TABLE:
+             0000:83:00.0
+0000:83:00.0 SELF
+BI-DIRECTIONAL TABLE:
+             0000:83:00.0
+0000:83:00.0 SELF
+
+
+Legend:
+  SELF = Current GPU
+  ENABLED / DISABLED = Link is enabled or disabled
+  N/A = Not supported
+  T/F = True / False
+  C/NC = Coherent / Non-Coherent io links
+  64,32 = 64 bit and 32 bit atomic support
+  <BW from>-<BW to>
+
+=== hipinfo / rocminfo agents ===
+HSA Agents               
+Agent 1                  
+  Name:                    INTEL(R) XEON(R) PLATINUM 8568Y+   
+  Marketing Name:          INTEL(R) XEON(R) PLATINUM 8568Y+   
+  Vendor Name:             CPU                                
+  Max Queue Number:        0(0x0)                             
+  Device Type:             CPU                                
+  Compute Unit:            20                                 
+Agent 2                  
+  Name:                    gfx942                             
+  Marketing Name:          AMD Instinct MI300X VF             
+  Vendor Name:             AMD                                
+  Max Queue Number:        128(0x80)                          
+  Device Type:             GPU                                
+  Compute Unit:            304                                
+      Name:                    amdgcn-amd-amdhsa--gfx942:sramecc+:xnack-
+      Name:                    amdgcn-amd-amdhsa--gfx9-4-generic:sramecc+:xnack-
+
+=== disk space (needed before downloading Nano ~60 GiB weights) ===
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1       697G   52G  645G   8% /
+/dev/vda1       697G   52G  645G   8% /
+/dev/vda1       697G   52G  645G   8% /
+
+### finished: 2026-08-15T17:20:59+00:00

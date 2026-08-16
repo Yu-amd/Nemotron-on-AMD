@@ -1,0 +1,118 @@
+### command: amd-smi static
+### started: 2026-08-15T16:20:32+00:00
+
+GPU: 0
+    ASIC:
+        MARKET_NAME: AMD Radeon Graphics
+        VENDOR_ID: 0x1002
+        VENDOR_NAME: Advanced Micro Devices Inc. [AMD/ATI]
+        SUBVENDOR_ID: 0xf111
+        DEVICE_ID: 0x150e
+        SUBSYSTEM_ID: 0x000b
+        REV_ID: 0xc1
+        ASIC_SERIAL: 0x0000000000000000
+        OAM_ID: N/A
+        NUM_COMPUTE_UNITS: 16
+        TARGET_GRAPHICS_VERSION: gfx1150
+    BUS:
+        BDF: 0000:c1:00.0
+        MAX_PCIE_WIDTH: N/A
+        MAX_PCIE_SPEED: N/A
+        PCIE_INTERFACE_VERSION: N/A
+        SLOT_TYPE: N/A
+    VBIOS:
+        NAME: AMD STRIX_B0_GENERIC
+        BUILD_DATE: 2024/09/04 11:57
+        PART_NUMBER: 113-STRIXEMU-001
+        VERSION: 023.010.001.019.000001
+    LIMIT:
+        MAX_POWER: 0 W
+        MIN_POWER: 0 W
+        SOCKET_POWER: 0 W
+        SLOWDOWN_EDGE_TEMPERATURE: N/A
+        SLOWDOWN_HOTSPOT_TEMPERATURE: N/A
+        SLOWDOWN_VRAM_TEMPERATURE: N/A
+        SHUTDOWN_EDGE_TEMPERATURE: N/A
+        SHUTDOWN_HOTSPOT_TEMPERATURE: N/A
+        SHUTDOWN_VRAM_TEMPERATURE: N/A
+    DRIVER:
+        NAME: amdgpu
+        VERSION: Linuxversion6.17.0-35-generic(buildd@lcy02-amd64-079)(x86_64-linux-gnu-gcc-13(Ubuntu13.3.0-6ubuntu2~24.04.1)13.3.0,GNUld(GNUBinutilsforUbuntu)2.42)#35~24.04.1-UbuntuSMPPREEMPT_DYNAMICTueMay2619:30:42UTC2
+    BOARD:
+        MODEL_NUMBER: N/A
+        PRODUCT_SERIAL: N/A
+        FRU_ID: N/A
+        PRODUCT_NAME: N/A
+        MANUFACTURER_NAME: Advanced Micro Devices, Inc. [AMD/ATI]
+    RAS:
+        EEPROM_VERSION: N/A
+        PARITY_SCHEMA: N/A
+        SINGLE_BIT_SCHEMA: N/A
+        DOUBLE_BIT_SCHEMA: N/A
+        POISON_SCHEMA: N/A
+        ECC_BLOCK_STATE: N/A
+    PARTITION:
+        ACCELERATOR_PARTITION: N/A
+        MEMORY_PARTITION: N/A
+        PARTITION_ID: 0
+    SOC_PSTATE: N/A
+    XGMI_PLPD: N/A
+    PROCESS_ISOLATION: Disabled
+    NUMA:
+        NODE: 0
+        AFFINITY: NONE
+    VRAM:
+        TYPE: UNKNOWN
+        VENDOR: UNKNOWN
+        SIZE: 512 MB
+        BIT_WIDTH: 128
+        MAX_BANDWIDTH: N/A 
+    CACHE_INFO:
+        CACHE_0:
+            CACHE_PROPERTIES: DATA_CACHE, SIMD_CACHE
+            CACHE_SIZE: 32 KB
+            CACHE_LEVEL: 1
+            MAX_NUM_CU_SHARED: 1
+            NUM_CACHE_INSTANCE: 16
+        CACHE_1:
+            CACHE_PROPERTIES: INST_CACHE, SIMD_CACHE
+            CACHE_SIZE: 32 KB
+            CACHE_LEVEL: 1
+            MAX_NUM_CU_SHARED: 2
+            NUM_CACHE_INSTANCE: 8
+        CACHE_2:
+            CACHE_PROPERTIES: DATA_CACHE, SIMD_CACHE
+            CACHE_SIZE: 16 KB
+            CACHE_LEVEL: 1
+            MAX_NUM_CU_SHARED: 2
+            NUM_CACHE_INSTANCE: 8
+        CACHE_3:
+            CACHE_PROPERTIES: DATA_CACHE, SIMD_CACHE
+            CACHE_SIZE: 256 KB
+            CACHE_LEVEL: 1
+            MAX_NUM_CU_SHARED: 8
+            NUM_CACHE_INSTANCE: 2
+        CACHE_4:
+            CACHE_PROPERTIES: DATA_CACHE, SIMD_CACHE
+            CACHE_SIZE: 2048 KB
+            CACHE_LEVEL: 2
+            MAX_NUM_CU_SHARED: 16
+            NUM_CACHE_INSTANCE: 1
+    CLOCK:
+        SYS:
+            CURRENT LEVEL: 1
+            FREQUENCY_LEVELS:
+                LEVEL 0: 600 MHz
+                LEVEL 1: 1439 MHz
+                LEVEL 2: 2900 MHz
+        MEM: N/A
+        DF: N/A
+        SOC: N/A
+        DCEF: N/A
+        VCLK0: N/A
+        VCLK1: N/A
+        DCLK0: N/A
+        DCLK1: N/A
+
+
+### finished: 2026-08-15T16:20:32+00:00

@@ -1,0 +1,48 @@
+{
+  "description": "Deferred tool-calling tests. Run only after Transformers and basic vLLM chat succeed.",
+  "checked_date": "2026-08-15",
+  "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+  "official_notes": {
+    "vllm_flag": "--enable-auto-tool-choice --tool-call-parser qwen3_coder",
+    "sampling": "temperature=0.6 top_p=0.95",
+    "status": "NOT TESTED on AMD"
+  },
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "get_gpu_memory",
+        "description": "Return the HBM capacity in GB for a named AMD Instinct GPU.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "gpu_name": {
+              "type": "string",
+              "description": "Marketing name such as MI300X."
+            }
+          },
+          "required": ["gpu_name"]
+        }
+      }
+    }
+  ],
+  "prompts": [
+    {
+      "id": "tool-call-memory",
+      "enable_thinking": false,
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Use the get_gpu_memory tool to look up the HBM capacity of MI300X. Do not guess if the tool is available."
+        }
+      ],
+      "observe": [
+        "Whether a tool call is emitted.",
+        "Whether the qwen3_coder parser is required.",
+        "Whether ROCm vLLM supports this parser for Nemotron."
+      ]
+    }
+  ]
+}

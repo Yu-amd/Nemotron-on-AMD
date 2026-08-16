@@ -1,0 +1,2 @@
+Available devices:
+  ROCm0: AMD Instinct MI300X VF (196288 MiB, 195956 MiB free)

@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "status": 200,
+  "url": "http://127.0.0.1:8000/v1/models",
+  "method": "GET",
+  "request": null,
+  "response": {
+    "object": "list",
+    "data": [
+      {
+        "id": "nemotron-nano-4b-bf16",
+        "object": "model",
+        "created": 1786900128,
+        "owned_by": "vllm",
+        "root": "nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16",
+        "parent": null,
+        "max_model_len": 8192,
+        "permission": [
+          {
+            "id": "modelperm-ac835cffc0586ddd",
+            "object": "model_permission",
+            "created": 1786900128,
+            "allow_create_engine": false,
+            "allow_sampling": true,
+            "allow_logprobs": true,
+            "allow_search_indices": false,
+            "allow_view": true,
+            "allow_fine_tuning": false,
+            "organization": "*",
+            "group": null,
+            "is_blocking": false
+          }
+        ]
+      }
+    ]
+  },
+  "elapsed_sec": 0.001031940002576448
+}

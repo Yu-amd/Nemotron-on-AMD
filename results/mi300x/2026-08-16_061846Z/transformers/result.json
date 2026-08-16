@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "date": "2026-08-16T06:18:46.715866+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/llama-nemotron-embed-vl-1b-v2",
+    "model_revision": "582e3bf72aee355e3c59ed89de53543c5b0657ee",
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "FAIL",
+    "notes": "Family smoke task=vl-embed. Not Optimized. Not a Nano 30B BF16 result.",
+    "command": [
+      "scripts/mi300x/family-smoke.py",
+      "--model",
+      "nvidia/llama-nemotron-embed-vl-1b-v2",
+      "--task",
+      "vl-embed",
+      "--output-dir",
+      "results/mi300x/2026-08-16_061846Z",
+      "--trust-remote-code"
+    ],
+    "trust_remote_code_requested": true,
+    "queue_task": "vl-embed",
+    "queue_task_resolved": "vl-embed"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ]
+  },
+  "load": {
+    "config": {
+      "model_type": "llama_nemotron_vl",
+      "architectures": [
+        "LlamaNemotronVLModel"
+      ],
+      "auto_map": {
+        "AutoConfig": "configuration_llama_nemotron_vl.LlamaNemotronVLConfig",
+        "AutoModel": "modeling_llama_nemotron_vl.LlamaNemotronVLModel"
+      },
+      "pipe": null
+    },
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_failure": {
+      "available": true,
+      "allocated_bytes": 3453817344,
+      "reserved_bytes": 3521118208,
+      "max_allocated_bytes": 3482022400,
+      "max_reserved_bytes": 3521118208
+    }
+  },
+  "outputs": [],
+  "summary": {
+    "success": false,
+    "failure_layer": "OTHER",
+    "error": "IndexError: tuple index out of range",
+    "traceback": "Traceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 436, in main\n    _run_vl(args, load_kwargs, trust, result_payload, task, work_dir)\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 683, in _run_vl\n    vec = out[0][:, 0] if hasattr(out[0], \"ndim\") else out[0]\n                                  ~~~^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/generic.py\", line 526, in __getitem__\n    return self.to_tuple()[k]\n           ~~~~~~~~~~~~~~~^^^\nIndexError: tuple index out of range\n"
+  }
+}

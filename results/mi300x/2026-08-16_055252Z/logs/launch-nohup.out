@@ -1,0 +1,40 @@
+model=nvidia/nemotron-colembed-vl-8b-v2 task=vl-embed dtype=bfloat16 revision=None
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+config.json:   0%|          | 0.00/2.06k [00:00<?, ?B/s]config.json: 100%|##########| 2.06k/2.06k [00:00<00:00, 9.60MB/s]
+retry AutoConfig with trust_remote_code=True
+modeling_qwen3_vl_nemotron_embed.py:   0%|          | 0.00/21.1k [00:00<?, ?B/s]modeling_qwen3_vl_nemotron_embed.py: 100%|##########| 21.1k/21.1k [00:00<00:00, 80.1MB/s]
+[transformers] Encountered exception while importing datasets: No module named 'datasets'
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 242, in main
+    config = AutoConfig.from_pretrained(args.model, revision=args.revision, trust_remote_code=trust)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 400, in from_pretrained
+    trust_remote_code = resolve_trust_remote_code(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 789, in resolve_trust_remote_code
+    raise ValueError(
+ValueError: The repository nvidia/nemotron-colembed-vl-8b-v2 contains custom code which must be executed to correctly load the model. You can inspect the repository content at https://hf.co/nvidia/nemotron-colembed-vl-8b-v2 .
+ You can inspect the repository content at https://hf.co/nvidia/nemotron-colembed-vl-8b-v2.
+Please pass the argument `trust_remote_code=True` to allow custom code to be run.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 653, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 248, in main
+    config = AutoConfig.from_pretrained(args.model, revision=args.revision, trust_remote_code=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 405, in from_pretrained
+    config_class = get_class_from_dynamic_module(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 612, in get_class_from_dynamic_module
+    final_module = get_cached_module_file(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 441, in get_cached_module_file
+    modules_needed = check_imports(resolved_module_file)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 258, in check_imports
+    raise ImportError(
+ImportError: This modeling file requires the following packages that were not found in your environment: datasets. Run `pip install datasets`

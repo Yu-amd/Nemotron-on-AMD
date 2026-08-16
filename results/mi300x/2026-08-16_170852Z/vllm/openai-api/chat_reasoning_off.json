@@ -1,0 +1,59 @@
+{
+  "ok": true,
+  "status": 200,
+  "url": "http://127.0.0.1:8000/v1/chat/completions",
+  "method": "POST",
+  "request": {
+    "model": "nemotron-lightning-bf16",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Explain the difference between RAM and storage in three sentences."
+      }
+    ],
+    "max_tokens": 128,
+    "temperature": 0,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "id": "chatcmpl-aacc371c01190f09",
+    "object": "chat.completion",
+    "created": 1786900306,
+    "model": "nemotron-lightning-bf16",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "RAM acts as the computer's short-term memory, holding data that the processor needs immediately for active tasks, and it clears when the power is turned off. Storage, such as a hard drive or SSD, serves as long-term memory, permanently retaining files, applications, and the operating system even when the computer is shut down. While RAM is much faster and allows for quick multitasking, storage provides the necessary capacity to keep data accessible over time.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-8d029951",
+    "usage": {
+      "prompt_tokens": 28,
+      "total_tokens": 121,
+      "completion_tokens": 93,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null
+  },
+  "elapsed_sec": 0.455931150005199
+}

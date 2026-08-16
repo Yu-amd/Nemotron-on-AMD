@@ -1,0 +1,7 @@
+usage: family-smoke.py [-h] --model MODEL --output-dir OUTPUT_DIR
+                       [--task {auto,causal,embed,rerank,vl-embed,safety,parse,asr}]
+                       [--prompts PROMPTS] [--max-new-tokens MAX_NEW_TOKENS]
+                       [--trust-remote-code] [--device DEVICE] [--dtype DTYPE]
+                       [--revision REVISION]
+                       [--attn-implementation ATTN_IMPLEMENTATION]
+family-smoke.py: error: argument --max-new-tokens: expected one argument

@@ -1,0 +1,35 @@
+model=nvidia/NVIDIA-Nemotron-Parse-2.0 task=parse dtype=bfloat16 revision=None
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+config.json:   0%|          | 0.00/10.9k [00:00<?, ?B/s]config.json: 100%|##########| 10.9k/10.9k [00:00<00:00, 46.0MB/s]
+hf_nemotron_parse_config.py:   0%|          | 0.00/5.14k [00:00<?, ?B/s]hf_nemotron_parse_config.py: 100%|##########| 5.14k/5.14k [00:00<00:00, 28.8MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/NVIDIA-Nemotron-Parse-2.0:
+- hf_nemotron_parse_config.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+hf_model.py:   0%|          | 0.00/7.76k [00:00<?, ?B/s]hf_model.py: 100%|##########| 7.76k/7.76k [00:00<00:00, 48.9MB/s]
+[transformers] Encountered exception while importing timm: No module named 'timm'
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 242, in main
+    config = AutoConfig.from_pretrained(args.model, revision=args.revision, trust_remote_code=trust)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 409, in from_pretrained
+    return config_class.from_pretrained(pretrained_model_name_or_path, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/configuration_utils.py", line 725, in from_pretrained
+    return cls.from_dict(config_dict, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/configuration_utils.py", line 902, in from_dict
+    config = cls(**config_dict)
+             ^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/NVIDIA_hyphen_Nemotron_hyphen_Parse_hyphen_2_dot_0/635b84d9b09bb9526b9a684d0b2c953d3cc3df05/hf_nemotron_parse_config.py", line 113, in __init__
+    vision_auto_config = get_class_from_dynamic_module(*encoder["auto_map"]["AutoConfig"].split("--")[::-1])
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 612, in get_class_from_dynamic_module
+    final_module = get_cached_module_file(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 441, in get_cached_module_file
+    modules_needed = check_imports(resolved_module_file)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 258, in check_imports
+    raise ImportError(
+ImportError: This modeling file requires the following packages that were not found in your environment: timm. Run `pip install timm`
+

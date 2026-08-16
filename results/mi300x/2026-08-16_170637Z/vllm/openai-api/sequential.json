@@ -1,0 +1,179 @@
+[
+  {
+    "ok": true,
+    "status": 200,
+    "url": "http://127.0.0.1:8000/v1/chat/completions",
+    "method": "POST",
+    "request": {
+      "model": "nemotron-nano-4b-bf16",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the single integer 1."
+        }
+      ],
+      "max_tokens": 16,
+      "temperature": 0,
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "response": {
+      "id": "chatcmpl-8f7b90d6e5fd1d46",
+      "object": "chat.completion",
+      "created": 1786900130,
+      "model": "nemotron-nano-4b-bf16",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "1",
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "tool_calls": [],
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "token_ids": null,
+          "routed_experts": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-eefdb2eb",
+      "usage": {
+        "prompt_tokens": 24,
+        "total_tokens": 26,
+        "completion_tokens": 2,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "prompt_text": null,
+      "kv_transfer_params": null
+    },
+    "elapsed_sec": 0.027360508000128902
+  },
+  {
+    "ok": true,
+    "status": 200,
+    "url": "http://127.0.0.1:8000/v1/chat/completions",
+    "method": "POST",
+    "request": {
+      "model": "nemotron-nano-4b-bf16",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the single integer 2."
+        }
+      ],
+      "max_tokens": 16,
+      "temperature": 0,
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "response": {
+      "id": "chatcmpl-b297c941bd7b57ae",
+      "object": "chat.completion",
+      "created": 1786900130,
+      "model": "nemotron-nano-4b-bf16",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "2",
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "tool_calls": [],
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "token_ids": null,
+          "routed_experts": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-eefdb2eb",
+      "usage": {
+        "prompt_tokens": 24,
+        "total_tokens": 26,
+        "completion_tokens": 2,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "prompt_text": null,
+      "kv_transfer_params": null
+    },
+    "elapsed_sec": 0.03511199599597603
+  },
+  {
+    "ok": true,
+    "status": 200,
+    "url": "http://127.0.0.1:8000/v1/chat/completions",
+    "method": "POST",
+    "request": {
+      "model": "nemotron-nano-4b-bf16",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the single integer 3."
+        }
+      ],
+      "max_tokens": 16,
+      "temperature": 0,
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "response": {
+      "id": "chatcmpl-874ff4f3782beb9b",
+      "object": "chat.completion",
+      "created": 1786900130,
+      "model": "nemotron-nano-4b-bf16",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "3",
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "tool_calls": [],
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "token_ids": null,
+          "routed_experts": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-eefdb2eb",
+      "usage": {
+        "prompt_tokens": 24,
+        "total_tokens": 26,
+        "completion_tokens": 2,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "prompt_text": null,
+      "kv_transfer_params": null
+    },
+    "elapsed_sec": 0.0270119339984376
+  }
+]

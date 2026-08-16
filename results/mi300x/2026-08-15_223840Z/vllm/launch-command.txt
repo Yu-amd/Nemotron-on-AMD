@@ -1,0 +1,11 @@
+timestamp_utc=2026-08-15_223840Z
+model=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16
+max_model_len=8192
+tp=1
+port=8000
+parser_plugin=/root/Nemotron-on-AMD/scripts/mi300x/nano_v3_reasoning_parser.py
+docker=1
+image=rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
+NOTE: NVIDIA CUDA-only flags intentionally omitted (FlashInfer, NVFP4, TRT-LLM).
+
+command: docker run --rm --name nemotron-nano-vllm --device /dev/kfd --device /dev/dri --network=host --ipc=host --group-add=video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v /root/.cache/huggingface:/root/.cache/huggingface -v /root/Nemotron-on-AMD:/workspace -e HF_HOME=/root/.cache/huggingface -e FLASH_ATTENTION_TRITON_AMD_ENABLE=TRUE -w /workspace rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0 vllm serve nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 --host 0.0.0.0 --port 8000 --served-model-name nemotron-nano-bf16 --dtype bfloat16 --tensor-parallel-size 1 --max-model-len 8192 --gpu-memory-utilization 0.80 --trust-remote-code --enable-auto-tool-choice --tool-call-parser qwen3_coder --reasoning-parser nano_v3 --reasoning-parser-plugin /workspace/scripts/mi300x/nano_v3_reasoning_parser.py

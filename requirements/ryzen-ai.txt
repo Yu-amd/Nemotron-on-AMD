@@ -1,0 +1,17 @@
+# Local Strix Point packages.
+# Discovery on 2026-08-15: host Python 3.12.12 has no torch / transformers / vllm.
+#
+# Do NOT install a large Nemotron stack on this laptop in the current phase.
+# Do NOT download Nano 30B BF16 here.
+# Do NOT assume ROCm 6.4.3 matches vLLM's gfx1150 requirement (docs: ROCm 7.0.2+).
+#
+# Future local candidates (still NOT TESTED):
+# - sentence-transformers + transformers for Nemotron 3 Embed 1B (SDPA, not flash_attn)
+# - llama.cpp built with HIP or Vulkan for official Nano 4B GGUF
+#
+# Keep this file as a placeholder so operators do not invent an install recipe.
+# huggingface_hub
+# transformers
+# sentence-transformers
+# accelerate
+# safetensors

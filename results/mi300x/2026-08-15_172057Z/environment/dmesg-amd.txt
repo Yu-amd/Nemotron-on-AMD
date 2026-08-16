@@ -1,0 +1,85 @@
+### command: bash -c dmesg -T 2>/dev/null | grep -iE "amdgpu|amdxdna|kfd|rocm" | tail -n 80 || echo "dmesg not readable or no AMD kernel messages"
+### started: 2026-08-15T17:20:57+00:00
+
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring comp_3.1.1.0 uses VM inv eng 1 on hub 3
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring kiq_3.2.1.0 uses VM inv eng 4 on hub 3
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring comp_4.1.0.0 uses VM inv eng 0 on hub 4
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring comp_4.1.1.0 uses VM inv eng 1 on hub 4
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring kiq_4.2.1.0 uses VM inv eng 4 on hub 4
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring comp_5.1.0.0 uses VM inv eng 0 on hub 5
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring comp_5.1.1.0 uses VM inv eng 1 on hub 5
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring kiq_5.2.1.0 uses VM inv eng 4 on hub 5
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring comp_6.1.0.0 uses VM inv eng 0 on hub 6
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring comp_6.1.1.0 uses VM inv eng 1 on hub 6
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring kiq_6.2.1.0 uses VM inv eng 4 on hub 6
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring comp_7.1.0.0 uses VM inv eng 0 on hub 7
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring comp_7.1.1.0 uses VM inv eng 1 on hub 7
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring kiq_7.2.1.0 uses VM inv eng 4 on hub 7
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma0.0 uses VM inv eng 0 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma0.1 uses VM inv eng 1 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma0.2 uses VM inv eng 4 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma0.3 uses VM inv eng 5 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma1.0 uses VM inv eng 0 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma1.1 uses VM inv eng 1 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma1.2 uses VM inv eng 4 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma1.3 uses VM inv eng 5 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma2.0 uses VM inv eng 0 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma2.1 uses VM inv eng 1 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma2.2 uses VM inv eng 4 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma2.3 uses VM inv eng 5 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma3.0 uses VM inv eng 0 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma3.1 uses VM inv eng 1 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma3.2 uses VM inv eng 4 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring sdma3.3 uses VM inv eng 5 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring vcn_unified_0 uses VM inv eng 6 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring vcn_unified_1 uses VM inv eng 6 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring vcn_unified_2 uses VM inv eng 6 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring vcn_unified_3 uses VM inv eng 6 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_0.0 uses VM inv eng 7 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_0.1 uses VM inv eng 8 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_0.2 uses VM inv eng 9 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_0.3 uses VM inv eng 10 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_0.4 uses VM inv eng 11 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_0.5 uses VM inv eng 12 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_0.6 uses VM inv eng 13 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_0.7 uses VM inv eng 14 on hub 8
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_1.0 uses VM inv eng 7 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_1.1 uses VM inv eng 8 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_1.2 uses VM inv eng 9 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_1.3 uses VM inv eng 10 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_1.4 uses VM inv eng 11 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_1.5 uses VM inv eng 12 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_1.6 uses VM inv eng 13 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_1.7 uses VM inv eng 14 on hub 9
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_2.0 uses VM inv eng 7 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_2.1 uses VM inv eng 8 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_2.2 uses VM inv eng 9 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_2.3 uses VM inv eng 10 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_2.4 uses VM inv eng 11 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_2.5 uses VM inv eng 12 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_2.6 uses VM inv eng 13 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_2.7 uses VM inv eng 14 on hub 10
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_3.0 uses VM inv eng 7 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_3.1 uses VM inv eng 8 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_3.2 uses VM inv eng 9 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_3.3 uses VM inv eng 10 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_3.4 uses VM inv eng 11 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_3.5 uses VM inv eng 12 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_3.6 uses VM inv eng 13 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: ring jpeg_dec_3.7 uses VM inv eng 14 on hub 11
+[Sat Aug 15 16:13:32 2026] amdgpu 0000:83:00.0: SDMA reset capability is not supported
+[Sat Aug 15 16:13:33 2026] amdgpu: HMM registered 196288MB device memory
+[Sat Aug 15 16:13:33 2026] amdgpu 0000:83:00.0: Runtime PM not available
+[Sat Aug 15 16:13:33 2026] [drm] Initialized amdgpu 3.64.0 20150101 for 0000:83:00.0 on minor 1
+[Sat Aug 15 16:13:33 2026] [drm] Initialized amdgpu 3.64.0 20150101 for amdgpu_xcp_0 on minor 2
+[Sat Aug 15 16:13:33 2026] [drm] Initialized amdgpu 3.64.0 20150101 for amdgpu_xcp_1 on minor 3
+[Sat Aug 15 16:13:33 2026] [drm] Initialized amdgpu 3.64.0 20150101 for amdgpu_xcp_2 on minor 4
+[Sat Aug 15 16:13:33 2026] [drm] Initialized amdgpu 3.64.0 20150101 for amdgpu_xcp_3 on minor 5
+[Sat Aug 15 16:13:33 2026] [drm] Initialized amdgpu 3.64.0 20150101 for amdgpu_xcp_4 on minor 6
+[Sat Aug 15 16:13:33 2026] [drm] Initialized amdgpu 3.64.0 20150101 for amdgpu_xcp_5 on minor 7
+[Sat Aug 15 16:13:33 2026] [drm] Initialized amdgpu 3.64.0 20150101 for amdgpu_xcp_6 on minor 8
+[Sat Aug 15 16:13:33 2026] amdgpu 0000:83:00.0: [drm] Using MTYPE_RW for local memory
+[Sat Aug 15 16:13:51 2026] audit: type=1400 audit(1786810431.810:122): apparmor="DENIED" operation="open" class="file" profile="ubuntu_pro_apt_news" name="/opt/rocm-7.0.2/lib/" pid=2336 comm="python3" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+[Sat Aug 15 16:13:51 2026] audit: type=1400 audit(1786810431.814:123): apparmor="DENIED" operation="open" class="file" profile="ubuntu_pro_esm_cache" name="/opt/rocm-7.0.2/lib/" pid=2337 comm="python3" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+
+### finished: 2026-08-15T17:20:57+00:00

@@ -1,0 +1,19 @@
+{
+  "date": "2026-08-15T22:42:14.140688+00:00",
+  "platform": "mi300x",
+  "gpu": "AMD Instinct MI300X VF",
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+  "model_revision": null,
+  "precision": "bfloat16",
+  "runtime": "vllm",
+  "runtime_version": "0.23.1.dev1+g9ddef7117.d20260715",
+  "rocm_version": "7.14.60850",
+  "pytorch_version": "2.11.0+rocm7.14.0",
+  "result": "PASS",
+  "notes": "ROCm vLLM served via AMD CDNA Docker image (Python 3.14). Conservative max-model-len=8192. NVIDIA FlashInfer/NVFP4 flags omitted. OpenAI API health + chat (thinking off/on) + sequential requests passed. This is not Validated, Optimized, or Production-ready.",
+  "status_claim_allowed": "Runs (candidate for serving) \u2014 not Validated/Optimized",
+  "image": "rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0",
+  "python": "3.14.6",
+  "max_model_len": 8192,
+  "enable_thinking_tested": true
+}

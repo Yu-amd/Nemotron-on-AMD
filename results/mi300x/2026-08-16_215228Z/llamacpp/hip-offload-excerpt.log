@@ -1,0 +1,9 @@
+0.00.029.055 I cmn  common_param:   - ROCm0   : AMD Instinct MI300X VF (196288 MiB, 195956 MiB free)
+0.00.120.368 I llama_prepare_model_devices: using device ROCm0 (AMD Instinct MI300X VF) (0000:83:00.0) - 195956 MiB free
+0.00.308.000 I load_tensors: offloaded 43/43 layers to GPU
+0.00.308.005 I load_tensors:        ROCm0 model buffer size =     0.00 MiB
+0.00.543.401 I llama_prepare_model_devices: using device ROCm0 (AMD Instinct MI300X VF) (0000:83:00.0) - 195812 MiB free
+0.00.845.254 I load_tensors: offloaded 43/43 layers to GPU
+0.00.845.259 I load_tensors:        ROCm0 model buffer size =  2428.65 MiB
+0.01.366.439 I slot print_timing: id  0 | task 0 | prompt eval time =      97.28 ms /    18 tokens (    5.40 ms per token,   185.03 tokens per second)
+0.01.366.441 I slot print_timing: id  0 | task 0 |        eval time =      13.57 ms /     4 tokens (    4.52 ms per token,   221.11 tokens per second)

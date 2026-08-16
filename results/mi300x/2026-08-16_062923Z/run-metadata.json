@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-16T06:29:23.937268+00:00",
+  "platform": "mi300x",
+  "gpu": "AMD Instinct MI300X VF",
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+  "model_revision": "f8dc1c0afee92f44417695b4f5ddca9afc95ea58",
+  "precision": "bfloat16",
+  "runtime": "transformers",
+  "runtime_version": "5.15.0",
+  "rocm_version": "7.14.60850",
+  "pytorch_version": "2.12.0+rocm7.14.0",
+  "result": "FAIL",
+  "notes": "Family smoke task=causal. Not Optimized. Not a Nano 30B BF16 result.",
+  "command": [
+    "scripts/mi300x/family-smoke.py",
+    "--model",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "--task",
+    "causal",
+    "--output-dir",
+    "results/mi300x/2026-08-16_062923Z",
+    "--max-new-tokens=96",
+    "--attn-implementation=sdpa"
+  ],
+  "trust_remote_code_requested": false,
+  "queue_task": "causal",
+  "queue_task_resolved": "causal"
+}

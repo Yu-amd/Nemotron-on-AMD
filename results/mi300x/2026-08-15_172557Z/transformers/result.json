@@ -1,0 +1,174 @@
+{
+  "metadata": {
+    "date": "2026-08-15T17:25:57.996372+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "model_revision": null,
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "FAIL",
+    "notes": "Transformers smoke test. This is not an Optimized or Production-ready claim. NVIDIA Nano BF16 was selected as the first load/generate validation target.",
+    "command": [
+      "scripts/mi300x/transformers-smoke-test.py",
+      "--model",
+      "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+      "--output-dir",
+      "results/mi300x/2026-08-15_172557Z"
+    ],
+    "enable_thinking": false,
+    "trust_remote_code_requested": false,
+    "trust_remote_code_required": false,
+    "custom_remote_code": "likely required (config.auto_map present)"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "torch_cuda_build": null,
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_count": 1,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ],
+    "cuda_build_without_hip": false
+  },
+  "load": {
+    "config": {
+      "model_type": "nemotron_h",
+      "architectures": [
+        "NemotronHForCausalLM"
+      ],
+      "auto_map": {
+        "AutoConfig": "configuration_nemotron_h.NemotronHConfig",
+        "AutoModel": "modeling_nemotron_h.NemotronHForCausalLM",
+        "AutoModelForCausalLM": "modeling_nemotron_h.NemotronHForCausalLM"
+      },
+      "max_position_embeddings": 262144
+    },
+    "tokenizer_sec": 1.855812191000041,
+    "tokenizer_name_or_path": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "model_load_sec": 64.16395314099918,
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_load": {
+      "available": true,
+      "allocated_bytes": 63239353856,
+      "reserved_bytes": 63273172992,
+      "max_allocated_bytes": 63239353856,
+      "max_reserved_bytes": 63273172992
+    },
+    "trust_remote_code_used": false
+  },
+  "generations": [
+    {
+      "id": "basic-language",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Explain the difference between RAM and storage in three sentences."
+        }
+      ],
+      "enable_thinking": false,
+      "success": false,
+      "chat_template": {
+        "enable_thinking_accepted": true
+      },
+      "failure_layer": "OTHER",
+      "error": "AttributeError: ",
+      "traceback": "Traceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/tokenization_utils_base.py\", line 287, in __getattr__\n    return self.data[item]\n           ~~~~~~~~~^^^^^^\nKeyError: 'shape'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/transformers-smoke-test.py\", line 421, in main\n    input_len = int(encoded.shape[-1])\n                    ^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/tokenization_utils_base.py\", line 289, in __getattr__\n    raise AttributeError\nAttributeError\n"
+    },
+    {
+      "id": "simple-reasoning",
+      "messages": [
+        {
+          "role": "user",
+          "content": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory? Reply with the integer number of GB and a one-sentence calculation."
+        }
+      ],
+      "enable_thinking": false,
+      "success": false,
+      "chat_template": {
+        "enable_thinking_accepted": true
+      },
+      "failure_layer": "OTHER",
+      "error": "AttributeError: ",
+      "traceback": "Traceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/tokenization_utils_base.py\", line 287, in __getattr__\n    return self.data[item]\n           ~~~~~~~~~^^^^^^\nKeyError: 'shape'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/transformers-smoke-test.py\", line 421, in main\n    input_len = int(encoded.shape[-1])\n                    ^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/tokenization_utils_base.py\", line 289, in __getattr__\n    raise AttributeError\nAttributeError\n"
+    },
+    {
+      "id": "code",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write a Python function that returns the factorial of a non-negative integer. Handle 0 correctly. Do not write any text before or after the function."
+        }
+      ],
+      "enable_thinking": false,
+      "success": false,
+      "chat_template": {
+        "enable_thinking_accepted": true
+      },
+      "failure_layer": "OTHER",
+      "error": "AttributeError: ",
+      "traceback": "Traceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/tokenization_utils_base.py\", line 287, in __getattr__\n    return self.data[item]\n           ~~~~~~~~~^^^^^^\nKeyError: 'shape'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/transformers-smoke-test.py\", line 421, in main\n    input_len = int(encoded.shape[-1])\n                    ^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/tokenization_utils_base.py\", line 289, in __getattr__\n    raise AttributeError\nAttributeError\n"
+    },
+    {
+      "id": "summarization",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Summarize the following paragraph in exactly two sentences.\n\nAMD Instinct MI300X accelerators provide 192 GB of HBM3 memory per GPU. Software support for large language models on this hardware typically goes through ROCm, HIP-enabled PyTorch, and inference servers such as vLLM. NVIDIA Nemotron 3 Nano is a hybrid Mamba-Transformer Mixture-of-Experts model with a published BF16 checkpoint on Hugging Face. Whether that checkpoint actually loads and generates correctly on MI300X is an empirical question, not a marketing claim."
+        }
+      ],
+      "enable_thinking": false,
+      "success": false,
+      "chat_template": {
+        "enable_thinking_accepted": true
+      },
+      "failure_layer": "OTHER",
+      "error": "AttributeError: ",
+      "traceback": "Traceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/tokenization_utils_base.py\", line 287, in __getattr__\n    return self.data[item]\n           ~~~~~~~~~^^^^^^\nKeyError: 'shape'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/transformers-smoke-test.py\", line 421, in main\n    input_len = int(encoded.shape[-1])\n                    ^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/tokenization_utils_base.py\", line 289, in __getattr__\n    raise AttributeError\nAttributeError\n"
+    },
+    {
+      "id": "instruction-following",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Return a JSON object with exactly these keys: gpu_name, hbm_gb, status. Use gpu_name=\"MI300X\", hbm_gb=192, status=\"NOT TESTED\". No markdown. No extra keys. No commentary."
+        }
+      ],
+      "enable_thinking": false,
+      "success": false,
+      "chat_template": {
+        "enable_thinking_accepted": true
+      },
+      "failure_layer": "OTHER",
+      "error": "AttributeError: ",
+      "traceback": "Traceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/tokenization_utils_base.py\", line 287, in __getattr__\n    return self.data[item]\n           ~~~~~~~~~^^^^^^\nKeyError: 'shape'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/transformers-smoke-test.py\", line 421, in main\n    input_len = int(encoded.shape[-1])\n                    ^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/tokenization_utils_base.py\", line 289, in __getattr__\n    raise AttributeError\nAttributeError\n"
+    }
+  ],
+  "summary": {
+    "success": false,
+    "prompts_total": 5,
+    "prompts_passed": 0,
+    "prompts_failed": 5,
+    "peak_memory": {
+      "available": true,
+      "allocated_bytes": 63239355904,
+      "reserved_bytes": 63273172992,
+      "max_allocated_bytes": 63239356928,
+      "max_reserved_bytes": 63273172992
+    },
+    "trust_remote_code_used": false
+  }
+}

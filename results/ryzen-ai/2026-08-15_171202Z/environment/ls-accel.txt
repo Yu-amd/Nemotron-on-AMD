@@ -1,0 +1,16 @@
+### command: bash -c ls -l /dev/dri /dev/kfd /dev/accel 2>/dev/null || echo "no /dev/dri, /dev/kfd, or /dev/accel"
+### started: 2026-08-15T17:12:02+00:00
+
+crw-rw---- 1 root render 509, 0 Aug 15 08:48 /dev/kfd
+
+/dev/accel:
+total 0
+crw-rw---- 1 root render 261, 0 Aug 15 08:48 accel0
+
+/dev/dri:
+total 0
+drwxr-xr-x  2 root root         80 Jun 15 08:08 by-path
+crw-rw----+ 1 root video  226,   1 Aug 15 08:48 card1
+crw-rw----+ 1 root render 226, 128 Aug 15 08:48 renderD128
+
+### finished: 2026-08-15T17:12:02+00:00

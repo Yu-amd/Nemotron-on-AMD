@@ -1,0 +1,217 @@
+model=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 task=causal dtype=bfloat16 revision=None
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+config.json:   0%|          | 0.00/1.82k [00:00<?, ?B/s]config.json: 100%|##########| 1.82k/1.82k [00:00<00:00, 9.63MB/s]
+resolved_task=causal architectures=['NemotronHForCausalLM'] model_type=nemotron_h
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+model.safetensors.index.json:   0%|          | 0.00/1.86M [00:00<?, ?B/s]model.safetensors.index.json: 100%|##########| 1.86M/1.86M [00:00<00:00, 647MB/s]
+Downloading bytes:           |  0.00B            
+Reconstructing (incomplete total...): |          |  0.00B /  0.00B            [A
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s][A[A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 12.0GB            [A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 16.0GB            [A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 32.0GB            [A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 32.0GB            [A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 32.0GB            [A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 32.0GB            [A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 32.0GB            [A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 32.0GB            [ADownloading bytes:           | 1.88MB            Downloading bytes:           | 38.7MB, 2.73MB/s  Downloading bytes:           | 78.7MB, 65.6MB/s  Downloading bytes:           |  147MB,  132MB/s  Downloading bytes:           |  183MB,  207MB/s  
+Reconstructing (incomplete total...):   1%|          |  195MB / 32.0GB            [ADownloading bytes:           |  223MB,  237MB/s  Downloading bytes:           |  255MB,  225MB/s  Downloading bytes:           |  298MB,  244MB/s  Downloading bytes: 1         |  343MB,  286MB/s  Downloading bytes: 1         |  395MB,  327MB/s  
+Reconstructing (incomplete total...):   1%|          |  256MB / 32.0GB,  140MB/s  [ADownloading bytes: 1         |  456MB,  378MB/s  Downloading bytes: 1         |  501MB,  347MB/s  Downloading bytes: 1         |  542MB,  301MB/s  
+Reconstructing (incomplete total...):   2%|1         |  512MB / 32.0GB,  134MB/s  [ADownloading bytes: 1         |  581MB,  323MB/s  Downloading bytes: 1         |  626MB,  274MB/s  Downloading bytes: 2         |  700MB,  312MB/s  Downloading bytes: 2         |  756MB,  412MB/s  Downloading bytes: 2         |  822MB,  448MB/s  Downloading bytes: 2         |  922MB,  504MB/s  
+Reconstructing (incomplete total...):   2%|2         |  707MB / 32.0GB,  258MB/s  [ADownloading bytes: 3         |  994MB,  503MB/s  
+Reconstructing (incomplete total...):   2%|2         |  768MB / 32.0GB,  266MB/s  [ADownloading bytes: 3         | 1.10GB,  553MB/s  Downloading bytes: 3         | 1.16GB,  542MB/s  Downloading bytes: 3         | 1.22GB,  557MB/s  
+Reconstructing (incomplete total...):   3%|3         | 1.03GB / 32.0GB,  291MB/s  [ADownloading bytes: 3         | 1.28GB,  454MB/s  
+Reconstructing (incomplete total...):   3%|3         | 1.10GB / 32.0GB,  371MB/s  [ADownloading bytes: 4         | 1.36GB,  476MB/s  Downloading bytes: 4         | 1.43GB,  564MB/s  Downloading bytes: 4         | 1.51GB,  578MB/s  Downloading bytes: 5         | 1.61GB,  645MB/s  
+Reconstructing (incomplete total...):   4%|3         | 1.23GB / 32.0GB,  365MB/s  [ADownloading bytes: 5         | 1.70GB,  583MB/s  
+Reconstructing (incomplete total...):   4%|4         | 1.30GB / 32.0GB,  355MB/s  [ADownloading bytes: 5         | 1.77GB,  655MB/s  
+Reconstructing (incomplete total...):   5%|4         | 1.49GB / 32.0GB,  392MB/s  [ADownloading bytes: 5         | 1.83GB,  545MB/s  
+Reconstructing (incomplete total...):   5%|5         | 1.73GB / 32.0GB,  519MB/s  [ADownloading bytes: 5         | 1.90GB,  564MB/s  Downloading bytes: 6         | 1.99GB,  594MB/s  Downloading bytes: 6         | 2.08GB,  674MB/s  
+Reconstructing (incomplete total...):   6%|5         | 1.87GB / 32.0GB,  777MB/s  [ADownloading bytes: 6         | 2.20GB,  717MB/s  
+Reconstructing (incomplete total...):   6%|6         | 2.00GB / 32.0GB,  583MB/s  [ADownloading bytes: 7         | 2.31GB,  846MB/s  
+Reconstructing (incomplete total...):   7%|7         | 2.37GB / 32.0GB,  545MB/s  [ADownloading bytes: 7         | 2.41GB,  600MB/s  Downloading bytes: 7         | 2.53GB,  665MB/s  Downloading bytes: 8         | 2.62GB,  654MB/s  Downloading bytes: 8         | 2.71GB,  693MB/s  Downloading bytes: 8         | 2.79GB,  739MB/s  Downloading bytes: 8         | 2.87GB,  763MB/s  
+Reconstructing (incomplete total...):   8%|8         | 2.60GB / 32.0GB,  957MB/s  [ADownloading bytes: 9         | 2.97GB,  762MB/s  
+Reconstructing (incomplete total...):   9%|8         | 2.77GB / 32.0GB,  598MB/s  [A
+Reconstructing (incomplete total...):  10%|9         | 3.11GB / 32.0GB,  709MB/s  [ADownloading bytes: 9         | 3.05GB,  657MB/s  Downloading bytes: 9         | 3.14GB,  561MB/s  Downloading bytes: #         | 3.26GB,  632MB/s  Downloading bytes: #         | 3.36GB,  770MB/s  Downloading bytes: #         | 3.47GB,  810MB/s  
+Reconstructing (incomplete total...):  10%|#         | 3.28GB / 32.0GB,  939MB/s  [ADownloading bytes: #1        | 3.61GB,  900MB/s  Downloading bytes: #1        | 3.72GB, 1.03GB/s  Downloading bytes: #2        | 3.86GB, 1.06GB/s  
+Reconstructing (incomplete total...):  11%|#         | 3.41GB / 32.0GB,  671MB/s  [ADownloading bytes: #2        | 3.98GB, 1.13GB/s  
+Reconstructing (incomplete total...):  11%|#1        | 3.61GB / 32.0GB,  665MB/s  [ADownloading bytes: #2        | 4.11GB, 1.16GB/s  Downloading bytes: #3        | 4.23GB, 1.17GB/s  
+Reconstructing (incomplete total...):  12%|#2        | 3.91GB / 32.0GB,  827MB/s  [ADownloading bytes: #3        | 4.37GB, 1.18GB/s  Downloading bytes: #4        | 4.53GB, 1.25GB/s  
+Reconstructing (incomplete total...):  13%|#3        | 4.25GB / 32.0GB, 1.01GB/s  [ADownloading bytes: #4        | 4.77GB, 1.34GB/s  
+Reconstructing (incomplete total...):  14%|#3        | 4.42GB / 32.0GB, 1.05GB/s  [ADownloading bytes: #5        | 4.99GB, 1.32GB/s  Downloading bytes: #6        | 5.13GB, 1.22GB/s  
+Reconstructing (incomplete total...):  15%|#4        | 4.70GB / 32.0GB, 1.15GB/s  [A
+Reconstructing (incomplete total...):  15%|#5        | 4.84GB / 32.0GB,  951MB/s  [ADownloading bytes: #6        | 5.26GB, 1.25GB/s  
+Reconstructing (incomplete total...):  16%|#5        | 4.98GB / 32.0GB, 1.02GB/s  [ADownloading bytes: #6        | 5.39GB, 1.03GB/s  
+Reconstructing (incomplete total...):  16%|#6        | 5.21GB / 32.0GB, 1.08GB/s  [ADownloading bytes: #7        | 5.55GB, 1.08GB/s  Downloading bytes: #7        | 5.70GB, 1.22GB/s  
+Reconstructing (incomplete total...):  17%|#7        | 5.49GB / 32.0GB, 1.31GB/s  [ADownloading bytes: #8        | 5.88GB, 1.28GB/s  
+Reconstructing (incomplete total...):  18%|#7        | 5.75GB / 32.0GB, 1.35GB/s  [ADownloading bytes: #8        | 6.03GB, 1.33GB/s  Downloading bytes: #9        | 6.09GB, 1.78GB/s  Downloading bytes: #9        | 6.09GB, 1.78GB/s  Downloading bytes: #9        | 6.09GB, 1.78GB/s  Downloading bytes: #9        | 6.30GB, 1.78GB/s  Downloading bytes: #9        | 6.32GB, 1.32GB/s  
+Reconstructing (incomplete total...):  19%|#8        | 6.05GB / 32.0GB, 1.56GB/s  [ADownloading bytes: ##        | 6.47GB, 1.32GB/s  Downloading bytes: ##        | 6.62GB, 1.35GB/s  Downloading bytes: ##        | 6.63GB, 1.46GB/s  
+Reconstructing (incomplete total...):  20%|#9        | 6.32GB / 32.0GB, 1.28GB/s  [ADownloading bytes: ##1       | 6.80GB, 1.46GB/s  Downloading bytes: ##1       | 6.85GB, 1.63GB/s  
+Reconstructing (incomplete total...):  20%|##        | 6.51GB / 32.0GB, 1.52GB/s  [ADownloading bytes: ##1       | 7.02GB, 1.63GB/s  Downloading bytes: ##2       | 7.19GB, 1.33GB/s  
+Reconstructing (incomplete total...):  21%|##        | 6.71GB / 32.0GB, 1.36GB/s  [ADownloading bytes: ##2       | 7.35GB, 1.41GB/s  
+Reconstructing (incomplete total...):  22%|##1       | 6.91GB / 32.0GB, 1.21GB/s  [ADownloading bytes: ##3       | 7.52GB, 1.41GB/s  
+Reconstructing (incomplete total...):  22%|##2       | 7.18GB / 32.0GB, 1.36GB/s  [ADownloading bytes: ##4       | 7.69GB, 1.48GB/s  
+Reconstructing (incomplete total...):  23%|##3       | 7.45GB / 32.0GB, 1.64GB/s  [ADownloading bytes: ##4       | 7.85GB, 1.53GB/s  
+Reconstructing (incomplete total...):  24%|##4       | 7.69GB / 32.0GB, 1.52GB/s  [ADownloading bytes: ##5       | 8.03GB, 1.56GB/s  
+Reconstructing (incomplete total...):  25%|##4       | 7.89GB / 32.0GB, 1.70GB/s  [ADownloading bytes: ##5       | 8.20GB, 1.26GB/s  Downloading bytes: ##5       | 8.22GB, 1.49GB/s  Downloading bytes: ##6       | 8.40GB, 1.49GB/s  
+Reconstructing (incomplete total...):  26%|##5       | 8.23GB / 32.0GB, 1.52GB/s  [ADownloading bytes: ##6       | 8.57GB, 1.57GB/s  Downloading bytes: ##7       | 8.76GB, 1.62GB/s  Downloading bytes: ##7       | 8.81GB, 1.83GB/s  
+Reconstructing (incomplete total...):  26%|##6       | 8.46GB / 32.0GB, 1.83GB/s  [ADownloading bytes: ##8       | 9.00GB, 1.83GB/s  Downloading bytes: ##8       | 9.17GB, 1.50GB/s  
+Reconstructing (incomplete total...):  27%|##7       | 8.72GB / 32.0GB, 1.32GB/s  [ADownloading bytes: ##9       | 9.35GB, 1.53GB/s  
+Reconstructing (incomplete total...):  28%|##8       | 8.99GB / 32.0GB, 1.32GB/s  [ADownloading bytes: ##9       | 9.53GB, 1.59GB/s  Downloading bytes: ###       | 9.70GB, 1.59GB/s  
+Reconstructing (incomplete total...):  29%|##8       | 9.19GB / 32.0GB, 1.56GB/s  [ADownloading bytes: ###       | 9.89GB, 1.63GB/s  
+Reconstructing (incomplete total...):  29%|##9       | 9.39GB / 32.0GB, 1.22GB/s  [ADownloading bytes: ###1      | 10.1GB, 1.69GB/s  Downloading bytes: ###2      | 10.3GB, 1.68GB/s  
+Reconstructing (incomplete total...):  31%|###       | 9.83GB / 32.0GB, 1.30GB/s  [ADownloading bytes: ###2      | 10.4GB, 1.76GB/s  
+Reconstructing (incomplete total...):  32%|###1      | 10.2GB / 32.0GB, 1.58GB/s  [ADownloading bytes: ###3      | 10.6GB, 1.76GB/s  Downloading bytes: ###3      | 10.8GB, 1.51GB/s  
+Reconstructing (incomplete total...):  33%|###2      | 10.4GB / 32.0GB, 1.96GB/s  [ADownloading bytes: ###4      | 11.0GB, 1.66GB/s  
+Reconstructing (incomplete total...):  33%|###3      | 10.6GB / 32.0GB, 1.69GB/s  [ADownloading bytes: ###5      | 11.2GB, 1.75GB/s  
+Reconstructing (incomplete total...):  34%|###4      | 10.9GB / 32.0GB, 1.75GB/s  [ADownloading bytes: ###5      | 11.4GB, 1.81GB/s  Downloading bytes: ###5      | 11.5GB, 1.73GB/s  
+Reconstructing (incomplete total...):  35%|###4      | 11.1GB / 32.0GB, 1.67GB/s  [ADownloading bytes: ###6      | 11.7GB, 1.73GB/s  Downloading bytes: ###6      | 11.7GB, 1.91GB/s  
+Reconstructing (incomplete total...):  36%|###5      | 11.5GB / 32.0GB, 1.67GB/s  [ADownloading bytes: ###7      | 11.9GB, 1.91GB/s  Downloading bytes: ###7      | 12.0GB, 1.97GB/s  Downloading bytes: ###8      | 12.2GB, 1.97GB/s  
+Reconstructing (incomplete total...):  37%|###6      | 11.8GB / 32.0GB, 2.17GB/s  [ADownloading bytes: ###8      | 12.4GB, 1.99GB/s  Downloading bytes: ###9      | 12.6GB, 1.99GB/s  Downloading bytes: ###9      | 12.8GB, 2.02GB/s  
+Reconstructing (incomplete total...):  38%|###7      | 12.0GB / 32.0GB, 1.84GB/s  [ADownloading bytes: ####      | 13.0GB, 2.02GB/s  
+Reconstructing (incomplete total...):  38%|###8      | 12.3GB / 32.0GB, 1.46GB/s  [ADownloading bytes: ####1     | 13.2GB, 2.01GB/s  
+Reconstructing (incomplete total...):  40%|####      | 12.8GB / 32.0GB, 1.62GB/s  [ADownloading bytes: ####1     | 13.4GB, 1.67GB/s  Downloading bytes: ####2     | 13.6GB, 1.72GB/s  
+Reconstructing (incomplete total...):  41%|####1     | 13.1GB / 32.0GB, 2.04GB/s  [ADownloading bytes: ####3     | 13.8GB, 1.77GB/s  Downloading bytes: ####3     | 14.0GB, 1.87GB/s  
+Reconstructing (incomplete total...):  42%|####1     | 13.4GB / 32.0GB, 2.06GB/s  [ADownloading bytes: ####4     | 14.2GB, 1.92GB/s  
+Reconstructing (incomplete total...):  43%|####2     | 13.7GB / 32.0GB, 1.81GB/s  [ADownloading bytes: ####5     | 14.4GB, 1.90GB/s  Downloading bytes: ####5     | 14.6GB, 1.95GB/s  
+Reconstructing (incomplete total...):  43%|####3     | 13.9GB / 32.0GB, 1.72GB/s  [ADownloading bytes: ####6     | 14.9GB, 2.03GB/s  
+Reconstructing (incomplete total...):  44%|####4     | 14.2GB / 32.0GB, 1.69GB/s  [ADownloading bytes: ####7     | 15.1GB, 2.17GB/s  
+Reconstructing (incomplete total...):  45%|####5     | 14.5GB / 32.0GB, 1.77GB/s  [ADownloading bytes: ####8     | 15.4GB, 2.19GB/s  Downloading bytes: ####8     | 15.4GB, 2.41GB/s  Downloading bytes: ####8     | 15.7GB, 2.41GB/s  
+Reconstructing (incomplete total...):  46%|####6     | 14.8GB / 32.0GB, 2.02GB/s  [ADownloading bytes: ####9     | 15.9GB, 2.43GB/s  
+Reconstructing (incomplete total...):  47%|####7     | 15.1GB / 32.0GB, 2.13GB/s  [ADownloading bytes: #####     | 16.2GB, 2.02GB/s  
+Reconstructing (incomplete total...):  48%|####8     | 15.5GB / 32.0GB, 2.05GB/s  [ADownloading bytes: #####1    | 16.4GB, 2.15GB/s  
+Reconstructing (incomplete total...):  50%|####9     | 15.9GB / 32.0GB, 2.25GB/s  [ADownloading bytes: #####2    | 16.7GB, 2.28GB/s  Downloading bytes: #####2    | 16.9GB, 2.25GB/s  
+Reconstructing (incomplete total...):  51%|#####     | 16.2GB / 32.0GB, 2.66GB/s  [ADownloading bytes: #####3    | 17.2GB, 2.32GB/s  
+Reconstructing (incomplete total...):  51%|#####1    | 16.5GB / 32.0GB, 2.26GB/s  [ADownloading bytes: #####4    | 17.4GB, 2.34GB/s  Downloading bytes: #####4    | 17.5GB, 2.51GB/s  
+Reconstructing (incomplete total...):  52%|#####2    | 16.7GB / 32.0GB, 2.31GB/s  [ADownloading bytes: #####5    | 17.7GB, 2.51GB/s  Downloading bytes: #####6    | 18.0GB, 2.52GB/s  
+Reconstructing (incomplete total...):  54%|#####3    | 17.2GB / 32.0GB, 1.93GB/s  [A
+Reconstructing (incomplete total...):  55%|#####4    | 17.5GB / 32.0GB, 2.18GB/s  [ADownloading bytes: #####7    | 18.3GB, 2.65GB/s  
+Reconstructing (incomplete total...):  56%|#####5    | 17.8GB / 32.0GB, 2.42GB/s  [ADownloading bytes: #####8    | 18.6GB, 2.21GB/s  Downloading bytes: #####8    | 18.8GB, 2.20GB/s  
+Reconstructing (incomplete total...):  57%|#####6    | 18.1GB / 32.0GB, 2.39GB/s  [ADownloading bytes: #####9    | 19.1GB, 2.23GB/s  
+Reconstructing (incomplete total...):  58%|#####7    | 18.5GB / 32.0GB, 2.62GB/s  [ADownloading bytes: ######    | 19.3GB, 2.37GB/s  Downloading bytes: ######1   | 19.6GB, 2.40GB/s  
+Reconstructing (incomplete total...):  59%|#####8    | 18.8GB / 32.0GB, 2.30GB/s  [ADownloading bytes: ######2   | 19.9GB, 2.46GB/s  
+Reconstructing (incomplete total...):  60%|#####9    | 19.1GB / 32.0GB, 2.06GB/s  [ADownloading bytes: ######2   | 20.1GB, 2.50GB/s  
+Reconstructing (incomplete total...):  61%|######    | 19.4GB / 32.0GB, 2.13GB/s  [ADownloading bytes: ######3   | 20.4GB, 2.56GB/s  Downloading bytes: ######4   | 20.7GB, 2.13GB/s  
+Reconstructing (incomplete total...):  62%|######1   | 19.8GB / 32.0GB, 2.40GB/s  [ADownloading bytes: ######5   | 20.9GB, 2.18GB/s  
+Reconstructing (incomplete total...):  63%|######3   | 20.2GB / 32.0GB, 2.12GB/s  [ADownloading bytes: ######6   | 21.2GB, 2.22GB/s  Downloading bytes: ######7   | 21.4GB, 2.35GB/s  
+Reconstructing (incomplete total...):  64%|######4   | 20.5GB / 32.0GB, 2.52GB/s  [ADownloading bytes: ######8   | 21.8GB, 2.49GB/s  
+Reconstructing (incomplete total...):  65%|######5   | 20.8GB / 32.0GB, 2.21GB/s  [ADownloading bytes: ######8   | 22.1GB, 2.68GB/s  
+Reconstructing (incomplete total...):  66%|######6   | 21.2GB / 32.0GB, 2.45GB/s  [ADownloading bytes: ######9   | 22.3GB, 2.67GB/s  Downloading bytes: ######9   | 22.4GB, 2.78GB/s  Downloading bytes: #######   | 22.7GB, 2.78GB/s  
+Reconstructing (incomplete total...):  68%|######7   | 21.7GB / 32.0GB, 2.72GB/s  [ADownloading bytes: #######1  | 23.0GB, 2.80GB/s  
+Reconstructing (incomplete total...):  69%|######8   | 22.0GB / 32.0GB, 2.20GB/s  [ADownloading bytes: #######2  | 23.3GB, 2.78GB/s  
+Reconstructing (incomplete total...):  70%|######9   | 22.3GB / 32.0GB, 2.29GB/s  [ADownloading bytes: #######3  | 23.6GB, 2.82GB/s  
+Reconstructing (incomplete total...):  71%|#######   | 22.7GB / 32.0GB, 2.52GB/s  [ADownloading bytes: #######4  | 23.9GB, 2.83GB/s  
+Reconstructing (incomplete total...):  72%|#######2  | 23.1GB / 32.0GB, 2.86GB/s  [ADownloading bytes: #######5  | 24.1GB, 2.42GB/s  Downloading bytes: #######6  | 24.4GB, 2.49GB/s  
+Reconstructing (incomplete total...):  73%|#######3  | 23.4GB / 32.0GB, 2.60GB/s  [ADownloading bytes: #######7  | 24.7GB, 2.54GB/s  
+Reconstructing (incomplete total...):  74%|#######4  | 23.8GB / 32.0GB, 2.63GB/s  [ADownloading bytes: #######8  | 25.0GB, 2.56GB/s  
+Reconstructing (incomplete total...):  76%|#######5  | 24.2GB / 32.0GB, 2.72GB/s  [ADownloading bytes: #######8  | 25.3GB, 2.59GB/s  
+Reconstructing (incomplete total...):  77%|#######7  | 24.7GB / 32.0GB, 3.20GB/s  [ADownloading bytes: #######9  | 25.5GB, 2.62GB/s  Downloading bytes: ########  | 25.8GB, 2.63GB/s  Downloading bytes: ########  | 25.9GB, 2.94GB/s  
+Reconstructing (incomplete total...):  78%|#######8  | 25.1GB / 32.0GB, 3.01GB/s  [ADownloading bytes: ########1 | 26.2GB, 2.94GB/s  Downloading bytes: ########2 | 26.5GB, 2.92GB/s  
+Reconstructing (incomplete total...):  80%|#######9  | 25.5GB / 32.0GB, 2.45GB/s  [ADownloading bytes: ########3 | 26.8GB, 3.05GB/s  
+Reconstructing (incomplete total...):  81%|########  | 25.8GB / 32.0GB, 2.26GB/s  [ADownloading bytes: ########4 | 27.2GB, 2.98GB/s  
+Reconstructing (incomplete total...):  82%|########2 | 26.3GB / 32.0GB, 2.15GB/s  [ADownloading bytes: ########5 | 27.5GB, 2.53GB/s  
+Reconstructing (incomplete total...):  83%|########3 | 26.6GB / 32.0GB, 2.64GB/s  [ADownloading bytes: ########6 | 27.8GB, 2.66GB/s  
+Reconstructing (incomplete total...):  85%|########4 | 27.1GB / 32.0GB, 2.78GB/s  [ADownloading bytes: ########7 | 28.1GB, 2.72GB/s  Downloading bytes: ########8 | 28.4GB, 2.76GB/s  Downloading bytes: ########9 | 28.7GB, 2.81GB/s  
+Reconstructing (incomplete total...):  86%|########5 | 27.5GB / 32.0GB, 3.15GB/s  [ADownloading bytes: ######### | 29.0GB, 2.90GB/s  
+Reconstructing (incomplete total...):  88%|########7 | 28.0GB / 32.0GB, 2.65GB/s  [ADownloading bytes: #########1| 29.3GB, 3.00GB/s  Downloading bytes: #########2| 29.6GB, 3.03GB/s  
+Reconstructing (incomplete total...):  89%|########8 | 28.4GB / 32.0GB, 3.10GB/s  [ADownloading bytes: #########3| 30.0GB, 3.00GB/s  
+Reconstructing (incomplete total...):  90%|######### | 28.8GB / 32.0GB, 2.68GB/s  [A
+Reconstructing (incomplete total...):  91%|#########1| 29.2GB / 32.0GB, 2.71GB/s  [ADownloading bytes: #########4| 30.3GB, 2.87GB/s  Downloading bytes: #########4| 30.3GB, 2.31GB/s  
+Reconstructing (incomplete total...):  93%|#########2| 29.6GB / 32.0GB, 2.92GB/s  [ADownloading bytes: #########5| 30.6GB, 2.31GB/s  Downloading bytes: #########6| 30.9GB, 2.39GB/s  
+Reconstructing (incomplete total...):  94%|#########3| 30.0GB / 32.0GB, 3.07GB/s  [ADownloading bytes: #########7| 31.2GB, 2.45GB/s  
+Reconstructing (incomplete total...):  95%|#########4| 30.3GB / 32.0GB, 2.91GB/s  [A
+Reconstructing (incomplete total...):  96%|#########5| 30.6GB / 32.0GB, 2.59GB/s  [ADownloading bytes: #########8| 31.5GB, 2.58GB/s  
+Reconstructing (incomplete total...):  97%|#########6| 31.0GB / 32.0GB, 2.75GB/s  [A
+Reconstructing (incomplete total...):  98%|#########8| 31.4GB / 32.0GB, 2.97GB/s  [A
+Reconstructing (incomplete total...):  99%|#########9| 31.8GB / 32.0GB, 2.09GB/s  [A
+
+Fetching 9 files:  11%|#1        | 1/9 [00:24<03:12, 24.04s/it][A[A
+Reconstructing (incomplete total...):  98%|#########7| 32.0GB / 32.7GB, 2.30GB/s  [ADownloading bytes: #########7| 31.8GB, 2.09GB/s  Downloading bytes: #########7| 32.0GB,  224MB/s  
+
+Fetching 9 files:  22%|##2       | 2/9 [00:25<01:13, 10.51s/it][A[ADownloading bytes: #########8| 32.2GB,  268MB/s  Downloading bytes: #########8| 32.3GB,  315MB/s  
+
+Fetching 9 files:  33%|###3      | 3/9 [00:25<00:35,  5.87s/it][A[A
+Reconstructing (incomplete total...):  98%|#########8| 32.1GB / 32.7GB, 2.30GB/s  [A
+
+Fetching 9 files:  44%|####4     | 4/9 [00:25<00:18,  3.60s/it][A[A
+Reconstructing (incomplete total...):  99%|#########8| 32.3GB / 32.7GB,  244MB/s  [A
+
+Fetching 9 files:  56%|#####5    | 5/9 [00:25<00:09,  2.37s/it][A[A
+Reconstructing (incomplete total...): 100%|##########| 32.7GB / 32.7GB,  307MB/s  [A
+
+Fetching 9 files:  89%|########8 | 8/9 [00:25<00:00,  1.03it/s][A[AFetching 9 files: 100%|##########| 9/9 [00:26<00:00,  2.89s/it]
+Downloading bytes: ##########| 32.4GB,  352MB/s  Download complete: : ##########| 32.4GB,  352MB/s  
+Reconstruction complete: 100%|##########| 32.7GB / 32.7GB,  420MB/s               [ADownload complete: : ##########| 32.4GB,  352MB/s  
+Reconstruction complete: 100%|##########| 32.7GB / 32.7GB,  420MB/s  
+Loading weights:   0%|          | 0/401 [00:00<?, ?it/s]Loading weights:   3%|2         | 11/401 [00:01<00:39,  9.80it/s]Loading weights:   3%|2         | 12/401 [00:01<01:04,  6.03it/s]Loading weights:   7%|6         | 27/401 [00:02<00:28, 12.94it/s]Loading weights:   7%|7         | 29/401 [00:03<00:39,  9.52it/s]Loading weights:  12%|#1        | 48/401 [00:03<00:21, 16.68it/s]Loading weights:  12%|#2        | 50/401 [00:04<00:28, 12.24it/s]Loading weights:  16%|#5        | 64/401 [00:04<00:21, 15.58it/s]Loading weights:  16%|#6        | 66/401 [00:05<00:28, 11.60it/s]Loading weights:  20%|#9        | 80/401 [00:06<00:21, 15.26it/s]Loading weights:  20%|##        | 82/401 [00:06<00:28, 11.36it/s]Loading weights:  25%|##5       | 101/401 [00:07<00:17, 16.89it/s]Loading weights:  26%|##5       | 103/401 [00:08<00:24, 12.32it/s]Loading weights:  29%|##9       | 117/401 [00:08<00:18, 15.36it/s]Loading weights:  30%|##9       | 119/401 [00:09<00:23, 11.90it/s]Loading weights:  33%|###3      | 133/401 [00:09<00:17, 14.91it/s]Loading weights:  34%|###3      | 135/401 [00:10<00:23, 11.33it/s]Loading weights:  38%|###8      | 154/401 [00:11<00:14, 16.68it/s]Loading weights:  39%|###8      | 156/401 [00:11<00:19, 12.65it/s]Loading weights:  42%|####2     | 170/401 [00:12<00:11, 20.52it/s]Loading weights:  44%|####3     | 175/401 [00:12<00:09, 22.87it/s]Loading weights:  46%|####6     | 186/401 [00:12<00:06, 31.82it/s]Loading weights:  48%|####8     | 193/401 [00:12<00:05, 36.02it/s]Loading weights:  52%|#####1    | 207/401 [00:12<00:03, 50.64it/s]Loading weights:  56%|#####5    | 223/401 [00:12<00:02, 60.51it/s]Loading weights:  60%|#####9    | 239/401 [00:12<00:02, 67.26it/s]Loading weights:  62%|######1   | 248/401 [00:12<00:02, 70.47it/s]Loading weights:  65%|######4   | 260/401 [00:13<00:01, 77.26it/s]Loading weights:  67%|######7   | 269/401 [00:13<00:01, 78.36it/s]Loading weights:  69%|######9   | 278/401 [00:13<00:01, 64.05it/s]Loading weights:  73%|#######2  | 292/401 [00:13<00:01, 79.32it/s]Loading weights:  75%|#######5  | 302/401 [00:13<00:01, 81.21it/s]Loading weights:  78%|#######7  | 312/401 [00:13<00:01, 66.71it/s]Loading weights:  82%|########2 | 329/401 [00:13<00:00, 88.15it/s]Loading weights:  85%|########4 | 340/401 [00:14<00:00, 90.65it/s]Loading weights:  88%|########7 | 351/401 [00:14<00:00, 78.75it/s]Loading weights:  90%|######### | 361/401 [00:14<00:00, 82.11it/s]Loading weights:  93%|#########2| 371/401 [00:14<00:00, 85.76it/s]Loading weights:  95%|#########5| 381/401 [00:14<00:00, 68.38it/s]Loading weights:  98%|#########8| 393/401 [00:14<00:00, 79.24it/s]Loading weights: 100%|##########| 401/401 [00:15<00:00, 26.58it/s]
+CausalLM load failed (AttributeError): 'Tee' object has no attribute 'isatty'
+configuration_nemotron_h.py:   0%|          | 0.00/12.9k [00:00<?, ?B/s]configuration_nemotron_h.py: 100%|##########| 12.9k/12.9k [00:00<00:00, 54.5MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8:
+- configuration_nemotron_h.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+ImageTextToText failed (ValueError); CausalLM sdpa retry
+modeling_nemotron_h.py:   0%|          | 0.00/83.8k [00:00<?, ?B/s]modeling_nemotron_h.py: 100%|##########| 83.8k/83.8k [00:00<00:00, 154MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8:
+- modeling_nemotron_h.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 402, in main
+    model = AutoModelForCausalLM.from_pretrained(args.model, **load_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4349, in from_pretrained
+    loading_info = cls._finalize_model_loading(model, load_config, loading_info)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4525, in _finalize_model_loading
+    log_state_dict_report(
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/loading_report.py", line 262, in log_state_dict_report
+    report = loading_info.create_loading_report()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/loading_report.py", line 181, in create_loading_report
+    tips += f"\n- {_style('UNEXPECTED:', 'orange')}\t" + _style(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/loading_report.py", line 123, in _style
+    if sys.stdout is not None and sys.stdout.isatty():
+                                  ^^^^^^^^^^^^^^^^^
+AttributeError: 'Tee' object has no attribute 'isatty'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 410, in main
+    model = AutoModelForImageTextToText.from_pretrained(args.model, **load_kwargs_retry)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 405, in from_pretrained
+    raise ValueError(
+ValueError: Unrecognized configuration class <class 'transformers_modules.nvidia.NVIDIA_hyphen_Nemotron_hyphen_3_hyphen_Nano_hyphen_30B_hyphen_A3B_hyphen_FP8.f8dc1c0afee92f44417695b4f5ddca9afc95ea58.configuration_nemotron_h.NemotronHConfig'> for this kind of AutoModel: AutoModelForImageTextToText.
+Model type should be one of AriaConfig, AyaVisionConfig, BlipConfig, Blip2Config, ChameleonConfig, Cohere2VisionConfig, Cosmos3EdgeConfig, Cosmos3OmniConfig, DeepseekOcr2Config, DeepseekVLConfig, DeepseekVLHybridConfig, DiffusionGemmaConfig, Emu3Config, Ernie4_5_VLMoeConfig, EvollaConfig, Exaone4_5_Config, FastVlmConfig, Florence2Config, FuyuConfig, Gemma3Config, Gemma3nConfig, Gemma4Config, Gemma4UnifiedConfig, GitConfig, Glm46VConfig, Glm4vConfig, Glm4vMoeConfig, GlmOcrConfig, GlmgaConfig, GotOcr2Config, Granite4VisionConfig, HunYuanVLConfig, IdeficsConfig, Idefics2Config, Idefics3Config, InklingConfig, InstructBlipConfig, InstructBlipVideoConfig, InternVLConfig, JanusConfig, Kimi_K25Config, Kosmos2Config, Kosmos2_5Config, Lfm2VlConfig, LightOnOcrConfig, Llama4Config, LlavaConfig, LlavaNextConfig, LlavaNextVideoConfig, LlavaOnevisionConfig, MiniCPMV4_6Config, MiniMaxM3VLConfig, Mistral3Config, Mistral4Config, MllamaConfig, MuseGlimmerConfig, Ovis2Config, PaddleOCRVLConfig, PaliGemmaConfig, PerceptionLMConfig, PI0Config, Pix2StructConfig, PPChart2TableConfig, PPFormulaNetConfig, QianfanOCRConfig, Qwen2_5OmniThinkerConfig, Qwen2_5_VLConfig, Qwen2VLConfig, Qwen3_5Config, Qwen3_5MoeConfig, Qwen3OmniMoeThinkerConfig, Qwen3VLConfig, Qwen3VLMoeConfig, ShieldGemma2Config, SmolVLMConfig, T5Gemma2Config, UdopConfig, VideoLlama3Config, VideoLlavaConfig, VipLlavaConfig, VisionEncoderDecoderConfig.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/NVIDIA_hyphen_Nemotron_hyphen_3_hyphen_Nano_hyphen_30B_hyphen_A3B_hyphen_FP8/f8dc1c0afee92f44417695b4f5ddca9afc95ea58/modeling_nemotron_h.py", line 64, in <module>
+    from mamba_ssm.ops.triton.layernorm_gated import rmsnorm_fn
+ModuleNotFoundError: No module named 'mamba_ssm'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 413, in main
+    model = AutoModelForCausalLM.from_pretrained(args.model, **load_kwargs_retry)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 378, in from_pretrained
+    model_class = get_class_from_dynamic_module(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 623, in get_class_from_dynamic_module
+    return get_class_in_module(class_name, final_module, force_reload=force_download)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 309, in get_class_in_module
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/NVIDIA_hyphen_Nemotron_hyphen_3_hyphen_Nano_hyphen_30B_hyphen_A3B_hyphen_FP8/f8dc1c0afee92f44417695b4f5ddca9afc95ea58/modeling_nemotron_h.py", line 66, in <module>
+    raise ImportError("mamba-ssm is required by the Mamba model but cannot be imported")
+ImportError: mamba-ssm is required by the Mamba model but cannot be imported
+

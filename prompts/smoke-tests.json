@@ -1,0 +1,66 @@
+{
+  "description": "Deterministic smoke-test prompts. Purpose is execution correctness, not subjective quality ranking.",
+  "checked_date": "2026-08-15",
+  "notes": [
+    "Default Transformers smoke test uses enable_thinking=False and greedy decoding (temperature=0).",
+    "Official Nemotron 3 Nano BF16 card recommends temperature=1.0 top_p=1.0 for reasoning-on and temperature=0.6 top_p=0.95 for tool calling.",
+    "Do not treat passing these prompts as production quality evidence."
+  ],
+  "prompts": [
+    {
+      "id": "basic-language",
+      "task": "basic_language",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Explain the difference between RAM and storage in three sentences."
+        }
+      ],
+      "expect": "A three-sentence explanation that distinguishes volatile/working memory from persistent storage."
+    },
+    {
+      "id": "simple-reasoning",
+      "task": "simple_reasoning",
+      "messages": [
+        {
+          "role": "user",
+          "content": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory? Reply with the integer number of GB and a one-sentence calculation."
+        }
+      ],
+      "expect": "1536 GB, from 8 * 192."
+    },
+    {
+      "id": "code",
+      "task": "code",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write a Python function that returns the factorial of a non-negative integer. Handle 0 correctly. Do not write any text before or after the function."
+        }
+      ],
+      "expect": "A Python function defining factorial, including a 0 base case."
+    },
+    {
+      "id": "summarization",
+      "task": "summarization",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Summarize the following paragraph in exactly two sentences.\n\nAMD Instinct MI300X accelerators provide 192 GB of HBM3 memory per GPU. Software support for large language models on this hardware typically goes through ROCm, HIP-enabled PyTorch, and inference servers such as vLLM. NVIDIA Nemotron 3 Nano is a hybrid Mamba-Transformer Mixture-of-Experts model with a published BF16 checkpoint on Hugging Face. Whether that checkpoint actually loads and generates correctly on MI300X is an empirical question, not a marketing claim."
+        }
+      ],
+      "expect": "Exactly two sentences covering MI300X/ROCm and the need to empirically validate Nemotron Nano."
+    },
+    {
+      "id": "instruction-following",
+      "task": "instruction_following",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Return a JSON object with exactly these keys: gpu_name, hbm_gb, status. Use gpu_name=\"MI300X\", hbm_gb=192, status=\"NOT TESTED\". No markdown. No extra keys. No commentary."
+        }
+      ],
+      "expect": "{\"gpu_name\": \"MI300X\", \"hbm_gb\": 192, \"status\": \"NOT TESTED\"}"
+    }
+  ]
+}

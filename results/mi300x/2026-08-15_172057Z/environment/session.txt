@@ -1,0 +1,6 @@
+date_utc=2026-08-15T17:20:57+00:00
+date_local=2026-08-15T17:20:57+00:00
+hostname=rocm-7-14-software-gpu-mi300x1-192gb-devcloud-atl1
+user=root
+pwd=/root/Nemotron-on-AMD
+repo_root=/root/Nemotron-on-AMD

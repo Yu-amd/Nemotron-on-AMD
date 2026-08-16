@@ -1,0 +1,193 @@
+{
+  "label": "Engineering context ladder only",
+  "timestamp_utc": "2026-08-16T02:45:06.410692+00:00",
+  "base_url": "http://127.0.0.1:8000/v1",
+  "model": "nemotron-nano-bf16",
+  "tokenizer": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+  "revision": "2d59de1cbd51c0adf384eb906b766d1aee0e0517",
+  "max_model_len": 16384,
+  "head": "HEAD_SECRET: the secret color is indigo.",
+  "tail": "TAIL_SECRET: the secret number is 4172.",
+  "question": "What is the secret color from HEAD_SECRET and the secret number from TAIL_SECRET? Reply with exactly two fields and nothing else: COLOR=indigo NUMBER=4172",
+  "notes": [
+    "Not an official benchmark.",
+    "Do not treat a single length PASS as 1M context."
+  ],
+  "runs": [
+    {
+      "target_tokens": 4096,
+      "success": true,
+      "templated_tokens": 3973,
+      "ok": true,
+      "end_to_end_sec": 2.5405190599994967,
+      "prompt_tokens": 3973,
+      "completion_tokens": 12,
+      "text": "COLOR=indigo NUMBER=4172",
+      "reasoning": null,
+      "response": {
+        "id": "chatcmpl-88e9ce2f58f526ce",
+        "object": "chat.completion",
+        "created": 1786848306,
+        "model": "nemotron-nano-bf16",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "COLOR=indigo NUMBER=4172",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "tool_calls": [],
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-0d02728c",
+        "usage": {
+          "prompt_tokens": 3973,
+          "total_tokens": 3985,
+          "completion_tokens": 12,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null
+      },
+      "judge": {
+        "color_ok": true,
+        "number_ok": true,
+        "pass": true
+      }
+    },
+    {
+      "target_tokens": 8192,
+      "success": true,
+      "templated_tokens": 7991,
+      "ok": true,
+      "end_to_end_sec": 0.3002801990005537,
+      "prompt_tokens": 7991,
+      "completion_tokens": 12,
+      "text": "COLOR=indigo NUMBER=4172",
+      "reasoning": null,
+      "response": {
+        "id": "chatcmpl-a93ad950cfa08f30",
+        "object": "chat.completion",
+        "created": 1786848309,
+        "model": "nemotron-nano-bf16",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "COLOR=indigo NUMBER=4172",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "tool_calls": [],
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-0d02728c",
+        "usage": {
+          "prompt_tokens": 7991,
+          "total_tokens": 8003,
+          "completion_tokens": 12,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null
+      },
+      "judge": {
+        "color_ok": true,
+        "number_ok": true,
+        "pass": true
+      }
+    },
+    {
+      "target_tokens": 16384,
+      "success": true,
+      "templated_tokens": 15986,
+      "ok": true,
+      "end_to_end_sec": 0.8442623920054757,
+      "prompt_tokens": 15986,
+      "completion_tokens": 12,
+      "text": "COLOR=indigo NUMBER=4172",
+      "reasoning": null,
+      "response": {
+        "id": "chatcmpl-824b9d9223593adb",
+        "object": "chat.completion",
+        "created": 1786848309,
+        "model": "nemotron-nano-bf16",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "COLOR=indigo NUMBER=4172",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "tool_calls": [],
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-0d02728c",
+        "usage": {
+          "prompt_tokens": 15986,
+          "total_tokens": 15998,
+          "completion_tokens": 12,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null
+      },
+      "judge": {
+        "color_ok": true,
+        "number_ok": true,
+        "pass": true
+      }
+    }
+  ],
+  "summary": {
+    "success": true,
+    "lengths_attempted": [
+      4096,
+      8192,
+      16384
+    ],
+    "lengths_passed": [
+      4096,
+      8192,
+      16384
+    ]
+  }
+}

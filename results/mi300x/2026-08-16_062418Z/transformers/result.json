@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "date": "2026-08-16T06:24:19.024543+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/NVIDIA-Nemotron-Parse-2.0",
+    "model_revision": "635b84d9b09bb9526b9a684d0b2c953d3cc3df05",
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "FAIL",
+    "notes": "Family smoke task=parse. Not Optimized. Not a Nano 30B BF16 result.",
+    "command": [
+      "scripts/mi300x/family-smoke.py",
+      "--model",
+      "nvidia/NVIDIA-Nemotron-Parse-2.0",
+      "--task",
+      "parse",
+      "--output-dir",
+      "results/mi300x/2026-08-16_062418Z",
+      "--trust-remote-code"
+    ],
+    "trust_remote_code_requested": true,
+    "queue_task": "parse"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ]
+  },
+  "load": {},
+  "outputs": [],
+  "summary": {
+    "success": false,
+    "failure_layer": "OTHER",
+    "error": "ImportError: This modeling file requires the following packages that were not found in your environment: open_clip. Run `pip install open_clip`",
+    "traceback": "Traceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 297, in main\n    config = AutoConfig.from_pretrained(args.model, revision=args.revision, trust_remote_code=trust)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py\", line 409, in from_pretrained\n    return config_class.from_pretrained(pretrained_model_name_or_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/configuration_utils.py\", line 725, in from_pretrained\n    return cls.from_dict(config_dict, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/configuration_utils.py\", line 902, in from_dict\n    config = cls(**config_dict)\n             ^^^^^^^^^^^^^^^^^^\n  File \"/root/.cache/huggingface/modules/transformers_modules/nvidia/NVIDIA_hyphen_Nemotron_hyphen_Parse_hyphen_2_dot_0/635b84d9b09bb9526b9a684d0b2c953d3cc3df05/hf_nemotron_parse_config.py\", line 113, in __init__\n    vision_auto_config = get_class_from_dynamic_module(*encoder[\"auto_map\"][\"AutoConfig\"].split(\"--\")[::-1])\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py\", line 612, in get_class_from_dynamic_module\n    final_module = get_cached_module_file(\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py\", line 490, in get_cached_module_file\n    get_cached_module_file(\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py\", line 441, in get_cached_module_file\n    modules_needed = check_imports(resolved_module_file)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py\", line 258, in check_imports\n    raise ImportError(\nImportError: This modeling file requires the following packages that were not found in your environment: open_clip. Run `pip install open_clip`\n"
+  }
+}

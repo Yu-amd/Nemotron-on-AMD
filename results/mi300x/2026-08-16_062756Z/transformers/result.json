@@ -1,0 +1,266 @@
+{
+  "metadata": {
+    "date": "2026-08-16T06:27:56.872966+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+    "model_revision": "d468880b6ad3c6e0d21377ce7242adaea4cc884d",
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "PASS",
+    "notes": "Family smoke task=causal. Not Optimized. Not a Nano 30B BF16 result.",
+    "command": [
+      "scripts/mi300x/family-smoke.py",
+      "--model",
+      "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "--task",
+      "causal",
+      "--output-dir",
+      "results/mi300x/2026-08-16_062756Z",
+      "--max-new-tokens=96",
+      "--attn-implementation=sdpa"
+    ],
+    "trust_remote_code_requested": false,
+    "queue_task": "causal",
+    "queue_task_resolved": "causal",
+    "trust_remote_code_required": false,
+    "status_claim_allowed": "Runs (candidate) \u2014 not Validated until results are reviewed"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ]
+  },
+  "load": {
+    "config": {
+      "model_type": "nemotron_h",
+      "architectures": [
+        "NemotronHForCausalLM"
+      ],
+      "auto_map": null,
+      "pipe": null
+    },
+    "model_load_sec": 74.02376780399936,
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_load": {
+      "available": true,
+      "allocated_bytes": 63319045632,
+      "reserved_bytes": 64474841088,
+      "max_allocated_bytes": 64489937408,
+      "max_reserved_bytes": 65571651584
+    },
+    "trust_remote_code_used": false
+  },
+  "outputs": [
+    {
+      "id": "basic-language",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Explain the difference between RAM and storage in three sentences."
+        }
+      ],
+      "generated_text": "RAM acts as the computer's short-term memory, holding data that the processor needs immediately for active tasks, and it clears completely when the power is turned off. Storage, such as an SSD or hard drive, serves as long-term memory, permanently retaining files, applications, and the operating system even when the computer is shut down. While RAM is much faster and allows for quick multitasking, storage provides the necessary capacity to keep data accessible over time.",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047168,
+        "reserved_bytes": 63916998656,
+        "max_allocated_bytes": 63926036480,
+        "max_reserved_bytes": 64453869568
+      }
+    },
+    {
+      "id": "simple-reasoning",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory? Reply with the integer number of GB and a one-sentence calculation."
+        }
+      ],
+      "generated_text": "1536 GB\n\nCalculation: 8 GPUs \u00d7 192 GB per GPU = 1536 GB.",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047168,
+        "reserved_bytes": 64453869568,
+        "max_allocated_bytes": 63928184832,
+        "max_reserved_bytes": 64453869568
+      }
+    },
+    {
+      "id": "code",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write a Python function that returns the factorial of a non-negative integer. Handle 0 correctly. Do not write any text before or after the function."
+        }
+      ],
+      "generated_text": "```python\ndef factorial(n):\n    if n == 0:\n        return 1\n    result = 1\n    for i in range(1, n + 1):\n        result *= i\n    return result\n```",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047168,
+        "reserved_bytes": 64453869568,
+        "max_allocated_bytes": 63928184832,
+        "max_reserved_bytes": 64453869568
+      }
+    },
+    {
+      "id": "summarization",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Summarize the following paragraph in exactly two sentences.\n\nAMD Instinct MI300X accelerators provide 192 GB of HBM3 memory per GPU. Software support for large language models on this hardware typically goes through ROCm, HIP-enabled PyTorch, and inference servers such as vLLM. NVIDIA Nemotron 3 Nano is a hybrid Mamba-Transformer Mixture-of-Experts model with a published BF16 checkpoint on Hugging Face. Whether that checkpoint actually loads and generates correctly on MI300X is an empirical question, not a marketing claim."
+        }
+      ],
+      "generated_text": "AMD Instinct MI300X accelerators feature 192 GB of HBM3 memory per GPU, and software support for large language models typically relies on ROCm, HIP-enabled PyTorch, and inference servers like vLLM. The compatibility of NVIDIA Nemotron 3 Nano, a hybrid Mamba-Transformer Mixture-of-Experts model with a BF16 checkpoint on Hugging Face, with this hardware remains an empirical question",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319049216,
+        "reserved_bytes": 65571651584,
+        "max_allocated_bytes": 64489937408,
+        "max_reserved_bytes": 65571651584
+      }
+    },
+    {
+      "id": "instruction-following",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Return a JSON object with exactly these keys: gpu_name, hbm_gb, status. Use gpu_name=\"MI300X\", hbm_gb=192, status=\"NOT TESTED\". No markdown. No extra keys. No commentary."
+        }
+      ],
+      "generated_text": "{\n  \"gpu_name\": \"MI300X\",\n  \"hbm_gb\": 192,\n  \"status\": \"NOT TESTED\"\n}",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047680,
+        "reserved_bytes": 64474841088,
+        "max_allocated_bytes": 64489937408,
+        "max_reserved_bytes": 65571651584
+      }
+    }
+  ],
+  "summary": {
+    "success": true,
+    "prompts_total": 5,
+    "prompts_passed": 5,
+    "peak_memory": {
+      "available": true,
+      "allocated_bytes": 63319045632,
+      "reserved_bytes": 64474841088,
+      "max_allocated_bytes": 64489937408,
+      "max_reserved_bytes": 65571651584
+    },
+    "trust_remote_code_used": false
+  },
+  "generations": [
+    {
+      "id": "basic-language",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Explain the difference between RAM and storage in three sentences."
+        }
+      ],
+      "generated_text": "RAM acts as the computer's short-term memory, holding data that the processor needs immediately for active tasks, and it clears completely when the power is turned off. Storage, such as an SSD or hard drive, serves as long-term memory, permanently retaining files, applications, and the operating system even when the computer is shut down. While RAM is much faster and allows for quick multitasking, storage provides the necessary capacity to keep data accessible over time.",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047168,
+        "reserved_bytes": 63916998656,
+        "max_allocated_bytes": 63926036480,
+        "max_reserved_bytes": 64453869568
+      }
+    },
+    {
+      "id": "simple-reasoning",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory? Reply with the integer number of GB and a one-sentence calculation."
+        }
+      ],
+      "generated_text": "1536 GB\n\nCalculation: 8 GPUs \u00d7 192 GB per GPU = 1536 GB.",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047168,
+        "reserved_bytes": 64453869568,
+        "max_allocated_bytes": 63928184832,
+        "max_reserved_bytes": 64453869568
+      }
+    },
+    {
+      "id": "code",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write a Python function that returns the factorial of a non-negative integer. Handle 0 correctly. Do not write any text before or after the function."
+        }
+      ],
+      "generated_text": "```python\ndef factorial(n):\n    if n == 0:\n        return 1\n    result = 1\n    for i in range(1, n + 1):\n        result *= i\n    return result\n```",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047168,
+        "reserved_bytes": 64453869568,
+        "max_allocated_bytes": 63928184832,
+        "max_reserved_bytes": 64453869568
+      }
+    },
+    {
+      "id": "summarization",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Summarize the following paragraph in exactly two sentences.\n\nAMD Instinct MI300X accelerators provide 192 GB of HBM3 memory per GPU. Software support for large language models on this hardware typically goes through ROCm, HIP-enabled PyTorch, and inference servers such as vLLM. NVIDIA Nemotron 3 Nano is a hybrid Mamba-Transformer Mixture-of-Experts model with a published BF16 checkpoint on Hugging Face. Whether that checkpoint actually loads and generates correctly on MI300X is an empirical question, not a marketing claim."
+        }
+      ],
+      "generated_text": "AMD Instinct MI300X accelerators feature 192 GB of HBM3 memory per GPU, and software support for large language models typically relies on ROCm, HIP-enabled PyTorch, and inference servers like vLLM. The compatibility of NVIDIA Nemotron 3 Nano, a hybrid Mamba-Transformer Mixture-of-Experts model with a BF16 checkpoint on Hugging Face, with this hardware remains an empirical question",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319049216,
+        "reserved_bytes": 65571651584,
+        "max_allocated_bytes": 64489937408,
+        "max_reserved_bytes": 65571651584
+      }
+    },
+    {
+      "id": "instruction-following",
+      "success": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Return a JSON object with exactly these keys: gpu_name, hbm_gb, status. Use gpu_name=\"MI300X\", hbm_gb=192, status=\"NOT TESTED\". No markdown. No extra keys. No commentary."
+        }
+      ],
+      "generated_text": "{\n  \"gpu_name\": \"MI300X\",\n  \"hbm_gb\": 192,\n  \"status\": \"NOT TESTED\"\n}",
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047680,
+        "reserved_bytes": 64474841088,
+        "max_allocated_bytes": 64489937408,
+        "max_reserved_bytes": 65571651584
+      }
+    }
+  ]
+}

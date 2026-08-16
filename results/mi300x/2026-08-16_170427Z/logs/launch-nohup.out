@@ -1,0 +1,31 @@
+model=nvidia/NVIDIA-Nemotron-3-Nano-4B-FP8 task=causal dtype=bfloat16 revision=None
+resolved_task=causal architectures=['NemotronHForCausalLM'] model_type=nemotron_h
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:16<00:16, 16.51s/it]Fetching 2 files: 100%|██████████| 2/2 [00:27<00:00, 12.99s/it]Fetching 2 files: 100%|██████████| 2/2 [00:27<00:00, 13.52s/it]
+Loading weights:   0%|          | 0/263 [00:00<?, ?it/s]Loading weights:   9%|▊         | 23/263 [00:00<00:01, 191.85it/s]Loading weights:  20%|█▉        | 52/263 [00:00<00:00, 238.24it/s]Loading weights:  35%|███▌      | 93/263 [00:00<00:00, 290.02it/s]Loading weights:  51%|█████     | 134/263 [00:00<00:00, 309.05it/s]Loading weights:  67%|██████▋   | 175/263 [00:00<00:00, 315.25it/s]Loading weights:  84%|████████▍ | 222/263 [00:00<00:00, 355.69it/s]Loading weights:  98%|█████████▊| 258/263 [00:00<00:00, 332.70it/s]Loading weights: 100%|██████████| 263/263 [00:00<00:00, 315.59it/s]
+[transformers] [1mNemotronHForCausalLM LOAD REPORT[0m from: nvidia/NVIDIA-Nemotron-3-Nano-4B-FP8
+Key                                                | Status     |  | 
+---------------------------------------------------+------------+--+-
+model.layers.{0...40}.mixer.out_proj.input_scale   | UNEXPECTED |  | 
+model.layers.{1...41}.mixer.down_proj.input_scale  | UNEXPECTED |  | 
+model.layers.{0...40}.mixer.out_proj.weight_scale  | UNEXPECTED |  | 
+model.layers.{0...40}.mixer.in_proj.weight_scale   | UNEXPECTED |  | 
+model.layers.{1...41}.mixer.up_proj.weight_scale   | UNEXPECTED |  | 
+model.layers.{1...41}.mixer.up_proj.input_scale    | UNEXPECTED |  | 
+model.layers.{0...40}.mixer.in_proj.input_scale    | UNEXPECTED |  | 
+model.layers.{1...41}.mixer.down_proj.weight_scale | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[transformers] The following generation flags are not valid and may be ignored: ['top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+=== basic-language ===
+ a A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A
+=== simple-reasoning ===
+ a A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A
+=== code ===
+ a A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A
+=== summarization ===
+ a A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A
+=== instruction-following ===
+ a A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A
+result=PASS

@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "status": 200,
+  "url": "http://127.0.0.1:8000/v1/models",
+  "method": "GET",
+  "request": null,
+  "response": {
+    "object": "list",
+    "data": [
+      {
+        "id": "nemotron-lightning-bf16",
+        "object": "model",
+        "created": 1786900304,
+        "owned_by": "vllm",
+        "root": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+        "parent": null,
+        "max_model_len": 8192,
+        "permission": [
+          {
+            "id": "modelperm-b12a9149d3805808",
+            "object": "model_permission",
+            "created": 1786900304,
+            "allow_create_engine": false,
+            "allow_sampling": true,
+            "allow_logprobs": true,
+            "allow_search_indices": false,
+            "allow_view": true,
+            "allow_fine_tuning": false,
+            "organization": "*",
+            "group": null,
+            "is_blocking": false
+          }
+        ]
+      }
+    ]
+  },
+  "elapsed_sec": 0.0010593589977361262
+}

@@ -1,0 +1,107 @@
+timestamp_utc=2026-08-16T02:22:40+00:00
+phase=before-serve
+
+=== rocm-smi ===
+
+
+============================ ROCm System Management Interface ============================
+====================================== Temperature =======================================
+GPU[0]		: Temperature (Sensor junction) (C): 44.0
+GPU[0]		: Temperature (Sensor memory) (C): 37.0
+==========================================================================================
+=================================== Power Consumption ====================================
+GPU[0]		: Current Socket Graphics Package Power (W): 158.0
+==========================================================================================
+=================================== % time GPU is busy ===================================
+GPU[0]		: GPU use (%): 0
+==========================================================================================
+================================== Memory Usage (Bytes) ==================================
+GPU[0]		: VRAM Total Memory (B): 205822885888
+GPU[0]		: VRAM Total Used Memory (B): 299687936
+==========================================================================================
+================================== End of ROCm SMI Log ===================================
+
+=== amd-smi static ===
+GPU: 0
+    ASIC:
+        MARKET_NAME: AMD Instinct MI300X VF
+        VENDOR_ID: 0x1002
+        VENDOR_NAME: Advanced Micro Devices Inc. [AMD/ATI]
+        SUBVENDOR_ID: 0x1002
+        DEVICE_ID: 0x74b5
+        SUBSYSTEM_ID: 0x74a1
+        REV_ID: 0x00
+        ASIC_SERIAL: 0x7AE4316D9931088C
+        OAM_ID: 2
+        NUM_COMPUTE_UNITS: 304
+        TARGET_GRAPHICS_VERSION: gfx942
+        FLAGS: 258
+    BUS:
+        BDF: 0000:83:00.0
+        MAX_PCIE_WIDTH: 16
+        MAX_PCIE_SPEED: 32 GT/s
+        PCIE_LEVELS: N/A
+        PCIE_INTERFACE_VERSION: Gen 5
+        SLOT_TYPE: OAM
+    IFWI:
+        NAME: AMD MI300X_HW_SRIOV_CVS_1VF
+        BUILD_DATE: 2024/10/17 16:32
+        PART_NUMBER: 113-M3000100-103
+        VERSION: 00123529
+    DRIVER:
+        NAME: amdgpu
+        VERSION: 6.19.14.31400000
+        OS_KERNEL_VERSION: 6.8.0-134-generic
+    BOARD:
+        MODEL_NUMBER: N/A
+        PRODUCT_SERIAL: N/A
+        FRU_ID: N/A
+        PRODUCT_NAME: N/A
+        MANUFACTURER_NAME: Advanced Micro Devices, Inc. [AMD/ATI]
+    RAS:
+        EEPROM_VERSION: 0x0
+        BAD_PAGE_THRESHOLD: 0
+        BAD_PAGE_THRESHOLD_EXCEEDED: False
+        PARITY_SCHEMA: DISABLED
+        SINGLE_BIT_SCHEMA: DISABLED
+        DOUBLE_BIT_SCHEMA: DISABLED
+        POISON_SCHEMA: ENABLED
+        ECC_BLOCK_STATE:
+            UMC: ENABLED
+            SDMA: ENABLED
+            GFX: ENABLED
+            MMHUB: ENABLED
+            ATHUB: ENABLED
+            PCIE_BIF: ENABLED
+            HDP: ENABLED
+            XGMI_WAFL: ENABLED
+            DF: ENABLED
+            SMN: ENABLED
+            SEM: DISABLED
+            MP0: ENABLED
+            MP1: ENABLED
+            FUSE: DISABLED
+            MCA: ENABLED
+            VCN: DISABLED
+            JPEG: DISABLED
+            IH: ENABLED
+            MPIO: ENABLED
+    PROCESS_ISOLATION: Disabled
+    VRAM:
+        TYPE: HBM
+        VENDOR: MICRON
+        SIZE: 196288 MB
+        BIT_WIDTH: 2048
+        MAX_BANDWIDTH: 5325 GB/s
+    CACHE_INFO:
+        CACHE_0:
+            CACHE_PROPERTIES: DATA_CACHE, SIMD_CACHE
+            CACHE_SIZE: 32 KB
+            CACHE_LEVEL: 1
+            MAX_NUM_CU_SHARED: 1
+            NUM_CACHE_INSTANCE: 304
+        CACHE_1:
+            CACHE_PROPERTIES: INST_CACHE, SIMD_CACHE
+
+=== amd-smi metric ===
+AttributeError: 'Namespace' object has no attribute 'partition'

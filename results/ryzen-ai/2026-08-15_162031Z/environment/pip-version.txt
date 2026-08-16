@@ -1,0 +1,6 @@
+### command: bash -c python3 -m pip --version 2>/dev/null || pip --version 2>/dev/null || echo "pip not found"
+### started: 2026-08-15T16:20:32+00:00
+
+pip 26.0 from /home/yw/.local/share/uv/python/cpython-3.12.12-linux-x86_64-gnu/lib/python3.12/site-packages/pip (python 3.12)
+
+### finished: 2026-08-15T16:20:32+00:00

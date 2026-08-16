@@ -1,0 +1,67 @@
+{
+  "label": "Engineering context ladder only",
+  "timestamp_utc": "2026-08-16T02:54:12+00:00",
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+  "revision": "2d59de1cbd51c0adf384eb906b766d1aee0e0517",
+  "served_name": "nemotron-nano-bf16",
+  "image": "rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0",
+  "result": "PASS WITH CAVEATS",
+  "notes": [
+    "Not an official benchmark.",
+    "Needle in filler haystack (HEAD color indigo, TAIL number 4172), thinking off, greedy, 12 completion tokens.",
+    "256K and 1M were not attempted."
+  ],
+  "stages": [
+    {
+      "max_model_len": 16384,
+      "kv_cache_tokens": 10373802,
+      "logged_max_concurrency_at_max_len": 633.17,
+      "weights_gib": 58.91,
+      "available_kv_gib": 91.13,
+      "prompts": [
+        {"target": 4096, "prompt_tokens": 3973, "end_to_end_sec": 2.541, "text": "COLOR=indigo NUMBER=4172", "pass": true},
+        {"target": 8192, "prompt_tokens": 7991, "end_to_end_sec": 0.300, "text": "COLOR=indigo NUMBER=4172", "pass": true},
+        {"target": 16384, "prompt_tokens": 15986, "end_to_end_sec": 0.844, "text": "COLOR=indigo NUMBER=4172", "pass": true}
+      ]
+    },
+    {
+      "max_model_len": 32768,
+      "kv_cache_tokens": 12448563,
+      "logged_max_concurrency_at_max_len": 379.90,
+      "weights_gib": 58.91,
+      "available_kv_gib": 91.13,
+      "prompts": [
+        {"target": 32768, "prompt_tokens": 31976, "end_to_end_sec": 3.337, "text": "COLOR=indigo NUMBER=4172", "pass": true}
+      ]
+    },
+    {
+      "max_model_len": 65536,
+      "kv_cache_tokens": 13831736,
+      "logged_max_concurrency_at_max_len": 211.06,
+      "weights_gib": 58.91,
+      "available_kv_gib": 91.13,
+      "prompts": [
+        {"target": 65536, "prompt_tokens": 63956, "end_to_end_sec": 7.150, "text": "COLOR=indigo NUMBER=4172", "pass": true}
+      ]
+    },
+    {
+      "max_model_len": 131072,
+      "kv_cache_tokens": 14863956,
+      "logged_max_concurrency_at_max_len": 113.40,
+      "weights_gib": 58.91,
+      "available_kv_gib": 91.13,
+      "prompts": [
+        {"target": 131072, "prompt_tokens": 127916, "end_to_end_sec": 19.211, "text": "COLOR=indigo NUMBER=4172", "pass": true}
+      ]
+    }
+  ],
+  "monitor_peak": {
+    "source": "logs/gpu-monitor.tsv",
+    "samples": 140,
+    "interval_sec": 5,
+    "peak_gpu_use_pct": 100.0,
+    "peak_package_power_w": 748.0,
+    "peak_junction_c": 79.0,
+    "peak_vram_used_gib": 154.86
+  }
+}

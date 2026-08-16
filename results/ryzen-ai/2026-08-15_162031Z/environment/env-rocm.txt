@@ -1,0 +1,5 @@
+### command: bash -c env | grep -E "^(ROCM|HIP|HSA|AMD|CUDA|HF_|TRANSFORMERS_|TORCH_|VLLM_|PYTORCH_)" | sort || echo "no matching environment variables"
+### started: 2026-08-15T16:20:32+00:00
+
+
+### finished: 2026-08-15T16:20:32+00:00

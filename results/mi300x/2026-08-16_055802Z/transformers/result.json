@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "date": "2026-08-16T05:58:02.267156+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/llama-nemotron-colembed-vl-3b-v2",
+    "model_revision": "9907f8fdf1eae6802c5b9ee4287ef9009acfdae9",
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "PASS",
+    "notes": "Family smoke task=vl-embed. Not Optimized. Not a Nano 30B BF16 result.",
+    "command": [
+      "scripts/mi300x/family-smoke.py",
+      "--model",
+      "nvidia/llama-nemotron-colembed-vl-3b-v2",
+      "--task",
+      "vl-embed",
+      "--output-dir",
+      "results/mi300x/2026-08-16_055802Z"
+    ],
+    "trust_remote_code_requested": false,
+    "queue_task": "vl-embed",
+    "trust_remote_code_required": true,
+    "queue_task_resolved": "vl-embed",
+    "status_claim_allowed": "Runs (candidate) \u2014 not Validated until results are reviewed"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ]
+  },
+  "load": {
+    "config": {
+      "model_type": "llama_nemotron_vl",
+      "architectures": [
+        "LlamaNemotronVLModel"
+      ],
+      "auto_map": {
+        "AutoConfig": "configuration_llama_nemotron_vl.LlamaNemotronVLConfig",
+        "AutoModel": "modeling_llama_nemotron_vl.LlamaNemotronVLModel"
+      },
+      "pipe": null
+    },
+    "model_load_sec": 26.721453446996748,
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_load": {
+      "available": true,
+      "allocated_bytes": 79691776,
+      "reserved_bytes": 9034530816,
+      "max_allocated_bytes": 8891903488,
+      "max_reserved_bytes": 9034530816
+    },
+    "trust_remote_code_used": true
+  },
+  "outputs": [
+    {
+      "id": "vl-embed-dummy",
+      "success": true,
+      "embedding_shape": [
+        1,
+        3072
+      ],
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 8891630592,
+        "reserved_bytes": 9034530816,
+        "max_allocated_bytes": 8891903488,
+        "max_reserved_bytes": 9034530816
+      }
+    }
+  ],
+  "summary": {
+    "success": true,
+    "prompts_total": 1,
+    "prompts_passed": 1,
+    "peak_memory": {
+      "available": true,
+      "allocated_bytes": 8891630592,
+      "reserved_bytes": 9034530816,
+      "max_allocated_bytes": 8891903488,
+      "max_reserved_bytes": 9034530816
+    }
+  }
+}

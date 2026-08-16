@@ -1,0 +1,485 @@
+{
+  "timestamp_utc": "2026-08-16T17:11:44.104608+00:00",
+  "base_url": "http://127.0.0.1:8000/v1",
+  "model": "nemotron-lightning-bf16",
+  "tests": [
+    {
+      "name": "health",
+      "ok": true,
+      "status": 200,
+      "url": "http://127.0.0.1:8000/health",
+      "method": "GET",
+      "request": null,
+      "response": null,
+      "elapsed_sec": 0.016831621003802866
+    },
+    {
+      "name": "list_models",
+      "ok": true,
+      "status": 200,
+      "url": "http://127.0.0.1:8000/v1/models",
+      "method": "GET",
+      "request": null,
+      "response": {
+        "object": "list",
+        "data": [
+          {
+            "id": "nemotron-lightning-bf16",
+            "object": "model",
+            "created": 1786900304,
+            "owned_by": "vllm",
+            "root": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+            "parent": null,
+            "max_model_len": 8192,
+            "permission": [
+              {
+                "id": "modelperm-b12a9149d3805808",
+                "object": "model_permission",
+                "created": 1786900304,
+                "allow_create_engine": false,
+                "allow_sampling": true,
+                "allow_logprobs": true,
+                "allow_search_indices": false,
+                "allow_view": true,
+                "allow_fine_tuning": false,
+                "organization": "*",
+                "group": null,
+                "is_blocking": false
+              }
+            ]
+          }
+        ]
+      },
+      "elapsed_sec": 0.0010593589977361262
+    },
+    {
+      "name": "warmup",
+      "ok": true,
+      "items": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "http://127.0.0.1:8000/v1/chat/completions",
+          "method": "POST",
+          "request": {
+            "model": "nemotron-lightning-bf16",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Reply with the single word ready."
+              }
+            ],
+            "max_tokens": 8,
+            "temperature": 0,
+            "chat_template_kwargs": {
+              "enable_thinking": false
+            }
+          },
+          "response": {
+            "id": "chatcmpl-93de3be69565ae51",
+            "object": "chat.completion",
+            "created": 1786900304,
+            "model": "nemotron-lightning-bf16",
+            "choices": [
+              {
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "ready",
+                  "refusal": null,
+                  "annotations": null,
+                  "audio": null,
+                  "function_call": null,
+                  "tool_calls": [],
+                  "reasoning": null
+                },
+                "logprobs": null,
+                "finish_reason": "stop",
+                "stop_reason": null,
+                "token_ids": null,
+                "routed_experts": null
+              }
+            ],
+            "service_tier": null,
+            "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-8d029951",
+            "usage": {
+              "prompt_tokens": 23,
+              "total_tokens": 25,
+              "completion_tokens": 2,
+              "prompt_tokens_details": null
+            },
+            "prompt_logprobs": null,
+            "prompt_token_ids": null,
+            "prompt_text": null,
+            "kv_transfer_params": null
+          },
+          "elapsed_sec": 1.942299771006219
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "http://127.0.0.1:8000/v1/chat/completions",
+          "method": "POST",
+          "request": {
+            "model": "nemotron-lightning-bf16",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Reply with the single word ready."
+              }
+            ],
+            "max_tokens": 8,
+            "temperature": 0,
+            "chat_template_kwargs": {
+              "enable_thinking": false
+            }
+          },
+          "response": {
+            "id": "chatcmpl-9b9d2f5fc4fa5473",
+            "object": "chat.completion",
+            "created": 1786900306,
+            "model": "nemotron-lightning-bf16",
+            "choices": [
+              {
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "ready",
+                  "refusal": null,
+                  "annotations": null,
+                  "audio": null,
+                  "function_call": null,
+                  "tool_calls": [],
+                  "reasoning": null
+                },
+                "logprobs": null,
+                "finish_reason": "stop",
+                "stop_reason": null,
+                "token_ids": null,
+                "routed_experts": null
+              }
+            ],
+            "service_tier": null,
+            "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-8d029951",
+            "usage": {
+              "prompt_tokens": 23,
+              "total_tokens": 25,
+              "completion_tokens": 2,
+              "prompt_tokens_details": null
+            },
+            "prompt_logprobs": null,
+            "prompt_token_ids": null,
+            "prompt_text": null,
+            "kv_transfer_params": null
+          },
+          "elapsed_sec": 0.030722764000529423
+        }
+      ]
+    },
+    {
+      "name": "chat_completion_reasoning_off",
+      "ok": true,
+      "status": 200,
+      "url": "http://127.0.0.1:8000/v1/chat/completions",
+      "method": "POST",
+      "request": {
+        "model": "nemotron-lightning-bf16",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Explain the difference between RAM and storage in three sentences."
+          }
+        ],
+        "max_tokens": 128,
+        "temperature": 0,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "response": {
+        "id": "chatcmpl-aacc371c01190f09",
+        "object": "chat.completion",
+        "created": 1786900306,
+        "model": "nemotron-lightning-bf16",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "RAM acts as the computer's short-term memory, holding data that the processor needs immediately for active tasks, and it clears when the power is turned off. Storage, such as a hard drive or SSD, serves as long-term memory, permanently retaining files, applications, and the operating system even when the computer is shut down. While RAM is much faster and allows for quick multitasking, storage provides the necessary capacity to keep data accessible over time.",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "tool_calls": [],
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-8d029951",
+        "usage": {
+          "prompt_tokens": 28,
+          "total_tokens": 121,
+          "completion_tokens": 93,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null
+      },
+      "elapsed_sec": 0.455931150005199
+    },
+    {
+      "name": "chat_completion_reasoning_on",
+      "ok": true,
+      "status": 200,
+      "url": "http://127.0.0.1:8000/v1/chat/completions",
+      "method": "POST",
+      "request": {
+        "model": "nemotron-lightning-bf16",
+        "messages": [
+          {
+            "role": "user",
+            "content": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory?"
+          }
+        ],
+        "max_tokens": 256,
+        "temperature": 1.0,
+        "top_p": 1.0,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "response": {
+        "id": "chatcmpl-b92af2bdd8351cd0",
+        "object": "chat.completion",
+        "created": 1786900306,
+        "model": "nemotron-lightning-bf16",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "The total",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "tool_calls": [],
+              "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - Server has 8 GPUs\n   - Each GPU has 192 GB of memory\n   - Question: What is the total aggregate GPU memory?\n\n2.  **Identify Core Task:**\n   - Calculate total memory by multiplying number of GPUs by memory per GPU.\n   - 8 * 192 GB\n\n3.  **Do the Calculation:**\n   - 8 * 192 = 8 * (200 - 8) = 1600 - 64 = 1536\n   - Or: 192 * 8 = 1536\n   - Units: GB (gigabytes)\n\n4.  **Formulate Output:**\n   - State the total aggregate GPU memory clearly.\n   - Show the math if helpful.\n   - Answer: 1,536 GB (or 1.536 TB, but I'll stick to GB as requested/implied).\n\n   Check: 8 * 192 = 1536. Correct.\n   I'll respond directly and concisely.\u2705\n"
+            },
+            "logprobs": null,
+            "finish_reason": "length",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-8d029951",
+        "usage": {
+          "prompt_tokens": 41,
+          "total_tokens": 297,
+          "completion_tokens": 256,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null
+      },
+      "elapsed_sec": 1.2491141190112103
+    },
+    {
+      "name": "sequential_requests",
+      "ok": true,
+      "items": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "http://127.0.0.1:8000/v1/chat/completions",
+          "method": "POST",
+          "request": {
+            "model": "nemotron-lightning-bf16",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Reply with the single integer 1."
+              }
+            ],
+            "max_tokens": 16,
+            "temperature": 0,
+            "chat_template_kwargs": {
+              "enable_thinking": false
+            }
+          },
+          "response": {
+            "id": "chatcmpl-b4f01f092b3f8a2a",
+            "object": "chat.completion",
+            "created": 1786900307,
+            "model": "nemotron-lightning-bf16",
+            "choices": [
+              {
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "1",
+                  "refusal": null,
+                  "annotations": null,
+                  "audio": null,
+                  "function_call": null,
+                  "tool_calls": [],
+                  "reasoning": null
+                },
+                "logprobs": null,
+                "finish_reason": "stop",
+                "stop_reason": null,
+                "token_ids": null,
+                "routed_experts": null
+              }
+            ],
+            "service_tier": null,
+            "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-8d029951",
+            "usage": {
+              "prompt_tokens": 24,
+              "total_tokens": 26,
+              "completion_tokens": 2,
+              "prompt_tokens_details": null
+            },
+            "prompt_logprobs": null,
+            "prompt_token_ids": null,
+            "prompt_text": null,
+            "kv_transfer_params": null
+          },
+          "elapsed_sec": 0.029767458996502683
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "http://127.0.0.1:8000/v1/chat/completions",
+          "method": "POST",
+          "request": {
+            "model": "nemotron-lightning-bf16",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Reply with the single integer 2."
+              }
+            ],
+            "max_tokens": 16,
+            "temperature": 0,
+            "chat_template_kwargs": {
+              "enable_thinking": false
+            }
+          },
+          "response": {
+            "id": "chatcmpl-b80509df2c5b866d",
+            "object": "chat.completion",
+            "created": 1786900307,
+            "model": "nemotron-lightning-bf16",
+            "choices": [
+              {
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "2",
+                  "refusal": null,
+                  "annotations": null,
+                  "audio": null,
+                  "function_call": null,
+                  "tool_calls": [],
+                  "reasoning": null
+                },
+                "logprobs": null,
+                "finish_reason": "stop",
+                "stop_reason": null,
+                "token_ids": null,
+                "routed_experts": null
+              }
+            ],
+            "service_tier": null,
+            "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-8d029951",
+            "usage": {
+              "prompt_tokens": 24,
+              "total_tokens": 26,
+              "completion_tokens": 2,
+              "prompt_tokens_details": null
+            },
+            "prompt_logprobs": null,
+            "prompt_token_ids": null,
+            "prompt_text": null,
+            "kv_transfer_params": null
+          },
+          "elapsed_sec": 0.02832314399711322
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "http://127.0.0.1:8000/v1/chat/completions",
+          "method": "POST",
+          "request": {
+            "model": "nemotron-lightning-bf16",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Reply with the single integer 3."
+              }
+            ],
+            "max_tokens": 16,
+            "temperature": 0,
+            "chat_template_kwargs": {
+              "enable_thinking": false
+            }
+          },
+          "response": {
+            "id": "chatcmpl-9523f9670dd4e15d",
+            "object": "chat.completion",
+            "created": 1786900307,
+            "model": "nemotron-lightning-bf16",
+            "choices": [
+              {
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "3",
+                  "refusal": null,
+                  "annotations": null,
+                  "audio": null,
+                  "function_call": null,
+                  "tool_calls": [],
+                  "reasoning": null
+                },
+                "logprobs": null,
+                "finish_reason": "stop",
+                "stop_reason": null,
+                "token_ids": null,
+                "routed_experts": null
+              }
+            ],
+            "service_tier": null,
+            "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-8d029951",
+            "usage": {
+              "prompt_tokens": 24,
+              "total_tokens": 26,
+              "completion_tokens": 2,
+              "prompt_tokens_details": null
+            },
+            "prompt_logprobs": null,
+            "prompt_token_ids": null,
+            "prompt_text": null,
+            "kv_transfer_params": null
+          },
+          "elapsed_sec": 0.028207007999299094
+        }
+      ]
+    }
+  ],
+  "result": "PASS"
+}

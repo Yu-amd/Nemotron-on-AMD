@@ -1,0 +1,128 @@
+[char] start 2026-08-16_022238Z 2026-08-16T02:22:38+00:00
+[char] label=Engineering characterization only
+[char] snapshot before-serve
+[char] monitor pid=19421
+[char] launch pid=19423
+[char] health ready after 33 polls (2026-08-16T02:25:21+00:00)
+[char] snapshot after-load-idle
+[char] warmup (Triton JIT; not scored)
+warmup 1 1.89s tokens={'prompt_tokens': 22, 'total_tokens': 25, 'completion_tokens': 3, 'prompt_tokens_details': None}
+warmup 2 0.03s tokens={'prompt_tokens': 22, 'total_tokens': 25, 'completion_tokens': 3, 'prompt_tokens_details': None}
+[char] snapshot after-warmup
+[char] benchmark concurrency 1 2 4
+concurrency=1 requests=4
+{
+  "concurrency": 1,
+  "summary": {
+    "requests": 4,
+    "successes": 4,
+    "success_rate": 1.0,
+    "ttft_sec": {
+      "n": 4,
+      "mean": 0.03695681975113985,
+      "p50": 0.02680471150233643,
+      "min": 0.026502366999920923,
+      "max": 0.0677154889999656
+    },
+    "end_to_end_sec": {
+      "n": 4,
+      "mean": 0.32282163274976483,
+      "p50": 0.3129736099981528,
+      "min": 0.3126499240024714,
+      "max": 0.3526893870002823
+    },
+    "output_tokens_per_sec": {
+      "n": 4,
+      "mean": 189.46809954616054,
+      "p50": 194.90464027153905,
+      "min": 172.9567212634929,
+      "max": 195.10639637807114
+    },
+    "completion_tokens": {
+      "n": 4,
+      "mean": 61,
+      "p50": 61.0,
+      "min": 61,
+      "max": 61
+    }
+  }
+}
+concurrency=2 requests=8
+{
+  "concurrency": 2,
+  "summary": {
+    "requests": 8,
+    "successes": 8,
+    "success_rate": 1.0,
+    "ttft_sec": {
+      "n": 8,
+      "mean": 0.10332207062401721,
+      "p50": 0.05162931249651592,
+      "min": 0.04706900200108066,
+      "max": 0.2610052860036376
+    },
+    "end_to_end_sec": {
+      "n": 8,
+      "mean": 0.42284479849877243,
+      "p50": 0.3692500414981623,
+      "min": 0.3678200209978968,
+      "max": 0.5879888290000963
+    },
+    "output_tokens_per_sec": {
+      "n": 8,
+      "mean": 149.90380980396378,
+      "p50": 165.19975151817778,
+      "min": 103.74346754807141,
+      "max": 165.8419784613867
+    },
+    "completion_tokens": {
+      "n": 8,
+      "mean": 61,
+      "p50": 61.0,
+      "min": 61,
+      "max": 61
+    }
+  }
+}
+concurrency=4 requests=16
+{
+  "concurrency": 4,
+  "summary": {
+    "requests": 16,
+    "successes": 16,
+    "success_rate": 1.0,
+    "ttft_sec": {
+      "n": 16,
+      "mean": 0.06242287418808701,
+      "p50": 0.05315118200087454,
+      "min": 0.03689420800219523,
+      "max": 0.09985578499617986
+    },
+    "end_to_end_sec": {
+      "n": 16,
+      "mean": 0.4897992016258286,
+      "p50": 0.477929494001728,
+      "min": 0.4216687880034442,
+      "max": 0.6278866170032416
+    },
+    "output_tokens_per_sec": {
+      "n": 16,
+      "mean": 126.58419483943234,
+      "p50": 127.63388904374366,
+      "min": 117.85567329525988,
+      "max": 144.66330384287716
+    },
+    "completion_tokens": {
+      "n": 16,
+      "mean": 61.8125,
+      "p50": 61.0,
+      "min": 61,
+      "max": 74
+    }
+  }
+}
+wrote /root/Nemotron-on-AMD/results/mi300x/2026-08-16_022238Z/benchmark/characterization.json
+[char] snapshot after-characterization
+[char] stop monitor and server
+[char] snapshot after-stop
+[char] done 2026-08-16T02:25:31+00:00

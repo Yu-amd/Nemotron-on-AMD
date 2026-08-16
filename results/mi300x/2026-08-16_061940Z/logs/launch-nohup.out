@@ -1,0 +1,8 @@
+model=nvidia/omni-embed-nemotron-3b task=vl-embed dtype=bfloat16 revision=865db1bb57e369a85357cf114cbd6b3c5322d19d
+resolved_task=vl-embed architectures=['NVOmniEmbedModel'] model_type=nvomniembed
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/1442 [00:00<?, ?it/s]Loading weights:  78%|#######7  | 1124/1442 [00:00<00:00, 11232.99it/s]Loading weights: 100%|##########| 1442/1442 [00:00<00:00, 11445.49it/s]
+processor ok via chat_template+images
+vl embedding shape=(1, 151936)
+result=PASS

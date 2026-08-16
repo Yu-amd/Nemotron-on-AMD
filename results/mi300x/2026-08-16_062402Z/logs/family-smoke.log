@@ -1,0 +1,9 @@
+model=nvidia/llama-nemotron-embed-vl-1b-v2 task=vl-embed dtype=bfloat16 revision=582e3bf72aee355e3c59ed89de53543c5b0657ee
+resolved_task=vl-embed architectures=['LlamaNemotronVLModel'] model_type=llama_nemotron_vl
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/600 [00:00<?, ?it/s]Loading weights: 100%|##########| 600/600 [00:00<00:00, 11614.71it/s]
+processor ok via process_documents
+[transformers] `use_return_dict` is deprecated! Use `return_dict` instead!
+forward completed; no embedding tensor in CausalLMOutputWithPast
+result=PASS

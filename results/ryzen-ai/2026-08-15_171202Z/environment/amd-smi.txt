@@ -1,0 +1,30 @@
+### command: amd-smi
+### started: 2026-08-15T17:12:03+00:00
+
+usage: amd-smi [-h]  ...
+
+AMD System Management Interface | Version: 25.5.1+41065ee6 | ROCm version: 6.4.3 |
+Platform: Linux Baremetal
+
+options:
+  -h, --help          show this help message and exit
+
+AMD-SMI Commands:
+                      Descriptions:
+    version           Display version information
+    list              List GPU information
+    static            Gets static information about the specified GPU
+    firmware (ucode)  Gets firmware information about the specified GPU
+    bad-pages         Gets bad page information about the specified GPU
+    metric            Gets metric/performance information about the specified GPU
+    process           Lists general process information running on the specified GPU
+    event             Displays event information for the given GPU
+    topology          Displays topology information of the devices
+    set               Set options for devices
+    reset             Reset options for devices
+    monitor (dmon)    Monitor metrics for target devices
+    xgmi              Displays xgmi information of the devices
+    partition         Displays partition information of the devices
+    ras               Retrieve CPER (RAS) entries from the driver
+
+### finished: 2026-08-15T17:12:03+00:00

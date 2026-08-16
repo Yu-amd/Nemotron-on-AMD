@@ -1,0 +1,34 @@
+
+
+Loading model... |-\|/-\|/-\ 
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b10453-3cb7ffb1a
+model      : /home/yw/Desktop/Nemotron-on-AMD/tools/llamacpp/gguf/NVIDIA-Nemotron3-Nano-4B-Q4_K_M.gguf
+ftype      : Q4_K - Medium
+modalities : text
+using custom system prompt
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> Return a JSON object with exactly these keys: gpu_name, hbm_gb, status. Use gpu_name="MI300X", hbm_gb=192, status="NOT TESTED". No markdown. No extra keys. No commentary.
+{"gpu_name":"MI300X","hbm_gb":192,"status":"NOT TESTED"}
+
+[ Prompt: 109.2 t/s | Generation: 22.2 t/s ]
+
+
+Exiting...

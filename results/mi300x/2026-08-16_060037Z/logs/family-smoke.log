@@ -1,0 +1,11 @@
+model=nvidia/nemotron-3.5-asr-streaming-0.6b task=asr dtype=bfloat16 revision=1c8deaecc64b91f034d73e08dd8b64625eb3395d
+resolved_task=asr architectures=['Nemotron3_5AsrForRNNT'] model_type=nemotron3_5_asr
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/655 [00:00<?, ?it/s]Loading weights:  82%|########2 | 538/655 [00:00<00:00, 5379.00it/s]Loading weights: 100%|##########| 655/655 [00:00<00:00, 5391.49it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `num_lookahead_tokens` was not provided. Falling back to `config.default_num_lookahead_tokens=3`. Consider preparing inputs with [`~NemotronAsrStreamingProcessor.__call__`] which automatically sets this parameter.
+[transformers] `prompt_ids` not provided; defaulting to `config.default_prompt_id=101` (auto language detection). Pass `language` to the processor or `prompt_ids` to condition on a specific language.
+/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/generation/utils.py:1676: UserWarning: Using the model-agnostic default `max_length` (=80) to control the generation length. We recommend setting `max_new_tokens` to control the maximum length of the generation.
+  warnings.warn(
+{'text': ''}
+result=PASS

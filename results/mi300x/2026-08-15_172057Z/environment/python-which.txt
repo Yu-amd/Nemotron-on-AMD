@@ -1,0 +1,8 @@
+### command: bash -c command -v python3; python3 -c "import sys; print(sys.executable); print(sys.version)"
+### started: 2026-08-15T17:20:58+00:00
+
+/usr/bin/python3
+/usr/bin/python3
+3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]
+
+### finished: 2026-08-15T17:20:58+00:00

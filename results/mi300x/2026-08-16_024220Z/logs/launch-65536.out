@@ -1,0 +1,132 @@
+timestamp_utc=2026-08-16_024807Z
+model=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16
+max_model_len=65536
+tp=1
+port=8000
+parser_plugin=/root/Nemotron-on-AMD/scripts/mi300x/nano_v3_reasoning_parser.py
+revision=2d59de1cbd51c0adf384eb906b766d1aee0e0517
+generation_config=vllm
+tuned_config_dir=none
+docker=1
+image=rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
+NOTE: NVIDIA CUDA-only flags intentionally omitted (FlashInfer, NVFP4, TRT-LLM).
+
+command: docker run --rm --name nemotron-nano-vllm --device /dev/kfd --device /dev/dri --network=host --ipc=host --group-add=video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v /root/.cache/huggingface:/root/.cache/huggingface -v /root/Nemotron-on-AMD:/workspace -e HF_HOME=/root/.cache/huggingface -e FLASH_ATTENTION_TRITON_AMD_ENABLE=TRUE -w /workspace rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0 vllm serve nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 --host 0.0.0.0 --port 8000 --served-model-name nemotron-nano-bf16 --dtype bfloat16 --tensor-parallel-size 1 --max-model-len 65536 --gpu-memory-utilization 0.80 --trust-remote-code --enable-auto-tool-choice --tool-call-parser qwen3_coder --reasoning-parser nano_v3 --generation-config vllm --revision 2d59de1cbd51c0adf384eb906b766d1aee0e0517 --reasoning-parser-plugin /workspace/scripts/mi300x/nano_v3_reasoning_parser.py
+
+[launch-vllm] starting. logs: /root/Nemotron-on-AMD/results/mi300x/2026-08-16_024220Z/vllm-65536/logs/vllm.stdout.log
+[launch-vllm] this is an engineering serve test, not an Optimized or Production-ready claim.
+[aiter] start build [module_aiter_core] under /opt/python/lib/python3.14/site-packages/aiter/jit/build/module_aiter_core
+[aiter] Current hipcc not support: -mllvm -amdgpu-coerce-illegal-types=1, skip it.
+[aiter] [32mfinish build [module_aiter_core], cost 13.2s [0m
+[aiter] import [module_aiter_core] under /opt/python/lib/python3.14/site-packages/aiter/jit/module_aiter_core.so
+(APIServer pid=1) INFO 08-16 02:48:49 [api_utils.py:339] 
+(APIServer pid=1) INFO 08-16 02:48:49 [api_utils.py:339]        █     █     █▄   ▄█
+(APIServer pid=1) INFO 08-16 02:48:49 [api_utils.py:339]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.23.1.dev1+g9ddef7117.d20260715
+(APIServer pid=1) INFO 08-16 02:48:49 [api_utils.py:339]   █▄█▀ █     █     █     █  model   nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16
+(APIServer pid=1) INFO 08-16 02:48:49 [api_utils.py:339]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=1) INFO 08-16 02:48:49 [api_utils.py:339] 
+(APIServer pid=1) INFO 08-16 02:48:49 [api_utils.py:273] non-default args: {'model_tag': 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16', 'enable_auto_tool_choice': True, 'tool_call_parser': 'qwen3_coder', 'host': '0.0.0.0', 'model': 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16', 'trust_remote_code': True, 'dtype': 'bfloat16', 'revision': '2d59de1cbd51c0adf384eb906b766d1aee0e0517', 'max_model_len': 65536, 'served_model_name': ['nemotron-nano-bf16'], 'generation_config': 'vllm', 'reasoning_parser': 'nano_v3', 'reasoning_parser_plugin': '/workspace/scripts/mi300x/nano_v3_reasoning_parser.py', 'gpu_memory_utilization': 0.8}
+(APIServer pid=1) Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+(APIServer pid=1) INFO 08-16 02:48:57 [model.py:611] Resolved architecture: NemotronHForCausalLM
+(APIServer pid=1) INFO 08-16 02:48:57 [model.py:1745] Using max model len 65536
+(APIServer pid=1) INFO 08-16 02:48:57 [scheduler.py:239] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(APIServer pid=1) INFO 08-16 02:48:57 [config.py:413] Updating mamba_ssm_cache_dtype to 'float32' for NemotronH model
+(APIServer pid=1) INFO 08-16 02:48:57 [vllm.py:999] Asynchronous scheduling is enabled.
+(APIServer pid=1) INFO 08-16 02:48:57 [kernel.py:270] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(EngineCore pid=531) [aiter] import [module_aiter_core] under /opt/python/lib/python3.14/site-packages/aiter/jit/module_aiter_core.so
+(EngineCore pid=531) INFO 08-16 02:49:06 [core.py:113] Initializing a V1 LLM engine (v0.23.1.dev1+g9ddef7117.d20260715) with config: model='nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16', speculative_config=None, tokenizer='nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16', skip_tokenizer_init=False, tokenizer_mode=auto, revision=2d59de1cbd51c0adf384eb906b766d1aee0e0517, tokenizer_revision=2d59de1cbd51c0adf384eb906b766d1aee0e0517, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=65536, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='nano_v3', reasoning_parser_plugin='/workspace/scripts/mi300x/nano_v3_reasoning_parser.py', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=nemotron-nano-bf16, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['+sparse_attn_indexer', 'none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::qwen_gdn_attention_core', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_mla_dual_rms_norm': False, 'fuse_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, moe_backend='auto', linear_backend='auto')
+(EngineCore pid=531) INFO 08-16 02:49:06 [parallel_state.py:1568] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://<MI300X_HOST>:38901 backend=nccl
+(EngineCore pid=531) INFO 08-16 02:49:06 [parallel_state.py:1903] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0, EPLB rank N/A
+(EngineCore pid=531) INFO 08-16 02:49:07 [gpu_model_runner.py:5092] Starting to load model nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16...
+(EngineCore pid=531) INFO 08-16 02:49:07 [unquantized.py:291] Using TRITON Unquantized MoE backend out of potential backends: ['ROCm AITER', 'TRITON', 'BATCHED_TRITON'].
+(EngineCore pid=531) INFO 08-16 02:49:07 [rocm.py:583] Found incompatible backend(s) [TURBOQUANT] with AttentionType.DECODER. Overriding with ROCM_ATTN out of potential backends: ['ROCM_ATTN', 'ROCM_AITER_UNIFIED_ATTN', 'TRITON_ATTN'].
+(EngineCore pid=531) WARNING 08-16 02:49:07 [compilation.py:1312] Op 'sparse_attn_indexer' not present in model, enabling with '+sparse_attn_indexer' has no effect
+(EngineCore pid=531) INFO 08-16 02:49:08 [weight_utils.py:922] Filesystem type for checkpoints: EXT4. Checkpoint size: 58.82 GiB. Available RAM: 226.77 GiB.
+(EngineCore pid=531) INFO 08-16 02:49:08 [weight_utils.py:945] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(EngineCore pid=531) Loading safetensors checkpoint shards:   0% Completed | 0/13 [00:00<?, ?it/s]
+(EngineCore pid=531) Loading safetensors checkpoint shards:   8% Completed | 1/13 [00:01<00:22,  1.89s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards:  15% Completed | 2/13 [00:03<00:21,  1.97s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards:  23% Completed | 3/13 [00:05<00:19,  1.97s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards:  31% Completed | 4/13 [00:07<00:17,  1.97s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards:  38% Completed | 5/13 [00:09<00:15,  1.98s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards:  46% Completed | 6/13 [00:11<00:13,  1.98s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards:  54% Completed | 7/13 [00:13<00:11,  1.98s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards:  62% Completed | 8/13 [00:15<00:09,  1.98s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards:  69% Completed | 9/13 [00:17<00:07,  1.98s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards:  77% Completed | 10/13 [00:19<00:05,  1.99s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards:  85% Completed | 11/13 [00:21<00:03,  1.99s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards:  92% Completed | 12/13 [00:23<00:01,  1.99s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards: 100% Completed | 13/13 [00:25<00:00,  1.79s/it]
+(EngineCore pid=531) Loading safetensors checkpoint shards: 100% Completed | 13/13 [00:25<00:00,  1.93s/it]
+(EngineCore pid=531) 
+(EngineCore pid=531) INFO 08-16 02:49:33 [default_loader.py:397] Loading weights took 25.22 seconds
+(EngineCore pid=531) INFO 08-16 02:49:33 [unquantized.py:347] Using MoEPrepareAndFinalizeNoDPEPModular
+(EngineCore pid=531) INFO 08-16 02:49:33 [gpu_model_runner.py:5187] Model loading took 58.91 GiB memory and 25.643764 seconds
+(EngineCore pid=531) INFO 08-16 02:49:33 [interface.py:670] Setting attention block size to 2096 tokens to ensure that attention page size is >= mamba page size.
+(EngineCore pid=531) INFO 08-16 02:49:33 [interface.py:694] Padding mamba page size by 0.58% to ensure that mamba page size and attention page size are exactly equal.
+(EngineCore pid=531) INFO 08-16 02:49:37 [backends.py:1089] Using cache directory: /root/.cache/vllm/torch_compile_cache/b4821d2981/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=531) INFO 08-16 02:49:37 [backends.py:1148] Dynamo bytecode transform time: 2.97 s
+(EngineCore pid=531) INFO 08-16 02:49:37 [backends.py:378] Cache the graph of compile range (1, 8192) for later use
+(EngineCore pid=531) INFO 08-16 02:49:40 [backends.py:393] Compiling a graph for compile range (1, 8192) takes 3.59 s
+(EngineCore pid=531) INFO 08-16 02:49:42 [decorators.py:708] saved AOT compiled function to /root/.cache/vllm/torch_compile_cache/torch_aot_compile/8ca1562cc8d1af616b03723dcea7c0b9466ce67f1edac747c8bd712e91d59bfc/rank_0_0/model
+(EngineCore pid=531) INFO 08-16 02:49:42 [monitor.py:53] torch.compile took 8.05 s in total
+(EngineCore pid=531) INFO 08-16 02:49:43 [mamba_mixer2.py:578] Warming up Mamba2 SSD Triton kernels...
+(EngineCore pid=531) WARNING 08-16 02:50:27 [fused_moe.py:1071] Using default MoE config. Performance might be sub-optimal! Config file not found at /opt/python/lib/python3.14/site-packages/vllm/model_executor/layers/fused_moe/configs/E=128,N=1856,device_name=AMD_Instinct_MI300X.json
+(EngineCore pid=531) INFO 08-16 02:50:28 [monitor.py:81] Initial profiling/warmup run took 45.89 s
+(EngineCore pid=531) INFO 08-16 02:50:31 [gpu_worker.py:480] Available KV cache memory: 91.13 GiB
+(EngineCore pid=531) WARNING 08-16 02:50:31 [kv_cache_utils.py:1174] Add 1 padding layers, may waste at most 4.35% KV cache memory
+(EngineCore pid=531) INFO 08-16 02:50:31 [kv_cache_utils.py:1744] GPU KV cache size: 13,831,736 tokens
+(EngineCore pid=531) INFO 08-16 02:50:31 [kv_cache_utils.py:1745] Maximum concurrency for 65,536 tokens per request: 211.06x
+(EngineCore pid=531) INFO 08-16 02:50:31 [ssu_dispatch.py:224] Using triton Mamba SSU backend.
+(EngineCore pid=531) Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   2%|▏         | 1/51 [00:00<00:26,  1.88it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 3/51 [00:00<00:09,  5.12it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|▉         | 5/51 [00:00<00:06,  7.44it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  14%|█▎        | 7/51 [00:00<00:04,  9.07it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 9/51 [00:01<00:04, 10.25it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 11/51 [00:01<00:03, 11.08it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 13/51 [00:01<00:03, 11.62it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  29%|██▉       | 15/51 [00:01<00:03, 11.76it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 17/51 [00:01<00:02, 11.89it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  37%|███▋      | 19/51 [00:01<00:02, 12.23it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  41%|████      | 21/51 [00:02<00:02, 12.51it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▌     | 23/51 [00:02<00:02, 12.68it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 25/51 [00:02<00:02, 12.78it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  53%|█████▎    | 27/51 [00:02<00:01, 12.67it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 29/51 [00:02<00:01, 12.67it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 31/51 [00:02<00:01, 12.69it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  65%|██████▍   | 33/51 [00:03<00:02,  6.44it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 35/51 [00:03<00:02,  7.58it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 37/51 [00:04<00:02,  5.84it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▋  | 39/51 [00:04<00:01,  7.03it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 41/51 [00:05<00:02,  5.00it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▍ | 43/51 [00:05<00:01,  6.17it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 45/51 [00:05<00:01,  5.51it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 47/51 [00:05<00:00,  6.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 49/51 [00:06<00:00,  5.68it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:06<00:00,  4.59it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:06<00:00,  7.40it/s]
+(EngineCore pid=531) Capturing CUDA graphs (decode, FULL):   0%|          | 0/51 [00:00<?, ?it/s](EngineCore pid=531) WARNING 08-16 02:50:38 [mamba_ssm.py:107] Using default Mamba SSU config. Performance might be sub-optimal! Config file not found at /opt/python/lib/python3.14/site-packages/vllm/model_executor/layers/mamba/ops/configs/selective_state_update/headdim=64,dstate=128,device_name=AMD_Instinct_MI300X,cache_dtype=float32.json
+(EngineCore pid=531) WARNING 08-16 02:50:38 [chunked_prefill_paged_decode.py:414] Cannot use ROCm custom paged attention kernel, falling back to Triton implementation.
+Capturing CUDA graphs (decode, FULL):   2%|▏         | 1/51 [00:00<00:25,  1.98it/s]Capturing CUDA graphs (decode, FULL):   6%|▌         | 3/51 [00:00<00:09,  5.32it/s]Capturing CUDA graphs (decode, FULL):  10%|▉         | 5/51 [00:00<00:06,  7.48it/s]Capturing CUDA graphs (decode, FULL):  14%|█▎        | 7/51 [00:00<00:04,  8.93it/s]Capturing CUDA graphs (decode, FULL):  18%|█▊        | 9/51 [00:01<00:04, 10.14it/s]Capturing CUDA graphs (decode, FULL):  22%|██▏       | 11/51 [00:01<00:03, 10.97it/s]Capturing CUDA graphs (decode, FULL):  25%|██▌       | 13/51 [00:01<00:03, 11.46it/s]Capturing CUDA graphs (decode, FULL):  29%|██▉       | 15/51 [00:01<00:03, 11.90it/s]Capturing CUDA graphs (decode, FULL):  33%|███▎      | 17/51 [00:01<00:02, 12.06it/s]Capturing CUDA graphs (decode, FULL):  37%|███▋      | 19/51 [00:02<00:03, 10.42it/s]Capturing CUDA graphs (decode, FULL):  41%|████      | 21/51 [00:02<00:02, 11.14it/s]Capturing CUDA graphs (decode, FULL):  45%|████▌     | 23/51 [00:02<00:02, 11.38it/s]Capturing CUDA graphs (decode, FULL):  49%|████▉     | 25/51 [00:02<00:02, 11.60it/s]Capturing CUDA graphs (decode, FULL):  53%|█████▎    | 27/51 [00:02<00:02, 11.97it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 29/51 [00:02<00:01, 12.24it/s]Capturing CUDA graphs (decode, FULL):  61%|██████    | 31/51 [00:02<00:01, 12.46it/s]Capturing CUDA graphs (decode, FULL):  65%|██████▍   | 33/51 [00:03<00:01, 12.58it/s]Capturing CUDA graphs (decode, FULL):  69%|██████▊   | 35/51 [00:03<00:01, 12.66it/s]Capturing CUDA graphs (decode, FULL):  73%|███████▎  | 37/51 [00:03<00:01, 12.72it/s]Capturing CUDA graphs (decode, FULL):  76%|███████▋  | 39/51 [00:03<00:00, 12.78it/s]Capturing CUDA graphs (decode, FULL):  80%|████████  | 41/51 [00:03<00:00, 12.82it/s]Capturing CUDA graphs (decode, FULL):  84%|████████▍ | 43/51 [00:03<00:00, 12.61it/s]Capturing CUDA graphs (decode, FULL):  88%|████████▊ | 45/51 [00:04<00:00, 12.73it/s]Capturing CUDA graphs (decode, FULL):  92%|█████████▏| 47/51 [00:04<00:00, 12.57it/s]Capturing CUDA graphs (decode, FULL):  96%|█████████▌| 49/51 [00:04<00:00, 12.96it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 51/51 [00:04<00:00, 11.28it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 51/51 [00:04<00:00, 11.09it/s]
+(EngineCore pid=531) INFO 08-16 02:50:43 [gpu_model_runner.py:6585] Graph capturing finished in 12 secs, took 3.28 GiB
+(EngineCore pid=531) INFO 08-16 02:50:43 [jit_monitor.py:54] Kernel JIT monitor activated — Triton JIT compilations during inference will be logged as warnings.
+(EngineCore pid=531) INFO 08-16 02:50:43 [core.py:306] init engine (profile, create kv cache, warmup model) took 69.85 s (compilation: 8.05 s)
+(EngineCore pid=531) INFO 08-16 02:50:44 [vllm.py:999] Asynchronous scheduling is enabled.
+(EngineCore pid=531) INFO 08-16 02:50:44 [kernel.py:270] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(APIServer pid=1) INFO 08-16 02:50:44 [api_server.py:579] Supported tasks: ['generate']
+(APIServer pid=1) INFO 08-16 02:50:45 [parser_manager.py:37] "auto" tool choice has been enabled.
+(APIServer pid=1) INFO 08-16 02:50:46 [hf.py:548] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+(APIServer pid=1) INFO 08-16 02:50:46 [api_server.py:583] Starting vLLM server on http://0.0.0.0:8000
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:37] Available routes are:
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /openapi.json, Methods: HEAD, GET
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /docs, Methods: HEAD, GET
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /docs/oauth2-redirect, Methods: HEAD, GET
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /redoc, Methods: HEAD, GET
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /load, Methods: GET
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /version, Methods: GET
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /health, Methods: GET
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /metrics, Methods: GET
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /tokenize, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /detokenize, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /v1/models, Methods: GET
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /ping, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /invocations, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /v1/chat/completions, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /v1/chat/completions/batch, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /v1/responses, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /v1/responses/{response_id}, Methods: GET
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /v1/responses/{response_id}/cancel, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /v1/completions, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /v1/messages, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /v1/messages/count_tokens, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /generative_scoring, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /inference/v1/generate, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /scale_elastic_ep, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /is_scaling_elastic_ep, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /v1/chat/completions/render, Methods: POST
+(APIServer pid=1) INFO 08-16 02:50:46 [launcher.py:46] Route: /v1/completions/render, Methods: POST
+(APIServer pid=1) INFO:     Started server process [1]
+(APIServer pid=1) INFO:     Waiting for application startup.
+(APIServer pid=1) INFO:     Application startup complete.
+(APIServer pid=1) INFO:     127.0.0.1:59214 - "GET /v1/models HTTP/1.1" 200 OK
+(EngineCore pid=531) WARNING 08-16 02:50:52 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _zero_kv_blocks_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+(EngineCore pid=531) WARNING 08-16 02:50:52 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _compute_slot_mapping_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+(EngineCore pid=531) WARNING 08-16 02:50:52 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _causal_conv1d_fwd_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+(EngineCore pid=531) WARNING 08-16 02:50:53 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _fwd_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+(EngineCore pid=531) WARNING 08-16 02:50:57 [jit_monitor.py:103] Triton kernel JIT compilation during inference: fused_moe_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+(APIServer pid=1) INFO:     127.0.0.1:59216 - "POST /v1/chat/completions HTTP/1.1" 200 OK

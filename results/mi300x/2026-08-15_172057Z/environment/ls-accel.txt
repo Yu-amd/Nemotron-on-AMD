@@ -1,0 +1,29 @@
+### command: bash -c ls -l /dev/dri /dev/kfd /dev/accel 2>/dev/null || echo "no /dev/dri, /dev/kfd, or /dev/accel"
+### started: 2026-08-15T17:20:57+00:00
+
+crw-rw---- 1 root render 237, 0 Aug 15 16:13 /dev/kfd
+
+/dev/dri:
+total 0
+drwxr-xr-x 2 root root        400 Aug 15 16:13 by-path
+crw-rw---- 1 root video  226,   0 Aug 15 16:13 card0
+crw-rw---- 1 root video  226,   1 Aug 15 16:13 card1
+crw-rw---- 1 root video  226,   2 Aug 15 16:13 card2
+crw-rw---- 1 root video  226,   3 Aug 15 16:13 card3
+crw-rw---- 1 root video  226,   4 Aug 15 16:13 card4
+crw-rw---- 1 root video  226,   5 Aug 15 16:13 card5
+crw-rw---- 1 root video  226,   6 Aug 15 16:13 card6
+crw-rw---- 1 root video  226,   7 Aug 15 16:13 card7
+crw-rw---- 1 root video  226,   8 Aug 15 16:13 card8
+crw-rw---- 1 root render 226, 128 Aug 15 16:13 renderD128
+crw-rw---- 1 root render 226, 129 Aug 15 16:13 renderD129
+crw-rw---- 1 root render 226, 130 Aug 15 16:13 renderD130
+crw-rw---- 1 root render 226, 131 Aug 15 16:13 renderD131
+crw-rw---- 1 root render 226, 132 Aug 15 16:13 renderD132
+crw-rw---- 1 root render 226, 133 Aug 15 16:13 renderD133
+crw-rw---- 1 root render 226, 134 Aug 15 16:13 renderD134
+crw-rw---- 1 root render 226, 135 Aug 15 16:13 renderD135
+crw-rw---- 1 root render 226, 136 Aug 15 16:13 renderD136
+no /dev/dri, /dev/kfd, or /dev/accel
+
+### finished: 2026-08-15T17:20:57+00:00

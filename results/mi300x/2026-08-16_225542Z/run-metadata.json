@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-16T22:56:15.825969+00:00",
+  "platform": "mi300x",
+  "model": "ggml-org/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-GGUF",
+  "model_revision": "9d425fe18d84ab04da6aabb757d2e2807083d054",
+  "precision": "GGUF",
+  "runtime": "llama.cpp",
+  "runtime_version": "version: 0.1.0-dev (build 1, commit 3cb7ffb)",
+  "result": "PASS",
+  "n_gpu_layers": 99,
+  "backend_hints": [
+    "gpu-offload"
+  ],
+  "model_sha256": "61f87e75974e4b535dcdf9aad056541a9514f1dfa4538b463b081d19b7a00e3c",
+  "notes": "llama.cpp greedy smoke. Not an Optimized or Production-ready claim. Not Transformers/vLLM.",
+  "command": [
+    "scripts/llamacpp/smoke-test.py",
+    "--llama-cli",
+    "/root/Nemotron-on-AMD/tools/llamacpp/build/hip/bin/llama-cli",
+    "--model",
+    "/root/Nemotron-on-AMD/tools/llamacpp/gguf/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-Q4_0.gguf",
+    "--n-gpu-layers",
+    "99",
+    "--platform",
+    "mi300x",
+    "--output-dir",
+    "results/mi300x/2026-08-16_225542Z"
+  ],
+  "enable_thinking": false,
+  "status_claim_allowed": "Runs (candidate) \u2014 not Validated until results are reviewed"
+}

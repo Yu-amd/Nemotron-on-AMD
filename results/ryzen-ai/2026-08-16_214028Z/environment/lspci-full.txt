@@ -1,0 +1,43 @@
+### command: lspci -nn
+### started: 2026-08-16T21:40:28+00:00
+
+00:00.0 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:1507]
+00:00.2 IOMMU [0806]: Advanced Micro Devices, Inc. [AMD] Device [1022:1508]
+00:01.0 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:1509]
+00:01.1 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] Device [1022:150a]
+00:01.2 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] Device [1022:150a]
+00:02.0 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:1509]
+00:02.1 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] Device [1022:150b]
+00:02.3 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] Device [1022:150b]
+00:03.0 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:1509]
+00:08.0 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:1509]
+00:08.1 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] Device [1022:150c]
+00:08.2 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] Device [1022:150c]
+00:08.3 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] Device [1022:150c]
+00:14.0 SMBus [0c05]: Advanced Micro Devices, Inc. [AMD] FCH SMBus Controller [1022:790b] (rev 71)
+00:14.3 ISA bridge [0601]: Advanced Micro Devices, Inc. [AMD] FCH LPC Bridge [1022:790e] (rev 51)
+00:18.0 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:16f8]
+00:18.1 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:16f9]
+00:18.2 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:16fa]
+00:18.3 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:16fb]
+00:18.4 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:16fc]
+00:18.5 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:16fd]
+00:18.6 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:16fe]
+00:18.7 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Device [1022:16ff]
+bf:00.0 Non-Volatile memory controller [0108]: Sandisk Corp Device [15b7:5045] (rev 01)
+c0:00.0 Network controller [0280]: MEDIATEK Corp. Device [14c3:0717]
+c1:00.0 Display controller [0380]: Advanced Micro Devices, Inc. [AMD/ATI] Device [1002:150e] (rev c1)
+c1:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Rembrandt Radeon High Definition Audio Controller [1002:1640]
+c1:00.2 Encryption controller [1080]: Advanced Micro Devices, Inc. [AMD] Device [1022:17e0]
+c1:00.4 USB controller [0c03]: Advanced Micro Devices, Inc. [AMD] Device [1022:151e]
+c1:00.5 Multimedia controller [0480]: Advanced Micro Devices, Inc. [AMD] ACP/ACP3X/ACP6x Audio Coprocessor [1022:15e2] (rev 70)
+c1:00.6 Audio device [0403]: Advanced Micro Devices, Inc. [AMD] Family 17h/19h HD Audio Controller [1022:15e3]
+c2:00.0 Non-Essential Instrumentation [1300]: Advanced Micro Devices, Inc. [AMD] Device [1022:150d]
+c2:00.1 Signal processing controller [1180]: Advanced Micro Devices, Inc. [AMD] Device [1022:17f0] (rev 10)
+c3:00.0 USB controller [0c03]: Advanced Micro Devices, Inc. [AMD] Device [1022:151f]
+c3:00.3 USB controller [0c03]: Advanced Micro Devices, Inc. [AMD] Device [1022:151a]
+c3:00.4 USB controller [0c03]: Advanced Micro Devices, Inc. [AMD] Device [1022:151b]
+c3:00.5 USB controller [0c03]: Advanced Micro Devices, Inc. [AMD] Device [1022:151c]
+c3:00.6 USB controller [0c03]: Advanced Micro Devices, Inc. [AMD] Device [1022:151d]
+
+### finished: 2026-08-16T21:40:28+00:00

@@ -1,0 +1,5 @@
+### command: bash -c dmesg -T 2>/dev/null | grep -iE "amdgpu|amdxdna|kfd|rocm" | tail -n 80 || echo "dmesg not readable or no AMD kernel messages"
+### started: 2026-08-15T17:12:02+00:00
+
+
+### finished: 2026-08-15T17:12:02+00:00

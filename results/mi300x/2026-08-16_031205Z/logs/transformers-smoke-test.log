@@ -1,0 +1,52 @@
+model=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16
+device=cuda:0
+dtype=bfloat16
+transformers=5.15.0
+torch=2.12.0+rocm7.14.0 hip=7.14.60850
+gpu=AMD Instinct MI300X VF
+loading tokenizer...
+tokenizer loaded in 0.93s
+loading model...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/401 [00:00<?, ?it/s]Loading weights:   3%|2         | 12/401 [00:00<00:05, 70.49it/s]Loading weights:   7%|6         | 28/401 [00:00<00:04, 82.15it/s]Loading weights:  12%|#2        | 49/401 [00:00<00:03, 105.27it/s]Loading weights:  16%|#5        | 64/401 [00:00<00:02, 116.75it/s]Loading weights:  20%|#9        | 80/401 [00:00<00:02, 126.17it/s]Loading weights:  25%|##5       | 101/401 [00:00<00:02, 148.28it/s]Loading weights:  29%|##9       | 117/401 [00:00<00:01, 151.32it/s]Loading weights:  33%|###3      | 133/401 [00:01<00:01, 153.06it/s]Loading weights:  38%|###8      | 154/401 [00:01<00:01, 169.64it/s]Loading weights:  43%|####2     | 172/401 [00:01<00:01, 150.32it/s]Loading weights:  47%|####6     | 188/401 [00:01<00:01, 152.32it/s]Loading weights:  52%|#####1    | 208/401 [00:01<00:01, 165.39it/s]Loading weights:  56%|#####6    | 225/401 [00:01<00:01, 164.59it/s]Loading weights:  60%|######    | 242/401 [00:01<00:00, 165.01it/s]Loading weights:  65%|######5   | 261/401 [00:01<00:00, 165.36it/s]Loading weights:  69%|######9   | 278/401 [00:01<00:00, 165.21it/s]Loading weights:  74%|#######3  | 295/401 [00:02<00:00, 158.91it/s]Loading weights:  78%|#######7  | 312/401 [00:02<00:00, 158.98it/s]Loading weights:  82%|########2 | 330/401 [00:02<00:00, 162.19it/s]Loading weights:  87%|########6 | 347/401 [00:02<00:00, 162.26it/s]Loading weights:  91%|######### | 364/401 [00:02<00:00, 163.94it/s]Loading weights:  95%|#########5| 381/401 [00:02<00:00, 163.94it/s]Loading weights:  99%|#########9| 398/401 [00:02<00:00, 163.95it/s]Loading weights: 100%|##########| 401/401 [00:02<00:00, 151.88it/s]
+model loaded in 8.83s
+memory_after_load={'available': True, 'allocated_bytes': 63239353856, 'reserved_bytes': 63273172992, 'max_allocated_bytes': 63239353856, 'max_reserved_bytes': 63273172992}
+
+=== prompt basic-language thinking=False temp=0.0 ===
+input_tokens=28 output_tokens=98 gen_sec=10.90 tps=8.991888155552438
+--- generated text ---
+RAM (Random Access Memory) is a computer's short‑term, volatile memory that holds data and instructions currently being used, allowing fast read/write access while the system is running. Storage (e.g., SSDs, HDDs, flash drives) is non‑volatile, long‑term memory that retains data even when power is off, providing larger capacity but slower access speeds. Consequently, RAM determines how quickly applications can operate, whereas storage determines how much data can be kept permanently.
+
+=== prompt simple-reasoning thinking=False temp=0.0 ===
+input_tokens=56 output_tokens=29 gen_sec=1.03 tps=28.291618223528623
+--- generated text ---
+1536  
+8 GPUs × 192 GB each = 1536 GB total aggregate GPU memory.
+
+=== prompt code thinking=False temp=0.0 ===
+input_tokens=46 output_tokens=44 gen_sec=1.50 tps=29.40449025897141
+--- generated text ---
+def factorial(n):
+    if n == 0:
+        return 1
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+=== prompt summarization thinking=False temp=0.0 ===
+input_tokens=141 output_tokens=110 gen_sec=3.72 tps=29.57101798417818
+--- generated text ---
+The AMD Instinct MI300X delivers 192 GB of HBM3 memory per GPU, enabling large‑language‑model workloads via ROCm, HIP‑enabled PyTorch, and inference servers like vLLM. While NVIDIA’s Nemotron 3 Nano — a hybrid Mamba‑Transformer MoE model with a BF16 checkpoint on Hugging Face — can be evaluated on this hardware, its successful loading and generation must be confirmed empirically rather than assumed from marketing statements.
+
+=== prompt instruction-following thinking=False temp=0.0 ===
+input_tokens=72 output_tokens=37 gen_sec=1.28 tps=28.79749569490996
+--- generated text ---
+{
+  "gpu_name": "MI300X",
+  "hbm_gb": 192,
+  "status": "NOT TESTED"
+}
+
+result=PASS passed=5/5
+wrote /root/Nemotron-on-AMD/results/mi300x/2026-08-16_031205Z/transformers/result.json

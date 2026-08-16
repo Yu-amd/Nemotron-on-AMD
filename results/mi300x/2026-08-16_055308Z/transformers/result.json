@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "date": "2026-08-16T05:53:08.271122+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+    "model_revision": "1c8deaecc64b91f034d73e08dd8b64625eb3395d",
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "BLOCKED",
+    "notes": "Family smoke task=asr. Not Optimized. Not a Nano 30B BF16 result.",
+    "command": [
+      "scripts/mi300x/family-smoke.py",
+      "--model",
+      "nvidia/nemotron-3.5-asr-streaming-0.6b",
+      "--task",
+      "asr",
+      "--output-dir",
+      "results/mi300x/2026-08-16_055308Z",
+      "--trust-remote-code"
+    ],
+    "trust_remote_code_requested": true,
+    "queue_task": "asr",
+    "queue_task_resolved": "asr"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ]
+  },
+  "load": {
+    "config": {
+      "model_type": "nemotron3_5_asr",
+      "architectures": [
+        "Nemotron3_5AsrForRNNT"
+      ],
+      "auto_map": null,
+      "pipe": null
+    },
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_failure": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    }
+  },
+  "outputs": [],
+  "summary": {
+    "success": false,
+    "failure_layer": "OTHER",
+    "error": "RuntimeError: ASR BLOCKED: ImportError: \nNemotronAsrStreamingFeatureExtractor requires the librosa library. But that was not found in your environment. You can install them with pip:\n`pip install librosa`\nPlease note that you may need to restart your runtime after installation.\n",
+    "traceback": "Traceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 626, in _run_asr\n    pipe = pipeline(\n           ^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/pipelines/__init__.py\", line 1073, in pipeline\n    feature_extractor = _resolve_feature_extractor(\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/pipelines/__init__.py\", line 641, in _resolve_feature_extractor\n    return _load_pipeline_component(load_feature_extractor, feature_extractor, load)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/pipelines/__init__.py\", line 450, in _load_pipeline_component\n    return loader(component)\n           ^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/pipelines/__init__.py\", line 635, in load\n    feature_extractor = AutoFeatureExtractor.from_pretrained(\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/feature_extraction_auto.py\", line 345, in from_pretrained\n    return feature_extractor_class.from_pretrained(pretrained_model_name_or_path, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/import_utils.py\", line 2363, in __getattribute__\n    requires_backends(cls, cls._backends)\n  File \"/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/utils/import_utils.py\", line 2349, in requires_backends\n    raise ImportError(\"\".join(failed))\nImportError: \nNemotronAsrStreamingFeatureExtractor requires the librosa library. But that was not found in your environment. You can install them with pip:\n`pip install librosa`\nPlease note that you may need to restart your runtime after installation.\n\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 371, in main\n    _run_asr(args, load_kwargs, result_payload, work_dir)\n  File \"/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py\", line 648, in _run_asr\n    raise RuntimeError(f\"ASR BLOCKED: {err}\") from exc\nRuntimeError: ASR BLOCKED: ImportError: \nNemotronAsrStreamingFeatureExtractor requires the librosa library. But that was not found in your environment. You can install them with pip:\n`pip install librosa`\nPlease note that you may need to restart your runtime after installation.\n\n"
+  }
+}

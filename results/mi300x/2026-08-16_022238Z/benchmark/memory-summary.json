@@ -1,0 +1,65 @@
+{
+  "label": "Engineering characterization only",
+  "timestamp_utc": "2026-08-16T02:25:31+00:00",
+  "vram_total_bytes": 205822885888,
+  "vram_total_gib": 191.67,
+  "phases": {
+    "before-serve": {
+      "vram_used_bytes": 299687936,
+      "vram_used_gib": 0.279,
+      "gpu_use_pct": 0,
+      "package_power_w": 158.0,
+      "junction_c": 44.0
+    },
+    "after-load-idle": {
+      "vram_used_bytes": 166076833792,
+      "vram_used_gib": 154.65,
+      "gpu_use_pct": 0,
+      "package_power_w": 196.0,
+      "junction_c": 46.0
+    },
+    "after-warmup": {
+      "vram_used_bytes": 166272286720,
+      "vram_used_gib": 154.83,
+      "gpu_use_pct": 18,
+      "package_power_w": 294.0,
+      "junction_c": 47.0
+    },
+    "after-characterization": {
+      "vram_used_bytes": 166287405056,
+      "vram_used_gib": 154.85,
+      "gpu_use_pct": 45,
+      "package_power_w": 405.0,
+      "junction_c": 58.0
+    },
+    "after-stop-immediate": {
+      "vram_used_bytes": 154428473344,
+      "vram_used_gib": 143.81,
+      "gpu_use_pct": 1,
+      "package_power_w": 214.0,
+      "junction_c": 52.0,
+      "note": "Snapshot immediately after docker rm. Not a leak claim; later host check returned to before-serve baseline."
+    }
+  },
+  "vllm_log": {
+    "model_loading_gib": 58.91,
+    "model_loading_sec": 25.854502,
+    "available_kv_cache_gib": 91.13,
+    "gpu_kv_cache_tokens": 7780352,
+    "logged_max_concurrency_at_8192": 949.75
+  },
+  "monitor_peak": {
+    "source": "logs/gpu-monitor.tsv",
+    "samples": 81,
+    "interval_sec": 2,
+    "peak_gpu_use_pct": 100.0,
+    "peak_package_power_w": 651.0,
+    "peak_junction_c": 55.0,
+    "peak_vram_used_gib": 154.87,
+    "peak_timestamp_utc": "2026-08-16T02:25:27+00:00"
+  },
+  "later_host_check": {
+    "note": "After teardown settled, VRAM used returned to 299687936 B (0.279 GiB), GPU use 0%.",
+    "vram_used_bytes": 299687936
+  }
+}

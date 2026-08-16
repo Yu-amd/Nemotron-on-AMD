@@ -1,0 +1,19 @@
+model=nvidia/NVIDIA-Nemotron-Parse-2.0 task=parse dtype=bfloat16 revision=635b84d9b09bb9526b9a684d0b2c953d3cc3df05
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+resolved_task=parse architectures=['NemotronParseForConditionalGeneration'] model_type=nemotron_parse
+AutoModel retry without attn_implementation (ValueError)
+No pretrained configuration specified for vit_huge_patch16_224 model. Using a default. Please add a config to the model pretrained_cfg registry or pass explicitly.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/666 [00:00<?, ?it/s]Loading weights:  76%|#######5  | 505/666 [00:00<00:00, 5036.95it/s]Loading weights: 100%|##########| 666/666 [00:00<00:00, 4714.16it/s]
+processor skip chat_template+images: ValueError: Cannot use apply_chat_template because this processor does not have a chat template.
+processor ok via images=[image], text=[text]
+/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_attn_mask_utils.py:71: FutureWarning: The attention mask API under `transformers.modeling_attn_mask_utils` (`AttentionMaskConverter`) is deprecated and will be removed in Transformers v5.10. Please use the new API in `transformers.masking_utils`.
+  warnings.warn(DEPRECATION_MESSAGE, FutureWarning)
+/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/modeling_attn_mask_utils.py:281: FutureWarning: The attention mask API under `transformers.modeling_attn_mask_utils` (`AttentionMaskConverter`) is deprecated and will be removed in Transformers v5.10. Please use the new API in `transformers.masking_utils`.
+  warnings.warn(DEPRECATION_MESSAGE, FutureWarning)
+Extract any visible text as markdown. **Figure 1:** _S<sub>c</sub>-S<sub>d</sub>_=0
+result=PASS

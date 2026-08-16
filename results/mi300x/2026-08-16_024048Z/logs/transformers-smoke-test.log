@@ -1,0 +1,57 @@
+model=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16
+device=cuda:0
+dtype=bfloat16
+transformers=5.15.0
+torch=2.12.0+rocm7.14.0 hip=7.14.60850
+gpu=AMD Instinct MI300X VF
+loading tokenizer...
+tokenizer loaded in 0.94s
+loading model...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/401 [00:00<?, ?it/s]Loading weights:   3%|2         | 12/401 [00:00<00:05, 74.78it/s]Loading weights:   7%|6         | 28/401 [00:00<00:04, 90.58it/s]Loading weights:  12%|#2        | 49/401 [00:00<00:03, 110.46it/s]Loading weights:  16%|#6        | 65/401 [00:00<00:02, 112.70it/s]Loading weights:  20%|##        | 81/401 [00:00<00:02, 124.88it/s]Loading weights:  29%|##9       | 117/401 [00:00<00:01, 166.26it/s]Loading weights:  33%|###3      | 134/401 [00:01<00:01, 144.47it/s]Loading weights:  39%|###8      | 155/401 [00:01<00:01, 159.74it/s]Loading weights:  46%|####6     | 186/401 [00:01<00:01, 176.57it/s]Loading weights:  52%|#####1    | 207/401 [00:01<00:01, 183.42it/s]Loading weights:  56%|#####6    | 226/401 [00:01<00:01, 163.85it/s]Loading weights:  65%|######4   | 260/401 [00:01<00:00, 185.44it/s]Loading weights:  70%|######9   | 279/401 [00:01<00:00, 167.33it/s]Loading weights:  77%|#######6  | 308/401 [00:01<00:00, 177.22it/s]Loading weights:  82%|########2 | 330/401 [00:02<00:00, 168.98it/s]Loading weights:  90%|######### | 361/401 [00:02<00:00, 181.40it/s]Loading weights:  95%|#########4| 380/401 [00:02<00:00, 165.26it/s]Loading weights:  99%|#########9| 397/401 [00:02<00:00, 162.34it/s]Loading weights: 100%|##########| 401/401 [00:02<00:00, 158.88it/s]
+model loaded in 8.92s
+memory_after_load={'available': True, 'allocated_bytes': 63239353856, 'reserved_bytes': 63273172992, 'max_allocated_bytes': 63239353856, 'max_reserved_bytes': 63273172992}
+
+=== prompt reasoning-on-math thinking=True temp=1.0 ===
+input_tokens=41 output_tokens=122 gen_sec=12.19 tps=10.008699521424806
+--- generated text ---
+The user asks a simple arithmetic: 8 GPUs each with 192 GB memory. Total aggregate = 8 * 192 = 1536 GB. Could also express as 1.536 TB. Provide answer.
+</think>
+The server’s total aggregate GPU memory is:
+
+\[
+8 \times 192\ \text{GB} = 1{,}536\ \text{GB}
+\]
+
+So the GPUs together provide **1,536 GB**, which is roughly **1.5 TB** of memory.
+
+=== prompt reasoning-off-math thinking=False temp=0.0 ===
+input_tokens=41 output_tokens=64 gen_sec=2.07 tps=30.962178416560757
+--- generated text ---
+The total aggregate GPU memory is calculated by multiplying the number of GPUs by the memory per GPU:
+
+$$
+8 \text{ GPUs} \times 192 \text{ GB/GPU} = 1536 \text{ GB}
+$$
+
+**Answer:** 1536 GB
+
+=== prompt system-and-user thinking=False temp=0.0 ===
+input_tokens=47 output_tokens=31 gen_sec=1.09 tps=28.427844559094197
+--- generated text ---
+The AMD Instinct MI300X GPU, featuring 192 GB of HBM3 memory, is used in this project.
+
+=== prompt system-think-token thinking=True temp=1.0 ===
+input_tokens=31 output_tokens=23 gen_sec=0.85 tps=27.189538676032004
+--- generated text ---
+The user asks simple question 2+2. Answer is 4. Provide straightforward answer.
+</think>
+4
+
+=== prompt assistant-prefill-not-used thinking=False temp=0.0 ===
+input_tokens=25 output_tokens=3 gen_sec=0.18 tps=16.37404778727655
+--- generated text ---
+READY
+
+result=PASS passed=5/5
+wrote /root/Nemotron-on-AMD/results/mi300x/2026-08-16_024048Z/transformers/result.json

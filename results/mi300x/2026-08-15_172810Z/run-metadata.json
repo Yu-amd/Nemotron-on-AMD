@@ -1,0 +1,26 @@
+{
+  "date": "2026-08-15T17:28:10.712125+00:00",
+  "platform": "mi300x",
+  "gpu": "AMD Instinct MI300X VF",
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+  "model_revision": null,
+  "precision": "bfloat16",
+  "runtime": "transformers",
+  "runtime_version": "5.15.0",
+  "rocm_version": "7.14.60850",
+  "pytorch_version": "2.12.0+rocm7.14.0",
+  "result": "PASS",
+  "notes": "Transformers smoke test. This is not an Optimized or Production-ready claim. NVIDIA Nano BF16 was selected as the first load/generate validation target. Smoke-test generations completed. Quality is not yet scored; treat as Runs candidate pending review.",
+  "command": [
+    "scripts/mi300x/transformers-smoke-test.py",
+    "--model",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "--output-dir",
+    "results/mi300x/2026-08-15_172810Z"
+  ],
+  "enable_thinking": false,
+  "trust_remote_code_requested": false,
+  "trust_remote_code_required": false,
+  "custom_remote_code": "likely required (config.auto_map present)",
+  "status_claim_allowed": "Runs (candidate) \u2014 not Validated until results are reviewed"
+}

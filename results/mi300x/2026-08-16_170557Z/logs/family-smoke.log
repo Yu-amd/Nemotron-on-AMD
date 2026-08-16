@@ -1,0 +1,39 @@
+model=nvidia/llama-nemotron-rerank-vl-1b-v2-fp8 task=rerank dtype=bfloat16 revision=None
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/llama-nemotron-rerank-vl-1b-v2-fp8:
+- configuration_llama_nemotron_vl.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+resolved_task=rerank architectures=['LlamaNemotronVLForSequenceClassification'] model_type=llama_nemotron_vl_rerank
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/llama-nemotron-rerank-vl-1b-v2-fp8:
+- processing_llama_nemotron_vl.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/llama-nemotron-rerank-vl-1b-v2-fp8:
+- modeling_llama_nemotron_vl.py
+- processing_llama_nemotron_vl.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[transformers] Unknown quantization type, got modelopt - supported types are: ['awq', 'bitsandbytes_4bit', 'bitsandbytes_8bit', 'gptq', 'aqlm', 'quanto', 'quark', 'fouroversix', 'fp_quant', 'eetq', 'higgs', 'hqq', 'compressed-tensors', 'fbgemm_fp8', 'torchao', 'bitnet', 'vptq', 'spqr', 'fp8', 'mxfp8', 'auto-round', 'mxfp4', 'metal', 'sinq', 'gemma']. Hence, we will skip the quantization. To remove the warning, you can delete the quantization_config attribute in config.json
+Loading weights:   0%|          | 0/601 [00:00<?, ?it/s]Loading weights:   8%|▊         | 48/601 [00:00<00:01, 454.78it/s]Loading weights:  16%|█▌        | 94/601 [00:00<00:01, 431.88it/s]Loading weights:  23%|██▎       | 138/601 [00:00<00:01, 419.29it/s]Loading weights: 100%|██████████| 601/601 [00:00<00:00, 1633.37it/s]
+[transformers] [1mLlamaNemotronVLForSequenceClassification LOAD REPORT[0m from: nvidia/llama-nemotron-rerank-vl-1b-v2-fp8
+Key                                                                | Status     |  | 
+-------------------------------------------------------------------+------------+--+-
+model.language_model.layers.{0...15}.self_attn.k_proj.weight_scale | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.mlp.down_proj.weight_scale    | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.mlp.down_proj.input_scale     | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.mlp.gate_proj.weight_scale    | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.self_attn.v_proj.input_scale  | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.self_attn.o_proj.input_scale  | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.mlp.gate_proj.input_scale     | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.mlp.up_proj.input_scale       | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.self_attn.k_proj.input_scale  | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.mlp.up_proj.weight_scale      | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.self_attn.q_proj.input_scale  | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.self_attn.v_proj.weight_scale | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.self_attn.o_proj.weight_scale | UNEXPECTED |  | 
+model.language_model.layers.{0...15}.self_attn.q_proj.weight_scale | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[transformers] `use_return_dict` is deprecated! Use `return_dict` instead!
+score=-0.8449 doc=MI300X has 192 GB of HBM3.
+score=-0.5574 doc=Banana bread uses ripe bananas.
+result=FAIL

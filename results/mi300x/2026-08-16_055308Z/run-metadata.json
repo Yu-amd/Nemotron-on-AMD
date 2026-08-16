@@ -1,0 +1,27 @@
+{
+  "date": "2026-08-16T05:53:08.271122+00:00",
+  "platform": "mi300x",
+  "gpu": "AMD Instinct MI300X VF",
+  "model": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+  "model_revision": "1c8deaecc64b91f034d73e08dd8b64625eb3395d",
+  "precision": "bfloat16",
+  "runtime": "transformers",
+  "runtime_version": "5.15.0",
+  "rocm_version": "7.14.60850",
+  "pytorch_version": "2.12.0+rocm7.14.0",
+  "result": "BLOCKED",
+  "notes": "Family smoke task=asr. Not Optimized. Not a Nano 30B BF16 result.",
+  "command": [
+    "scripts/mi300x/family-smoke.py",
+    "--model",
+    "nvidia/nemotron-3.5-asr-streaming-0.6b",
+    "--task",
+    "asr",
+    "--output-dir",
+    "results/mi300x/2026-08-16_055308Z",
+    "--trust-remote-code"
+  ],
+  "trust_remote_code_requested": true,
+  "queue_task": "asr",
+  "queue_task_resolved": "asr"
+}

@@ -1,0 +1,179 @@
+[
+  {
+    "ok": true,
+    "status": 200,
+    "url": "http://127.0.0.1:8000/v1/chat/completions",
+    "method": "POST",
+    "request": {
+      "model": "nemotron-lightning-bf16",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the single integer 1."
+        }
+      ],
+      "max_tokens": 16,
+      "temperature": 0,
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "response": {
+      "id": "chatcmpl-b4f01f092b3f8a2a",
+      "object": "chat.completion",
+      "created": 1786900307,
+      "model": "nemotron-lightning-bf16",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "1",
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "tool_calls": [],
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "token_ids": null,
+          "routed_experts": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-8d029951",
+      "usage": {
+        "prompt_tokens": 24,
+        "total_tokens": 26,
+        "completion_tokens": 2,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "prompt_text": null,
+      "kv_transfer_params": null
+    },
+    "elapsed_sec": 0.029767458996502683
+  },
+  {
+    "ok": true,
+    "status": 200,
+    "url": "http://127.0.0.1:8000/v1/chat/completions",
+    "method": "POST",
+    "request": {
+      "model": "nemotron-lightning-bf16",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the single integer 2."
+        }
+      ],
+      "max_tokens": 16,
+      "temperature": 0,
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "response": {
+      "id": "chatcmpl-b80509df2c5b866d",
+      "object": "chat.completion",
+      "created": 1786900307,
+      "model": "nemotron-lightning-bf16",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "2",
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "tool_calls": [],
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "token_ids": null,
+          "routed_experts": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-8d029951",
+      "usage": {
+        "prompt_tokens": 24,
+        "total_tokens": 26,
+        "completion_tokens": 2,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "prompt_text": null,
+      "kv_transfer_params": null
+    },
+    "elapsed_sec": 0.02832314399711322
+  },
+  {
+    "ok": true,
+    "status": 200,
+    "url": "http://127.0.0.1:8000/v1/chat/completions",
+    "method": "POST",
+    "request": {
+      "model": "nemotron-lightning-bf16",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the single integer 3."
+        }
+      ],
+      "max_tokens": 16,
+      "temperature": 0,
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "response": {
+      "id": "chatcmpl-9523f9670dd4e15d",
+      "object": "chat.completion",
+      "created": 1786900307,
+      "model": "nemotron-lightning-bf16",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "3",
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "tool_calls": [],
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "token_ids": null,
+          "routed_experts": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": "vllm-0.23.1.dev1+g9ddef7117.d20260715-8d029951",
+      "usage": {
+        "prompt_tokens": 24,
+        "total_tokens": 26,
+        "completion_tokens": 2,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "prompt_text": null,
+      "kv_transfer_params": null
+    },
+    "elapsed_sec": 0.028207007999299094
+  }
+]

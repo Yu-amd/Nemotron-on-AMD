@@ -1,0 +1,12 @@
+### command: rocm-smi --showtoponuma
+### started: 2026-08-15T17:20:57+00:00
+
+
+
+============================ ROCm System Management Interface ============================
+======================================= Numa Nodes =======================================
+GPU[0]		: (Topology) Numa Node: 0
+GPU[0]		: (Topology) Numa Affinity: 0
+================================== End of ROCm SMI Log ===================================
+
+### finished: 2026-08-15T17:20:58+00:00

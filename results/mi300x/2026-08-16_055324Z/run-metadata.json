@@ -1,0 +1,29 @@
+{
+  "date": "2026-08-16T05:53:24.175095+00:00",
+  "platform": "mi300x",
+  "gpu": "AMD Instinct MI300X VF",
+  "model": "nvidia/Nemotron-3.5-Content-Safety",
+  "model_revision": "35645ed3543b7e7ffaed2e788699e57a5051497c",
+  "precision": "bfloat16",
+  "runtime": "transformers",
+  "runtime_version": "5.15.0",
+  "rocm_version": "7.14.60850",
+  "pytorch_version": "2.12.0+rocm7.14.0",
+  "result": "PASS",
+  "notes": "Family smoke task=safety. Not Optimized. Not a Nano 30B BF16 result.",
+  "command": [
+    "scripts/mi300x/family-smoke.py",
+    "--model",
+    "nvidia/Nemotron-3.5-Content-Safety",
+    "--task",
+    "safety",
+    "--output-dir",
+    "results/mi300x/2026-08-16_055324Z",
+    "--trust-remote-code"
+  ],
+  "trust_remote_code_requested": true,
+  "queue_task": "safety",
+  "queue_task_resolved": "safety",
+  "trust_remote_code_required": true,
+  "status_claim_allowed": "Runs (candidate) \u2014 not Validated until results are reviewed"
+}

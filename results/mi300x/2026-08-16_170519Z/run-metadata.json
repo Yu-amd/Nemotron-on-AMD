@@ -1,0 +1,27 @@
+{
+  "date": "2026-08-16T17:05:19.468881+00:00",
+  "platform": "mi300x",
+  "gpu": "AMD Instinct MI300X VF",
+  "model": "nvidia/llama-nemotron-embed-vl-1b-v2-fp8",
+  "model_revision": "b4751b329b7d797cb6abfe018e8bedf1051a80aa",
+  "precision": "bfloat16",
+  "runtime": "transformers",
+  "runtime_version": "5.15.0",
+  "rocm_version": "7.14.60850",
+  "pytorch_version": "2.12.0+rocm7.14.0",
+  "result": "FAIL",
+  "notes": "Family smoke task=vl-embed. Not Optimized. Not a Nano 30B BF16 result.",
+  "command": [
+    "scripts/mi300x/family-smoke.py",
+    "--model",
+    "nvidia/llama-nemotron-embed-vl-1b-v2-fp8",
+    "--task",
+    "vl-embed",
+    "--output-dir",
+    "results/mi300x/2026-08-16_170519Z",
+    "--trust-remote-code"
+  ],
+  "trust_remote_code_requested": true,
+  "queue_task": "vl-embed",
+  "queue_task_resolved": "vl-embed"
+}

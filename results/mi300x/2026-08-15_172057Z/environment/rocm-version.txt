@@ -1,0 +1,9 @@
+### command: bash -c cat /opt/rocm/.info/version 2>/dev/null; cat /opt/rocm/bin/.rocmversion 2>/dev/null; ls -d /opt/rocm* 2>/dev/null; echo ROCM_PATH="${ROCM_PATH:-unset}"
+### started: 2026-08-15T17:20:58+00:00
+
+7.0.2
+/opt/rocm
+/opt/rocm-7.0.2
+ROCM_PATH=unset
+
+### finished: 2026-08-15T17:20:58+00:00

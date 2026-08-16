@@ -1,0 +1,19 @@
+### command: bash -c lspci -nnk | grep -A 8 -E "VGA|3D|Display|Accelerator|Processing accelerators" || lspci | grep -iE "vga|display|3d|amd|instinct|radeon|npu" || echo "lspci found no matching devices"
+### started: 2026-08-15T17:20:57+00:00
+
+00:01.0 VGA compatible controller [0300]: Red Hat, Inc. Virtio 1.0 GPU [1af4:1050] (rev 01)
+	Subsystem: Red Hat, Inc. Virtio 1.0 GPU [1af4:1100]
+	Kernel driver in use: virtio-pci
+00:02.0 PCI bridge [0604]: Red Hat, Inc. QEMU PCIe Root port [1b36:000c]
+	Subsystem: Red Hat, Inc. QEMU PCIe Root port [1b36:0000]
+	Kernel driver in use: pcieport
+00:02.1 PCI bridge [0604]: Red Hat, Inc. QEMU PCIe Root port [1b36:000c]
+	Subsystem: Red Hat, Inc. QEMU PCIe Root port [1b36:0000]
+	Kernel driver in use: pcieport
+--
+83:00.0 Processing accelerators [1200]: Advanced Micro Devices, Inc. [AMD/ATI] Device [1002:74b5]
+	Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] Device [1002:74a1]
+	Kernel driver in use: amdgpu
+	Kernel modules: amdgpu
+
+### finished: 2026-08-15T17:20:57+00:00

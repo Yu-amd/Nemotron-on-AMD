@@ -1,0 +1,33 @@
+{
+  "date": "2026-08-16T03:12:05.343037+00:00",
+  "platform": "mi300x",
+  "gpu": "AMD Instinct MI300X VF",
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+  "model_revision": "2d59de1cbd51c0adf384eb906b766d1aee0e0517",
+  "precision": "bfloat16",
+  "runtime": "transformers",
+  "runtime_version": "5.15.0",
+  "rocm_version": "7.14.60850",
+  "pytorch_version": "2.12.0+rocm7.14.0",
+  "result": "PASS",
+  "notes": "Pinned reproduction of Transformers greedy smoke (prompts/smoke-tests.json). 5/5. Reviewed Validated for this Transformers stack only. Not Optimized. Not vLLM Validated. Cached config: nemotron_h; auto_map present; modeling_nemotron_h.py not in snapshot; trust_remote_code not required.",
+  "status_claim_allowed": "Validated — Transformers greedy thinking-off smoke on this MI300X VF stack",
+  "command": [
+    "scripts/mi300x/transformers-smoke-test.py",
+    "--model",
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "--revision",
+    "2d59de1cbd51c0adf384eb906b766d1aee0e0517",
+    "--prompts",
+    "prompts/smoke-tests.json",
+    "--max-new-tokens",
+    "128",
+    "--output-dir",
+    "/root/Nemotron-on-AMD/results/mi300x/2026-08-16_031205Z"
+  ],
+  "enable_thinking": false,
+  "trust_remote_code_requested": false,
+  "trust_remote_code_required": false,
+  "custom_remote_code": "auto_map present; Transformers 5.15.0 loaded without trust_remote_code",
+  "environment_snapshot": "results/mi300x/2026-08-15_172057Z/environment/"
+}

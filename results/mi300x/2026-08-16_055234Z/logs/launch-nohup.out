@@ -1,0 +1,62 @@
+model=nvidia/llama-nemotron-rerank-vl-1b-v2 task=rerank dtype=bfloat16 revision=None
+config.json:   0%|          | 0.00/6.06k [00:00<?, ?B/s]config.json: 100%|##########| 6.06k/6.06k [00:00<00:00, 28.2MB/s]
+retry AutoConfig with trust_remote_code=True
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+configuration_llama_nemotron_vl.py:   0%|          | 0.00/5.89k [00:00<?, ?B/s]configuration_llama_nemotron_vl.py: 100%|##########| 5.89k/5.89k [00:00<00:00, 31.9MB/s]
+[transformers] A new version of the following files was downloaded from https://huggingface.co/nvidia/llama-nemotron-rerank-vl-1b-v2:
+- configuration_llama_nemotron_vl.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+resolved_task=rerank architectures=['LlamaNemotronVLForSequenceClassification'] model_type=llama_nemotron_vl_rerank
+tokenizer_config.json:   0%|          | 0.00/56.9k [00:00<?, ?B/s]tokenizer_config.json: 100%|##########| 56.9k/56.9k [00:00<00:00, 230MB/s]
+
+tokenizer.json: reconstructing file:   0%|          |  0.00B / 17.2MB            [Atokenizer.json: downloading bytes:           |  0.00B            tokenizer.json: downloading bytes: 9         | 1.67MB            
+tokenizer.json: reconstructing file:  37%|###6      | 6.37MB / 17.2MB            [Atokenizer.json: downloading bytes: ##2       | 3.95MB,  165kB/s  tokenizer.json: downloading bytes: ##########| 4.24MB,  416kB/s  tokenizer.json: downloading bytes: ##########| 4.24MB,  416kB/s  
+tokenizer.json: reconstructing file: 100%|##########| 17.2MB / 17.2MB, 1.69MB/s  
+special_tokens_map.json:   0%|          | 0.00/454 [00:00<?, ?B/s]special_tokens_map.json: 100%|##########| 454/454 [00:00<00:00, 5.20MB/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+modeling_llama_nemotron_vl.py:   0%|          | 0.00/27.8k [00:00<?, ?B/s]modeling_llama_nemotron_vl.py: 100%|##########| 27.8k/27.8k [00:00<00:00, 94.6MB/s]
+processing_llama_nemotron_vl.py:   0%|          | 0.00/21.5k [00:00<?, ?B/s]processing_llama_nemotron_vl.py: 100%|##########| 21.5k/21.5k [00:00<00:00, 84.4MB/s]
+[transformers] Encountered exception while importing requests: No module named 'requests'
+[transformers] Encountered exception while importing torchvision: No module named 'torchvision'
+[transformers] Encountered exception while importing requests: No module named 'requests'
+[transformers] Encountered exception while importing torchvision: No module named 'torchvision'
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 360, in main
+    model = AutoModelForSequenceClassification.from_pretrained(args.model, **load_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 378, in from_pretrained
+    model_class = get_class_from_dynamic_module(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 612, in get_class_from_dynamic_module
+    final_module = get_cached_module_file(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 490, in get_cached_module_file
+    get_cached_module_file(
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 441, in get_cached_module_file
+    modules_needed = check_imports(resolved_module_file)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 258, in check_imports
+    raise ImportError(
+ImportError: This modeling file requires the following packages that were not found in your environment: requests, torchvision. Run `pip install requests torchvision`
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 363, in main
+    model = AutoModel.from_pretrained(args.model, **load_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 378, in from_pretrained
+    model_class = get_class_from_dynamic_module(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 612, in get_class_from_dynamic_module
+    final_module = get_cached_module_file(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 490, in get_cached_module_file
+    get_cached_module_file(
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 441, in get_cached_module_file
+    modules_needed = check_imports(resolved_module_file)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/dynamic_module_utils.py", line 258, in check_imports
+    raise ImportError(
+ImportError: This modeling file requires the following packages that were not found in your environment: requests, torchvision. Run `pip install requests torchvision`
+

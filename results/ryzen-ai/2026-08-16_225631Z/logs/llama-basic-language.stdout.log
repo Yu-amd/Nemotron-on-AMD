@@ -1,0 +1,34 @@
+
+
+Loading model... |-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\ 
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b10453-3cb7ffb1a
+model      : /home/yw/Desktop/Nemotron-on-AMD/tools/llamacpp/gguf/Nemotron-3-Nano-30B-A3B-Q4_K_M.gguf
+ftype      : Q4_K - Medium
+modalities : text
+using custom system prompt
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> Explain the difference between RAM and storage in three sentences.
+RAM is volatile memory that stores data temporarily for active processing, allowing fast read/write access while the computer is powered on. Storage (like SSDs or HDDs) is non‑volatile, retaining data permanently even when the power is off, and provides larger capacity for long‑term data. Consequently, RAM handles short‑term, high‑speed tasks, whereas storage manages long‑term, bulk data retention.
+
+[ Prompt: 52.9 t/s | Generation: 22.8 t/s ]
+
+
+Exiting...

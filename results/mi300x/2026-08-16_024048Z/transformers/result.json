@@ -1,0 +1,269 @@
+{
+  "metadata": {
+    "date": "2026-08-16T02:40:48.109722+00:00",
+    "platform": "mi300x",
+    "gpu": "AMD Instinct MI300X VF",
+    "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "model_revision": "2d59de1cbd51c0adf384eb906b766d1aee0e0517",
+    "precision": "bfloat16",
+    "runtime": "transformers",
+    "runtime_version": "5.15.0",
+    "rocm_version": "7.14.60850",
+    "pytorch_version": "2.12.0+rocm7.14.0",
+    "result": "PASS",
+    "notes": "Transformers smoke test. This is not an Optimized or Production-ready claim. NVIDIA Nano BF16 was selected as the first load/generate validation target. Smoke-test generations completed. Quality is not yet scored; treat as Runs candidate pending review.",
+    "command": [
+      "scripts/mi300x/transformers-smoke-test.py",
+      "--model",
+      "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+      "--revision",
+      "2d59de1cbd51c0adf384eb906b766d1aee0e0517",
+      "--prompts",
+      "prompts/reasoning-tests.json",
+      "--max-new-tokens",
+      "512",
+      "--output-dir",
+      "/root/Nemotron-on-AMD/results/mi300x/2026-08-16_024048Z"
+    ],
+    "enable_thinking": false,
+    "trust_remote_code_requested": false,
+    "trust_remote_code_required": false,
+    "custom_remote_code": "likely required (config.auto_map present)",
+    "status_claim_allowed": "Runs (candidate) \u2014 not Validated until results are reviewed"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+    "torch_version": "2.12.0+rocm7.14.0",
+    "torch_hip": "7.14.60850",
+    "torch_cuda_build": null,
+    "transformers_version": "5.15.0",
+    "cuda_is_available": true,
+    "device_count": 1,
+    "device_names": [
+      "AMD Instinct MI300X VF"
+    ],
+    "cuda_build_without_hip": false
+  },
+  "load": {
+    "config": {
+      "model_type": "nemotron_h",
+      "architectures": [
+        "NemotronHForCausalLM"
+      ],
+      "auto_map": {
+        "AutoConfig": "configuration_nemotron_h.NemotronHConfig",
+        "AutoModel": "modeling_nemotron_h.NemotronHForCausalLM",
+        "AutoModelForCausalLM": "modeling_nemotron_h.NemotronHForCausalLM"
+      },
+      "max_position_embeddings": 262144
+    },
+    "tokenizer_sec": 0.9383782029981376,
+    "tokenizer_name_or_path": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "model_load_sec": 8.918331182998372,
+    "memory_before": {
+      "available": true,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "max_allocated_bytes": 0,
+      "max_reserved_bytes": 0
+    },
+    "memory_after_load": {
+      "available": true,
+      "allocated_bytes": 63239353856,
+      "reserved_bytes": 63273172992,
+      "max_allocated_bytes": 63239353856,
+      "max_reserved_bytes": 63273172992
+    },
+    "trust_remote_code_used": false
+  },
+  "generations": [
+    {
+      "id": "reasoning-on-math",
+      "messages": [
+        {
+          "role": "user",
+          "content": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory?"
+        }
+      ],
+      "enable_thinking": true,
+      "success": true,
+      "chat_template": {
+        "enable_thinking_accepted": true,
+        "apply_chat_template_type": "BatchEncoding"
+      },
+      "prompt_text": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory?",
+      "generated_text_raw": "The user asks a simple arithmetic: 8 GPUs each with 192 GB memory. Total aggregate = 8 * 192 = 1536 GB. Could also express as 1.536 TB. Provide answer.\n</think>\nThe server\u2019s total aggregate GPU memory is:\n\n\\[\n8 \\times 192\\ \\text{GB} = 1{,}536\\ \\text{GB}\n\\]\n\nSo the GPUs together provide **1,536\u202fGB**, which is roughly **1.5\u202fTB** of memory.<|im_end|>",
+      "generated_text": "The user asks a simple arithmetic: 8 GPUs each with 192 GB memory. Total aggregate = 8 * 192 = 1536 GB. Could also express as 1.536 TB. Provide answer.\n</think>\nThe server\u2019s total aggregate GPU memory is:\n\n\\[\n8 \\times 192\\ \\text{GB} = 1{,}536\\ \\text{GB}\n\\]\n\nSo the GPUs together provide **1,536\u202fGB**, which is roughly **1.5\u202fTB** of memory.",
+      "input_tokens": 41,
+      "output_tokens": 122,
+      "generation_sec": 12.189395809000416,
+      "output_tokens_per_sec": 10.008699521424806,
+      "max_new_tokens": 512,
+      "temperature": 1.0,
+      "do_sample": true,
+      "top_p": 1.0,
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047680,
+        "reserved_bytes": 63898124288,
+        "max_allocated_bytes": 63926756864,
+        "max_reserved_bytes": 64453869568
+      }
+    },
+    {
+      "id": "reasoning-off-math",
+      "messages": [
+        {
+          "role": "user",
+          "content": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory?"
+        }
+      ],
+      "enable_thinking": false,
+      "success": true,
+      "chat_template": {
+        "enable_thinking_accepted": true,
+        "apply_chat_template_type": "BatchEncoding"
+      },
+      "prompt_text": "A server has 8 GPUs with 192 GB of memory each. What is the total aggregate GPU memory?",
+      "generated_text_raw": "The total aggregate GPU memory is calculated by multiplying the number of GPUs by the memory per GPU:\n\n$$\n8 \\text{ GPUs} \\times 192 \\text{ GB/GPU} = 1536 \\text{ GB}\n$$\n\n**Answer:** 1536 GB<|im_end|>",
+      "generated_text": "The total aggregate GPU memory is calculated by multiplying the number of GPUs by the memory per GPU:\n\n$$\n8 \\text{ GPUs} \\times 192 \\text{ GB/GPU} = 1536 \\text{ GB}\n$$\n\n**Answer:** 1536 GB",
+      "input_tokens": 41,
+      "output_tokens": 64,
+      "generation_sec": 2.067038020999462,
+      "output_tokens_per_sec": 30.962178416560757,
+      "max_new_tokens": 512,
+      "temperature": 0.0,
+      "do_sample": false,
+      "top_p": null,
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047168,
+        "reserved_bytes": 64434995200,
+        "max_allocated_bytes": 63926758400,
+        "max_reserved_bytes": 64453869568
+      }
+    },
+    {
+      "id": "system-and-user",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a concise assistant. Reply in one sentence."
+        },
+        {
+          "role": "user",
+          "content": "Name the AMD Instinct GPU with 192 GB HBM3 used in this project."
+        }
+      ],
+      "enable_thinking": false,
+      "success": true,
+      "chat_template": {
+        "enable_thinking_accepted": true,
+        "apply_chat_template_type": "BatchEncoding"
+      },
+      "prompt_text": "Name the AMD Instinct GPU with 192 GB HBM3 used in this project.",
+      "generated_text_raw": "The AMD Instinct MI300X GPU, featuring 192\u202fGB of HBM3 memory, is used in this project.<|im_end|>",
+      "generated_text": "The AMD Instinct MI300X GPU, featuring 192\u202fGB of HBM3 memory, is used in this project.",
+      "input_tokens": 47,
+      "output_tokens": 31,
+      "generation_sec": 1.0904801430006046,
+      "output_tokens_per_sec": 28.427844559094197,
+      "max_new_tokens": 512,
+      "temperature": 0.0,
+      "do_sample": false,
+      "top_p": null,
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319047168,
+        "reserved_bytes": 64455966720,
+        "max_allocated_bytes": 63927089152,
+        "max_reserved_bytes": 64455966720
+      }
+    },
+    {
+      "id": "system-think-token",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant. /think"
+        },
+        {
+          "role": "user",
+          "content": "What is 2+2?"
+        }
+      ],
+      "enable_thinking": true,
+      "success": true,
+      "chat_template": {
+        "enable_thinking_accepted": true,
+        "apply_chat_template_type": "BatchEncoding"
+      },
+      "prompt_text": "What is 2+2?",
+      "generated_text_raw": "The user asks simple question 2+2. Answer is 4. Provide straightforward answer.\n</think>\n4<|im_end|>",
+      "generated_text": "The user asks simple question 2+2. Answer is 4. Provide straightforward answer.\n</think>\n4",
+      "input_tokens": 31,
+      "output_tokens": 23,
+      "generation_sec": 0.8459135800003423,
+      "output_tokens_per_sec": 27.189538676032004,
+      "max_new_tokens": 512,
+      "temperature": 1.0,
+      "do_sample": true,
+      "top_p": null,
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319046656,
+        "reserved_bytes": 64455966720,
+        "max_allocated_bytes": 63927089152,
+        "max_reserved_bytes": 64455966720
+      }
+    },
+    {
+      "id": "assistant-prefill-not-used",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Return the word READY and nothing else."
+        }
+      ],
+      "enable_thinking": false,
+      "success": true,
+      "chat_template": {
+        "enable_thinking_accepted": true,
+        "apply_chat_template_type": "BatchEncoding"
+      },
+      "prompt_text": "Return the word READY and nothing else.",
+      "generated_text_raw": "READY<|im_end|>",
+      "generated_text": "READY",
+      "input_tokens": 25,
+      "output_tokens": 3,
+      "generation_sec": 0.1832167609973112,
+      "output_tokens_per_sec": 16.37404778727655,
+      "max_new_tokens": 512,
+      "temperature": 0.0,
+      "do_sample": false,
+      "top_p": null,
+      "gpu_memory": {
+        "available": true,
+        "allocated_bytes": 63319046656,
+        "reserved_bytes": 64453869568,
+        "max_allocated_bytes": 63927089152,
+        "max_reserved_bytes": 64455966720
+      }
+    }
+  ],
+  "summary": {
+    "success": true,
+    "prompts_total": 5,
+    "prompts_passed": 5,
+    "prompts_failed": 0,
+    "peak_memory": {
+      "available": true,
+      "allocated_bytes": 63319046656,
+      "reserved_bytes": 64453869568,
+      "max_allocated_bytes": 63927089152,
+      "max_reserved_bytes": 64455966720
+    },
+    "trust_remote_code_used": false
+  }
+}

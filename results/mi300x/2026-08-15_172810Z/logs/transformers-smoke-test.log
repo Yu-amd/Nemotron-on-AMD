@@ -1,0 +1,53 @@
+model=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16
+device=cuda:0
+dtype=bfloat16
+transformers=5.15.0
+torch=2.12.0+rocm7.14.0 hip=7.14.60850
+gpu=AMD Instinct MI300X VF
+loading tokenizer...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+tokenizer loaded in 0.92s
+loading model...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/401 [00:00<?, ?it/s]Loading weights:   3%|2         | 12/401 [00:00<00:05, 73.89it/s]Loading weights:   7%|6         | 28/401 [00:00<00:04, 91.61it/s]Loading weights:  12%|#2        | 49/401 [00:00<00:03, 112.59it/s]Loading weights:  16%|#6        | 65/401 [00:00<00:02, 117.40it/s]Loading weights:  20%|##        | 81/401 [00:00<00:02, 129.28it/s]Loading weights:  25%|##5       | 102/401 [00:00<00:01, 150.84it/s]Loading weights:  29%|##9       | 118/401 [00:00<00:01, 151.03it/s]Loading weights:  38%|###8      | 154/401 [00:01<00:01, 186.10it/s]Loading weights:  43%|####3     | 173/401 [00:01<00:01, 164.75it/s]Loading weights:  47%|####7     | 190/401 [00:01<00:01, 159.23it/s]Loading weights:  52%|#####1    | 208/401 [00:01<00:01, 156.99it/s]Loading weights:  56%|#####5    | 224/401 [00:01<00:01, 155.86it/s]Loading weights:  60%|#####9    | 240/401 [00:01<00:01, 156.74it/s]Loading weights:  65%|######5   | 261/401 [00:01<00:00, 170.90it/s]Loading weights:  70%|######9   | 279/401 [00:01<00:00, 173.21it/s]Loading weights:  77%|#######6  | 308/401 [00:01<00:00, 181.76it/s]Loading weights:  82%|########2 | 329/401 [00:02<00:00, 188.44it/s]Loading weights:  87%|########6 | 348/401 [00:02<00:00, 166.59it/s]Loading weights:  94%|#########4| 377/401 [00:02<00:00, 176.15it/s]Loading weights:  99%|#########8| 395/401 [00:02<00:00, 158.36it/s]Loading weights: 100%|##########| 401/401 [00:02<00:00, 157.89it/s]
+model loaded in 9.05s
+memory_after_load={'available': True, 'allocated_bytes': 63239353856, 'reserved_bytes': 63273172992, 'max_allocated_bytes': 63239353856, 'max_reserved_bytes': 63273172992}
+
+=== prompt basic-language ===
+input_tokens=28 output_tokens=98 gen_sec=16.98 tps=5.772735577227974
+--- generated text ---
+RAM (Random Access Memory) is a computer's short‑term, volatile memory that holds data and instructions currently being used, allowing fast read/write access while the system is running. Storage (e.g., SSDs, HDDs, flash drives) is non‑volatile, long‑term memory that retains data even when power is off, providing larger capacity but slower access speeds. Consequently, RAM determines how quickly applications can operate, whereas storage determines how much data can be kept permanently.
+
+=== prompt simple-reasoning ===
+input_tokens=56 output_tokens=29 gen_sec=1.33 tps=21.777200850831466
+--- generated text ---
+1536  
+8 GPUs × 192 GB each = 1536 GB total aggregate GPU memory.
+
+=== prompt code ===
+input_tokens=46 output_tokens=44 gen_sec=1.50 tps=29.349215113226833
+--- generated text ---
+def factorial(n):
+    if n == 0:
+        return 1
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+=== prompt summarization ===
+input_tokens=141 output_tokens=110 gen_sec=3.55 tps=30.995955563183852
+--- generated text ---
+The AMD Instinct MI300X delivers 192 GB of HBM3 memory per GPU, enabling large‑language‑model workloads via ROCm, HIP‑enabled PyTorch, and inference servers like vLLM. While NVIDIA’s Nemotron 3 Nano — a hybrid Mamba‑Transformer MoE model with a BF16 checkpoint on Hugging Face — can be evaluated on this hardware, its successful loading and generation must be confirmed empirically rather than assumed from marketing statements.
+
+=== prompt instruction-following ===
+input_tokens=72 output_tokens=37 gen_sec=1.35 tps=27.47170346420683
+--- generated text ---
+{
+  "gpu_name": "MI300X",
+  "hbm_gb": 192,
+  "status": "NOT TESTED"
+}
+
+result=PASS passed=5/5
+wrote results/mi300x/2026-08-15_172810Z/transformers/result.json

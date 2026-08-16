@@ -1,0 +1,76 @@
+{
+  "timestamp_utc": "2026-08-15T17:25:10.413937+00:00",
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "executable": "/root/Nemotron-on-AMD/.venv-mi300x/bin/python",
+  "platform": "Linux-6.8.0-134-generic-x86_64-with-glibc2.39",
+  "packages": {
+    "torch": {
+      "present": true,
+      "version": "2.12.0+rocm7.14.0",
+      "file": "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/__init__.py"
+    },
+    "transformers": {
+      "present": true,
+      "version": "5.15.0",
+      "file": "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/transformers/__init__.py"
+    },
+    "accelerate": {
+      "present": true,
+      "version": "1.14.0",
+      "file": "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/accelerate/__init__.py"
+    },
+    "safetensors": {
+      "present": true,
+      "version": "0.8.0",
+      "file": "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/safetensors/__init__.py"
+    },
+    "tokenizers": {
+      "present": true,
+      "version": "0.22.2",
+      "file": "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/tokenizers/__init__.py"
+    },
+    "vllm": {
+      "present": false,
+      "error": "ModuleNotFoundError: No module named 'vllm'"
+    },
+    "huggingface_hub": {
+      "present": true,
+      "version": "1.27.0",
+      "file": "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/huggingface_hub/__init__.py"
+    },
+    "sentencepiece": {
+      "present": false,
+      "error": "ModuleNotFoundError: No module named 'sentencepiece'"
+    },
+    "sentence_transformers": {
+      "present": false,
+      "error": "ModuleNotFoundError: No module named 'sentence_transformers'"
+    },
+    "openai": {
+      "present": false,
+      "error": "ModuleNotFoundError: No module named 'openai'"
+    },
+    "numpy": {
+      "present": true,
+      "version": "2.5.2",
+      "file": "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/numpy/__init__.py"
+    }
+  },
+  "torch": {
+    "present": true,
+    "version": "2.12.0+rocm7.14.0",
+    "hip": "7.14.60850",
+    "cuda": null,
+    "cuda_is_available": true,
+    "device_count": 1,
+    "devices": [
+      {
+        "index": 0,
+        "name": "AMD Instinct MI300X VF",
+        "total_memory_bytes": 205822885888
+      }
+    ],
+    "warning": null
+  },
+  "env": {}
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-16T23:13:46.030965+00:00",
+  "platform": "mi300x",
+  "model": "unsloth/Nemotron-3-Nano-30B-A3B-GGUF",
+  "model_revision": "9ad8b366c308f931b2a96b9306f0b41aef9cd405",
+  "precision": "GGUF",
+  "runtime": "llama.cpp",
+  "runtime_version": "version: 0.1.0-dev (build 1, commit 3cb7ffb)",
+  "result": "PASS",
+  "n_gpu_layers": 99,
+  "backend_hints": [
+    "gpu-offload"
+  ],
+  "model_sha256": "0e7f6e51fdd9039928749d07eed9e846dbfd97681646544c5406bcdd788e5940",
+  "notes": "llama.cpp greedy smoke. Not an Optimized or Production-ready claim. Not Transformers/vLLM.",
+  "command": [
+    "scripts/llamacpp/smoke-test.py",
+    "--llama-cli",
+    "/root/Nemotron-on-AMD/tools/llamacpp/build/hip/bin/llama-cli",
+    "--model",
+    "/root/Nemotron-on-AMD/tools/llamacpp/gguf/Nemotron-3-Nano-30B-A3B-Q4_K_M.gguf",
+    "--n-gpu-layers",
+    "99",
+    "--platform",
+    "mi300x",
+    "--output-dir",
+    "results/mi300x/2026-08-16_231304Z"
+  ],
+  "enable_thinking": false,
+  "status_claim_allowed": "Runs (candidate) \u2014 not Validated until results are reviewed"
+}

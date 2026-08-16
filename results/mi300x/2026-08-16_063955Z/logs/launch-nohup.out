@@ -1,0 +1,169 @@
+model=nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16 task=causal dtype=bfloat16 revision=24e67ea000b7c2837fc8f9488aa2008524fac8ba
+resolved_task=causal architectures=['NemotronH_Nano_Omni_Reasoning_V3'] model_type=NemotronH_Nano_Omni_Reasoning_V3
+override config attn 'flash_attention_2' -> eager
+forced nested attn_implementation=eager
+[ERROR] `cache_position` is part of NemotronHForCausalLM.forward's signature, but not documented. Make sure to add it to the docstring of the function in /root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling_nemotron_h.py.
+[transformers] Kernel causal-conv1d not found in _HUB_KERNEL_MAPPING
+[transformers] Kernel mamba-ssm not found in _HUB_KERNEL_MAPPING
+The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/7345 [00:00<?, ?it/s]Loading weights:  15%|█▌        | 1124/7345 [00:00<00:00, 11237.55it/s]Loading weights:  31%|███       | 2248/7345 [00:00<00:00, 10060.05it/s]Loading weights:  44%|████▍     | 3263/7345 [00:00<00:00, 9797.23it/s] Loading weights:  58%|█████▊    | 4247/7345 [00:00<00:00, 9695.27it/s]Loading weights:  71%|███████▏  | 5248/7345 [00:00<00:00, 9802.85it/s]Loading weights:  85%|████████▍ | 6230/7345 [00:00<00:00, 9808.10it/s]Loading weights:  99%|█████████▊| 7238/7345 [00:00<00:00, 9895.16it/s]Loading weights: 100%|██████████| 7345/7345 [00:00<00:00, 9922.99it/s]
+[transformers] [1mNemotronH_Nano_Omni_Reasoning_V3 LOAD REPORT[0m from: nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16
+Key                                                       | Status     | 
+----------------------------------------------------------+------------+-
+vision_model.radio_model.input_conditioner.norm_std       | UNEXPECTED | 
+vision_model.radio_model.input_conditioner.norm_mean      | UNEXPECTED | 
+sound_encoder.encoder.feature_extractor.featurizer.fb     | UNEXPECTED | 
+sound_encoder.encoder.feature_extractor.featurizer.window | UNEXPECTED | 
+vision_model.radio_model.summary_idxs                     | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 580, in _run_causal
+    out = model.generate(encoded, max_new_tokens=args.max_new_tokens, do_sample=False, num_beams=1)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 431, in generate
+    image_vit_embeds = self.extract_feature(pixel_values)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 292, in extract_feature
+    return self._extract_feature_single(pixel_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 296, in _extract_feature_single
+    vit_embeds = self.vision_model(pixel_values).features
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/C_hyphen_RADIOv4_hyphen_H/0057b339059c0b9e1b4ba996f975410ebbfdfcc8/hf_model.py", line 208, in forward
+    return self.radio_model.forward(x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/C_hyphen_RADIOv4_hyphen_H/0057b339059c0b9e1b4ba996f975410ebbfdfcc8/radio_model.py", line 181, in forward
+    raise ValueError('The input resolution must be a multiple of `self.min_resolution_step`. '
+ValueError: The input resolution must be a multiple of `self.min_resolution_step`. `self.get_nearest_supported_resolution(<height>, <width>) is provided as a convenience API. Input: torch.Size([1, 28]), Nearest: Resolution(height=16, width=32)
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 580, in _run_causal
+    out = model.generate(encoded, max_new_tokens=args.max_new_tokens, do_sample=False, num_beams=1)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 431, in generate
+    image_vit_embeds = self.extract_feature(pixel_values)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 292, in extract_feature
+    return self._extract_feature_single(pixel_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 296, in _extract_feature_single
+    vit_embeds = self.vision_model(pixel_values).features
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/C_hyphen_RADIOv4_hyphen_H/0057b339059c0b9e1b4ba996f975410ebbfdfcc8/hf_model.py", line 208, in forward
+    return self.radio_model.forward(x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/C_hyphen_RADIOv4_hyphen_H/0057b339059c0b9e1b4ba996f975410ebbfdfcc8/radio_model.py", line 181, in forward
+    raise ValueError('The input resolution must be a multiple of `self.min_resolution_step`. '
+ValueError: The input resolution must be a multiple of `self.min_resolution_step`. `self.get_nearest_supported_resolution(<height>, <width>) is provided as a convenience API. Input: torch.Size([1, 56]), Nearest: Resolution(height=16, width=64)
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 580, in _run_causal
+    out = model.generate(encoded, max_new_tokens=args.max_new_tokens, do_sample=False, num_beams=1)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 431, in generate
+    image_vit_embeds = self.extract_feature(pixel_values)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 292, in extract_feature
+    return self._extract_feature_single(pixel_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 296, in _extract_feature_single
+    vit_embeds = self.vision_model(pixel_values).features
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/C_hyphen_RADIOv4_hyphen_H/0057b339059c0b9e1b4ba996f975410ebbfdfcc8/hf_model.py", line 208, in forward
+    return self.radio_model.forward(x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/C_hyphen_RADIOv4_hyphen_H/0057b339059c0b9e1b4ba996f975410ebbfdfcc8/radio_model.py", line 181, in forward
+    raise ValueError('The input resolution must be a multiple of `self.min_resolution_step`. '
+ValueError: The input resolution must be a multiple of `self.min_resolution_step`. `self.get_nearest_supported_resolution(<height>, <width>) is provided as a convenience API. Input: torch.Size([1, 46]), Nearest: Resolution(height=16, width=48)
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 580, in _run_causal
+    out = model.generate(encoded, max_new_tokens=args.max_new_tokens, do_sample=False, num_beams=1)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 431, in generate
+    image_vit_embeds = self.extract_feature(pixel_values)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 292, in extract_feature
+    return self._extract_feature_single(pixel_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 296, in _extract_feature_single
+    vit_embeds = self.vision_model(pixel_values).features
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/C_hyphen_RADIOv4_hyphen_H/0057b339059c0b9e1b4ba996f975410ebbfdfcc8/hf_model.py", line 208, in forward
+    return self.radio_model.forward(x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/C_hyphen_RADIOv4_hyphen_H/0057b339059c0b9e1b4ba996f975410ebbfdfcc8/radio_model.py", line 181, in forward
+    raise ValueError('The input resolution must be a multiple of `self.min_resolution_step`. '
+ValueError: The input resolution must be a multiple of `self.min_resolution_step`. `self.get_nearest_supported_resolution(<height>, <width>) is provided as a convenience API. Input: torch.Size([1, 141]), Nearest: Resolution(height=16, width=144)
+
+Traceback (most recent call last):
+  File "/root/Nemotron-on-AMD/scripts/mi300x/family-smoke.py", line 580, in _run_causal
+    out = model.generate(encoded, max_new_tokens=args.max_new_tokens, do_sample=False, num_beams=1)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 431, in generate
+    image_vit_embeds = self.extract_feature(pixel_values)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 292, in extract_feature
+    return self._extract_feature_single(pixel_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/Nemotron_hyphen_3_hyphen_Nano_hyphen_Omni_hyphen_30B_hyphen_A3B_hyphen_Reasoning_hyphen_BF16/24e67ea000b7c2837fc8f9488aa2008524fac8ba/modeling.py", line 296, in _extract_feature_single
+    vit_embeds = self.vision_model(pixel_values).features
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Nemotron-on-AMD/.venv-mi300x/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/C_hyphen_RADIOv4_hyphen_H/0057b339059c0b9e1b4ba996f975410ebbfdfcc8/hf_model.py", line 208, in forward
+    return self.radio_model.forward(x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/nvidia/C_hyphen_RADIOv4_hyphen_H/0057b339059c0b9e1b4ba996f975410ebbfdfcc8/radio_model.py", line 181, in forward
+    raise ValueError('The input resolution must be a multiple of `self.min_resolution_step`. '
+ValueError: The input resolution must be a multiple of `self.min_resolution_step`. `self.get_nearest_supported_resolution(<height>, <width>) is provided as a convenience API. Input: torch.Size([1, 72]), Nearest: Resolution(height=16, width=64)
+
+result=FAIL
