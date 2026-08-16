@@ -24,7 +24,7 @@ Each hardware cell has two required fields:
 | Class | SKUs | If weights exceed one GPU |
 | --- | --- | --- |
 | **OAM Instinct (scale-up)** | MI300X, MI325X, MI350X, MI355X | Do **not** write “doesn't fit.” Write the GPU count: **1×**, **2×**, **4×**, or **8×** (smallest of those where sharded weights fit). **1× tight** / **4× tight** = weights fit that count but leftover ≲ 32 GB/GPU. Infinity Fabric is assumed for the *count only* — not a PASS. |
-| **Single PCIe / laptop** | **MI350P**, **Radeon**, **Ryzen AI** | PCIe GPU-to-GPU is **not** treated as an optimized scale-out path here. The laptop is one machine. If it does not fit **one** card / this laptop, Fit is **doesn't fit**. Never quote 2×/4×/8× for these columns. |
+| **Single PCIe / laptop** | **MI350P**, **Radeon**, **Ryzen AI** | PCIe GPU-to-GPU is **not** treated as an optimized scale-out path here. A Ryzen AI laptop is one machine. If it does not fit **one** card / a Ryzen AI laptop, Fit is **doesn't fit**. Never quote 2×/4×/8× for these columns. |
 
 **Fit** values:
 
@@ -33,7 +33,7 @@ Each hardware cell has two required fields:
 | **1×** | Raw weights fit one GPU (leftover ≳ 32 GB). |
 | **1× tight** | Weights fit one GPU; leftover ≲ 32 GB (poor for KV / SSM / MoE). |
 | **2× / 4× / 8×** | OAM Instinct only. Smallest of 2/4/8 with leftover ≳ 32 GB/GPU after an even shard; append **tight** if leftover is below that but weights still fit. |
-| **doesn't fit** | MI350P / Radeon / Ryzen AI only: does not fit one PCIe card or this laptop. |
+| **doesn't fit** | MI350P / Radeon / Ryzen AI only: does not fit one PCIe card or a Ryzen AI laptop. |
 | **n/a** | Wrong device class, or there is no identified runtime for that precision on that target. |
 
 Count math (OAM): leftover per GPU ≈ `HBM − weights/k`. Use vendor HBM 192 / 256 / 288 GB and calculator weights (~60 / 240 / 120 / 1100 / 275 GB). **8× MI300X** for Ultra BF16 because **4×** (768 GB) is less than ~1100 GB weights. **4× MI350X/MI355X** holds Ultra BF16 weights with ~13 GB leftover/GPU (**4× tight**).
@@ -43,8 +43,8 @@ If a configuration is **definitely not practical or not applicable**, the cell a
 | Code | Why (not a PASS, and not “maybe later on that SKU”) |
 | --- | --- |
 | **R-PCIE** | Does not fit one PCIe card (MI350P 144 GB or Radeon 16–48 GB). This matrix does not count multi-GPU PCIe. |
-| **R-LAPTOP** | Does not fit this Strix Point (93 GiB RAM / 512 MB dedicated iGPU). |
-| **R-IGPU** | This Strix Point iGPU reports **512 MB** dedicated VRAM (`amd-smi`). |
+| **R-LAPTOP** | Does not fit a Strix Point Ryzen AI laptop (93 GiB RAM / 512 MB dedicated iGPU). |
+| **R-IGPU** | Strix Point iGPU reports **512 MB** dedicated VRAM (`amd-smi`). |
 | **R-NPU** | No Hugging Face / vLLM / Transformers Nemotron-on-XDNA path identified (2026-08-15). Driver present ≠ model support. |
 | **R-NVFP4** | Official `…-NVFP4` shards are NVIDIA E2M1 NVFP4 (ModelOpt / FlashInfer). CDNA4 **MXFP4 is a different format**. Native NVFP4 tensor execution is **not** an Instinct claim. vLLM NVFP4 *emulation* (dequant to BF16) is documented by AMD for **other** models on MI300/MI355 — **not** Nemotron evidence. |
 | **R-FNUZ** | Not a hard “unsupported”: NVIDIA FP8 is typically OCP E4M3/E5M2; MI300/MI325 is **FP8 FNUZ**. Load may fail or be silently wrong. MI350-series FP8 is OCP — closer conceptually, still **untested**. |
@@ -60,8 +60,8 @@ Emulation / Quark MXFP4 from BF16 are **separate research items**, not implied b
 | **MI350X** | Instinct MI350X OAM | CDNA4 `gfx950` | 288 GB HBM3E | **No** | OAM. OCP FP8 + MXFP. [`mi350x.md`](../platforms/instinct/mi350x.md) |
 | **MI355X** | Instinct MI355X OAM | CDNA4 `gfx950` | 288 GB HBM3E | **No** | OAM. Same **memory** math as MI350X. [`mi355x.md`](../platforms/instinct/mi355x.md) |
 | **MI350P** | Instinct MI350P **PCIe** | CDNA4 (LLVM **unconfirmed**) | **144 GB HBM3E** | **No** | **PCIe.** If it does not fit one card → **doesn't fit**. Not named on the ROCm Instinct GPU table fetched 2026-08-16. [`mi350p.md`](../platforms/instinct/mi350p.md) |
-| **Radeon** | Discrete ROCm-listed **PCIe** cards | RDNA3/4 | **16–48 GB** GDDR (this lab has **none**) | **No** | **PCIe.** Upper bound: PRO W7900 **48 GB**. [`radeon/README.md`](../platforms/radeon/README.md) |
-| **Ryzen AI** | This Strix Point **laptop** | CPU + `gfx1150` iGPU + XDNA NPU | iGPU dedicated **512 MB**; unified RAM **93 GiB** | **Yes** — Nano 4B / Lightning Q4_0 / Unsloth 30B Q4_K_M GGUF CPU + Vulkan iGPU | One machine. If it does not fit here → **doesn't fit**. Dedicated 512 MB **doesn't fit** 18–25 GB GGUFs; Vulkan UMA **did** hold them. NPU **R-NPU**. vLLM gfx1150 wants ROCm **7.0.2+**; laptop is **6.4.3** (vLLM note, not llama.cpp). [`strix-point.md`](../platforms/ryzen-ai/strix-point.md) |
+| **Radeon** | Discrete ROCm-listed **PCIe** cards | RDNA3/4 | **16–48 GB** GDDR (no discrete card in this project) | **No** | **PCIe.** Upper bound: PRO W7900 **48 GB**. [`radeon/README.md`](../platforms/radeon/README.md) |
+| **Ryzen AI** | Strix Point **laptop** | CPU + `gfx1150` iGPU + XDNA NPU | iGPU dedicated **512 MB**; unified RAM **93 GiB** | **Yes** — Nano 4B / Lightning Q4_0 / Unsloth 30B Q4_K_M GGUF CPU + Vulkan iGPU | One machine. If it does not fit on that laptop → **doesn't fit**. Dedicated 512 MB **doesn't fit** 18–25 GB GGUFs; Vulkan UMA **did** hold them. NPU **R-NPU**. vLLM gfx1150 wants ROCm **7.0.2+**; that laptop is **6.4.3** (vLLM note, not llama.cpp). [`strix-point.md`](../platforms/ryzen-ai/strix-point.md) |
 
 All Instinct columns except executed **MI300X** cells: **NOT YET VALIDATED**. Multi-GPU counts on OAM are memory math, not a node we have.
 
@@ -76,13 +76,13 @@ All Instinct columns except executed **MI300X** cells: **NOT YET VALIDATED**. Mu
 | Nano 30B-A3B | BF16 | ~60 GB / 56 GiB | **1×** | **1×** | **1×** | **1×** | **1×** | **doesn't fit** | **doesn't fit** |
 | Nano 30B-A3B | FP8 | ~30 GB / 28 GiB | **1×** | **1×** | **1×** | **1×** | **1×** | **1× tight** on 32–48 GB; **doesn't fit** on 16–24 GB | **doesn't fit** iGPU; CPU **1×**; NPU **n/a** |
 | Nano 30B-A3B | NVFP4 | ~15 GB payload (~21 GB Omni-class card) | **1×** | **1×** | **1×** | **1×** | **1×** | **1×** on 24–48 GB; **doesn't fit** on 16 GB | **doesn't fit** iGPU; CPU **1×**; NPU **n/a** |
-| Nano 30B Unsloth GGUF | Q4–Q8 | Q4_K_M **24.57 GB** (22.88 GiB) | **1×** | **1×** | **1×** | **1×** | **1×** | **1×** on 24 GB+ | CPU **1×**; Vulkan UMA **1×** (~47 GiB visible); dedicated 512 MB **doesn't fit** (**R-IGPU**); NPU **n/a** |
+| Nano 30B-A3B | GGUF Q4_K_M (Unsloth, community) | **24.57 GB** (22.88 GiB) | **1×** | **1×** | **1×** | **1×** | **1×** | **1×** on 24 GB+ | CPU **1×**; Vulkan UMA **1×** (~47 GiB visible); dedicated 512 MB **doesn't fit** (**R-IGPU**); NPU **n/a** |
 | Lightning 30B-A3B | BF16 | ~60 GB / 56 GiB | **1×** | **1×** | **1×** | **1×** | **1×** | **doesn't fit** | **doesn't fit** |
+| Lightning 30B-A3B | GGUF Q4_0 (ggml-org) | **18.90 GB** (17.60 GiB) | **1×** | **1×** | **1×** | **1×** | **1×** | **1×** on 24 GB+ | CPU **1×**; Vulkan UMA **1×** (~47 GiB visible); dedicated 512 MB **doesn't fit** (**R-IGPU**); NPU **n/a** |
+| Lightning 30B-A3B | GGUF Q8_0 (ggml-org) | **33.59 GB** | **1×** | **1×** | **1×** | **1×** | **1×** | **1×** on 48 GB | CPU **1×**; iGPU **R-IGPU**; NPU **n/a** |
 | Lightning 30B-A3B | NVFP4 | ~15 GB class | **1×** | **1×** | **1×** | **1×** | **1×** | **1×** on 24–48 GB | **doesn't fit** iGPU; CPU **1×**; NPU **n/a** |
-| Lightning ggml-org GGUF | Q4_0 | **18.90 GB** (17.60 GiB) | **1×** | **1×** | **1×** | **1×** | **1×** | **1×** on 24 GB+ | CPU **1×**; Vulkan UMA **1×** (~47 GiB visible); dedicated 512 MB **doesn't fit** (**R-IGPU**); NPU **n/a** |
-| Lightning ggml-org GGUF | Q8_0 | **33.59 GB** | **1×** | **1×** | **1×** | **1×** | **1×** | **1×** on 48 GB | CPU **1×**; iGPU **R-IGPU**; NPU **n/a** |
 | Nano 4B | BF16 | ~8 GB / 7.4 GiB | **1×** | **1×** | **1×** | **1×** | **1×** | **1×** on 16 GB+ | CPU **1×**; iGPU unknown for BF16; NPU **n/a** |
-| Nano 4B official GGUF | Q4_K_M | **2.84 GB** (2.64 GiB) | **1×** | **1×** | **1×** | **1×** | **1×** | **1×** | CPU **1×**; Vulkan UMA **1×** (~47 GiB visible on this APU); dedicated 512 MB **doesn't fit**; NPU **n/a** |
+| Nano 4B | GGUF Q4_K_M (official) | **2.84 GB** (2.64 GiB) | **1×** | **1×** | **1×** | **1×** | **1×** | **1×** | CPU **1×**; Vulkan UMA **1×** (~47 GiB visible on this APU); dedicated 512 MB **doesn't fit**; NPU **n/a** |
 | Super 120B-A12B | BF16 | ~240 GB / 224 GiB | **2×** | **1× tight** (~16 GB leftover) | **1×** (~48 GB leftover) | **1×** | **doesn't fit** | **doesn't fit** | **doesn't fit** |
 | Super 120B-A12B | FP8 | ~120 GB / 112 GiB | **1×** | **1×** | **1×** | **1×** | **1× tight** (~24 GB leftover) | **doesn't fit** | **doesn't fit** |
 | Super 120B-A12B | NVFP4 | ~60 GB payload | **1×** | **1×** | **1×** | **1×** | **1×** | **doesn't fit** (60 > 48) | **doesn't fit** |
@@ -110,22 +110,22 @@ MI325X / MI350X / MI355X / MI350P share “NYV” even when Fit is **1×**: no c
 | Model | Prec | MI300X | MI325X | MI350X | MI355X | MI350P (PCIe) | Radeon discrete | Ryzen AI laptop |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Nano 30B-A3B | BF16 | **Test: Val + Runs** on **1×**. Transformers greedy thinking-off **Validated** (`031205Z`). Thinking probes + vLLM serve/characterization/128K **Runs**. Not Optimized; not 256K/1M. **Fit: 1×.** | **NYV.** Fit: **1×**. Same ISA family as MI300X reduces *some* kernel risk; still needs a run. | **NYV.** Fit: **1×**. New ISA (`gfx950`); do not copy MI300X PASS. | **NYV.** Fit: **1×**. Same memory class as MI350X. | **NYV.** Fit: **1×**. Less leftover than MI300X. SKU not on ROCm Instinct name list (fetched 2026-08-16). | **NP.** Fit: **doesn't fit**. **R-PCIE** (56 GiB > 48 GB). | **NP.** Fit: **doesn't fit**. **R-LAPTOP** (56 GiB weights + KV vs 93 GiB; iGPU **R-IGPU**). NPU **R-NPU**. ROCm 6.4.3 vs vLLM gfx1150 floor 7.0.2+ is a **possible BLOCKER** for iGPU vLLM. |
-| Nano 30B-A3B | FP8 | **Test: FAIL** `mamba-ssm` import (`062923Z`). **R-FNUZ**. **Fit: 1×**. | **NYV.** Fit: **1×**. **R-FNUZ**. | **NYV.** Fit: **1×**. OCP FP8 is a closer *match* than MI300; still **not** a PASS. | **NYV.** Fit: **1×**. | **NYV.** Fit: **1×**. Family OCP **unconfirmed** on this SKU. | **NT.** Fit: **1× tight** / **doesn't fit** by SKU. Format + hybrid MoE kernels unknown. | **NT.** iGPU **doesn't fit** (**R-IGPU**); CPU Fit **1×** not downloaded; NPU **R-NPU**. |
+| Nano 30B-A3B | FP8 | **Test: FAIL** `mamba-ssm` import (`062923Z`). **R-FNUZ**. **Fit: 1×**. | **NYV.** Fit: **1×**. **R-FNUZ**. | **NYV.** Fit: **1×**. OCP FP8 is a closer *match* than MI300; still **not** a PASS. | **NYV.** Fit: **1×**. | **NYV.** Fit: **1×**. Family OCP **unconfirmed** on this SKU. | **NT.** Fit: **1× tight** on 32–48 GB; **doesn't fit** 16–24 GB. Format + hybrid MoE kernels unknown. | **NT.** Fit: **1×** on CPU RAM. Dedicated iGPU **doesn't fit** (**R-IGPU**); NPU **R-NPU**. |
 | Nano 30B-A3B | NVFP4 | **NT.** Fit: **1×**. **R-NVFP4.** Emulation **not tested** (do not copy FlashInfer). | **NYV.** Fit: **1×**. **R-NVFP4** (no MXFP on CDNA3). | **NYV.** Fit: **1×**. MXFP4 **≠** NVFP4 (**R-NVFP4**). | **NYV.** Fit: **1×**. **R-NVFP4.** | **NYV.** Fit: **1×**. MXFP4 on the product page **≠** NVFP4 (**R-NVFP4**). | **NT.** Fit: **1×** on 24–48 GB. **R-NVFP4**. | **NT / NA** native. **R-NVFP4** + **R-NPU**. CPU GGUF is a different 4-bit. |
-| Nano 30B Unsloth GGUF | Q4–Q8 | **Test: Val** HIP `ROCm0` gfx942 (`231304Z`). 53/53 layers, model buffer ~23197 MiB. Community `unsloth/` file, not official NVIDIA 30B GGUF. **Fit: 1×.** | **NYV.** Fit: **1×**. | **NYV.** | **NYV.** | **NYV.** | **NT.** More realistic than BF16. Discrete HIP/Vulkan **unknown**. | **Test: Val** CPU (`225528Z`) and **Val** iGPU Vulkan RADV GFX1150 UMA (`225631Z`), 53/53 layers, model buffer ~23197 MiB. Dedicated 512 MB **doesn't fit**; NPU **R-NPU**. |
+| Nano 30B-A3B | GGUF Q4_K_M (Unsloth, community) | **Test: Val** HIP `ROCm0` gfx942 (`231304Z`). 53/53 layers, model buffer ~23197 MiB. Community `unsloth/` file, not official NVIDIA 30B GGUF. **Fit: 1×.** | **NYV.** Fit: **1×**. | **NYV.** | **NYV.** | **NYV.** | **NT.** More realistic than BF16. Discrete HIP/Vulkan **unknown**. | **Test: Val** CPU (`225528Z`) and **Val** iGPU Vulkan RADV GFX1150 UMA (`225631Z`), 53/53 layers, model buffer ~23197 MiB. Dedicated 512 MB **doesn't fit**; NPU **R-NPU**. |
 | Lightning 30B-A3B | BF16 | **Test: Val** greedy thinking-off on **1×** (`062756Z`). vLLM **Runs** `8192` (`170852Z`). Not Nano. **Fit: 1×.** | **NYV.** Fit: **1×**. | **NYV.** | **NYV.** | **NYV.** Fit: **1×**. | **NP.** Fit: **doesn't fit**. **R-PCIE**. | **NP.** Fit: **doesn't fit**. **R-LAPTOP**. |
+| Lightning 30B-A3B | GGUF Q4_0 (ggml-org) | **Test: Val** HIP `ROCm0` gfx942 (`225542Z`). 53/53 layers, model buffer ~17658 MiB. File `NVIDIA-Nemotron-3.5-Lightning-30B-A3B-Q4_0.gguf`. **Fit: 1×.** | **NYV.** | **NYV.** | **NYV.** | **NYV.** | **NT.** | **Test: Val** CPU (`223932Z`) and **Val** iGPU Vulkan RADV GFX1150 UMA (`224120Z`), 53/53 layers. Dedicated 512 MB **doesn't fit**; NPU **R-NPU**. |
 | Lightning 30B-A3B | NVFP4 | **NT.** Fit: **1×**. **R-NVFP4**. | **NYV.** **R-NVFP4.** | **NYV.** **R-NVFP4.** | **NYV.** **R-NVFP4.** | **NYV.** **R-NVFP4.** | **NT.** **R-NVFP4.** | **NT.** **R-NVFP4** / **R-NPU**. |
-| Lightning ggml-org GGUF | Q4_0 | **Test: Val** HIP `ROCm0` gfx942 (`225542Z`). 53/53 layers, model buffer ~17658 MiB. File `NVIDIA-Nemotron-3.5-Lightning-30B-A3B-Q4_0.gguf`. **Fit: 1×.** | **NYV.** | **NYV.** | **NYV.** | **NYV.** | **NT.** | **Test: Val** CPU (`223932Z`) and **Val** iGPU Vulkan RADV GFX1150 UMA (`224120Z`), 53/53 layers. Dedicated 512 MB **doesn't fit**; NPU **R-NPU**. |
 | Nano 4B | BF16 | **Test: Val** greedy thinking-off on **1×** (`054423Z`). vLLM **Runs** `8192` (`170637Z`). **Fit: 1×.** | **NYV.** Fit: **1×**. | **NYV.** | **NYV.** | **NYV.** | **NT.** Fit: **1×** on 16 GB+. Best later Radeon candidate after Embed. | **NT.** CPU Fit: **1×**. iGPU kernels **unknown**. NPU **R-NPU**. Later local candidate. |
 | Nano 4B | FP8 | **Test: Runs** looping `A` (`170427Z`). **R-FNUZ**. **Fit: 1×**. Not Validated. | **NYV.** **R-FNUZ.** | **NYV.** | **NYV.** | **NYV.** | **NT.** | **NT.** |
-| Nano 4B official GGUF | Q4_K_M | **Test: Val** HIP `ROCm0` gfx942 (`215228Z`). 43/43 layers. **Fit: 1×.** | **NYV.** | **NYV.** | **NYV.** | **NYV.** | **NT.** | **Test: Val** CPU (`214142Z`) and **Val** iGPU Vulkan RADV GFX1150 UMA (`214348Z`). Dedicated 512 MB **doesn't fit**; Vulkan reported ~47 GiB. NPU **R-NPU**. |
+| Nano 4B | GGUF Q4_K_M (official) | **Test: Val** HIP `ROCm0` gfx942 (`215228Z`). 43/43 layers. **Fit: 1×.** | **NYV.** | **NYV.** | **NYV.** | **NYV.** | **NT.** | **Test: Val** CPU (`214142Z`) and **Val** iGPU Vulkan RADV GFX1150 UMA (`214348Z`). Dedicated 512 MB **doesn't fit**; Vulkan reported ~47 GiB. NPU **R-NPU**. |
 | Super 120B-A12B | BF16 | **NT.** Fit: **2×** (240 ≰ 192; 2× leftover ~72 GB/GPU). This lab is 1× VF — do not download here. LatentMoE + MTP unvalidated. | **NYV.** Fit: **1× tight** (~16 GB leftover). Long context not assumed. | **NYV.** Fit: **1×** (~48 GB leftover). Kernels unvalidated. | **NYV.** Fit: **1×**. | **NP.** Fit: **doesn't fit**. **R-PCIE** (224 > 144). | **NP.** Fit: **doesn't fit**. **R-PCIE**. | **NP.** Fit: **doesn't fit**. **R-LAPTOP**. |
 | Super 120B-A12B | FP8 | **Test: FAIL** `mamba-ssm` import (`063022Z`). **Fit: 1×**. **R-FNUZ** + LatentMoE + MTP. | **NYV.** Fit: **1×**. **R-FNUZ.** | **NYV.** Fit: **1×**. OCP closer; still untested. | **NYV.** | **NYV.** Fit: **1× tight**. | **NP.** Fit: **doesn't fit**. **R-PCIE** (112 > 48). | **NP.** Fit: **doesn't fit**. **R-LAPTOP**. |
 | Super 120B-A12B | NVFP4 | **NT.** Fit: **1×**. **R-NVFP4.** | **NYV.** **R-NVFP4.** | **NYV.** **R-NVFP4.** | **NYV.** **R-NVFP4.** | **NYV.** Fit: **1×**. **R-NVFP4.** | **NP.** Fit: **doesn't fit** (60 > 48) plus **R-NVFP4**. | **NP.** Fit: **doesn't fit**. **R-LAPTOP** / **R-NVFP4**. |
 | Ultra 550B-A55B | BF16 | **NT.** Fit: **8×** (4×192 = 768 GB < ~1100 GB). No 8-GPU node here. Do not download to 1× VF. | **NT.** Fit: **8×** (4×256 = 1024 GB < ~1100 GB). | **NYV.** Fit: **4× tight** (~13 GB/GPU leftover). | **NYV.** Fit: **4× tight**. | **NP.** Fit: **doesn't fit**. **R-PCIE**. | **NP.** Fit: **doesn't fit**. **R-PCIE**. | **NP.** Fit: **doesn't fit**. **R-LAPTOP**. |
 | Ultra 550B-A55B | NVFP4 | **NT.** Fit: **2×** plus **R-NVFP4**. Do not download to 1× VF. | **NT.** Fit: **2×** plus **R-NVFP4**. | **NYV.** Fit: **1× tight** (~13 GB leftover) plus **R-NVFP4**. | **NYV.** Fit: **1× tight** plus **R-NVFP4**. | **NP.** Fit: **doesn't fit**. **R-PCIE** (275 > 144) **and** **R-NVFP4**. | **NP.** Fit: **doesn't fit**. | **NP.** Fit: **doesn't fit**. |
 | Nano Omni 30B | BF16 | **Test: FAIL** RADIO `min_resolution_step` after FA2/Tee workarounds (`063955Z`; earlier FA2 `062426Z`). **Fit: 1×**. | **NYV.** Fit: **1×**. | **NYV.** | **NYV.** | **NYV.** Fit: **1×**. | **NP.** Fit: **doesn't fit**. **R-PCIE**. | **NP.** Fit: **doesn't fit**. **R-LAPTOP**. |
-| Nano Omni 30B | FP8 | **Test: FAIL** `mamba-ssm` import (`063016Z`). **Fit: 1×**. **R-FNUZ**. | **NYV.** **R-FNUZ.** | **NYV.** | **NYV.** | **NYV.** | **NT.** Fit **1× tight** / **doesn't fit** by SKU. | **NT.** iGPU **doesn't fit**; CPU **1×**; NPU **R-NPU**. |
+| Nano Omni 30B | FP8 | **Test: FAIL** `mamba-ssm` import (`063016Z`). **Fit: 1×**. **R-FNUZ**. | **NYV.** **R-FNUZ.** | **NYV.** | **NYV.** | **NYV.** | **NT.** Fit **1× tight** on 48 GB; **doesn't fit** 16–24 GB. | **NT.** Fit: **1×** on CPU RAM. Dedicated iGPU **doesn't fit**; NPU **R-NPU**. |
 | Nano Omni 30B | NVFP4 | **NT.** Fit: **1×**. **R-NVFP4.** | **NYV.** **R-NVFP4.** | **NYV.** **R-NVFP4.** | **NYV.** **R-NVFP4.** | **NYV.** **R-NVFP4.** | **NT.** **R-NVFP4.** | **NT.** **R-NVFP4** / **R-NPU**. |
 
 ### Embedding / safety
@@ -155,13 +155,13 @@ These are stack questions. A Transformers PASS is not a vLLM PASS.
 
 | Model / prec | Transformers (AMD) | vLLM (ROCm) | llama.cpp (HIP/Vulkan) |
 | --- | --- | --- | --- |
-| Nano 30B BF16 | **Validated** greedy thinking-off on 1× MI300X VF, Transformers 5.15.0, revision `2d59de1…`. Thinking on/off **Runs**. | **Runs** / PASS WITH CAVEATS on AMD Docker vLLM 0.23.1.dev1 through 128K needle/haystack. Missing default fused-MoE / Mamba SSU AMD configs; Triton paged-attn fallback. | Community GGUF, not this BF16. **NT.** |
-| Nano 30B FP8 | **FAIL** `mamba-ssm` (`062923Z`). **R-FNUZ.** Do not install CUDA mamba-ssm. | **NT.** | N/A as official GGUF. |
-| Nano 30B NVFP4 | NVIDIA snippet is NVIDIA HW — **not** AMD evidence. **R-NVFP4.** | NVIDIA flags include `modelopt_fp4` / FlashInfer MoE FP4 — **do not copy**. AMD emulation **not tested** on Nemotron. | **NA** for NVFP4 shards. |
-| Nano 4B / GGUF | **Validated** BF16 greedy (`054423Z`). | **Runs** (`170637Z`). | Official Q4_K_M: **Validated** laptop **CPU** (`214142Z`), laptop **iGPU** Vulkan (`214348Z`), and **1× MI300X HIP** (`215228Z`). |
-| Super BF16 | **NT.** Fit **2×** MI300X / **1× tight** MI325X / **1×** MI350X. | NVIDIA TP recipes are CUDA-scale-out. AMD multi-GPU **NYV**. | Unknown. |
-| Ultra BF16 | **NT.** Fit **8×** MI300X/MI325X / **4× tight** MI350X/MI355X. | NVIDIA 8×B200 / 16×H100. AMD **NYV**. | Unknown. |
-| Lightning BF16 | **Validated** greedy thinking-off (`062756Z`). Not vLLM. | Do not copy `--mamba-backend flashinfer`. **NT.** | Unknown. |
+| Nano 30B BF16 | **Validated** greedy thinking-off on 1× MI300X VF, Transformers 5.15.0, revision `2d59de1…`. Thinking on/off **Runs**. | **Runs** / PASS WITH CAVEATS on AMD Docker vLLM 0.23.1.dev1 through 128K needle/haystack. Missing default fused-MoE / Mamba SSU AMD configs; Triton paged-attn fallback. | Community Unsloth Q4_K_M **Validated** CPU/Vulkan/HIP (`225528Z`, `225631Z`, `231304Z`). Not this BF16 file |
+| Nano 30B FP8 | **FAIL** `mamba-ssm` (`062923Z`). **R-FNUZ.** Do not install CUDA mamba-ssm. | **NT.** | N/A as official GGUF |
+| Nano 30B NVFP4 | NVIDIA snippet is NVIDIA HW — **not** AMD evidence. **R-NVFP4.** | NVIDIA flags include `modelopt_fp4` / FlashInfer MoE FP4 — **do not copy**. AMD emulation **not tested** on Nemotron. | **NA** for NVFP4 shards |
+| Nano 4B BF16 / official GGUF | **Validated** BF16 greedy (`054423Z`). | **Runs** (`170637Z`). | Official Q4_K_M **Validated** laptop CPU (`214142Z`), iGPU Vulkan (`214348Z`), 1× MI300X HIP (`215228Z`) |
+| Lightning BF16 / ggml-org GGUF | **Validated** greedy thinking-off (`062756Z`). | **Runs** `8192` (`170852Z`). Do not copy `--mamba-backend flashinfer`. | Q4_0 **Validated** CPU/Vulkan/HIP (`223932Z`, `224120Z`, `225542Z`) |
+| Super BF16 | **NT.** Fit **2×** MI300X / **1× tight** MI325X / **1×** MI350X. | NVIDIA TP recipes are CUDA-scale-out. AMD multi-GPU **NYV**. | Unknown |
+| Ultra BF16 | **NT.** Fit **8×** MI300X/MI325X / **4× tight** MI350X/MI355X. | NVIDIA 8×B200 / 16×H100. AMD **NYV**. | Unknown |
 | Embed / safety / ASR | Embed + safety **Runs** Transformers on MI300X. ASR pipeline **Runs**. vLLM **NT.** | **NT.** | Llama-family GGUF maybe; **NT.** |
 
 ---

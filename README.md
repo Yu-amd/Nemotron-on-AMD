@@ -6,44 +6,33 @@ This repository does **not** assume that a model is supported because it is open
 
 ## Status (2026-08-16)
 
-Nemotron 3 Nano 30B BF16 **loaded, generated, and served** on 1× Instinct MI300X VF. Transformers greedy thinking-off smoke is **Validated** on the pinned snapshot. vLLM serving, characterization, and 128K ladder remain **Runs** / **PASS WITH CAVEATS**. Official Nano 4B GGUF is **Validated** on this Strix Point laptop (CPU and Vulkan iGPU) and on MI300X HIP. Not Optimized or Production-ready. Discrete Radeon remains untested. Ryzen AI **NPU** remains untested.
+Nemotron 3 Nano 30B BF16 **loaded, generated, and served** on 1× Instinct MI300X VF. Transformers greedy thinking-off smoke is **Validated** on the pinned snapshot. vLLM serving, characterization, and 128K ladder remain **Runs** / **PASS WITH CAVEATS**. Official Nano 4B GGUF is **Validated** on a Strix Point Ryzen AI laptop (CPU and Vulkan iGPU) and on MI300X HIP. Not Optimized or Production-ready. Discrete Radeon remains untested. Ryzen AI **NPU** remains untested.
 
-| Model | Checkpoint | Platform | Runtime | Status |
-| --- | --- | --- | --- | --- |
-| Nemotron 3 Nano 30B-A3B | BF16 | Instinct MI300X VF (1 GPU) | Transformers / ROCm PyTorch | **PASS WITH CAVEATS** / **Validated** — greedy smoke, thinking off, pinned revision (`results/mi300x/2026-08-16_031205Z/`); first FAIL preserved (`172557Z`); thinking on/off probes (`024048Z`) |
-| Nemotron 3 Nano 30B-A3B | BF16 | Instinct MI300X VF (1 GPU) | vLLM (ROCm Docker) | **PASS WITH CAVEATS** / **Runs** — OpenAI API, thinking off/on, `max-model-len=8192` (`results/mi300x/2026-08-15_223840Z/`) |
-| Nemotron 3 Nano 30B-A3B | BF16 | Instinct MI300X VF (1 GPU) | vLLM engineering characterization | **PASS WITH CAVEATS** — memory + conc 1/2/4, **not a benchmark** (`results/mi300x/2026-08-16_022238Z/`) |
-| Nemotron 3 Nano 30B-A3B | BF16 | Instinct MI300X VF (1 GPU) | vLLM context ladder | **PASS WITH CAVEATS** — needle/haystack 4K→128K; **not** 256K/1M (`results/mi300x/2026-08-16_024220Z/`) |
-| Nemotron 3 Nano 30B-A3B | FP8 | Instinct MI300X | Transformers | **FAIL** `mamba-ssm` import (`062923Z`). **R-FNUZ**. Do not install CUDA mamba-ssm |
-| Nemotron 3.5 Lightning 30B-A3B | BF16 | Instinct MI300X VF (1 GPU) | Transformers | **Validated** greedy thinking-off (`results/mi300x/2026-08-16_062756Z/`). Not Nano. No FlashInfer |
-| Nemotron 3.5 Lightning 30B-A3B | BF16 | Instinct MI300X VF (1 GPU) | vLLM (ROCm Docker) | **Runs** OpenAI API `max-model-len=8192` (`results/mi300x/2026-08-16_170852Z/`). Not Validated for vLLM |
-| Nemotron 3 Super 120B-A12B | BF16 | Instinct MI300X | any | Fit **2×**; this lab is **1×** VF so **not** downloaded. **NOT TESTED** |
-| Nemotron 3 Super 120B-A12B | FP8 | 1× MI300X | Transformers | **FAIL** `mamba-ssm` import (`063022Z`). Fit **1×** still. **R-FNUZ**. Not a PASS |
-| Nemotron 3 Ultra 550B-A55B | BF16 | Instinct MI300X | any | Fit **8×**; this lab is **1×** VF so not downloaded. **NOT TESTED** |
-| Nemotron 3 Ultra 550B-A55B | NVFP4 | Instinct MI300X | any | Fit **2×** plus NVIDIA-specific format. **NOT TESTED** — not in queue |
-| Nemotron 3 Nano Omni | BF16 | MI300X | Transformers | **FAIL** after FA2/Tee workarounds: RADIO vision `min_resolution_step` (`063955Z`). FP8 **FAIL** `mamba-ssm` |
-| Nemotron 3 Nano 4B | BF16 | Instinct MI300X VF (1 GPU) | Transformers | **Validated** greedy thinking-off (`results/mi300x/2026-08-16_054423Z/`). Not Nano 30B |
-| Nemotron 3 Nano 4B | BF16 | Instinct MI300X VF (1 GPU) | vLLM (ROCm Docker) | **Runs** OpenAI API `max-model-len=8192` (`results/mi300x/2026-08-16_170637Z/`). Not Validated for vLLM |
-| Nemotron 3 Nano 4B | FP8 | Instinct MI300X VF | Transformers | **Runs** looping `A` (`170427Z`). **R-FNUZ**. Not Validated |
-| Embed 1B / 8B | BF16 | Instinct MI300X VF | Transformers SDPA | **Runs** cosine sanity (`054857Z`, `055129Z`). Not a retrieval benchmark |
-| llama-nemotron-rerank-1b-v2 | BF16 | Instinct MI300X VF | Transformers | **Runs** text pair (`055206Z`) |
-| VL embed / ColEmbed / omni-embed 3B / Parse 2.0 | BF16 | Instinct MI300X VF | Transformers + ROCm torchvision 0.27 | **Runs** dummy image / parse (`055802Z`, `061905Z`, `061921Z`, `061940Z`, `062402Z`, `063558Z`) |
-| llama-nemotron-rerank-vl-1b-v2 | BF16 | Instinct MI300X VF | Transformers | **Runs** **text** path only (`055737Z`). Images not ranked |
-| llama-nemotron-embed-vl-1b-v2-fp8 / rerank-vl FP8 | FP8 | Instinct MI300X VF | Transformers | **FAIL** (`170519Z` mask API; `170557Z` ranking). **R-FNUZ** |
-| ASR Streaming 3.5 0.6B | default | Instinct MI300X VF | Transformers pipeline | **Runs** (`060037Z`). Synthetic tone → empty transcript. First librosa miss preserved |
-| Content Safety 3.5 | BF16 | Instinct MI300X VF | Transformers Gemma-3 | **Runs** label shape (`055324Z`). Not a red-team |
-| Safety Guard 8B v3 | BF16 | Instinct MI300X VF | Transformers Llama 3.1 | **Runs** (`055356Z`). First prompt behaved like chat, not a Guard schema |
-| Any Nemotron model | any | Radeon discrete | any | **NOT TESTED** |
-| Nemotron 3 Nano 4B | official GGUF Q4_K_M | Instinct MI300X VF (1 GPU) | llama.cpp HIP gfx942 (b10453 source) | **Validated** greedy thinking-off (`results/mi300x/2026-08-16_215228Z/`). 43/43 layers on ROCm0 |
-| Nemotron 3 Nano 4B | official GGUF Q4_K_M | Ryzen AI laptop CPU | llama.cpp b10453 | **Validated** greedy thinking-off (`results/ryzen-ai/2026-08-16_214142Z/`) |
-| Nemotron 3 Nano 4B | official GGUF Q4_K_M | Ryzen AI iGPU (RADV GFX1150 Vulkan UMA) | llama.cpp b10453 | **Validated** 43/43 layers on Vulkan0 (`results/ryzen-ai/2026-08-16_214348Z/`). Not NPU. Not HIP. |
-| Nemotron 3.5 Lightning 30B-A3B | ggml-org GGUF Q4_0 | Instinct MI300X VF (1 GPU) | llama.cpp HIP gfx942 (b10453 source) | **Validated** greedy thinking-off (`results/mi300x/2026-08-16_225542Z/`). 53/53 layers on ROCm0 |
-| Nemotron 3.5 Lightning 30B-A3B | ggml-org GGUF Q4_0 | Ryzen AI laptop CPU | llama.cpp b10453 | **Validated** greedy thinking-off (`results/ryzen-ai/2026-08-16_223932Z/`) |
-| Nemotron 3.5 Lightning 30B-A3B | ggml-org GGUF Q4_0 | Ryzen AI iGPU (RADV GFX1150 Vulkan UMA) | llama.cpp b10453 | **Validated** 53/53 layers on Vulkan0 (`results/ryzen-ai/2026-08-16_224120Z/`). Not NPU. Not HIP. |
-| Nemotron 3 Nano 30B-A3B | Unsloth GGUF Q4_K_M (community) | Instinct MI300X VF (1 GPU) | llama.cpp HIP gfx942 (b10453 source) | **Validated** greedy thinking-off (`results/mi300x/2026-08-16_231304Z/`). 53/53 layers on ROCm0. Not official NVIDIA 30B GGUF |
-| Nemotron 3 Nano 30B-A3B | Unsloth GGUF Q4_K_M (community) | Ryzen AI laptop CPU | llama.cpp b10453 | **Validated** greedy thinking-off (`results/ryzen-ai/2026-08-16_225528Z/`). Not official NVIDIA 30B GGUF |
-| Nemotron 3 Nano 30B-A3B | Unsloth GGUF Q4_K_M (community) | Ryzen AI iGPU (RADV GFX1150 Vulkan UMA) | llama.cpp b10453 | **Validated** 53/53 layers on Vulkan0 (`results/ryzen-ai/2026-08-16_225631Z/`). Not NPU. Not HIP |
-| Any Nemotron model | any | Ryzen AI NPU (XDNA) | any | **NOT TESTED** — no Nemotron NPU path identified |
+Rows are **products**, not extra models. Blank Model cells continue the product above. GGUF is another checkpoint of the same Nano / Lightning SKU.
+
+| Model | Checkpoint | Where / stack | Status |
+| --- | --- | --- | --- |
+| Nano 30B-A3B | BF16 | 1× MI300X Transformers | **Validated** greedy thinking-off (`031205Z`); first FAIL kept (`172557Z`); thinking on/off **Runs** (`024048Z`) |
+| | BF16 | 1× MI300X vLLM | **Runs** OpenAI serve (`223840Z`); characterization conc 1/2/4 (`022238Z`); 128K needle/haystack (`024220Z`). Not 256K/1M. Not Optimized |
+| | FP8 | 1× MI300X Transformers | **FAIL** `mamba-ssm` (`062923Z`). **R-FNUZ** |
+| | GGUF Q4_K_M (Unsloth, community) | llama.cpp: MI300X HIP + Ryzen AI laptop CPU + iGPU Vulkan UMA | **Validated** on all three (`231304Z`, `225528Z`, `225631Z`). Not official NVIDIA 30B GGUF. Dedicated 512 MB **doesn't fit**. NPU **NOT TESTED** |
+| Nano 4B | BF16 | 1× MI300X Transformers / vLLM | Transformers **Validated** (`054423Z`); vLLM **Runs** `8192` (`170637Z`) |
+| | FP8 | 1× MI300X Transformers | **Runs** looping `A` (`170427Z`). **R-FNUZ**. Not Validated |
+| | GGUF Q4_K_M (official) | llama.cpp: MI300X HIP + Ryzen AI laptop CPU + iGPU Vulkan UMA | **Validated** on all three (`215228Z`, `214142Z`, `214348Z`). Dedicated 512 MB **doesn't fit**. NPU **NOT TESTED** |
+| Lightning 30B-A3B | BF16 | 1× MI300X Transformers / vLLM | Transformers **Validated** (`062756Z`); vLLM **Runs** `8192` (`170852Z`). No FlashInfer |
+| | GGUF Q4_0 (ggml-org) | llama.cpp: MI300X HIP + Ryzen AI laptop CPU + iGPU Vulkan UMA | **Validated** on all three (`225542Z`, `223932Z`, `224120Z`). Dedicated 512 MB **doesn't fit**. NPU **NOT TESTED** |
+| Super 120B-A12B | BF16 | 1× MI300X | Fit **2×**; lab is 1× VF — **not downloaded**. **NOT TESTED** |
+| | FP8 | 1× MI300X Transformers | **FAIL** `mamba-ssm` (`063022Z`). Fit **1×**. **R-FNUZ**. Not a PASS |
+| Ultra 550B-A55B | BF16 | 1× MI300X | Fit **8×** — **not downloaded**. **NOT TESTED** |
+| | NVFP4 | 1× MI300X | Fit **2×** plus NVIDIA-specific format. **NOT TESTED** |
+| Nano Omni 30B | BF16 / FP8 | 1× MI300X Transformers | BF16 **FAIL** RADIO `min_resolution_step` (`063955Z`). FP8 **FAIL** `mamba-ssm` |
+| Embed 1B / 8B | BF16 | 1× MI300X Transformers | **Runs** cosine (`054857Z`, `055129Z`). Not a retrieval benchmark |
+| Rerank / VL embed / ColEmbed / omni-embed / Parse 2.0 | BF16 | 1× MI300X Transformers | **Runs** text or dummy image (`055206Z`, `055737Z`, `055802Z`, `061905Z`, `061921Z`, `061940Z`, `062402Z`, `063558Z`). VL rerank is **text** only |
+| | FP8 (VL embed / VL rerank) | 1× MI300X Transformers | **FAIL** (`170519Z` mask API; `170557Z` ranking). **R-FNUZ** |
+| ASR 3.5 0.6B | default | 1× MI300X Transformers | **Runs** (`060037Z`). Tone → empty transcript |
+| Content Safety 3.5 / Guard 8B v3 | BF16 | 1× MI300X Transformers | **Runs** (`055324Z`, `055356Z`). Not a red-team; Guard did not apply a Guard schema |
+
+Discrete **Radeon**: every Nemotron SKU **NOT TESTED**. Ryzen AI **NPU**: **NOT TESTED** (no path identified).
 
 Do not read **THEORETICALLY FEASIBLE** as **PASS**.
 
@@ -84,7 +73,7 @@ A CUDA cookbook, a Hugging Face model card, or a memory estimate cannot by itsel
 ## Scope
 
 - **Models:** Full NVIDIA Nemotron brand catalog: [`docs/nemotron-family.md`](docs/nemotron-family.md). Next 1× MI300X queue: [`docs/mi300x-next-tests.md`](docs/mi300x-next-tests.md). Hands-on on this VF: Nano/Lightning **Validated**; family embed/tools **Runs**; Omni BF16 and Nano/Omni/Super FP8 **FAIL**. Nano 30B is the only **vLLM** result.
-- **Hardware:** Instinct MI300X (execute), MI325X / MI350X / MI355X / MI350P (theoretical until we have hardware), Radeon workstation/consumer GPUs that AMD currently lists as ROCm-supported, and this Strix Point Ryzen AI laptop. Fit vs test vs “not supported” is in [`docs/compatibility-matrix.md`](docs/compatibility-matrix.md).
+- **Hardware:** Instinct MI300X (execute), MI325X / MI350X / MI355X / MI350P (theoretical until hardware is available), Radeon workstation/consumer GPUs that AMD currently lists as ROCm-supported, and a Strix Point Ryzen AI laptop. Fit vs test vs “not supported” is in [`docs/compatibility-matrix.md`](docs/compatibility-matrix.md).
 - **Software:** ROCm, HIP-enabled PyTorch, Transformers, vLLM (ROCm), llama.cpp where relevant. TensorRT-LLM, NIM, and NVFP4 kernels are treated as NVIDIA-specific unless an AMD path is demonstrated.
 - **Out of scope for phase 1:** 1M-context runs, Super **BF16** and Ultra downloads, NVFP4 on AMD, NPU claims, production SLAs. Super **FP8** is queued as FNUZ research only.
 
@@ -127,7 +116,7 @@ Failures are first-class results. Preserve the original log, classify the likely
 
 ## How to run the MI300X test
 
-These commands are for the **MI300X host**, which this laptop is not. Replace placeholders. Do not commit tokens.
+These commands are for the **MI300X host**, not a Ryzen AI laptop. Replace placeholders. Do not commit tokens.
 
 ```bash
 # On your workstation: copy this repo to the MI300X host over SSH.

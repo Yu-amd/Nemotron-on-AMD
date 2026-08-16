@@ -38,17 +38,14 @@ We also stood up a local serving stack (an OpenAI-style API used by many apps). 
 
 Hands-on work is **one MI300X**. Other Instinct SKUs, discrete Radeon, and this Ryzen AI laptop are fit/status on paper until we run them. Full grid: [`../docs/compatibility-matrix.md`](../docs/compatibility-matrix.md).
 
-| Model | 1× MI300X (192 GB) | 1× MI325X (256 GB) | 1× MI350X / MI355X (288 GB) | 1× MI350P (144 GB) | Radeon (16–48 GB) | This Ryzen AI laptop |
+| Model | 1× MI300X (192 GB) | 1× MI325X (256 GB) | 1× MI350X / MI355X (288 GB) | 1× MI350P (144 GB) | Radeon (16–48 GB) | Ryzen AI laptop |
 | --- | --- | --- | --- | --- | --- | --- |
-| Nano 30B (BF16) | Answers **Validated**; serving **Runs**; Fit **1×** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | **Doesn't fit** | **Doesn't fit** |
-| Nano 4B / official small GGUF | llama.cpp HIP **Validated**; Fit **1×** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | CPU + Vulkan UMA **Validated**; dedicated 512 MB **doesn't fit**; NPU **not tested** |
-| Lightning 3.5 GGUF Q4_0 (ggml-org) | llama.cpp HIP **Validated**; Fit **1×** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | CPU + Vulkan UMA **Validated**; dedicated 512 MB **doesn't fit**; NPU **not tested** |
-| Nano 30B Unsloth GGUF Q4_K_M (community) | llama.cpp HIP **Validated**; Fit **1×** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | CPU + Vulkan UMA **Validated**; dedicated 512 MB **doesn't fit**; NPU **not tested**. Not official NVIDIA 30B GGUF |
-| Super 120B BF16 | Fit **2×**; not tested (lab is 1×) | Fit **1×** but leftover tight; not tested | Fit **1×**; not tested | **Doesn't fit** | **Doesn't fit** | **Doesn't fit** |
-| Super FP8 | Fit **1×**; never tried | Fit **1×**; never tried | Fit **1×**; never tried | Fit **1×** leftover tight; never tried | **Doesn't fit** | **Doesn't fit** |
-| Ultra BF16 | Fit **8×**; not tested | Fit **8×**; not tested | Fit **4×** leftover tight; not tested | **Doesn't fit** | **Doesn't fit** | **Doesn't fit** |
-| Ultra NVFP4 | Fit **2×**; format not portable; not tested | Fit **2×**; not tested | Fit **1×** leftover tight; format not portable | **Doesn't fit** | **Doesn't fit** | **Doesn't fit** |
-| Other Nemotron (Omni, Lightning BF16/vLLM, Embed, safety) | Mixed (see engineering report) | Not tested | Not tested | Not tested | Not tested | Not tested |
+| Nano 30B-A3B | BF16 answers **Validated**, vLLM **Runs** (Fit **1×**). Community Unsloth GGUF llama.cpp HIP **Validated**. FP8 **FAIL**. | Fit **1×**; **not tested** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | BF16 **doesn't fit**; GGUF likely fits 24 GB+; **not tested** | BF16 **doesn't fit**. Unsloth GGUF CPU + Vulkan UMA **Validated**; dedicated 512 MB **doesn't fit**; NPU **not tested** |
+| Nano 4B | BF16 Transformers **Validated**, vLLM **Runs**. Official GGUF llama.cpp HIP **Validated**. FP8 **Runs** (looping, not Validated). | Fit **1×**; **not tested** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | GGUF CPU + Vulkan UMA **Validated**; dedicated 512 MB **doesn't fit**; NPU **not tested** |
+| Lightning 30B-A3B | BF16 Transformers **Validated**, vLLM **Runs**. ggml-org GGUF llama.cpp HIP **Validated**. | Fit **1×**; **not tested** | Fit **1×**; **not tested** | Fit **1×**; **not tested** | BF16 **doesn't fit**; GGUF likely fits 24 GB+; **not tested** | BF16 **doesn't fit**. GGUF CPU + Vulkan UMA **Validated**; dedicated 512 MB **doesn't fit**; NPU **not tested** |
+| Super 120B | BF16 Fit **2×**, not downloaded. FP8 Fit **1×**, Transformers **FAIL** `mamba-ssm`. | Fit **1×** (BF16 leftover tight); **not tested** | Fit **1×**; **not tested** | BF16 **doesn't fit**; FP8 leftover tight, never tried | **Doesn't fit** | **Doesn't fit** |
+| Ultra 550B | BF16 Fit **8×**; NVFP4 Fit **2×**. Not downloaded. | Same story; **not tested** | BF16 Fit **4×** leftover tight; **not tested** | **Doesn't fit** | **Doesn't fit** | **Doesn't fit** |
+| Other (Omni, Embed, parse, ASR, safety) | Mixed (see engineering report) | Not tested | Not tested | Not tested | Not tested | Not tested |
 
 ## Five things to remember
 
