@@ -167,6 +167,7 @@ Exact next-step commands are also in [`docs/project-status.md`](docs/project-sta
 
 ```text
 docs/           methodology, inventory, matrix, caveats
+canvases/       Cursor visual matrix (`compatibility-matrix.canvas.tsx`)
 platforms/      Instinct / Radeon / Ryzen AI notes
 models/         per-model cards as used in this project
 scripts/        discovery, setup, Transformers, vLLM, benchmark
