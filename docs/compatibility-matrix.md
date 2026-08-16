@@ -1,6 +1,7 @@
 # Compatibility matrix
 
 **Date:** 2026-08-16  
+**Visual grid:** [`../canvases/compatibility-matrix.canvas.tsx`](../canvases/compatibility-matrix.canvas.tsx) (Cursor canvas: bold **VALIDATED** / **FAILED** / **NOT TESTED** / **DOESN'T FIT**).  
 **Scope of this grid:** phase-1 AMD test subset (Nano / Super / Ultra / Omni / Lightning plus a few embed/safety rows). The **full NVIDIA Nemotron brand** (183 Hugging Face repos, including Parse, ASR, Labs, Llama Nemotron, Nemotron 4) is in [`nemotron-family.md`](nemotron-family.md).  
 **Rule:** `THEORETICALLY FEASIBLE` is never a `PASS`. Every future `PASS` must cite `results/...`.  
 **Memory:** raw weight estimates only (see [`precision-formats.md`](precision-formats.md)). Fit is **not** kernel support.  
